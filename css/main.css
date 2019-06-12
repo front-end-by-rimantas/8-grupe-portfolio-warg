@@ -4,6 +4,7 @@ body * {
     padding: 0;
     vertical-align: top;
     box-sizing: border-box;
+    font-family: "Open Sans",sans-serif;
 }
 
 .bg-main {
@@ -25,13 +26,12 @@ body * {
 .container {
     display: inline-block;
     width: 100%;
-    padding: 100px 80px;
+    padding: 100px 0;
 }
     .container > .row {
         display: inline-block;
         position: relative;
         width: 1200px;
-        padding: 15px;
         margin: 0 calc((100% - 1200px) / 2);
         text-align: center;
     }
@@ -76,11 +76,40 @@ body * {
         }
 
 
+        .container > .row > img {
+            display: inline-block;
+            float: left;
+        }
+        .container > .row > nav {
+            display: inline-block;
+            float: right;
+            margin-top: 26px;
+        }
+            .container > .row > nav > a {
+                display: inline-block;
+                margin-right: 10px;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: var(--main-color);
+                font-weight: bold;
+            }
+            .container > .row > nav > .home-active {
+                background-color: var(--main-color);
+                color: #fff;
+                padding: 10px 15px;
+                border-radius: 30px;
+                margin-top: -10px;
+            }
+
+
 
     @media ( max-width: 1300px ) {
         .container > .row {
             width: 900px;
             margin: 0 calc((100% - 900px) / 2);
+        }
+        .container > .row > nav {
+            font-size: 13px;
         }
     }
 
