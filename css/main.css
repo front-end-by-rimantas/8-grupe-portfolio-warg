@@ -100,6 +100,22 @@ body * {
                 border-radius: 30px;
                 margin-top: -10px;
             }
+        .container > .row > .heroPart {
+            display: inline-block;
+            width: 49%;
+            float: left;
+        }
+        .container > .row > .heroPart >.button {
+            display: inline-block;
+            width: 45%;
+            float: left;
+        }
+        .hero{
+            background-image: url(img/hero/hero_bg.png);
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-position: 
+        }
 
 
 
