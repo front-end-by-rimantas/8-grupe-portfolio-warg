@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 body,
 body * {
     margin: 0;
@@ -75,7 +78,7 @@ body * {
             left: 40px;  /*kodėl 40? nežinau kol kas kaip padaryti automatiškai*/
         }
 
-
+        /* basic header */
         .container > .row > a > img {
             display: inline-block;
             float: left;
@@ -100,7 +103,7 @@ body * {
                 border-radius: 30px;
                 margin-top: -10px;
             }
-
+            /* basic header end */
 
 
     @media ( max-width: 1300px ) {
@@ -109,8 +112,9 @@ body * {
             margin: 0 calc((100% - 900px) / 2);
         }
         .container > .row > nav {
-            font-size: 13px;
+            /* display: none; */
         }
+
     }
 
     @media ( max-width: 1000px ) {
@@ -129,3 +133,64 @@ body * {
                 margin: 0;
             }
     }
+    /* Hamburger */
+
+    /* Checkbox */
+    .container > .row > .toggler {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        z-index: 2;
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+    }
+    /* Hamburger box */
+    .container > .row > .hamburger {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        z-index: 1;
+        width: 55px;
+        height: 36px;
+        padding: 1rem;
+        background-color: var(--main-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        /* Hamburger line */
+        .container > .row > .hamburger > div {
+            position: relative;
+            width: 100%;
+            height: 2.5px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+        /* Hamburger top and bottom lines */
+        .row > .hamburger > div:before,
+        .row > .hamburger > div:after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            width: 100%;
+            height: 2.5px;
+            background: inherit;
+        }
+        /* Hamburger one line down */
+        .row > .hamburger > div:after {
+            top: 8px;
+        }
+        /* Animated toggler */
+        .row > .toggler:checked + .hamburger > div {
+            transform: rotate(135deg);
+        }
+        /* Turn lines into X */
+        .row > .toggler:checked + .hamburger > div:before,
+        .row > .toggler:checked + .hamburger > div:after {
+            top: 0;
+            transform: rotate(90deg);
+        }
