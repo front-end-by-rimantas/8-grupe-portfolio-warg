@@ -18,6 +18,9 @@ body * {
 .bg-black {
     background-color: var(--black-color);
 }
+.tc-light {
+    background-color: var(--lightText-color);
+}
 
 .container {
     display: inline-block;
@@ -26,10 +29,53 @@ body * {
 }
     .container > .row {
         display: inline-block;
+        position: relative;
         width: 1200px;
         padding: 15px;
         margin: 0 calc((100% - 1200px) / 2);
+        text-align: center;
     }
+        .container > .row > h2 {
+            position: relative;
+            display: inline-block;
+            font-size: 35px;
+            text-transform: uppercase;
+            line-height: 45px;
+            font-weight: 800;
+            color: var(--blackText-color);
+        }
+            .container > .row > h2 > span {
+                display: block;
+                position: absolute;
+                left: calc(50% - 40px);
+                background-color: var(--main-color);
+                height: 2px;
+                width: 80px;
+            }
+        .container > .row > p {
+            font-size: 20px;
+            line-height: 25px;
+            color: var(--text-color);
+            padding: 5px 0 0 0;
+        }
+        .bottom > .row{
+            color: var(--lightText-color);
+        }
+        .footer > .row > p{
+            color: var(--lighterText-color);
+        }
+        .hero > .row > h2{
+            text-align: left;
+            width: 100%;
+        }
+        .hero > .row > p{
+            text-align: left;
+        }
+        .hero > .row > h2 > span {
+            left: 40px;  /*kodėl 40? nežinau kol kas kaip padaryti automatiškai*/
+        }
+
+
 
     @media ( max-width: 1300px ) {
         .container > .row {

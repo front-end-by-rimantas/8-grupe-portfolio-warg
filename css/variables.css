@@ -1,9 +1,10 @@
 :root {
     --main-color: #009688;
-    --blackText-color:#202020;
     --black-color:#272727;
+    --blackText-color:#202020;
+    --lightText-color:#C7C7C7;
+    --lighterText-color:#E7FEFE;
     --text-color: #757575;
     --icon-color1: #757575;
     --background-color: #F6F6F6;
-
 }
