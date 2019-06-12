@@ -76,7 +76,7 @@ body * {
         }
 
 
-        .container > .row > img {
+        .container > .row > a > img {
             display: inline-block;
             float: left;
         }
