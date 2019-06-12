@@ -1,0 +1,56 @@
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.bg-main {
+    background-color: var(--main-color);
+}
+.bg-blackText {
+    background-color: var(--blackText-color);
+}
+.bg-grey {
+    background-color: var(--background-color);
+}
+.bg-black {
+    background-color: var(--black-color);
+}
+
+.container {
+    display: inline-block;
+    width: 100%;
+    padding: 100px 80px;
+}
+    .container > .row {
+        display: inline-block;
+        width: 1200px;
+        padding: 15px;
+        margin: 0 calc((100% - 1200px) / 2);
+    }
+
+    @media ( max-width: 1300px ) {
+        .container > .row {
+            width: 900px;
+            margin: 0 calc((100% - 900px) / 2);
+        }
+    }
+
+    @media ( max-width: 1000px ) {
+        .container > .row {
+            width: 700px;
+            margin: 0 calc((100% - 700px) / 2);
+        }
+    }
+
+    @media ( max-width: 800px ) {
+        .container {
+            padding: 80px 30px;
+        }
+            .container > .row {
+                width: 100%;
+                margin: 0;
+            }
+    }
