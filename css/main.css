@@ -290,14 +290,15 @@ body * {
     .bottom > .row {
         display: inline-block;
         color: var(--lightText-color);
+
     }   
-    .bottom > .row > .footer_icons{
+    .bottom .icons{
         display: inline-block;
         width: 100%;
         height: 40px;
         padding: 0 calc(50% - 125px); /*reikia kažkaip gudriai suskaičiuoti...*/
     }
-    .bottom > .row > .footer_icons > div{
+    .bottom .icons > div{
             display: inline-block;
             float: left;
             position: relative;
@@ -311,7 +312,7 @@ body * {
             overflow: hidden;
             text-align: center;
         }
-            .bottom > .row > .footer_icons > div > a{
+        .bottom a{
             display: inline-block;
             position: absolute;
             float: left;
@@ -325,16 +326,16 @@ body * {
             text-align: center;
             border-radius: 50%;
         }
-        .bottom > .row > .footer_icons > div > .fa-facebook{
+        .bottom .fa-facebook{
             padding: 20px 15px;
         }
-        .bottom > .row > .footer_icons > div > a:hover{
+        .bottom a:hover{
                 color: var(--main-color);
             }
-            .bottom > .row > .footer_icons > div:hover{
+            .bottom .icons > div:hover{
                 background-color: var(--icon-color1);
             }
-            .bottom > .row > .footer_icons > div:hover a{ /*(kai suveiks hoveris po snaige - įsijungs snaigės animacija) */
+            .bottom .icons > div:hover a{ /*(kai suveiks hoveris po snaige - įsijungs snaigės animacija) */
                     cursor: pointer;
                     animation-name: animacija;
                     animation-duration: 0.4s;
@@ -349,6 +350,7 @@ body * {
                         50%     {top:-28px;}
                         100%    {top:0px;}
                     }
+    }
     .bottom > .row > .navigation-bottom-lane {
         display: inline-block;
         width: 100%;
