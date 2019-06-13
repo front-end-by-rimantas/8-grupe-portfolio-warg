@@ -32,10 +32,6 @@ var footerIcons = [
         link: '#'
     },
     {
-        icon: 'dribbble',
-        link: '#'
-    },
-    {
         icon: 'pinterest',
         link: '#'
     },
