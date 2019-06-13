@@ -38,6 +38,9 @@ body * {
         padding: 30px;
         text-align: center;
     }
+        .container > .row > .hamburger-menu {
+            position: relative;
+        }
         h2{
             position: relative;
             display: inline-block;
@@ -281,8 +284,13 @@ body * {
 /* CONTACT ME section */
 
 /* BOTTOM NAVIGATION section */
-    .bottom > .row{
+    .bottom {
+        position: relative;
+    }
+    .bottom > .row {
+        display: inline-block;
         color: var(--lightText-color);
+
     }   
     .bottom .icons{
         display: inline-block;
@@ -342,6 +350,44 @@ body * {
                         50%     {top:-28px;}
                         100%    {top:0px;}
                     }
+    }
+    .bottom > .row > .navigation-bottom-lane {
+        display: inline-block;
+        width: 100%;
+    }  
+        .bottom > .row > .navigation-bottom-lane > a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #C9D3DC;
+            text-transform: uppercase;
+            padding: 0 5px;
+        }
+        .bottom > .row > .navigation-bottom-lane > a:hover {
+            color: #fff;
+            transition: 1s;
+        }
+    .bottom > .bottom-nav-block {
+        position: absolute;
+        display: block;
+        width: 45px;
+        height: 45px;
+        top: 20px;
+        right: 25px;
+        background-color: var(--main-color);
+        box-shadow: 0 2px 6px 0 rgba(0,0,0,.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        .bottom-nav-block > .fa-angle-up {
+            position: absolute;
+            font-size: 32px;
+            line-height: 38px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* BOTTOM NAVIGATION section END */
 
 /* FOOTER section */
     .footer > .row > p{
@@ -503,6 +549,7 @@ body * {
 
 /* FOOTER section */
 }
+
 
 @media ( max-width: 600px ) {
     .container > .row {
