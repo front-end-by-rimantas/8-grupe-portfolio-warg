@@ -20,7 +20,7 @@ function generateFooterIcons( data ) {
              data[i].link === '' ) {
             continue;
         }
-        HTML += '<a href="'+data[i].link+'" target="_blank" class="fa fa-'+data[i].icon+'"></a>';
+        HTML += '<div><a href="'+data[i].link+'" target="_blank" class="fa fa-'+data[i].icon+'"></a></div>';
     }
 
     return HTML;
