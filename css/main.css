@@ -22,20 +22,20 @@ body * {
 .tc-light {
     background-color: var(--lightText-color);
 }
-
 .container {
     display: inline-block;
     width: 100%;
-    padding: 100px 0;
+    padding: 80px 0;
 }
     .container > .row {
         display: inline-block;
         position: relative;
         width: 1200px;
         margin: 0 calc((100% - 1200px) / 2);
+        padding: 30px;
         text-align: center;
     }
-        .container > .row > h2 {
+        h2{
             position: relative;
             display: inline-block;
             font-size: 35px;
@@ -44,7 +44,8 @@ body * {
             font-weight: 800;
             color: var(--blackText-color);
         }
-            .container > .row > h2 > span {
+            h2::after {
+                content:"";
                 display: block;
                 position: absolute;
                 left: calc(50% - 40px);
@@ -52,30 +53,11 @@ body * {
                 height: 2px;
                 width: 80px;
             }
-        .container > .row > p {
+        p{
             font-size: 20px;
             line-height: 25px;
             color: var(--text-color);
-            padding: 5px 0 0 0;
         }
-        .bottom > .row{
-            color: var(--lightText-color);
-        }
-        .footer > .row > p{
-            color: var(--lighterText-color);
-        }
-        .hero > .row > h2{
-            text-align: left;
-            width: 100%;
-        }
-        .hero > .row > p{
-            text-align: left;
-        }
-        .hero > .row > h2 > span {
-            left: 40px;  /*kodėl 40? nežinau kol kas kaip padaryti automatiškai*/
-        }
-
-
         .container > .row > a > img {
             display: inline-block;
             float: left;
@@ -100,22 +82,99 @@ body * {
                 border-radius: 30px;
                 margin-top: -10px;
             }
-        .container > .row > .heroPart {
-            display: inline-block;
-            width: 49%;
-            float: left;
-        }
-        .container > .row > .heroPart >.button {
-            display: inline-block;
-            width: 45%;
-            float: left;
-        }
+
+/* HERO section */
         .hero{
-            background-image: url(img/hero/hero_bg.png);
+            background-image: url(../img/hero/hero_bg.png);
+            height: 500px;
+            background-position: 70% 50%;
             background-repeat: no-repeat;
-            background-size: auto;
-            background-position: 
+            background-size: contain;
         }
+            .hero .heroPart {
+                display: inline-block;
+                width: 49%;
+                float: left;
+            }             
+                        .hero h1{
+                            position: relative;
+                            display: inline-block;
+                            font-size: 55px;
+                            text-transform: uppercase;
+                            line-height: 55px;
+                            font-weight: 800;
+                            color: var(--blackText-color);
+                            width: 100%;
+                            text-align: left;
+                        }
+                        .hero p{
+                            text-align: left;
+                            margin: 30px 0;
+                        }
+                        .hero  h1::after {
+                            left: 60px;  /*kodėl 40? nežinau kol kas kaip padaryti automatiškai*/
+                            content:"";
+                            display: block;
+                            position: absolute;
+                            background-color: var(--main-color);
+                            height: 2px;
+                            width: 120px;
+                            margin: 10px 0;
+                        }
+                        .hero .icons{
+                            display: inline-block;
+                            width: 100%;
+                            height: 40px;
+                        }
+                            .hero a{
+                                display: inline-block;
+                                height: 40px;
+                                width: 40px;
+                                line-height: 40px;
+                                font-size: 20px;
+                                border-radius: 50%;
+                                border: 1px solid var(--main-color);
+                                background-color: var(--icon-color1);
+                                text-decoration: none;
+                            }
+
+                        .hero .heroPart >.button {
+                            display: inline-block;
+                            float: left;
+                        }
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+    .bottom > .row{
+        color: var(--lightText-color);
+    }   
+
+/* FOOTER section */
+    .footer > .row > p{
+        color: var(--lighterText-color);
+    }
 
 
 
@@ -127,6 +186,33 @@ body * {
         .container > .row > nav {
             font-size: 13px;
         }
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
     }
 
     @media ( max-width: 1000px ) {
@@ -134,7 +220,34 @@ body * {
             width: 700px;
             margin: 0 calc((100% - 700px) / 2);
         }
-    }
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
 
     @media ( max-width: 800px ) {
         .container {
@@ -144,4 +257,31 @@ body * {
                 width: 100%;
                 margin: 0;
             }
-    }
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
