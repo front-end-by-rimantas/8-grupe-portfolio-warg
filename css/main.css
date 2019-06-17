@@ -101,6 +101,11 @@ body * {
                 color: #fff;
                 border-radius: 30px;
             }
+            .container > .row > nav > .active {
+                background-color: var(--main-color);
+                color: #fff;
+                border-radius: 30px;
+            }
             
 /* Hamburger */  
 /* Checkbox */

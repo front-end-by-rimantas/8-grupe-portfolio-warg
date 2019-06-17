@@ -34,18 +34,23 @@ function headerScrollDetector() {
         sekcijosPavadinimas.push(sectionID);                //surenka sekcijų pavadinimus į vieną sąrašą;
     
             if(scroll>=sections[i]){                        //jeigu skrolas yra tarp tikrinamos sekcijos ir tarp sekančios tikrinamos sekcijos 
-                sectionNameNow = ''+ sectionID;             // tada dabartinės sekcijos pavadinimas yra tos sek                         
+                sectionNameNow = sectionID;             // tada dabartinės sekcijos pavadinimas yra tos sek                         
+                var hrefValue = 'a[href="#'+sectionID+'"]';
+                var element = document.querySelector(hrefValue);
+                element.classList.add('active');
             }else{
                 continue;
             }
     }
-    console.log( sections );
-    console.log( scroll+'dabartinis aukštis' );
-    console.log( top );
-    console.log (sekcijuSarasas);
-    console.log(sectionID = sectionID.substring(1))
-    console.log( sekcijosPavadinimas );
+    // console.log( sections );
+    // console.log( scroll+'dabartinis aukštis' );
+    // console.log( top );
+    // console.log (sekcijuSarasas);
+    // console.log(sectionID = sectionID.substring(1))
+    // console.log( sekcijosPavadinimas );
     console.log( 'sectionNameNow '+ sectionNameNow );
+    console.log( hrefValue );
+    console.log( element );
 }
 
 
