@@ -30,14 +30,22 @@ function headerScrollDetector() {
         top = document.querySelector(sectionID).offsetTop;  //gavęs atsakymą iš ifo, pasakys jo aukščio vertę, 
         sections.push(top);                                 // ir įstums į sąrašą.
         sekcijuSarasas.push(sectionID);                     //duoda visų sekcijų sąrašą su # (ar reikalingas ???)
+        
         sectionID = sectionID.substring(1);                 //atima iš sekcijos ID #
         sekcijosPavadinimas.push(sectionID);                //surenka sekcijų pavadinimus į vieną sąrašą;
-    
-            if(scroll>=sections[i]){                        //jeigu skrolas yra tarp tikrinamos sekcijos ir tarp sekančios tikrinamos sekcijos 
-                sectionNameNow = sectionID;             // tada dabartinės sekcijos pavadinimas yra tos sek                         
+        var sectionNameNowH = '#'+sectionID;
+        var height = parseFloat(window.getComputedStyle( document.querySelector(sectionNameNowH) ).height);  
+            
+        if((scroll>=sections[i]) && scroll < sections[i]+height ){       //jeigu skrolas yra tarp tikrinamos sekcijos ir tarp sekančios tikrinamos sekcijos 
+                sectionNameNow = sectionID;                 // tada dabartinės sekcijos pavadinimas yra tos sek
                 var hrefValue = 'a[href="#'+sectionID+'"]';
                 var element = document.querySelector(hrefValue);
-                element.classList.add('active');
+                element.classList.add('active');}
+        if((scroll<=sections[i]) || scroll > sections[i]+height ){ 
+            sectionNameNow = sectionID;                 
+            var hrefValue = 'a[href="#'+sectionID+'"]';
+            var element = document.querySelector(hrefValue);
+            element.classList.remove('active');
             }else{
                 continue;
             }
@@ -51,6 +59,7 @@ function headerScrollDetector() {
     console.log( 'sectionNameNow '+ sectionNameNow );
     console.log( hrefValue );
     console.log( element );
+    console.log( height )
 }
 
 
