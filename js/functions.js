@@ -50,6 +50,15 @@ function headerScrollDetector() {
             }else{                                                  //kitu atveju
                 continue;                                           //sukti ciklą toliau
             }
+
+        if(scroll>100){                                         //Jei skrolas daugiau už 100
+            var stickyHead = document.querySelector("header");  //tai pirmas selektorius su pavadinimu "header"
+            stickyHead.classList.add('home');                   //gaus klasę "home"
+        }
+        if(scroll<100){                                         //Jei skrolas mažiau už 100
+            var stickyHead = document.querySelector("header");  //tai pirmas selektorius su pavadinimu "header"
+            stickyHead.classList.remove('home');                //praras klasę "home" 
+        }
     }
     // console.log( sections );
     // console.log( scroll+'dabartinis aukštis' );
