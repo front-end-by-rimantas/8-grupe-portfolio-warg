@@ -120,6 +120,31 @@ function generateServices( data ) {
         }
         HTML += '<div class="service"><i class="fa fa-'+data[i].icon+'"></i><h3>'+data[i].name+'</h3><p>'+data[i].description+'</p></div>'
     }
-
     return HTML;
 }
+//STATISTICS
+function generateStatistics( data ) {
+    var HTML = '';
+    
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].icon === '' ||
+             data[i].score === '' ||
+             data[i].name === '' ) {
+            continue;
+        }
+        HTML += '<div class="statistics"><i class="fa fa-'+data[i].icon+'"></i><p class="number">'+data[i].score+'</p><p class="name">'+data[i].name+'</p></div>'
+    }
+    return HTML;
+}
+
+$('.number').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 4000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});

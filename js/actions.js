@@ -10,3 +10,6 @@ document.getElementById('footer_icons').innerHTML = generateFooterIcons( footerI
 
 //SERVICES
 document.getElementById('myServices').innerHTML = generateServices( servicesInfo );
+
+//STATISTICS
+document.getElementById('myStatistics').innerHTML = generateStatistics( statisticsInfo );
