@@ -14,16 +14,18 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+
     <!-- header start -->
-    <header class="container" id="home">
+    <header class="container header" id="home">
+
         <div class="row">
-            <a href="#"><img src="img/hero/logo.jpg"></a>
+            <a href="#"><img src="img/hero/logo.png"></a>
             <div class="hamburger-menu">
                 <input type="checkbox" class="toggler">
                 <div class="hamburger"><div></div></div>
             </div>
             <nav>
-                <a href="#home" class="home-active">home</a>
+                <a href="#hero" class="active">home</a>
                 <a href="#about">about</a>
                 <a href="#services">services</a>
                 <a href="#education">education</a>
@@ -38,7 +40,7 @@
 
 
     <!-- hero start -->
-    <div class="container bg-grey hero">
+    <div class="container bg-grey hero" id="hero">
         <div class="row">
             <div class="heroPart">   
                 <h1>Jason Doe</h1>
@@ -46,18 +48,10 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit 
                     Proin sodales. tincidunt sodales. Nam tellus velit hendrerit.</p>
 
-                <div class="icons">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-dribbble"></a>
-                    <a href="#" class="fa fa-pinterest"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                </div>
+                <div class="icons" id="icons"></div>
                 
                 <div class="button dark">About me</div>
                 <div class="button light">Hire me</div>
-            </div>
-            <div class="heroPart">
             </div>
         </div>
     </div>
@@ -137,6 +131,7 @@
     </div>
     <!-- my services end -->
 
+    <div id="education">
     <!-- Education start -->
     <div class="container" id="education">
         <a href="#skills" class="left-link ver-center main-color scroll-btn">
@@ -205,6 +200,7 @@
         </div>
     </div>
     <!-- frelance end -->
+    </div>
 
     <!-- my portfolio start -->
     <div class="container" id="portfolio">
@@ -269,7 +265,7 @@
     <!-- bottom navigation start -->
     <div class="container bg-black bottom">
         <div class="row">
-            bottom navigation - icons
+            <div class="icons" id="footer_icons"></div>
         </div>
         <div class="row">
             <div class="navigation-bottom-lane">
