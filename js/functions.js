@@ -84,6 +84,36 @@ function generateIcons( data ) {
 
     return HTML;
 }
+// SKILLBARS
+
+function fillbar(seconds) {
+    console.log('clicked');
+    const bar = document.querySelector('.bar-fill');
+    let atPercent = 0;
+    const interval = setInterval (() => {
+        bar.style.width = atPercent + '%';
+        atPercent++;
+        console.log('running at', atPercent)
+        if (atPercent > 100) {
+            clearInterval(interval);
+        }
+    }, (seconds * 1000 / 100)
+}
+// function run() {                                     
+//     var fill = document.getElementById('bar-fill');    
+//     var text = document.getElementById('value');        
+//     var width = 10;                                     
+//     var id=setInterval(ref, 20);                         
+//     function ref() {
+//         if (id >= 100) {
+//             clearInterval(id);
+//         } else {
+//             width++;
+//             fill.style.width = width + '%';
+//             text.innerHTML = width + '%';
+//         }
+//     }
+// }
 //BOTTOM
 function generateFooterIcons( data ) {
     var HTML = '';

@@ -389,6 +389,55 @@ body * {
 
 /* SKILLS section */
 
+    .container > .row > .progress-bar-right,
+    .container > .row > .progress-bar-left {
+        display: inline-block;
+        width: 50%;
+        float: left;
+        padding: 0 20px;
+    }
+        .row > .progress-bar-right > .progress-block,
+        .row > .progress-bar-left > .progress-block {
+            display: block;
+            margin-bottom: 30px;
+        }
+        .row > .progress-bar-right > .progress-block > .texts,
+        .row > .progress-bar-left > .progress-block > .texts {
+            display: inline-block;
+            width: 100%;
+        }
+            .progress-bar-right > .progress-block > .texts > .title,
+            .progress-bar-left > .progress-block > .texts > .title {
+                display: inline-block;
+                float: left;
+                font-size: 15px;
+                font-weight: bold;
+                color: var(--text-color);
+                text-transform: uppercase;
+            }
+            .progress-bar-right > .progress-block > .texts > .value,
+            .progress-bar-left > .progress-block > .texts > .value {
+                display: inline-block;
+                float: right;
+                color: var(--main-color);
+                font-size: 15px;
+                font-weight: bold;
+            }
+        .row > .progress-bar-right > .progress-block > .bar,
+        .row > .progress-bar-left > .progress-block > .bar {
+            width: 100%;
+            height: 5px;
+            background-color: var(--lightText-color);
+            border-radius: 3px;
+        }
+            .progress-bar-right > .progress-block > .bar > .bar-fill,
+            .progress-bar-left > .progress-block > .bar > .bar-fill {
+                height: 100%;
+                border-radius: 3px;
+                background-color: var(--main-color);
+                width: 0%;
+            }
+
 /* EXPERIENCE section */
 
 /* STATISTICS section */
@@ -531,16 +580,18 @@ body * {
             .container > .row > nav {
                 display: none;
             }
-            .row > .left {
-                width: 100%;
-            }
-            .row > .right {
-                width: 100%;
-            }
+            
 
 /* HERO section */
 
 /* ABOUT ME section */
+
+.row > .left {
+    width: 100%;
+}
+.row > .right {
+    width: 100%;
+}
 
 /* MY SERVICES section */
 
@@ -565,8 +616,7 @@ body * {
 /* BOTTOM NAVIGATION section */
 
 /* FOOTER section */
-    }
-
+        }
     @media ( max-width: 1250px ) {
         .container > .row {
             width: 800px;
@@ -610,7 +660,7 @@ body * {
             width: 700px;
             margin: 0 calc((100% - 700px) / 2);
         }
-    }
+    
 /* HERO section */
 .hero{
     background-position: 90% 50%;
@@ -622,6 +672,13 @@ body * {
 /* EDUCATION section */
 
 /* SKILLS section */
+
+    .container > .row > .progress-bar-left {
+        width: 100%;
+    }
+    .container > .row > .progress-bar-right {
+        width: 100%;
+    }
 
 /* EXPERIENCE section */
 
@@ -640,7 +697,7 @@ body * {
 /* BOTTOM NAVIGATION section */
 
 /* FOOTER section */
-
+    }
 
 
     @media ( max-width: 800px ) {
@@ -651,12 +708,6 @@ body * {
                 width: 100%;
                 margin: 0;
             }
-            .container > .left-link {
-                display: none;
-            }
-            .container > .right-link {
-                display: none;
-            }
     .hero{
         background-position: 100% 50%;
     }
@@ -665,6 +716,13 @@ body * {
 /* HERO section */
 
 /* ABOUT ME section */
+
+.container > .left-link {
+    display: none;
+}
+.container > .right-link {
+    display: none;
+}
 
 /* MY SERVICES section */
 
