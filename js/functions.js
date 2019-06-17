@@ -108,3 +108,18 @@ function generateFooterIcons( data ) {
 
     return HTML;
 }
+//SERVICES
+function generateServices( data ) {
+    var HTML = '';
+    
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].icon === '' ||
+             data[i].name === '' ||
+             data[i].description === '' ) {
+            continue;
+        }
+        HTML += '<div class="service"><i class="fa fa-'+data[i].icon+'"></i><h3>'+data[i].name+'</h3><p>'+data[i].description+'</p></div>'
+    }
+
+    return HTML;
+}

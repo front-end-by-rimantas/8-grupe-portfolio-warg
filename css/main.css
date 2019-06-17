@@ -29,7 +29,7 @@ body * {
     position: relative;
     display: inline-block;
     width: 100%;
-    padding: 80px 0;
+    padding: 50px 0;
 }
     .container > .row {
         display: inline-block;
@@ -64,6 +64,7 @@ body * {
             font-size: 20px;
             line-height: 25px;
             color: var(--text-color);
+            padding: 20px 0 0 0;
         }
 /* HEADER section */
         .header{
@@ -389,7 +390,59 @@ body * {
                     }
 
 /* MY SERVICES section */
+#services > .row > #myServices{
+    display: inline-block;
+    float: left;
+    width: 100%;
+    padding: 20px 0 0 0;
+} 
+#services > .row > #myServices > .service{
+    display: inline-block;
+    position: relative;
+    float: left;
+    width: 25%;
+    padding: 10px 10px;
+    text-align: center;
+} 
+    #services > .row > #myServices > .service:hover .fa{
+        animation-name: iconAnimation;
+        animation-duration: .2s;
+        animation-timing-function: cubic-bezier(1, 1, 1, 1);
+        animation-iteration-count: 1;
+        animation-timing-function:ease-in-out;
+    }
+    @keyframes iconAnimation { 
+        from { 
+            transform: rotateY(-90deg);
+        } to { 
+            transform: rotateY(90deg);
+        }
+    }
+    #services > .row > #myServices > .service > .fa{
+        font-size: 60px;
+        line-height: 100px;
+        color: var(--main-color);
+    }
+    #services > .row > #myServices > .service > h3{
+        font-size: 25px;
+        line-height: 35px;
+        text-transform: uppercase;
+    }
+        #services > .row > #myServices > .service > h3::after {
+            content:"";
+            display: block;
+            position: absolute;
+            left: calc(50% - 30px);
+            background-color: var(--main-color);
+            height: 1px;
+            width: 60px;
+        }
 
+    #services > .row > #myServices > .service > p{
+        font-size: 18px;
+        line-height: 20px;
+        padding: 15px 0;
+    } 
 /* EDUCATION section */
 
 /* SKILLS section */
@@ -630,6 +683,9 @@ body * {
 /* ABOUT ME section */
 
 /* MY SERVICES section */
+#services > .row > #myServices > .service{
+    width: 50%;
+} 
 
 /* EDUCATION section */
 
@@ -724,7 +780,9 @@ body * {
 /* ABOUT ME section */
 
 /* MY SERVICES section */
-
+#services > .row > #myServices > .service{
+    width: 100%;
+} 
 /* EDUCATION section */
 
 /* SKILLS section */
