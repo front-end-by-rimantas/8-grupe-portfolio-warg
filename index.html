@@ -14,25 +14,284 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+
     <!-- header start -->
+    <header class="container header" id="home">
+
+        <div class="row">
+            <a href="#"><img src="img/hero/logo.png"></a>
+            <div class="hamburger-menu">
+                <input type="checkbox" class="toggler">
+                <div class="hamburger"><div></div></div>
+            </div>
+            <nav>
+                <a href="#hero" class="active">home</a>
+                <a href="#about">about</a>
+                <a href="#services">services</a>
+                <a href="#education">education</a>
+                <a href="#portfolio">portfolio</a>
+                <a href="#testimonials">testimonials</a>
+                <a href="#blogs">blogs</a>
+                <a href="#contact">contact</a>
+            </nav>
+        </div>
+    </header>
     <!-- header end -->
 
+
     <!-- hero start -->
+    <div class="container bg-grey hero" id="hero">
+        <div class="row">
+            <div class="heroPart">   
+                <h1>Jason Doe</h1>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit 
+                    Proin sodales. tincidunt sodales. Nam tellus velit hendrerit.</p>
+
+                <div class="icons" id="icons"></div>
+                
+                <div class="button dark">About me</div>
+                <div class="button light">Hire me</div>
+            </div>
+        </div>
+    </div>
     <!-- hero end -->
 
-    <!-- section-1 start -->
-    <!-- section-1 end -->
 
-    <!-- section-2 start -->
-    <!-- section-2 end -->
+    <!-- about me start -->
+    <div class="container" id="about">
+        <a href="#services" class="left-link ver-center main-color scroll-btn">
+            <i class="fa fa-long-arrow-left main-color"></i>
+            <span class="main-color">View Services</span>
+        </a>
+        <div class="row">
+            <h2>About me</h2>
+            <p>Anim pariatur cliche sodales reprehenderit, wolf moon officia,
+                non cupidatat skateboard dolor brunch.</p>
+        </div>
+        <div class="row">
+            <div class="left">
+                <a href="https://www.youtube.com/watch?v=kLO1djacsfg" target="_blank"><i class="fa fa-play"></i></a>
+                <div class="video-overlay"></div>
+            </div>
+            <div class="right">
+                <h3>personal information</h3>
+                <ul class="personal-info">
+                    <div class="personal-info-blocks">
+                        <span class="labels">name: </span>
+                        <span>jason doe</span>
+                    </div>
+                    <div class="personal-info-blocks">
+                        <span class="labels">age: </span>
+                        <span>22 years</span>
+                    </div>
+                    <div class="personal-info-blocks">
+                        <span class="labels">job: </span>
+                        <span>web designer</span>
+                    </div>
+                    <div class="personal-info-blocks">
+                        <span class="labels">phone: </span>
+                        <span>+ 999 999 999</span>
+                    </div>
+                    <div class="personal-info-blocks">
+                        <span class="labels">address: </span>
+                        <span>los angeles, USA</span>
+                    </div>
+                    <div class="personal-info-blocks">
+                        <span class="labels">email: </span>
+                        <span>jasondoe@domain.com</span>
+                    </div>
+                    <div class="personal-info-blocks">
+                        <span class="labels">freelance </span>
+                        <span>available</span>
+                    </div>
+                    <div class="personal-info-buttons">
+                        <a href="#" class="button dark">learn more</a>
+                        <a href="#" class="button light">get in touch</a>
+                    </div>
+                </ul>
+            </div>
+           
+        </div>
+    </div>
+<!-- about me end -->
 
-    <!-- section-3 start -->
-    <!-- section-3 end -->
+    <!-- my services start -->
+    <div class="container bg-grey" id="services">
+        <a href="#education" class="right-link ver-center main-color scroll-btn">
+            <span class="main-color">Education</span>
+            <i class="fa fa-long-arrow-right main-color"></i>
+        </a>
+        <div class="row">
+            <h2>Services</h2>
+            
+            <p>Anim pariatur cliche sodales reprehenderit, wolf moon officia,
+                non cupidatat skateboard dolor brunch.</p>
+            <div id="myServices"></div>
+        </div>
+    </div>
+    <!-- my services end -->
 
-    <!-- section-4 start -->
-    <!-- section-4 end -->
+    <div id="education">
+    <!-- Education start -->
+    <div class="container" id="education">
+        <a href="#skills" class="left-link ver-center main-color scroll-btn">
+            <i class="fa fa-long-arrow-left main-color"></i>
+            <span class="main-color">Skills</span>
+        </a>
+        <div class="row">
+            <h2>Education</h2>
+            
+            <p>Anim pariatur cliche sodales reprehenderit, wolf moon officia,
+                non cupidatat skateboard dolor brunch.</p>
+        </div>
+    </div>
+    <!-- Education end -->
+
+    <!-- Skills start -->
+    <div class="container bg-grey" id="skills">
+        <a href="#experience" class="right-link ver-center main-color scroll-btn">
+            <span class="main-color">Experience</span>
+            <i class="fa fa-long-arrow-right main-color"></i>
+        </a>
+        <div class="row">
+            <h2>Skills</h2>
+            
+            <p>Anim pariatur cliche sodales reprehenderit, wolf moon officia,
+                non cupidatat skateboard dolor brunch.</p>
+        </div>
+    </div>
+    <!-- Skills end -->
+
+    <!-- Experience start -->
+    <div class="container" id="experience">
+        <a href="#activities" class="left-link ver-center main-color scroll-btn">
+            <i class="fa fa-long-arrow-left main-color"></i>
+            <span class="main-color">Activities</span>
+        </a>
+        <div class="row">
+            <h2>Experience</h2>
+            
+            <p>Anim pariatur cliche sodales reprehenderit, wolf moon officia,
+                non cupidatat skateboard dolor brunch.</p>
+        </div>
+    </div>
+    <!-- Experience end -->
+
+    <!-- Projects, Clients, Awards start -->
+    <div class="container bg-grey" id="activities">
+        <a href="#availibility" class="right-link ver-center main-color scroll-btn">
+            <span class="main-color">Availibility</span>
+            <i class="fa fa-long-arrow-right main-color"></i>
+        </a>
+        <div class="row">
+            Projects, Clients, Awards
+        </div>
+    </div>
+    <!-- Projects, Clients, Awards end -->
+
+    <!-- frelance start -->
+    <div class="container bg-main" id="availibility">
+        <a href="#portfolio" class="left-link personal-color ver-center main-color scroll-btn">
+            <i class="fa fa-long-arrow-left main-color"></i>
+            <span class="main-color">Portfolio</span>
+        </a>
+        <div class="row">
+            <h2>I am available for freelance</h2>
+        </div>
+    </div>
+    <!-- frelance end -->
+    </div>
+
+    <!-- my portfolio start -->
+    <div class="container" id="portfolio">
+        <a href="#testimonials" class="right-link ver-center main-color scroll-btn">
+            <span class="main-color">Testimonials</span>
+            <i class="fa fa-long-arrow-right main-color"></i>
+        </a>
+        <div class="row">
+            <h2>My work</h2>
+            
+            <p>Anim pariatur cliche sodales reprehenderit, wolf moon officia,
+                non cupidatat skateboard dolor brunch.</p>
+        </div>
+    </div>
+    <!-- my portfolio end -->
+
+    <!-- testimonials start -->
+    <div class="container bg-grey" id="testimonials">
+        <a href="#blogs" class="left-link ver-center main-color scroll-btn">
+            <i class="fa fa-long-arrow-left main-color"></i>
+            <span class="main-color">Blogs</span>
+        </a>
+        <div class="row">
+            <h2>Testimonial</h2>
+            
+            <p>Anim pariatur cliche sodales reprehenderit, wolf moon officia,
+                non cupidatat skateboard dolor brunch.</p>
+        </div>
+    </div>
+    <!-- testimonials end -->
+
+    <!-- my blogs start -->
+    <div class="container" id="blogs">
+        <a href="#contact" class="right-link ver-center main-color scroll-btn">
+            <span class="main-color">Contact</span>
+            <i class="fa fa-long-arrow-right main-color"></i>
+        </a>
+        <div class="row">
+            <h2>My blogs</h2>
+            
+            <p>Anim pariatur cliche sodales reprehenderit, wolf moon officia,
+                non cupidatat skateboard dolor brunch.</p>
+        </div>
+    </div>
+    <!-- my blogs end -->
+
+    <!-- contact me start -->
+    <div class="container bg-grey" id="contact">
+        <a href="#home" class="left-link ver-center main-color scroll-btn">
+            <span class="main-color">Go Back Home</span>
+            <i class="fa fa-long-arrow-right main-color"></i>
+        </a>
+        <div class="row">
+            <h2>Contact</h2>
+            
+            <p>Anim pariatur cliche sodales reprehenderit, wolf moon officia,
+                non cupidatat skateboard dolor brunch.</p>
+        </div>
+    </div>
+    <!-- contact me end -->
+
+    <!-- bottom navigation start -->
+    <div class="container bg-black bottom">
+        <div class="row">
+            <div class="icons" id="footer_icons"></div>
+        </div>
+        <div class="row">
+            <div class="navigation-bottom-lane">
+                <a href="#home">home</a>
+                <a href="#about">about</a>
+                <a href="#services">services</a>
+                <a href="#education">education</a>
+                <a href="#portfolio">portfolio</a>
+                <a href="#testimonials">testimonials</a>
+                <a href="#blogs">blogs</a>
+                <a href="#contact">contact</a>
+            </div>
+        </div>
+        <a href="#home" class="bottom-nav-block">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+    <!-- bottom navigation end -->
 
     <!-- footer start -->
+    <footer class="container bg-main footer">
+        <div class="row">
+            <p>Warg &copy 2017. ALL RIGHT RESERVED</p> 
+        </div>
+    </footer>
     <!-- footer end -->
 
     <script src="js/data.js"></script>

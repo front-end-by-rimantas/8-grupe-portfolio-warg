@@ -1,0 +1,991 @@
+html {
+    scroll-behavior: smooth;
+}
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: "Open Sans",sans-serif;
+}
+
+.bg-main {
+    background-color: var(--main-color);
+}
+.bg-blackText {
+    background-color: var(--blackText-color);
+}
+.bg-grey {
+    background-color: var(--background-color);
+}
+.bg-black {
+    background-color: var(--black-color);
+}
+.tc-light {
+    background-color: var(--lightText-color);
+}
+.container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 50px 0;
+}
+    .container > .row {
+        display: inline-block;
+        position: relative;
+        width: 1200px;
+        margin: 0 calc((100% - 1200px) / 2);
+        padding: 30px;
+        text-align: center;
+    }
+        .container > .row > .hamburger-menu {
+            position: relative;
+        }
+        h2{
+            position: relative;
+            display: inline-block;
+            font-size: 35px;
+            text-transform: uppercase;
+            line-height: 45px;
+            font-weight: 800;
+            color: var(--blackText-color);
+        }
+            h2::after {
+                content:"";
+                display: block;
+                position: absolute;
+                left: calc(50% - 40px);
+                background-color: var(--main-color);
+                height: 2px;
+                width: 80px;
+            }
+        p{
+            font-size: 20px;
+            line-height: 25px;
+            color: var(--text-color);
+            padding: 20px 0 0 0;
+        }
+/* HEADER section */
+        .header{
+            position: fixed;
+            padding: 5px 0px;
+            background-color: var(--background-color);
+            z-index: 1;
+        }
+        .home{
+            box-shadow: 0 -6px 20px;
+        }
+
+        .header > .row{
+            padding: 5px 0px;
+        }
+        .container > .row > a > img {
+            display: inline-block;
+            float: left;
+        }
+        .container > .row > nav {
+            display: inline-block;
+            float: right;
+        }
+            .container > .row > nav > a {
+                display: inline-block;
+                float: left;
+                text-transform: uppercase;
+                text-decoration: none;
+                color: var(--main-color);
+                font-weight: bold;
+                font-size: 15px;
+                line-height: 40px;
+                padding: 0px 15px;
+                margin: 5px 0 0 0;
+                background-color: transparent;
+                border-radius: 30px;
+            }
+            .container > .row > nav > .home-active {
+                background-color: var(--main-color);
+                color: #fff;
+                border-radius: 30px;
+            }
+            .container > .row > nav > .active {
+                background-color: var(--main-color);
+                color: #fff;
+                border-radius: 30px;
+                transition: .8s;
+            }
+            
+/* Hamburger */  
+/* Checkbox */
+   
+    .container > .row > .hamburger-menu > .toggler {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        z-index: 2;
+        width: 55px;
+        height: 36px;
+        opacity: 0;
+        cursor: pointer;
+    }
+    /* Hamburger box */
+    .container > .row > .hamburger-menu > .hamburger {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        z-index: 1;
+        width: 55px;
+        height: 36px;
+        padding: 1rem;
+        background-color: var(--main-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        /* Hamburger line */
+        .container > .row > .hamburger-menu > .hamburger > div {
+            position: relative;
+            width: 100%;
+            height: 2.5px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+        /* Hamburger top and bottom lines */
+        .row > .hamburger-menu > .hamburger > div:before,
+        .row > .hamburger-menu > .hamburger > div:after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            width: 100%;
+            height: 2.5px;
+            background: inherit;
+        }
+        /* Hamburger one line down */
+        .row > .hamburger-menu > .hamburger > div:after {
+            top: 8px;
+        }
+        /* Animated toggler */
+        .row > .hamburger-menu > .toggler:checked + .hamburger > div {
+            transform: rotate(135deg);
+        }
+        /* Turn lines into X */
+        .row > .hamburger-menu > .toggler:checked + .hamburger > div:before,
+        .row > .hamburger-menu > .toggler:checked + .hamburger > div:after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+            /* basic header end */
+
+/* HERO section */
+        .hero{
+            background-image: url(../img/hero/hero_bg.png);
+            height: 100vh;
+            background-position: 80% 100%;
+            background-repeat: no-repeat;
+            background-size: 42vh;
+            padding: 95px 0px;
+        }
+            .hero .heroPart {
+                display: inline-block;
+                padding: 80px 0;
+                width: 100%;
+                height: 70vh;
+            }             
+                        .hero h1{
+                            position: relative;
+                            display: inline-block;
+                            font-size: 55px;
+                            text-transform: uppercase;
+                            line-height: 55px;
+                            font-weight: 800;
+                            color: var(--blackText-color);
+                            width: 100%;
+                            text-align: left;
+                        }
+                        .hero p{
+                            text-align: left;
+                            margin: 30px 0;
+                            padding: 0 35% 0 0;
+                        }
+                        .hero  h1::after {
+                            left: 60px;  /*kodėl 60? nežinau kol kas kaip padaryti automatiškai*/
+                            content:"";
+                            display: block;
+                            position: absolute;
+                            background-color: var(--main-color);
+                            height: 2px;
+                            width: 120px;
+                            margin: 10px 0;
+                        }
+                        .hero .icons{
+                            display: inline-block;
+                            width: 100%;
+                            height: 40px;
+                        }
+                        .hero .icons > div{
+                                display: inline-block;
+                                float: left;
+                                position: relative;
+                                height: 40px;
+                                width: 40px;
+                                line-height: 40px;
+                                margin: 0 5px;
+                                border-radius: 50%;
+                                border: 1px solid var(--main-color);
+                                background-color: var(--icon-color1);
+                                box-shadow: 0 5px 11px 0 var(--shadow-color);
+                                overflow: hidden;
+                                text-align: center;
+                            }
+                            .hero a{
+                                display: inline-block;
+                                position: absolute;
+                                float: left;
+                                top: -1px;
+                                left: -1px;
+                                padding: 19px 11px;
+                                line-height: 0px;
+                                font-size: 20px;
+                                color: var(--main-color);
+                                text-decoration: none;
+                                text-align: center;
+                                border-radius: 50%;
+                                border: 1px solid transparent;
+                            }
+                            .hero .fa-facebook{
+                                padding: 20px 14px;
+                            }
+                                .hero a:hover{
+                                    color: var(--icon-color1);
+                                }
+                                .hero .icons > div:hover{
+                                    background-color: var(--main-color)
+                                }
+                                    .hero .icons > div:hover a{ /*(kai suveiks hoveris po snaige - įsijungs snaigės animacija) */
+                                        cursor: pointer;
+                                        animation-name: animacija;
+                                        animation-duration: 0.4s;
+                                        animation-timing-function: cubic-bezier(1, .3, .3, 1);
+                                        animation-iteration-count: 1;
+                                        animation-fill-mode: forwards;
+                                        animation-timing-function:ease-in-out;
+                                    }
+                                        @keyframes animacija{
+                                            0%      {top:0px;}
+                                            49.9%   {top:28px;}
+                                            50%     {top:-28px;}
+                                            100%    {top:0px;}
+                                        }
+                        .hero .heroPart >.button {
+                            display: inline-block;
+                            float: left;
+                        }
+/* ABOUT ME section */
+
+    .container > .left-link {
+        position: absolute;
+        display: inline-block;
+        text-decoration: none;
+        color: var(--main-color);
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+    }        
+        .container > .left-link > .fa-long-arrow-left {
+            margin-top: 2px;
+        }
+    .container > .right-link {
+        position: absolute;
+        display: inline-block;
+        text-decoration: none;
+        color: var(--main-color);
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+    }     
+        .container > .right-link > .fa-long-arrow-right {
+            margin-top: 4px;
+        }
+        .container > .left-link > .fa-long-arrow-right {
+            margin-top: 4px;
+        }
+        .row > .left {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            float: left;
+            background: url(../img/about/nolifer.jpg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            height: 380px;
+            background-position: center;
+        }
+            .row > .left > .video-overlay {
+                background: var(--main-color);
+                width: 100%;
+                height: 100%;
+                opacity: .28;  
+            }
+            .row > .left > a {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+                height: 64px;
+                width: 64px;
+                font-size: 30px;
+                padding: 16px;
+                border: 1px solid #fafafa;
+                color: #fafafa;
+                text-decoration: none;
+                transition: .7s;
+            }
+            .row > .left > a:hover {
+                background: #fafafa;
+                transition: .7s;
+            }
+                .row > .left > a > .fa-play {
+                    line-height: inherit;
+                    padding: 15px 19px;
+                }
+                .row > .left > a > .fa-play:hover {
+                    color: var(--main-color);
+                }
+                
+        .row > .right {
+            display: inline-block;
+            width: 50%;
+            float: left;
+        }
+            .row > .right > h3 {
+                font-size: 19px;
+                text-transform: uppercase;
+                color: var(--black-color);
+                font-weight: 700;
+                margin-top: 10.89px;
+                margin-bottom: 40px;            
+            }
+            .row > .right > .personal-info {
+                display: block;
+            }
+                .row > .right > .personal-info > .personal-info-blocks {
+                    display: inline-block;
+                    width: 100%;
+                    margin-top: 12px;
+                    font-size: 16px;
+                    word-spacing: 4px;
+                    text-transform: capitalize;
+                }
+                    .personal-info > .personal-info-buttons > a {
+                        display: inline-block;
+                        text-decoration: none;
+                    }
+                    .personal-info > .personal-info-blocks > .labels {
+                        color: var(--main-color);
+                    }
+
+/* MY SERVICES section */
+#services > .row > #myServices{
+    display: inline-block;
+    float: left;
+    width: 100%;
+    padding: 20px 0 0 0;
+} 
+#services > .row > #myServices > .service{
+    display: inline-block;
+    position: relative;
+    float: left;
+    width: 25%;
+    padding: 10px 10px;
+    text-align: center;
+} 
+    #services > .row > #myServices > .service:hover .fa{
+        animation-name: iconAnimation;
+        animation-duration: .2s;
+        animation-timing-function: cubic-bezier(1, 1, 1, 1);
+        animation-iteration-count: 1;
+        animation-timing-function:ease-in-out;
+    }
+    @keyframes iconAnimation { 
+        from { 
+            transform: rotateY(-90deg);
+        } to { 
+            transform: rotateY(90deg);
+        }
+    }
+    #services > .row > #myServices > .service > .fa{
+        font-size: 60px;
+        line-height: 100px;
+        color: var(--main-color);
+    }
+    #services > .row > #myServices > .service > h3{
+        font-size: 25px;
+        line-height: 35px;
+        text-transform: uppercase;
+    }
+        #services > .row > #myServices > .service > h3::after {
+            content:"";
+            display: block;
+            position: absolute;
+            left: calc(50% - 30px);
+            background-color: var(--main-color);
+            height: 1px;
+            width: 60px;
+        }
+
+    #services > .row > #myServices > .service > p{
+        font-size: 18px;
+        line-height: 20px;
+        padding: 15px 0;
+    } 
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+    .container > .personal-color {
+        color: #fff;
+    }
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+    .bottom {
+        position: relative;
+    }
+    .bottom > .row {
+        display: inline-block;
+        color: var(--lightText-color);
+
+    }   
+    .bottom > .row > .icons{
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        padding: 0 calc(50% - 125px); /*reikia kažkaip gudriai suskaičiuoti...*/
+    }
+    .bottom > .row > .icons > div{
+            display: inline-block;
+            float: left;
+            position: relative;
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: var(--main-color);
+            box-shadow: 0 5px 11px 0 var(--shadow-color);
+            overflow: hidden;
+            text-align: center;
+        }
+        .bottom > .row > .icons > div > a{
+            display: inline-block;
+            position: absolute;
+            float: left;
+            top: 0px;
+            left: 0px;
+            padding: 20px 12px;
+            line-height: 0px;
+            font-size: 20px;
+            color: var(--icon-color1);
+            text-decoration: none;
+            text-align: center;
+            border-radius: 50%;
+        }
+        .bottom > .row > .icons > div > .fa-facebook{
+            padding: 20px 15px;
+        }
+        .bottom > .row > .icons > div > a:hover{
+                color: var(--main-color);
+            }
+            .bottom > .row > .icons > div:hover{
+                background-color: var(--icon-color1);
+            }
+            .bottom > .row > .icons > div:hover a{ /*(kai suveiks hoveris po snaige - įsijungs snaigės animacija) */
+                    cursor: pointer;
+                    animation-name: animacija;
+                    animation-duration: 0.4s;
+                    animation-timing-function: cubic-bezier(1, .3, .3, 1);
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                    animation-timing-function:ease-in-out;
+                }
+                    @keyframes animacija{
+                        0%      {top:0px;}
+                        49.9%   {top:28px;}
+                        50%     {top:-28px;}
+                        100%    {top:0px;}
+                    }
+    .bottom > .row > .navigation-bottom-lane {
+        display: inline-block;
+        width: 100%;
+    }  
+        .bottom > .row > .navigation-bottom-lane > a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #C9D3DC;
+            text-transform: uppercase;
+            padding: 0 5px;
+        }
+        .bottom > .row > .navigation-bottom-lane > a:hover {
+            color: #fff;
+            transition: 1s;
+        }
+    .bottom > .bottom-nav-block {
+        position: absolute;
+        display: block;
+        width: 45px;
+        height: 45px;
+        top: 20px;
+        right: 25px;
+        background-color: var(--main-color);
+        box-shadow: 0 2px 6px 0 rgba(0,0,0,.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        .bottom-nav-block > .fa-angle-up {
+            position: absolute;
+            font-size: 32px;
+            line-height: 38px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* BOTTOM NAVIGATION section END */
+
+/* FOOTER section */
+    .footer > .row > p{
+        color: var(--lighterText-color);
+    }
+
+    @media ( min-width: 1300px ) { /*gal reikėtų meniu palikti ilgiau ?*/
+            .container > .row > .hamburger-menu {
+                display: none;
+            }
+        }
+
+    @media ( max-width: 1300px ) {
+        .container > .row {
+            width: 900px;
+            margin: 0 calc((100% - 900px) / 2);
+        }
+            .container > .row > nav {
+                display: none;
+            }
+            .row > .left {
+                width: 100%;
+            }
+            .row > .right {
+                width: 100%;
+            }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+    }
+
+    @media ( max-width: 1250px ) {
+        .container > .row {
+            width: 800px;
+            margin: 0 calc((100% - 800px) / 2);
+        }
+        .header{
+            padding: 15px 30px;
+            background-color: transparent;
+            box-shadow: none;
+        }
+/* HERO section */
+.hero{
+    background-position: 85% 100%;
+    background-size: 45vh;
+}
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+
+    @media ( max-width: 1000px ) {
+        .container > .row {
+            width: 700px;
+            margin: 0 calc((100% - 700px) / 2);
+        }
+    
+/* HERO section */
+    .hero{
+        background-position: 95% 100%;
+        background-size: 45vh;
+    }
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+#services > .row > #myServices > .service{
+    width: 50%;
+} 
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+
+    @media ( max-width: 800px ) {
+        /* .container {
+            padding: 80px 30px;
+        } */
+            .container > .row {
+                width: 100%;
+                margin: 0;
+            }
+            .container > .left-link {
+                display: none;
+            }
+            .container > .right-link {
+                display: none;
+            }
+
+    .hero{
+        background-position: 100% 100%;
+    }
+    .hero p{
+        padding: 0 43% 0 0;
+    }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+
+}
+@media ( max-width: 600px ) {
+    .container > .row {
+        width: 100%;
+        margin: 0;
+    }
+    .hero{
+        background-position: 115% 100%;
+        padding: 50px 0px;
+    }
+        .hero p{
+            padding: 0 50% 0 0;
+        }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+#services > .row > #myServices > .service{
+    width: 100%;
+} 
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+
+@media ( max-width: 500px ) {
+    .container > .row {
+        width: 100%;
+        margin: 0;
+    }
+    .hero{
+        background-position: 140% 100%;
+        padding: 50px 0px;
+        background-size: 40vh;
+    }
+        .hero p{
+            padding: 0 30% 0 0;
+        }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+
+@media ( max-width: 400px ) {
+    .container > .row {
+        width: 100%;
+        margin: 0;
+    }
+    .hero{
+        background-position: 150% 100%;
+        padding: 50px 0px;
+        background-size: 40vh;
+    }
+        .hero p{
+            padding: 0 30% 0 0;
+        }
+        .hero h1{
+            padding: 0 30% 0 0;
+            text-align: center;
+        }
+        .hero h1::after {
+            left: calc(30% - 40px);
+            margin: 10px 0;
+        }
+        .hero .heroPart {
+            padding: 20px 0;
+        }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+@media ( max-width: 384px ) {
+    .hero{
+        background-position: 190% 100%;
+        padding: 100px 0px 70px;
+    }
+        .hero p{
+            padding: 0 40% 0 0;
+        }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+@media ( max-width: 320px ) {
+    .hero{
+        background-position: 180% 100%;
+        padding: 80px 0px 50px;
+    }
+        .hero p{
+            padding: 0 40% 0 0;
+            font-size: 18px;
+        }
+        .hero h1{
+            padding: 0 30% 0 0;
+            text-align: center;
+            font-size: 38px;
+            line-height: 38px;
+            text-align: left;
+        }
+        
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
