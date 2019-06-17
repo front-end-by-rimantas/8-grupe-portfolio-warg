@@ -15,6 +15,7 @@
 }
 .light{
     color: var(--main-color);
+    background-color: var(--background-color);
 }
 .button:hover{
     cursor: pointer;

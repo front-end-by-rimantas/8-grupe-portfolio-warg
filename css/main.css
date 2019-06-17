@@ -522,7 +522,7 @@ body * {
         color: var(--lighterText-color);
     }
 
-    @media ( min-width: 1300px ) {
+    @media ( min-width: 1300px ) { /*gal reikėtų meniu palikti ilgiau ?*/
             .container > .row > .hamburger-menu {
                 display: none;
             }
@@ -577,9 +577,15 @@ body * {
             width: 800px;
             margin: 0 calc((100% - 800px) / 2);
         }
+        .header{
+            padding: 15px 30px;
+            background-color: transparent;
+            box-shadow: none;
+        }
 /* HERO section */
 .hero{
-    background-position: 80% 50%;
+    background-position: 85% 100%;
+    background-size: 45vh;
 }
 
 /* ABOUT ME section */
@@ -618,7 +624,8 @@ body * {
     
 /* HERO section */
     .hero{
-        background-position: 90% 50%;
+        background-position: 95% 100%;
+        background-size: 45vh;
     }
 /* ABOUT ME section */
 
@@ -649,9 +656,9 @@ body * {
 
 
     @media ( max-width: 800px ) {
-        .container {
+        /* .container {
             padding: 80px 30px;
-        }
+        } */
             .container > .row {
                 width: 100%;
                 margin: 0;
@@ -662,10 +669,13 @@ body * {
             .container > .right-link {
                 display: none;
             }
-    .hero{
-        background-position: 100% 50%;
-    }
 
+    .hero{
+        background-position: 100% 100%;
+    }
+    .hero p{
+        padding: 0 43% 0 0;
+    }
 
 /* HERO section */
 
@@ -702,17 +712,196 @@ body * {
         margin: 0;
     }
     .hero{
-        background-position: 110% 50%;
+        background-position: 115% 100%;
+        padding: 50px 0px;
     }
-        .hero .left  {
-            width: 100%;
-        }         
-        .hero .right {
-            display: none;
-        }
         .hero p{
-            padding: 0 45% 0 0;
+            padding: 0 50% 0 0;
         }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+
+@media ( max-width: 500px ) {
+    .container > .row {
+        width: 100%;
+        margin: 0;
+    }
+    .hero{
+        background-position: 140% 100%;
+        padding: 50px 0px;
+        background-size: 40vh;
+    }
+        .hero p{
+            padding: 0 30% 0 0;
+        }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+
+@media ( max-width: 400px ) {
+    .container > .row {
+        width: 100%;
+        margin: 0;
+    }
+    .hero{
+        background-position: 150% 100%;
+        padding: 50px 0px;
+        background-size: 40vh;
+    }
+        .hero p{
+            padding: 0 30% 0 0;
+        }
+        .hero h1{
+            padding: 0 30% 0 0;
+            text-align: center;
+        }
+        .hero h1::after {
+            left: calc(30% - 40px);
+            margin: 10px 0;
+        }
+        .hero .heroPart {
+            padding: 20px 0;
+        }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+@media ( max-width: 384px ) {
+    .hero{
+        background-position: 190% 100%;
+        padding: 100px 0px 70px;
+    }
+        .hero p{
+            padding: 0 40% 0 0;
+        }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+@media ( max-width: 320px ) {
+    .hero{
+        background-position: 180% 100%;
+        padding: 80px 0px 50px;
+    }
+        .hero p{
+            padding: 0 40% 0 0;
+            font-size: 18px;
+        }
+        .hero h1{
+            padding: 0 30% 0 0;
+            text-align: center;
+            font-size: 38px;
+            line-height: 38px;
+            text-align: left;
+        }
+        
 
 /* HERO section */
 
