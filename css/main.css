@@ -447,6 +447,71 @@ body * {
 
 /* SKILLS section */
 
+    .container > .row > .progress-bar-right,
+    .container > .row > .progress-bar-left {
+        display: inline-block;
+        width: 50%;
+        float: left;
+        padding: 0 20px;
+    }
+        .row > .progress-bar-right > .progress-block,
+        .row > .progress-bar-left > .progress-block {
+            width: 100%;
+            display: block;
+            margin-bottom: 30px;
+        }
+        .row > .progress-bar-right > .progress-block > .texts,
+        .row > .progress-bar-left > .progress-block > .texts {
+            display: inline-block;
+            width: 100%;
+            font-size: 15px;
+            color: var(--text-color);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+            .progress-bar-right > .progress-block > .texts > .title,
+            .progress-bar-left > .progress-block > .texts > .title {
+                display: inline-block;
+                float: left;
+            }
+            .progress-bar-right > .progress-block > .texts > .value,
+            .progress-bar-left > .progress-block > .texts > .value {
+                display: inline-block;
+                float: right;
+            }
+        .row > .progress-bar-right > .progress-block > .bar,
+        .row > .progress-bar-left > .progress-block > .bar {
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+            height: 5px;
+            background-color: var(--lightText-color);
+            border-radius: 3px;
+        }
+            .progress-bar-right > .progress-block > .bar > .bar-value,
+            .progress-bar-left > .progress-block > .bar > .bar-value {
+                display: inline-block;
+                height: 100%;
+            }
+                .progress-bar-right > .progress-block > .bar > .bar-value > .bar-fill,
+                .progress-bar-left > .progress-block > .bar > .bar-value > .bar-fill {
+                    display: inline-block;
+                    height: 100%;
+                    border-radius: 3px;
+                    background-color: var(--main-color);
+                    width: 100%;
+                    animation-name: filling;
+                    animation-duration: 2s;
+                }
+        @keyframes filling {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
 /* EXPERIENCE section */
 
 /* STATISTICS section */
@@ -612,16 +677,18 @@ body * {
             .container > .row > nav {
                 display: none;
             }
-            .row > .left {
-                width: 100%;
-            }
-            .row > .right {
-                width: 100%;
-            }
+            
 
 /* HERO section */
 
 /* ABOUT ME section */
+
+.row > .left {
+    width: 100%;
+}
+.row > .right {
+    width: 100%;
+}
 
 /* MY SERVICES section */
 
@@ -646,8 +713,7 @@ body * {
 /* BOTTOM NAVIGATION section */
 
 /* FOOTER section */
-    }
-
+        }
     @media ( max-width: 1250px ) {
         .container > .row {
             width: 800px;
@@ -714,6 +780,13 @@ body * {
 
 /* SKILLS section */
 
+    .container > .row > .progress-bar-left {
+        width: 100%;
+    }
+    .container > .row > .progress-bar-right {
+        width: 100%;
+    }
+
 /* EXPERIENCE section */
 
 /* STATISTICS section */
@@ -731,8 +804,6 @@ body * {
 /* BOTTOM NAVIGATION section */
 
 /* FOOTER section */
-}
-
 
     @media ( max-width: 800px ) {
         /* .container {
@@ -749,6 +820,7 @@ body * {
                 display: none;
             }
 
+
     .hero{
         background-position: 100% 100%;
     }
@@ -759,6 +831,13 @@ body * {
 /* HERO section */
 
 /* ABOUT ME section */
+
+.container > .left-link {
+    display: none;
+}
+.container > .right-link {
+    display: none;
+}
 
 /* MY SERVICES section */
 

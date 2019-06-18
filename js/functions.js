@@ -94,6 +94,27 @@ function generateIcons( data ) {
 
     return HTML;
 }
+// SKILLBARS
+
+    // function fillBar (seconds) {
+    //     const bar = document.querySelector(".bar-fill");
+    //     let atPercent = 0;
+    //     const interval = setInterval(() => {
+    //         bar.style.width = atPercent + '%';
+    //         atPercent++;
+    //         console.log("running at", atPercent);
+    //         if (atPercent >= 100) {
+    //             clearInterval(interval);
+    //         }
+    //     }, (seconds * 1000) / 100)
+    //     var bars = document.getElementsByClassName ('bar-fill');
+    //     for (i=0; i<bars.length; i++) {
+
+    //     }
+    // }
+    // console.log(fillBar(1))
+
+
 //BOTTOM
 function generateFooterIcons( data ) {
     var HTML = '';
