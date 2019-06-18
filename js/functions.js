@@ -125,7 +125,6 @@ function generateServices( data ) {
 //STATISTICS
 function generateStatistics( data ) {
     var HTML = '';
-    
     for ( var i=0; i<data.length; i++ ) {
         if ( data[i].icon === '' ||
              data[i].score === '' ||
@@ -137,14 +136,10 @@ function generateStatistics( data ) {
     return HTML;
 }
 
-$('.number').each(function () {
-    $(this).prop('Counter',0).animate({
-        Counter: $(this).text()
-    }, {
-        duration: 4000,
-        easing: 'swing',
-        step: function (now) {
-            $(this).text(Math.ceil(now));
-        }
-    });
-});
+
+// setInterval(dynamicNumbers,1000); nieko nesugalvoju...
+//         function dynamicNumbers(){
+//             var a = 2048;
+//             var b = a
+//         }
+//         console.log( a )
