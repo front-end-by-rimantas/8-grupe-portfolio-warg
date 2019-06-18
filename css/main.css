@@ -398,6 +398,7 @@ body * {
     }
         .row > .progress-bar-right > .progress-block,
         .row > .progress-bar-left > .progress-block {
+            width: 100%;
             display: block;
             margin-bottom: 30px;
         }
@@ -405,38 +406,53 @@ body * {
         .row > .progress-bar-left > .progress-block > .texts {
             display: inline-block;
             width: 100%;
+            font-size: 15px;
+            color: var(--text-color);
+            font-weight: bold;
+            text-transform: uppercase;
         }
             .progress-bar-right > .progress-block > .texts > .title,
             .progress-bar-left > .progress-block > .texts > .title {
                 display: inline-block;
                 float: left;
-                font-size: 15px;
-                font-weight: bold;
-                color: var(--text-color);
-                text-transform: uppercase;
             }
             .progress-bar-right > .progress-block > .texts > .value,
             .progress-bar-left > .progress-block > .texts > .value {
                 display: inline-block;
                 float: right;
-                color: var(--main-color);
-                font-size: 15px;
-                font-weight: bold;
             }
         .row > .progress-bar-right > .progress-block > .bar,
         .row > .progress-bar-left > .progress-block > .bar {
+            text-align: left;
+            display: inline-block;
             width: 100%;
             height: 5px;
             background-color: var(--lightText-color);
             border-radius: 3px;
         }
-            .progress-bar-right > .progress-block > .bar > .bar-fill,
-            .progress-bar-left > .progress-block > .bar > .bar-fill {
+            .progress-bar-right > .progress-block > .bar > .bar-value,
+            .progress-bar-left > .progress-block > .bar > .bar-value {
+                display: inline-block;
                 height: 100%;
-                border-radius: 3px;
-                background-color: var(--main-color);
+            }
+                .progress-bar-right > .progress-block > .bar > .bar-value > .bar-fill,
+                .progress-bar-left > .progress-block > .bar > .bar-value > .bar-fill {
+                    display: inline-block;
+                    height: 100%;
+                    border-radius: 3px;
+                    background-color: var(--main-color);
+                    width: 100%;
+                    animation-name: filling;
+                    animation-duration: 2s;
+                }
+        @keyframes filling {
+            0% {
                 width: 0%;
             }
+            100% {
+                width: 100%;
+            }
+        }
 
 /* EXPERIENCE section */
 

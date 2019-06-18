@@ -86,34 +86,25 @@ function generateIcons( data ) {
 }
 // SKILLBARS
 
-function fillbar(seconds) {
-    console.log('clicked');
-    const bar = document.querySelector('.bar-fill');
-    let atPercent = 0;
-    const interval = setInterval (() => {
-        bar.style.width = atPercent + '%';
-        atPercent++;
-        console.log('running at', atPercent)
-        if (atPercent > 100) {
-            clearInterval(interval);
-        }
-    }, (seconds * 1000 / 100)
-}
-// function run() {                                     
-//     var fill = document.getElementById('bar-fill');    
-//     var text = document.getElementById('value');        
-//     var width = 10;                                     
-//     var id=setInterval(ref, 20);                         
-//     function ref() {
-//         if (id >= 100) {
-//             clearInterval(id);
-//         } else {
-//             width++;
-//             fill.style.width = width + '%';
-//             text.innerHTML = width + '%';
-//         }
-//     }
-// }
+    // function fillBar (seconds) {
+    //     const bar = document.querySelector(".bar-fill");
+    //     let atPercent = 0;
+    //     const interval = setInterval(() => {
+    //         bar.style.width = atPercent + '%';
+    //         atPercent++;
+    //         console.log("running at", atPercent);
+    //         if (atPercent >= 100) {
+    //             clearInterval(interval);
+    //         }
+    //     }, (seconds * 1000) / 100)
+    //     var bars = document.getElementsByClassName ('bar-fill');
+    //     for (i=0; i<bars.length; i++) {
+
+    //     }
+    // }
+    // console.log(fillBar(1))
+
+
 //BOTTOM
 function generateFooterIcons( data ) {
     var HTML = '';
