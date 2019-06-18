@@ -29,7 +29,7 @@ body * {
     position: relative;
     display: inline-block;
     width: 100%;
-    padding: 80px 0;
+    padding: 50px 0;
 }
     .container > .row {
         display: inline-block;
@@ -64,16 +64,19 @@ body * {
             font-size: 20px;
             line-height: 25px;
             color: var(--text-color);
+            padding: 20px 0 0 0;
         }
 /* HEADER section */
         .header{
-            /* display: none; */
             position: fixed;
             padding: 5px 0px;
             background-color: var(--background-color);
-            z-index: 1; 
+            z-index: 1;
+        }
+        .home{
             box-shadow: 0 -6px 20px;
         }
+
         .header > .row{
             padding: 5px 0px;
         }
@@ -96,6 +99,8 @@ body * {
                 line-height: 40px;
                 padding: 0px 15px;
                 margin: 5px 0 0 0;
+                background-color: transparent;
+                border-radius: 30px;
             }
             .container > .row > nav > .home-active {
                 background-color: var(--main-color);
@@ -106,6 +111,7 @@ body * {
                 background-color: var(--main-color);
                 color: #fff;
                 border-radius: 30px;
+                transition: .8s;
             }
             
 /* Hamburger */  
@@ -178,7 +184,7 @@ body * {
             height: 100vh;
             background-position: 80% 100%;
             background-repeat: no-repeat;
-            background-size: 43vh;
+            background-size: 42vh;
             padding: 95px 0px;
         }
             .hero .heroPart {
@@ -384,7 +390,59 @@ body * {
                     }
 
 /* MY SERVICES section */
+#services > .row > #myServices{
+    display: inline-block;
+    float: left;
+    width: 100%;
+    padding: 20px 0 0 0;
+} 
+#services > .row > #myServices > .service{
+    display: inline-block;
+    position: relative;
+    float: left;
+    width: 25%;
+    padding: 10px 10px;
+    text-align: center;
+} 
+    #services > .row > #myServices > .service:hover .fa{
+        animation-name: iconAnimation;
+        animation-duration: .2s;
+        animation-timing-function: cubic-bezier(1, 1, 1, 1);
+        animation-iteration-count: 1;
+        animation-timing-function:ease-in-out;
+    }
+    @keyframes iconAnimation { 
+        from { 
+            transform: rotateY(-90deg);
+        } to { 
+            transform: rotateY(90deg);
+        }
+    }
+    #services > .row > #myServices > .service > .fa{
+        font-size: 60px;
+        line-height: 100px;
+        color: var(--main-color);
+    }
+    #services > .row > #myServices > .service > h3{
+        font-size: 25px;
+        line-height: 35px;
+        text-transform: uppercase;
+    }
+        #services > .row > #myServices > .service > h3::after {
+            content:"";
+            display: block;
+            position: absolute;
+            left: calc(50% - 30px);
+            background-color: var(--main-color);
+            height: 1px;
+            width: 60px;
+        }
 
+    #services > .row > #myServices > .service > p{
+        font-size: 18px;
+        line-height: 20px;
+        padding: 15px 0;
+    } 
 /* EDUCATION section */
 
 /* SKILLS section */
@@ -457,6 +515,29 @@ body * {
 /* EXPERIENCE section */
 
 /* STATISTICS section */
+#activities > .row > .statistics{
+    display: inline-block;
+    float: left;
+    width: 33.3%;
+    /* background-color: sandybrown; */
+}
+    #activities > .row > .statistics > .fa{
+        font-size: 80px;
+        line-height: 90px;
+        color: var(--lightText-color);
+    }
+    #activities > .row > .statistics > .number{
+        font-size: 60px;
+        line-height: 70px;
+        font-weight: 800;
+        color: var(--main-color);
+    }
+    #activities > .row > .statistics > .name{
+        font-size: 20px;
+        line-height: 30px;
+        color: var(--lightText-color);
+        text-transform: uppercase
+    }
 
 /* FREELANCE section */
 
@@ -582,7 +663,7 @@ body * {
         color: var(--lighterText-color);
     }
 
-    @media ( min-width: 1300px ) {
+    @media ( min-width: 1300px ) { /*gal reikėtų meniu palikti ilgiau ?*/
             .container > .row > .hamburger-menu {
                 display: none;
             }
@@ -638,9 +719,15 @@ body * {
             width: 800px;
             margin: 0 calc((100% - 800px) / 2);
         }
+        .header{
+            padding: 15px 30px;
+            background-color: transparent;
+            box-shadow: none;
+        }
 /* HERO section */
 .hero{
-    background-position: 80% 50%;
+    background-position: 85% 100%;
+    background-size: 45vh;
 }
 
 /* ABOUT ME section */
@@ -678,12 +765,16 @@ body * {
         }
     
 /* HERO section */
-.hero{
-    background-position: 90% 50%;
-}
+    .hero{
+        background-position: 95% 100%;
+        background-size: 45vh;
+    }
 /* ABOUT ME section */
 
 /* MY SERVICES section */
+#services > .row > #myServices > .service{
+    width: 50%;
+} 
 
 /* EDUCATION section */
 
@@ -713,21 +804,29 @@ body * {
 /* BOTTOM NAVIGATION section */
 
 /* FOOTER section */
-    }
-
 
     @media ( max-width: 800px ) {
-        .container {
+        /* .container {
             padding: 80px 30px;
-        }
+        } */
             .container > .row {
                 width: 100%;
                 margin: 0;
             }
-    .hero{
-        background-position: 100% 50%;
-    }
+            .container > .left-link {
+                display: none;
+            }
+            .container > .right-link {
+                display: none;
+            }
 
+
+    .hero{
+        background-position: 100% 100%;
+    }
+    .hero p{
+        padding: 0 43% 0 0;
+    }
 
 /* HERO section */
 
@@ -771,17 +870,198 @@ body * {
         margin: 0;
     }
     .hero{
-        background-position: 110% 50%;
+        background-position: 115% 100%;
+        padding: 50px 0px;
     }
-        .hero .left  {
-            width: 100%;
-        }         
-        .hero .right {
-            display: none;
-        }
         .hero p{
-            padding: 0 45% 0 0;
+            padding: 0 50% 0 0;
         }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+#services > .row > #myServices > .service{
+    width: 100%;
+} 
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+
+@media ( max-width: 500px ) {
+    .container > .row {
+        width: 100%;
+        margin: 0;
+    }
+    .hero{
+        background-position: 140% 100%;
+        padding: 50px 0px;
+        background-size: 40vh;
+    }
+        .hero p{
+            padding: 0 30% 0 0;
+        }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+
+@media ( max-width: 400px ) {
+    .container > .row {
+        width: 100%;
+        margin: 0;
+    }
+    .hero{
+        background-position: 150% 100%;
+        padding: 50px 0px;
+        background-size: 40vh;
+    }
+        .hero p{
+            padding: 0 30% 0 0;
+        }
+        .hero h1{
+            padding: 0 30% 0 0;
+            text-align: center;
+        }
+        .hero h1::after {
+            left: calc(30% - 40px);
+            margin: 10px 0;
+        }
+        .hero .heroPart {
+            padding: 20px 0;
+        }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+@media ( max-width: 384px ) {
+    .hero{
+        background-position: 190% 100%;
+        padding: 100px 0px 70px;
+    }
+        .hero p{
+            padding: 0 40% 0 0;
+        }
+
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
+@media ( max-width: 320px ) {
+    .hero{
+        background-position: 180% 100%;
+        padding: 80px 0px 50px;
+    }
+        .hero p{
+            padding: 0 40% 0 0;
+            font-size: 18px;
+        }
+        .hero h1{
+            padding: 0 30% 0 0;
+            text-align: center;
+            font-size: 38px;
+            line-height: 38px;
+            text-align: left;
+        }
+        
 
 /* HERO section */
 

@@ -33,22 +33,32 @@ function headerScrollDetector() {
         
         sectionID = sectionID.substring(1);                 //atima iš sekcijos ID #
         sekcijosPavadinimas.push(sectionID);                //surenka sekcijų pavadinimus į vieną sąrašą;
-        var sectionNameNowH = '#'+sectionID;
-        var height = parseFloat(window.getComputedStyle( document.querySelector(sectionNameNowH) ).height);  
+        var sectionNameNowH = '#'+sectionID;                //prie išgryninto sekcijos vardo vėl prideda #, kad pagal selektorių būtų galima susirasti einamos sekcijos aukštį
+        var height = parseFloat(window.getComputedStyle( document.querySelector(sectionNameNowH) ).height);  //suskaičiuoja einamos sekcijos aukštį
             
-        if((scroll>=sections[i]) && scroll < sections[i]+height ){       //jeigu skrolas yra tarp tikrinamos sekcijos ir tarp sekančios tikrinamos sekcijos 
-                sectionNameNow = sectionID;                 // tada dabartinės sekcijos pavadinimas yra tos sek
-                var hrefValue = 'a[href="#'+sectionID+'"]';
-                var element = document.querySelector(hrefValue);
-                element.classList.add('active');}
-        if((scroll<=sections[i]) || scroll > sections[i]+height ){ 
-            sectionNameNow = sectionID;                 
-            var hrefValue = 'a[href="#'+sectionID+'"]';
-            var element = document.querySelector(hrefValue);
-            element.classList.remove('active');
-            }else{
-                continue;
+        if((scroll>=sections[i]) && scroll < sections[i]+height ){  //jeigu skrolas yra tarp tikrinamos sekcijos ir tarp sekančios tikrinamos sekcijos 
+                sectionNameNow = sectionID;                         // tada dabartinės sekcijos pavadinimas yra tos sek
+                var hrefValue = 'a[href="#'+sectionID+'"]';         // sugeneruoja esamos sekcijos nuorodą
+                var element = document.querySelector(hrefValue);    // elementui, kuris turi tokį selektorių "a[href="#XXX"]" 
+                element.classList.add('active');}                   // bus pridėta papildoma klasė - "active"
+        
+        if((scroll<=sections[i]) || scroll > sections[i]+height ){  //jeigu skrolas yra visur kitur bet ne esamoje sekcijoje
+            sectionNameNow = sectionID;                             // tada dabartinės sekcijos pavadinimas yra tos sek
+            var hrefValue = 'a[href="#'+sectionID+'"]';             // sugeneruoja esamos sekcijos nuorodą
+            var element = document.querySelector(hrefValue);        // elementui, kuris turi tokį selektorių "a[href="#XXX"]" 
+            element.classList.remove('active');                     // bus pridėta papildoma klasė - "active"
+            }else{                                                  //kitu atveju
+                continue;                                           //sukti ciklą toliau
             }
+
+        if(scroll>100){                                         //Jei skrolas daugiau už 100
+            var stickyHead = document.querySelector("header");  //tai pirmas selektorius su pavadinimu "header"
+            stickyHead.classList.add('home');                   //gaus klasę "home"
+        }
+        if(scroll<100){                                         //Jei skrolas mažiau už 100
+            var stickyHead = document.querySelector("header");  //tai pirmas selektorius su pavadinimu "header"
+            stickyHead.classList.remove('home');                //praras klasę "home" 
+        }
     }
     // console.log( sections );
     // console.log( scroll+'dabartinis aukštis' );
@@ -56,10 +66,10 @@ function headerScrollDetector() {
     // console.log (sekcijuSarasas);
     // console.log(sectionID = sectionID.substring(1))
     // console.log( sekcijosPavadinimas );
-    console.log( 'sectionNameNow '+ sectionNameNow );
-    console.log( hrefValue );
-    console.log( element );
-    console.log( height )
+    // console.log( 'sectionNameNow '+ sectionNameNow );
+    // console.log( hrefValue );
+    // console.log( element );
+    // console.log( height )
 }
 
 
@@ -119,3 +129,38 @@ function generateFooterIcons( data ) {
 
     return HTML;
 }
+//SERVICES
+function generateServices( data ) {
+    var HTML = '';
+    
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].icon === '' ||
+             data[i].name === '' ||
+             data[i].description === '' ) {
+            continue;
+        }
+        HTML += '<div class="service"><i class="fa fa-'+data[i].icon+'"></i><h3>'+data[i].name+'</h3><p>'+data[i].description+'</p></div>'
+    }
+    return HTML;
+}
+//STATISTICS
+function generateStatistics( data ) {
+    var HTML = '';
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].icon === '' ||
+             data[i].score === '' ||
+             data[i].name === '' ) {
+            continue;
+        }
+        HTML += '<div class="statistics"><i class="fa fa-'+data[i].icon+'"></i><p class="number">'+data[i].score+'</p><p class="name">'+data[i].name+'</p></div>'
+    }
+    return HTML;
+}
+
+
+// setInterval(dynamicNumbers,1000); nieko nesugalvoju...
+//         function dynamicNumbers(){
+//             var a = 2048;
+//             var b = a
+//         }
+//         console.log( a )
