@@ -450,6 +450,29 @@ body * {
 /* EXPERIENCE section */
 
 /* STATISTICS section */
+#activities > .row > .statistics{
+    display: inline-block;
+    float: left;
+    width: 33.3%;
+    /* background-color: sandybrown; */
+}
+    #activities > .row > .statistics > .fa{
+        font-size: 80px;
+        line-height: 90px;
+        color: var(--lightText-color);
+    }
+    #activities > .row > .statistics > .number{
+        font-size: 60px;
+        line-height: 70px;
+        font-weight: 800;
+        color: var(--main-color);
+    }
+    #activities > .row > .statistics > .name{
+        font-size: 20px;
+        line-height: 30px;
+        color: var(--lightText-color);
+        text-transform: uppercase
+    }
 
 /* FREELANCE section */
 

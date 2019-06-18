@@ -81,6 +81,22 @@ var servicesInfo = [
         icon:'line-chart',
         name:'Seo merketing',
         description:'The life of a designer is a life of fight. Just like a doctor fights against disease.'
+    }
+]
+var statisticsInfo = [
+    {
+        icon:'check',
+        score:'2084',
+        name:'Projects finished'
     },
-
+    {
+        icon:'users',
+        score:'380',
+        name:'Satisfied clients'
+    },
+    {
+        icon:'trophy',
+        score:'218',
+        name:'Award won'
+    }
 ]
