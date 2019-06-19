@@ -447,21 +447,20 @@ body * {
 
 /* SKILLS section */
 
-    .container > .row > .progress-bar-right,
-    .container > .row > .progress-bar-left {
+    /* .container > .row > .progress-bar-right,
+    .container > .row > .progress-block {
         display: inline-block;
         width: 50%;
         float: left;
         padding: 0 20px;
-    }
-        .row > .progress-bar-right > .progress-block,
-        .row > .progress-bar-left > .progress-block {
-            width: 100%;
-            display: block;
+    } */
+        .row > .progress-block {
+            width: 49%;
+            display: inline-block;
             margin-bottom: 30px;
+            padding: 0 10px;
         }
-        .row > .progress-bar-right > .progress-block > .texts,
-        .row > .progress-bar-left > .progress-block > .texts {
+        .row > .progress-block > .texts {
             display: inline-block;
             width: 100%;
             font-size: 15px;
@@ -469,18 +468,15 @@ body * {
             font-weight: bold;
             text-transform: uppercase;
         }
-            .progress-bar-right > .progress-block > .texts > .title,
-            .progress-bar-left > .progress-block > .texts > .title {
+            .progress-block > .texts > .title {
                 display: inline-block;
                 float: left;
             }
-            .progress-bar-right > .progress-block > .texts > .value,
-            .progress-bar-left > .progress-block > .texts > .value {
+            .progress-block > .texts > .value {
                 display: inline-block;
                 float: right;
             }
-        .row > .progress-bar-right > .progress-block > .bar,
-        .row > .progress-bar-left > .progress-block > .bar {
+        .row > .progress-block > .bar {
             text-align: left;
             display: inline-block;
             width: 100%;
@@ -488,13 +484,11 @@ body * {
             background-color: var(--lightText-color);
             border-radius: 3px;
         }
-            .progress-bar-right > .progress-block > .bar > .bar-value,
-            .progress-bar-left > .progress-block > .bar > .bar-value {
+            .progress-block > .bar > .bar-value {
                 display: inline-block;
                 height: 100%;
             }
-                .progress-bar-right > .progress-block > .bar > .bar-value > .bar-fill,
-                .progress-bar-left > .progress-block > .bar > .bar-value > .bar-fill {
+                .progress-block > .bar > .bar-value > .bar-fill {
                     display: inline-block;
                     height: 100%;
                     border-radius: 3px;
@@ -780,10 +774,7 @@ body * {
 
 /* SKILLS section */
 
-    .container > .row > .progress-bar-left {
-        width: 100%;
-    }
-    .container > .row > .progress-bar-right {
+    .container > .row > .progress-block {
         width: 100%;
     }
 
