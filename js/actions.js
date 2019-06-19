@@ -22,12 +22,10 @@ document.getElementById('myStatistics').innerHTML = generateStatistics( statisti
 
 // EXPERIENCE section
 
-// STATISTICS section
-
 // FREELANCE section
 
 // MY PORTFOLIO section
-
+document.getElementById('myWorks').innerHTML = generateMyWorks( myWorkInfo );
 // TESTIMONIALS section
 
 // MY BLOGS section
