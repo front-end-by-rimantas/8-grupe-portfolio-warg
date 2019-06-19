@@ -1,4 +1,7 @@
 "use strict";
+
+// HERO ICONS
+
 var Icons = [
     {
         icon: 'facebook',
@@ -22,6 +25,8 @@ var Icons = [
     }
 ];
 
+// FOOTER ICONS
+
 var footerIcons = [
     {
         icon: 'facebook',
@@ -40,6 +45,8 @@ var footerIcons = [
         link: '#'
     }
 ];
+
+// SERVICES 
 
 var servicesInfo = [
     {
@@ -83,6 +90,9 @@ var servicesInfo = [
         description:'The life of a designer is a life of fight. Just like a doctor fights against disease.'
     }
 ]
+
+// STATISTICS 
+
 var statisticsInfo = [
     {
         icon:'check',
@@ -100,6 +110,9 @@ var statisticsInfo = [
         name:'Award won'
     }
 ]
+
+// SKILL BAR
+
 var fillBarInfo = [
     {
         title: 'HTML5, CSS',
@@ -126,4 +139,30 @@ var fillBarInfo = [
         value: '78%',
     },
 
+]
+
+// BLOGS 
+
+var blog = [
+    {
+        photo: 'blog-2.jpg',
+        info: ['Technology', '15th July'],
+        heading: 'Designed for Everyone, Everywhere',
+        description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
+        personal_info: ['#', 'By', 'Jason Doe']
+    },
+    {
+        photo: '#',
+        info: ['Web Design', '27th June'],
+        heading: `Don't Just Be a Designer, Be a Good one`,
+        description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
+        personal_info: ['#', 'By', 'Jason Doe']
+    },
+    {
+        photo: '#',
+        info: ['Trending', '17th March'],
+        heading: 'Creative and Innovative Navigation Designs',
+        description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
+        personal_info: ['#', 'By', 'Dennis Ritchie']
+    },
 ]
