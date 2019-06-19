@@ -31,6 +31,7 @@ document.getElementById('myStatistics').innerHTML = generateStatistics( statisti
 // TESTIMONIALS section
 
 // MY BLOGS section
+document.getElementById('blog-list').innerHTML = generateBlog( blog );
 
 // CONTACT ME section
 

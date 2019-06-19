@@ -71,7 +71,7 @@ body * {
             position: fixed;
             padding: 5px 0px;
             background-color: var(--background-color);
-            z-index: 1;
+            z-index: 10;
         }
         .home{
             box-shadow: 0 -6px 20px;
@@ -651,13 +651,6 @@ body * {
 
 /* SKILLS section */
 
-    /* .container > .row > .progress-bar-right,
-    .container > .row > .progress-block {
-        display: inline-block;
-        width: 50%;
-        float: left;
-        padding: 0 20px;
-    } */
         .row > .progress-block {
             width: 49%;
             display: inline-block;
@@ -758,6 +751,59 @@ body * {
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
+
+        .container > #blog-list > .blog {
+            display: inline-block;
+            float: left;
+            width: 32%;
+            margin-left: 2%;
+            box-shadow: 0 4px 8px #CCC;
+        }
+            #blog-list > .blog:nth-child(3n+1) {
+                margin-left: 0;
+            }
+            #blog-list > .blog > .blog-meta {
+                position: relative;
+                padding: 20px;
+                text-align: left;
+            }
+                .blog > .blog-meta > span {
+                    font-weight: bold;
+                }
+                    .blog > .blog-meta > .color-text {
+                        color: var(--main-color);
+                    }
+                    .blog > .blog-meta > .usual-text {
+                        color: var(--text-color);
+                    }
+                .blog > .blog-meta > h3 {
+                    font-weight: bold;
+                    margin-top: 10px;
+                    margin-bottom: 14px;
+                }
+                .blog > .blog-meta > p {
+                    margin: 0 0 10px;
+                }
+                .blog > .blog-meta > .social-layer {
+                    display: inline-block;
+                    position: absolute;
+                    text-align: center;
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    background-color: #fff;
+                    box-shadow: 0 4px 8px #CCC;
+                    line-height: 50px;
+                    top: -25px;
+                    right: 25px;
+                }
+                    .blog-meta > .social-layer > i {
+                        display: inline-block;
+                        color: var(--main-color);
+                        font-size: 26px;
+                        line-height: inherit;
+
+                    }
 
 /* CONTACT ME section */
 
@@ -1397,4 +1443,4 @@ body * {
 /* BOTTOM NAVIGATION section */
 
 /* FOOTER section */
-}
+}}

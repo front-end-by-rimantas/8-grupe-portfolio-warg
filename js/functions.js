@@ -173,6 +173,25 @@ function generateIcons( data ) {
          
     // }
 
+// BLOGS
+
+function generateBlog ( data ) {
+    var HTML = '';
+    for (var i=0; i<data.length; i++) {
+        HTML += `<div class="blog">
+        <div class="img" style="background-image: url(..img/blog/${data[i].photo});"></div>
+        <div class="blog-meta">
+        <span class="color-text">${data[i].info[0]}</span><span class="usual-text"> ${data[i].info[1]}</span>
+        <h3>${data[i].heading}</h3>
+        <p>${data[i].description}</p>
+        <div class="img-2" style="background-image: url(img/blog/${data[i].personal_info[0]});"></div> 
+        <span class="usual-text">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
+        <div class="social-layer"><i class="fa fa-share-alt"></i></div>
+        </div>
+                </div>`
+    }
+    return HTML
+}
 
 //BOTTOM
 function generateFooterIcons( data ) {
