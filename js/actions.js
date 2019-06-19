@@ -17,7 +17,7 @@ document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
 // EXPERIENCE section
 document.getElementById('myExperience').innerHTML = generateExperience( experienceInfo );
 // STATISTICS section
-
+document.getElementById('myStatistics').innerHTML = generateStatistics( statisticsInfo );
 // SKILLS section
 
 // EXPERIENCE section
