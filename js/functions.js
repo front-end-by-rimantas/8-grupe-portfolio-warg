@@ -59,6 +59,20 @@ function headerScrollDetector() {
             var stickyHead = document.querySelector("header");  //tai pirmas selektorius su pavadinimu "header"
             stickyHead.classList.remove('home');                //praras klasę "home" 
         }
+        // var atstumas,
+        // skillTop = document.getElementById('skills').offsetTop,
+        // style = document.getElementsByClassName('bar-fill'),
+        // styleArray = window.getComputedStyle(style);
+        // console.log(styleArray);
+        // if (scroll>skillTop) {
+        //     barStyle.push ({
+        //         style: newStyle
+        //     });
+
+        // } else {
+        //     atstumas=false;
+        // }
+        // console.log(atstumas);
     }
     // console.log( sections );
     // console.log( scroll+'dabartinis aukštis' );
@@ -97,9 +111,11 @@ function generateIcons( data ) {
 // SKILLBARS
 
     // function fillBar (seconds) {
-    //     const bar = document.querySelector(".bar-fill");
+    //     var bar = document.querySelector(".bar-fill");
+    //     var count = document.querySelectorAll(".bar-fill").length;
     //     let atPercent = 0;
-    //     const interval = setInterval(() => {
+    //     count = 
+    //     var interval = setInterval(() => {
     //         bar.style.width = atPercent + '%';
     //         atPercent++;
     //         console.log("running at", atPercent);
@@ -113,6 +129,49 @@ function generateIcons( data ) {
     //     }
     // }
     // console.log(fillBar(1))
+
+    // function fillBar() {
+    //     const bar = document.querySelector(".bar-fill");
+
+    //     const style = getComputedStyle(bar);
+    //     console.log(style);
+    //     width = width + bar.style.width;
+        
+    // // }
+    // console.log(fillBar());
+
+    function generateProgress( data ) {
+        var HTML = '';
+        for ( var i=0; i<data.length; i++ ) {
+            if ( data[i].title === '' ||
+                 data[i].value === '' ) {
+                continue;
+            }
+            HTML += `<div class="progress-block">
+            <div class="texts">
+                <div class="title">${data[i].title}</div>
+                <div class="value">${data[i].value}</div>
+            </div>
+            <div class="bar">
+                <div class="bar-value" style="width: ${data[i].value};">
+                    <div class="bar-fill"></div>
+                </div>
+            </div>
+        </div>`
+        }
+        return HTML;
+    }
+    // console.log(generateProgress(fillBarInfo));
+
+    // function skillBarAnimation () {
+    //    var sections = [],
+    //        scroll = scroll = window.scrollY + elementHeight('header'),
+    //        bodySectionCount = document.querySelectorAll('container').length,
+    //        skillTop = document.getElementById('skills').offsetTop,
+    //        sectionID = '',
+
+         
+    // }
 
 
 //BOTTOM
