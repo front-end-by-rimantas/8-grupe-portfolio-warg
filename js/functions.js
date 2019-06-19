@@ -186,7 +186,7 @@ function generateBlog ( data ) {
         <p>${data[i].description}</p>
         <div class="img-2" style="background-image: url(img/blog/${data[i].personal_info[0]});"></div> 
         <span class="usual-text">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
-        <div class="social-layer"></div>
+        <div class="social-layer"><i class="fa fa-share-alt"></i></div>
         </div>
                 </div>`
     }
