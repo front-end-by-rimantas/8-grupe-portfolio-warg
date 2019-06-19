@@ -234,7 +234,108 @@ function generateStatistics( data ) {
     }
     return HTML;
 }
-
+// EDUCATION section
+function generateEducation( data ) {
+    var HTML = '';
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].month === '' ||
+             data[i].day === '' ||
+             data[i].year === '' ||
+             data[i].degree === '' ||
+             data[i].place === '' ||
+             data[i].outline === '' ) {
+            continue;
+        }
+        if( (i+1) % 2 != 0){
+            HTML += `<div class="lefty">
+                            <div class="data">
+                                <div class="month">${data[i].month}</div>
+                                <div class="year">${data[i].day}</div>
+                            </div>
+                            <div class="text">
+                                <h4 class="degree">${data[i].degree}</h4>
+                                <div class="school">
+                                    <p>${data[i].year}</p>
+                                    <span></span>
+                                    <p>${data[i].place}.</p>
+                                </div>
+                                <p class="outline">${data[i].outline}</p>
+                            </div>
+                        </div>
+                    </div>`
+        }
+        if( (i+1) % 2 == 0){
+            HTML += `   <div class="righty">
+                            <div class="data">
+                                <div class="month">${data[i].month}</div>
+                                <div class="year">${data[i].day}</div>
+                            </div>
+                            <div class="text">
+                                <h4 class="degree">${data[i].degree}</h4>
+                                <div class="school">
+                                    <p>${data[i].year}</p>
+                                    <span></span>
+                                    <p>${data[i].place}.</p>
+                                </div>
+                                <p class="outline">${data[i].outline}</p>
+                            </div>
+                        </div>
+                    </div>`
+        }
+    }
+    return HTML;
+}
+// EXPERIENCE section
+function generateExperience( data ) {
+    var HTML = '';
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].month === '' ||
+             data[i].day === '' ||
+             data[i].year === '' ||
+             data[i].degree === '' ||
+             data[i].place === '' ||
+             data[i].outline === '' ) {
+            continue;
+        }
+        if( (i+1) % 2 != 0){
+            HTML += `<div class="lefty">
+                            <div class="data">
+                                <div class="month">${data[i].month}</div>
+                                <div class="year">${data[i].day}</div>
+                            </div>
+                            <div class="text">
+                                <h4 class="degree">${data[i].degree}</h4>
+                                <div class="school">
+                                    <p>${data[i].year}</p>
+                                    <span></span>
+                                    <p>${data[i].place}.</p>
+                                </div>
+                                <p class="outline">${data[i].outline}</p>
+                            </div>
+                        </div>
+                    </div>`
+        }
+        if( (i+1) % 2 == 0){
+            HTML += `   <div class="righty">
+                            <div class="data">
+                                <div class="month">${data[i].month}</div>
+                                <div class="year">${data[i].day}</div>
+                            </div>
+                            <div class="text">
+                                <h4 class="degree">${data[i].degree}</h4>
+                                <div class="school">
+                                    <p>${data[i].year}</p>
+                                    <span></span>
+                                    <p>${data[i].place}.</p>
+                                </div>
+                                <p class="outline">${data[i].outline}</p>
+                            </div>
+                        </div>
+                    </div>`
+        }
+    }
+    return HTML;
+}
 
 // setInterval(dynamicNumbers,1000); nieko nesugalvoju...
 //         function dynamicNumbers(){

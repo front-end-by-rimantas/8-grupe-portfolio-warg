@@ -11,13 +11,18 @@ document.getElementById('icons').innerHTML = generateIcons( Icons );
 document.getElementById('myServices').innerHTML = generateServices( servicesInfo );
 
 // EDUCATION section
-
+document.getElementById('myEducation').innerHTML = generateEducation( educationInfo );
+// SKILLS section
+document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
+// EXPERIENCE section
+document.getElementById('myExperience').innerHTML = generateExperience( experienceInfo );
+// STATISTICS section
+document.getElementById('myStatistics').innerHTML = generateStatistics( statisticsInfo );
 // SKILLS section
 
 // EXPERIENCE section
 
 // STATISTICS section
-document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
 
 // FREELANCE section
 
@@ -32,5 +37,4 @@ document.getElementById('blog-list').innerHTML = generateBlog( blog );
 
 // BOTTOM NAVIGATION section
 document.getElementById('footer_icons').innerHTML = generateFooterIcons( footerIcons );
-
 // FOOTER section
