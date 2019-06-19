@@ -13,9 +13,15 @@ document.getElementById('myServices').innerHTML = generateServices( servicesInfo
 // EDUCATION section
 document.getElementById('myEducation').innerHTML = generateEducation( educationInfo );
 // SKILLS section
-
+document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
 // EXPERIENCE section
 document.getElementById('myExperience').innerHTML = generateExperience( experienceInfo );
+// STATISTICS section
+
+// SKILLS section
+
+// EXPERIENCE section
+
 // STATISTICS section
 
 // FREELANCE section
@@ -30,5 +36,4 @@ document.getElementById('myExperience').innerHTML = generateExperience( experien
 
 // BOTTOM NAVIGATION section
 document.getElementById('footer_icons').innerHTML = generateFooterIcons( footerIcons );
-
 // FOOTER section

@@ -100,13 +100,6 @@ var statisticsInfo = [
         name:'Award won'
     }
 ]
-var fillBarInfo =[
-    {
-        title: 'HTML5, CSS3',
-        value: '98%'
-    }
-]
-
 var educationInfo = [
     {
         month:'July',
@@ -191,4 +184,31 @@ var experienceInfo = [
         place:'Web Agency',
         outline:'Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae.'
     }
+]
+var fillBarInfo = [
+    {
+        title: 'HTML5, CSS',
+        value: '98%',
+    },
+    {
+        title: 'Adobe Photoshop',
+        value: '86%',
+    },
+    {
+        title: 'Bootstrap',
+        value: '92%',
+    },
+    {
+        title: 'PHP & MYSQL',
+        value: '85%',
+    },
+    {
+        title: 'Laravel',
+        value: '96%',
+    },
+    {
+        title: 'Wordpress',
+        value: '78%',
+    },
+
 ]
