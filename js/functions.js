@@ -59,6 +59,20 @@ function headerScrollDetector() {
             var stickyHead = document.querySelector("header");  //tai pirmas selektorius su pavadinimu "header"
             stickyHead.classList.remove('home');                //praras klasę "home" 
         }
+        // var atstumas,
+        // skillTop = document.getElementById('skills').offsetTop,
+        // style = document.getElementsByClassName('bar-fill'),
+        // styleArray = window.getComputedStyle(style);
+        // console.log(styleArray);
+        // if (scroll>skillTop) {
+        //     barStyle.push ({
+        //         style: newStyle
+        //     });
+
+        // } else {
+        //     atstumas=false;
+        // }
+        // console.log(atstumas);
     }
     // console.log( sections );
     // console.log( scroll+'dabartinis aukštis' );
@@ -94,6 +108,91 @@ function generateIcons( data ) {
 
     return HTML;
 }
+// SKILLBARS
+
+    // function fillBar (seconds) {
+    //     var bar = document.querySelector(".bar-fill");
+    //     var count = document.querySelectorAll(".bar-fill").length;
+    //     let atPercent = 0;
+    //     count = 
+    //     var interval = setInterval(() => {
+    //         bar.style.width = atPercent + '%';
+    //         atPercent++;
+    //         console.log("running at", atPercent);
+    //         if (atPercent >= 100) {
+    //             clearInterval(interval);
+    //         }
+    //     }, (seconds * 1000) / 100)
+    //     var bars = document.getElementsByClassName ('bar-fill');
+    //     for (i=0; i<bars.length; i++) {
+
+    //     }
+    // }
+    // console.log(fillBar(1))
+
+    // function fillBar() {
+    //     const bar = document.querySelector(".bar-fill");
+
+    //     const style = getComputedStyle(bar);
+    //     console.log(style);
+    //     width = width + bar.style.width;
+        
+    // // }
+    // console.log(fillBar());
+
+    function generateProgress( data ) {
+        var HTML = '';
+        for ( var i=0; i<data.length; i++ ) {
+            if ( data[i].title === '' ||
+                 data[i].value === '' ) {
+                continue;
+            }
+            HTML += `<div class="progress-block">
+            <div class="texts">
+                <div class="title">${data[i].title}</div>
+                <div class="value">${data[i].value}</div>
+            </div>
+            <div class="bar">
+                <div class="bar-value" style="width: ${data[i].value};">
+                    <div class="bar-fill"></div>
+                </div>
+            </div>
+        </div>`
+        }
+        return HTML;
+    }
+    // console.log(generateProgress(fillBarInfo));
+
+    // function skillBarAnimation () {
+    //    var sections = [],
+    //        scroll = scroll = window.scrollY + elementHeight('header'),
+    //        bodySectionCount = document.querySelectorAll('container').length,
+    //        skillTop = document.getElementById('skills').offsetTop,
+    //        sectionID = '',
+
+         
+    // }
+
+// BLOGS
+
+function generateBlog ( data ) {
+    var HTML = '';
+    for (var i=0; i<data.length; i++) {
+        HTML += `<div class="blog">
+        <div class="img" style="background-image: url(../img/blogs/${data[i].photo});"></div>
+        <div class="blog-meta">
+        <span class="color-text">${data[i].info[0]}</span><span class="usual-text"> ${data[i].info[1]}</span>
+        <h3>${data[i].heading}</h3>
+        <p>${data[i].description}</p>
+        <div class="img-2" style="background-image: url(../img/blogs/${data[i].personal_info[0]});"></div> 
+        <span class="usual-text">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
+        <div class="social-layer"><i class="fa fa-share-alt"></i></div>
+        </div>
+                </div>`
+    }
+    return HTML
+}
+
 //BOTTOM
 function generateFooterIcons( data ) {
     var HTML = '';
@@ -120,6 +219,127 @@ function generateServices( data ) {
         }
         HTML += '<div class="service"><i class="fa fa-'+data[i].icon+'"></i><h3>'+data[i].name+'</h3><p>'+data[i].description+'</p></div>'
     }
-
     return HTML;
 }
+//STATISTICS
+function generateStatistics( data ) {
+    var HTML = '';
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].icon === '' ||
+             data[i].score === '' ||
+             data[i].name === '' ) {
+            continue;
+        }
+        HTML += '<div class="statistics"><i class="fa fa-'+data[i].icon+'"></i><p class="number">'+data[i].score+'</p><p class="name">'+data[i].name+'</p></div>'
+    }
+    return HTML;
+}
+// EDUCATION section
+function generateEducation( data ) {
+    var HTML = '';
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].month === '' ||
+             data[i].day === '' ||
+             data[i].year === '' ||
+             data[i].degree === '' ||
+             data[i].place === '' ||
+             data[i].outline === '' ) {
+            continue;
+        }
+        if( (i+1) % 2 != 0){
+            HTML += `<div class="lefty">
+                            <div class="data">
+                                <div class="month">${data[i].month}</div>
+                                <div class="year">${data[i].day}</div>
+                            </div>
+                            <div class="text">
+                                <h4 class="degree">${data[i].degree}</h4>
+                                <div class="school">
+                                    <p>${data[i].year}</p>
+                                    <span></span>
+                                    <p>${data[i].place}.</p>
+                                </div>
+                                <p class="outline">${data[i].outline}</p>
+                            </div>
+                        </div>
+                    </div>`
+        }
+        if( (i+1) % 2 == 0){
+            HTML += `   <div class="righty">
+                            <div class="data">
+                                <div class="month">${data[i].month}</div>
+                                <div class="year">${data[i].day}</div>
+                            </div>
+                            <div class="text">
+                                <h4 class="degree">${data[i].degree}</h4>
+                                <div class="school">
+                                    <p>${data[i].year}</p>
+                                    <span></span>
+                                    <p>${data[i].place}.</p>
+                                </div>
+                                <p class="outline">${data[i].outline}</p>
+                            </div>
+                        </div>
+                    </div>`
+        }
+    }
+    return HTML;
+}
+// EXPERIENCE section
+function generateExperience( data ) {
+    var HTML = '';
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].month === '' ||
+             data[i].day === '' ||
+             data[i].year === '' ||
+             data[i].degree === '' ||
+             data[i].place === '' ||
+             data[i].outline === '' ) {
+            continue;
+        }
+        if( (i+1) % 2 != 0){
+            HTML += `<div class="lefty">
+                            <div class="data">
+                                <div class="month">${data[i].month}</div>
+                                <div class="year">${data[i].day}</div>
+                            </div>
+                            <div class="text">
+                                <h4 class="degree">${data[i].degree}</h4>
+                                <div class="school">
+                                    <p>${data[i].year}</p>
+                                    <span></span>
+                                    <p>${data[i].place}.</p>
+                                </div>
+                                <p class="outline">${data[i].outline}</p>
+                            </div>
+                        </div>
+                    </div>`
+        }
+        if( (i+1) % 2 == 0){
+            HTML += `   <div class="righty">
+                            <div class="data">
+                                <div class="month">${data[i].month}</div>
+                                <div class="year">${data[i].day}</div>
+                            </div>
+                            <div class="text">
+                                <h4 class="degree">${data[i].degree}</h4>
+                                <div class="school">
+                                    <p>${data[i].year}</p>
+                                    <span></span>
+                                    <p>${data[i].place}.</p>
+                                </div>
+                                <p class="outline">${data[i].outline}</p>
+                            </div>
+                        </div>
+                    </div>`
+        }
+    }
+    return HTML;
+}
+
+// setInterval(dynamicNumbers,1000); nieko nesugalvoju...
+//         function dynamicNumbers(){
+//             var a = 2048;
+//             var b = a
+//         }
+//         console.log( a )

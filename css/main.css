@@ -71,7 +71,7 @@ body * {
             position: fixed;
             padding: 5px 0px;
             background-color: var(--background-color);
-            z-index: 1;
+            z-index: 10;
         }
         .home{
             box-shadow: 0 -6px 20px;
@@ -444,17 +444,306 @@ body * {
         padding: 15px 0;
     } 
 /* EDUCATION section */
+/* Experience section */
+#education > .row > div,
+#experience > .row > div{
+    display: inline-block;
+    position: relative;
+    width: calc( 50% + 38px );
+}
+    #education > .row > .lefty::before,
+    #education > .row > .righty::before,
+    #experience > .row > .lefty::before,
+    #experience > .row > .righty::before{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        float: right;
+        width: 2px;
+        right: 38px;
+        top: 76px;
+        height: 200px;
+        background-color: var(--lightGrey-color);
+        z-index: -1;
+    }
+    #education > .row > .righty::before,
+    #experience > .row > .righty::before{
+        left: 37px;
+    }
+
+    #education > .row > .lefty,
+    #experience > .row > .lefty{
+        float: left;
+    }
+    #education > .row > .righty,
+    #experience > .row > .righty{
+        float: right;
+    }
+        #education > .row > div > .data,
+        #experience > .row > div > .data{
+            display: inline-block;
+            position: relative;
+            float: right;
+            width: 76px;
+            height: 76px;
+            border: 5px solid white;
+            border-radius: 50%;
+            background-color: var(--main-color);
+            box-shadow: 0 4px 6px 0 rgba(0,0,0,.4);
+            padding: 11px;
+            color: var(--lighterText-color);
+        }
+        #education > .row > .lefty > .data,
+        #experience > .row > .lefty > .data{
+            float: right;    
+        }
+        #education > .row > .righty > .data,
+        #experience > .row > .righty > .data{
+            float: left;    
+        }
+
+            #education > .row > div > .data > .month,
+            #education > .row > div > .data > .year,
+            #experience > .row > div > .data > .month,
+            #experience > .row > div > .data > .year{
+                display: inline-block;     
+                width: 100%;
+                font-weight: bolder;
+                line-height: 20px;
+            }
+            #education > .row > div > .data > .month,
+            #experience > .row > div > .data > .month{
+                font-size: 15px;
+                }
+            #education > .row > div > .data > .year,
+            #experience > .row > div > .data > .year{
+                font-size: 25px;
+            }
+
+            #education > .row > div > .text,
+            #experience > .row > div > .text{
+                display: inline-block;
+                float: left;
+                width: calc(100% - 100px);
+                border-radius: 5px;
+                border: 1px solid var(--lightGrey-color);
+                box-shadow: 0 3px 14px -4px rgba(0,0,0,.4);
+                padding: 30px;  
+                transition: background-color 1s;
+                z-index: 2;
+                width: calc(100% - 100px);
+            }
+                #education > .row > .lefty > .text,
+                #experience > .row > .lefty > .text{
+                    float: left;
+                    text-align: right;
+                }
+                #education > .row > .righty > .text,
+                #experience > .row > .righty > .text{
+                    float: right;
+                    text-align: left;
+                }
+                #education > .row > .lefty > .text::before,
+                #education > .row > .righty >.text::before,
+                #experience > .row > .lefty > .text::before,
+                #experience > .row > .righty >.text::before {
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid;
+                    border-left-color: transparent;
+                    border-bottom-color: transparent;
+                    border-top-color: var(--lightGrey-color);
+                    border-right-color: var(--lightGrey-color);
+                    position: absolute;
+                    background-color: #fff;
+                    right: 89px;
+                    top: 27px;
+                    transform: rotate(45deg);
+                    /* transition: background-color 1s; */
+                    z-index: 1;
+                }
+                #education > .row > .righty >.text::before,
+                #experience > .row > .righty >.text::before{
+                    border-top-color: transparent;
+                    border-right-color: transparent;
+                    border-left-color: var(--lightGrey-color);
+                    border-bottom-color: var(--lightGrey-color);
+                    left: 89px;
+                }
+                    #education > .row > div > .text > .degree,
+                    #education > .row > div > .text > .school,
+                    #experience > .row > div > .text > .degree,
+                    #experience > .row > div > .text > .school{
+                        display: inline-block;
+                        width: 100%;
+                    }
+                    #education > .row > div > .text > .degree,
+                    #experience > .row > div > .text > .degree{
+                        text-transform: uppercase;
+                        font-size: 20px;
+                        line-height: 20px;
+                    }
+                    #education > .row > div > .text > .school,
+                    #experience > .row > div > .text > .school{
+                        margin: 10px 0;
+                        font-weight: bolder;
+                    }
+                    #education > .row > .lefty > .text > .school,
+                    #experience > .row > .lefty > .text > .school{
+                        float: right;
+                    }
+                    #education > .row > .righty > .text > .school,
+                    #experience > .row > .righty > .text > .school{
+                        float: left;
+                    }
+
+                        #education > .row > div > .text > .school > p,
+                        #experience > .row > div > .text > .school > p{
+                            display: inline-block;
+                            font-size: 15px;
+                            line-height: 15px;
+                            color: var(--lightText-color);
+                            padding: 0;
+                        }
+                        #education > .row > div > .text > .school > span,
+                        #experience > .row > div > .text > .school > span{
+                            display: inline-block;
+                            width: 1px;
+                            height: 15px;
+                            background-color: var(--text-color);
+                            margin: 0 5px;
+                        }
+                        #education > .row > div > .text > .school :first-child,
+                        #experience > .row > div > .text > .school :first-child{
+                            color: var(--main-color);
+                        }
+                    #education > .row > div > .text > .outline,
+                    #experience > .row > div > .text > .outline{
+                        display: inline-block;
+                        width: 100%;
+                        font-size: 18px;
+                        line-height: 18px;
+                        padding: 0;
+                    }
+                    
+                #education > .row > div > .text:hover,
+                #experience > .row > div > .text:hover{
+                    background-color: var(--main-color);
+                }
+                    #education > .row > div > .text:hover .degree,
+                    #experience > .row > div > .text:hover .degree {
+                        color: var(--lighterText-color);
+                    }
+                    #education > .row > div > .text:hover .outline,
+                    #experience > .row > div > .text:hover .outline {
+                        color: var(--lighterText-color);
+                    }
+                    #education > .row > div > .text:hover .school :last-child,
+                    #experience > .row > div > .text:hover .school :last-child {
+                        color: var(--lighterText-color);
+                    }
+                    #education > .row > div > .text:hover::before,
+                    #experience > .row > div > .text:hover::before {
+                        background-color: transparent;        
+                        border-color: transparent;
+                    }
 
 /* SKILLS section */
+
+        .row > .progress-block {
+            width: 49%;
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+        .row > .progress-block > .texts {
+            display: inline-block;
+            width: 100%;
+            font-size: 15px;
+            color: var(--text-color);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+            .progress-block > .texts > .title {
+                display: inline-block;
+                float: left;
+            }
+            .progress-block > .texts > .value {
+                display: inline-block;
+                float: right;
+            }
+        .row > .progress-block > .bar {
+            text-align: left;
+            display: inline-block;
+            width: 100%;
+            height: 5px;
+            background-color: var(--lightText-color);
+            border-radius: 3px;
+        }
+            .progress-block > .bar > .bar-value {
+                display: inline-block;
+                height: 100%;
+            }
+                .progress-block > .bar > .bar-value > .bar-fill {
+                    display: inline-block;
+                    height: 100%;
+                    border-radius: 3px;
+                    background-color: var(--main-color);
+                    width: 100%;
+                    animation-name: filling;
+                    animation-duration: 2s;
+                }
+        @keyframes filling {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
 
 /* EXPERIENCE section */
 
 /* STATISTICS section */
+#activities > .row > .statistics{
+    display: inline-block;
+    float: left;
+    width: 33.3%;
+    /* background-color: sandybrown; */
+}
+    #activities > .row > .statistics > .fa{
+        font-size: 80px;
+        line-height: 90px;
+        color: var(--lightText-color);
+    }
+    #activities > .row > .statistics > .number{
+        font-size: 60px;
+        line-height: 70px;
+        font-weight: 800;
+        color: var(--main-color);
+    }
+    #activities > .row > .statistics > .name{
+        font-size: 20px;
+        line-height: 30px;
+        color: var(--lightText-color);
+        text-transform: uppercase
+    }
 
 /* FREELANCE section */
 
     .container > .personal-color {
         color: #fff;
+    }
+    #availibility > .row > h2{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    #availibility > .row > a{
+        width: 25%;
+        font-size: 30px;
+        line-height: 30px;
+        text-decoration: none;
     }
 
 /* MY PORTFOLIO section */
@@ -462,6 +751,75 @@ body * {
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
+
+        .container > #blog-list > .blog {
+            display: inline-block;
+            float: left;
+            width: 32%;
+            margin-left: 2%;
+            box-shadow: 0 4px 8px #CCC;
+            min-height: 500px;
+        }
+            #blog-list > .blog:nth-child(3n+1) {
+                margin-left: 0;
+            }
+            #blog-list > .blog > .img {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 250px;
+                width: 100%;
+            }
+            #blog-list > .blog > .img-2 {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 30px;
+                width: 30px;
+            }
+
+            #blog-list > .blog > .blog-meta {
+                position: relative;
+                padding: 20px;
+                text-align: left;
+            }
+                .blog > .blog-meta > span {
+                    font-weight: bold;
+                }
+                    .blog > .blog-meta > .color-text {
+                        color: var(--main-color);
+                    }
+                    .blog > .blog-meta > .usual-text {
+                        color: var(--text-color);
+                    }
+                .blog > .blog-meta > h3 {
+                    font-weight: bold;
+                    margin-top: 10px;
+                    margin-bottom: 14px;
+                }
+                .blog > .blog-meta > p {
+                    margin: 0 0 10px;
+                }
+                .blog > .blog-meta > .social-layer {
+                    display: inline-block;
+                    position: absolute;
+                    text-align: center;
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    background-color: #fff;
+                    box-shadow: 0 4px 8px #CCC;
+                    line-height: 50px;
+                    top: -25px;
+                    right: 25px;
+                }
+                    .blog-meta > .social-layer > i {
+                        display: inline-block;
+                        color: var(--main-color);
+                        font-size: 26px;
+                        line-height: inherit;
+
+                    }
 
 /* CONTACT ME section */
 
@@ -589,16 +947,18 @@ body * {
             .container > .row > nav {
                 display: none;
             }
-            .row > .left {
-                width: 100%;
-            }
-            .row > .right {
-                width: 100%;
-            }
+            
 
 /* HERO section */
 
 /* ABOUT ME section */
+
+.row > .left {
+    width: 100%;
+}
+.row > .right {
+    width: 100%;
+}
 
 /* MY SERVICES section */
 
@@ -623,8 +983,7 @@ body * {
 /* BOTTOM NAVIGATION section */
 
 /* FOOTER section */
-    }
-
+        }
     @media ( max-width: 1250px ) {
         .container > .row {
             width: 800px;
@@ -691,6 +1050,10 @@ body * {
 
 /* SKILLS section */
 
+    .container > .row > .progress-block {
+        width: 100%;
+    }
+
 /* EXPERIENCE section */
 
 /* STATISTICS section */
@@ -703,10 +1066,116 @@ body * {
 
 /* MY BLOGS section */
 
+.container > #blog-list > .blog {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 20px;
+}
+
 /* CONTACT ME section */
 
 /* BOTTOM NAVIGATION section */
 
+/* FOOTER section */
+}
+
+@media ( max-width: 900px ) {
+/* HERO section */
+/* ABOUT ME section */
+/* MY SERVICES section */
+/* EDUCATION section */
+#education > .row,
+#experience > .row{
+    position: relative;
+}
+#education > .row > div,
+#experience > .row > div{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+#education > .row > div:last-child,
+#experience > .row > div:last-child{
+    margin-bottom: 0px;
+}
+    #education > .row > div::after,
+    #experience > .row > div::after{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        float: right;
+        width: 2px;
+        right: 38px;
+        top: 76px;
+        height: 200px;
+        background-color: var(--lightGrey-color);
+        z-index: -1;
+        left: 37px;
+    }
+    #education > .row > div:last-child::after,
+    #experience > .row > div:last-child::after{
+        height: 97px;
+    }
+    #education > .row > .lefty::before,
+    #education > .row > .righty::before,
+    #experience > .row > .lefty::before,
+    #experience > .row > .righty::before{
+        display: none;
+    }
+    #education > .row > .righty:last-child::before,
+    #experience > .row > .righty:last-child::before{
+        height: 0px;
+    }
+    #education > .row > .lefty,
+    #education > .row > .righty,
+    #experience > .row > .lefty,
+    #experience > .row > .righty{
+        float: left;
+    }
+        #education > .row > .lefty > .data,
+        #education > .row > .righty > .data,
+        #experience > .row > .lefty > .data,
+        #experience > .row > .righty > .data{
+            float: left;    
+        }
+            #education > .row > .lefty > .text,
+            #education > .row > .righty > .text,
+            #experience > .row > .lefty > .text,
+            #experience > .row > .righty > .text{
+                display: inline-block;
+                float: right;
+                width: calc(100% - 100px);
+                border-radius: 5px;
+                border: 1px solid var(--lightGrey-color);
+                box-shadow: 0 3px 14px -4px rgba(0,0,0,.4);
+                padding: 30px;  
+                transition: background-color 1s;
+                z-index: 2;
+                width: calc(100% - 100px);
+                text-align: left;                
+            }
+                #education > .row > .lefty > .text::before,
+                #education > .row > .righty >.text::before,
+                #experience > .row > .lefty > .text::before,
+                #experience > .row > .righty >.text::before {
+                    left: 89px;
+                    border-top-color: transparent;
+                    border-right-color: transparent;
+                    border-left-color: var(--lightGrey-color);
+                    border-bottom-color: var(--lightGrey-color);
+                }
+
+
+/* SKILLS section */
+/* EXPERIENCE section */
+/* STATISTICS section */
+/* FREELANCE section */
+/* MY PORTFOLIO section */
+/* TESTIMONIALS section */
+/* MY BLOGS section */
+/* CONTACT ME section */
+/* BOTTOM NAVIGATION section */
 /* FOOTER section */
 }
 
@@ -726,6 +1195,7 @@ body * {
                 display: none;
             }
 
+
     .hero{
         background-position: 100% 100%;
     }
@@ -736,6 +1206,13 @@ body * {
 /* HERO section */
 
 /* ABOUT ME section */
+
+.container > .left-link {
+    display: none;
+}
+.container > .right-link {
+    display: none;
+}
 
 /* MY SERVICES section */
 
@@ -988,4 +1465,4 @@ body * {
 /* BOTTOM NAVIGATION section */
 
 /* FOOTER section */
-}
+}}
