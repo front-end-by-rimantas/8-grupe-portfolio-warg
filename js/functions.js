@@ -336,6 +336,18 @@ function generateExperience( data ) {
     }
     return HTML;
 }
+//PORTFOLIO
+function generateMyWorks( data ) {
+    var HTML = '';
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].project_title === '' ||
+             data[i].image === '' ) {
+            continue;
+        }
+        HTML += `<div class="photo ${data[i].project_title}" style="background-image: url(../img/myWorks/${data[i].image})"></div>`
+    }
+    return HTML;
+}
 
 // setInterval(dynamicNumbers,1000); nieko nesugalvoju...
 //         function dynamicNumbers(){

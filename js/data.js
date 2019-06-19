@@ -226,7 +226,45 @@ var fillBarInfo = [
     },
 
 ]
-
+// PORTFOLIO
+var myWorkInfo = [
+    {
+        project_title: 'web',
+        image: 'p-1.jpg',
+    },
+    {
+        project_title: 'photography',
+        image: 'p-2.jpg',
+    },
+    {
+        project_title: 'design',
+        image: 'p-3.jpg',
+    },
+    {
+        project_title: 'music',
+        image: 'p-4.jpg',
+    },
+    {
+        project_title: 'photography',
+        image: 'p-5.jpg',
+    },
+    {
+        project_title: 'web',
+        image: 'p-6.jpg',
+    },
+    {
+        project_title: 'design',
+        image: 'p-7.jpg',
+    },
+    {
+        project_title: 'web',
+        image: 'p-8.jpg',
+    },
+    {
+        project_title: 'photography',
+        image: 'p-9.jpg',
+    }
+]
 
 // BLOGS 
 
