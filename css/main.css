@@ -106,12 +106,17 @@ body * {
                 background-color: var(--main-color);
                 color: #fff;
                 border-radius: 30px;
+                border-left: 3px solid #7BAFAA;
+                border-bottom: 2px solid #7BAFAA;
+                box-shadow: -3px 3px 8px 0px grey;
             }
             .container > .row > nav > .active {
                 background-color: var(--main-color);
                 color: #fff;
                 border-radius: 30px;
-                transition: .8s;
+                border-left: 3px solid #7BAFAA;
+                border-bottom: 2px solid #7BAFAA;
+                box-shadow: -3px 3px 8px 0px grey;
             }
             
 /* Hamburger */  
@@ -749,17 +754,87 @@ body * {
 /* MY PORTFOLIO section */
 #portfolio > .row > div{
     display: inline-block;
+    position: relative;
     float: left;
     height: 310px;
-    width: 30%;
-    margin-right: 3%;
-    margin-top: 30px;
-    background-size: contain;
+    width: 32%;
+    margin-right: 2%;
+    margin-top: 23px;
+    background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden
 }
-#portfolio > .row > div:nth-child(3n+3){
-    margin-left: 0%;
+    #portfolio > .row > div > img{
+        max-width:110%;
+        max-height:107%;
+        transform: scale(1);
+        filter: brightness(100%);
+        transition: all 0.8s ease;
+    }
+    #portfolio > .row > div > .texts{
+        display: inline-block;
+        position: absolute;
+        text-align: left;
+        text-transform: uppercase;
+        bottom: 13%;
+        left: 10%;
+        z-index: 9;
+        opacity: 0;
+        transition: all 0.8s ease;
+    }
+        #portfolio > .row > div > .texts > h3{
+            display: inline-block;
+            width: 100%;
+            color: var(--lighterText-color);
+            font-weight: bolder;
+            font-size: 25px;
+            line-height: 0px;
+        }
+        #portfolio > .row > div > .texts > p{
+            display: inline-block;
+            width: 100%;
+            color: var(--main-color);
+            font-weight: bolder;
+            font-size: 20px;
+            line-height: 0px;
+        }
+
+        #portfolio > .row > div:hover img{
+            transform: scale(1.2);
+            filter: brightness(45%);
+        }
+        #portfolio > .row > div:hover .texts{
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        
+
+    #portfolio > .row > div:nth-child(3n+3){
+        margin-right: 0%;
+    }
+    #portfolio > .row > div:nth-child(1),
+    #portfolio > .row > div:nth-child(2),
+    #portfolio > .row > div:nth-child(3){
+        margin-top: 0%;
+    }
+
+#portfolio > #myWorksList{
+    padding: 0 396px
 }
+#portfolio > .row > a{
+    display: inline-block;
+    float: left;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: var(--blackText-color);
+}
+#portfolio > .row > a+a{
+    margin-left: 20px;
+}
+
 
 /* TESTIMONIALS section */
 

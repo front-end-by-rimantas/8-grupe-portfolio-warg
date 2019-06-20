@@ -179,12 +179,12 @@ function generateBlog ( data ) {
     var HTML = '';
     for (var i=0; i<data.length; i++) {
         HTML += `<div class="blog">
-        <div class="img" style="background-image: url(../img/blogs/${data[i].photo});"></div>
+        <div class="img" style="background-image: url(./img/blogs/${data[i].photo});"></div>
         <div class="blog-meta">
         <span class="color-text">${data[i].info[0]}</span><span class="usual-text"> ${data[i].info[1]}</span>
         <h3>${data[i].heading}</h3>
         <p>${data[i].description}</p>
-        <div class="img-2" style="background-image: url(../img/blogs/${data[i].personal_info[0]});"></div> 
+        <div class="img-2" style="background-image: url(./img/blogs/${data[i].personal_info[0]});"></div> 
         <span class="usual-text">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
         <div class="social-layer"><i class="fa fa-share-alt"></i></div>
         </div>
@@ -339,15 +339,48 @@ function generateExperience( data ) {
 //PORTFOLIO
 function generateMyWorks( data ) {
     var HTML = '';
+    
     for ( var i=0; i<data.length; i++ ) {
         if ( data[i].project_title === '' ||
              data[i].image === '' ) {
             continue;
         }
-        HTML += `<div class="photo ${data[i].project_title}" style="background-image: url(../img/myWorks/${data[i].image})"></div>`
+        HTML += `<div>
+                    <img src="img/myWorks/${data[i].image}" alt="work no ${i+1}">
+                    <div class="texts">
+                        <h3>Portfolio</h3><p>${data[i].project_title}</p>
+                    </div>
+                </div>`
     }
     return HTML;
 }
+
+function generateMyWorksList( data ) {
+    var areas = [];
+    
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].project_title === '' ||
+             data[i].image === '' ) {
+            continue;
+        }
+        areas.push(data[i].project_title);
+        }
+
+    const values = (value,index,self) => {
+    return self.indexOf(value)===index;
+    }
+    const reiksmes = areas;
+    const vienetinesReiksmes = reiksmes.filter(values);
+    var HTML2='';
+    for ( var a=0; a<vienetinesReiksmes.length; a++ ){
+        HTML2+= `<a onclick="f-${vienetinesReiksmes[a]}()" id="${vienetinesReiksmes[a]}">${vienetinesReiksmes[a]}</a>`
+        console.log(HTML2)
+            }
+    return HTML2;
+}
+
+
+
 
 // setInterval(dynamicNumbers,1000); nieko nesugalvoju...
 //         function dynamicNumbers(){

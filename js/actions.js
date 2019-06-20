@@ -26,6 +26,7 @@ document.getElementById('myStatistics').innerHTML = generateStatistics( statisti
 
 // MY PORTFOLIO section
 document.getElementById('myWorks').innerHTML = generateMyWorks( myWorkInfo );
+document.getElementById('myWorksList').innerHTML = generateMyWorksList( myWorkInfo );
 // TESTIMONIALS section
 
 // MY BLOGS section
