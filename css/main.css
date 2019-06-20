@@ -106,17 +106,12 @@ body * {
                 background-color: var(--main-color);
                 color: #fff;
                 border-radius: 30px;
-                border-left: 3px solid #7BAFAA;
-                border-bottom: 2px solid #7BAFAA;
-                box-shadow: -3px 3px 8px 0px grey;
             }
             .container > .row > nav > .active {
                 background-color: var(--main-color);
                 color: #fff;
                 border-radius: 30px;
-                border-left: 3px solid #7BAFAA;
-                border-bottom: 2px solid #7BAFAA;
-                box-shadow: -3px 3px 8px 0px grey;
+                transition: .8s;
             }
             
 /* Hamburger */  
