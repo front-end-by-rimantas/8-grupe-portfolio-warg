@@ -344,7 +344,7 @@ function generateMyWorks( data ) {
              data[i].image === '' ) {
             continue;
         }
-        HTML += `<div class="photo ${data[i].project_title}" style="background-image: url(../img/myWorks/${data[i].image})"></div>`
+        HTML += `<div class="photo ${data[i].project_title}" style="background-image: url(./img/myWorks/${data[i].image})"></div>`
     }
     return HTML;
 }
