@@ -345,8 +345,8 @@ function generateMyWorks( data ) {
              data[i].image === '' ) {
             continue;
         }
-        HTML += `<div>
-                    <img src="img/myWorks/${data[i].image}" alt="work no ${i+1}">
+        HTML += `<div class="work">
+                    <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
                     <div class="texts">
                         <h3>Portfolio</h3><p>${data[i].project_title}</p>
                     </div>
