@@ -962,23 +962,6 @@ body * {
 
 /* CONTACT ME section */
 
-    .row > form {
-        width: 85%;
-        display: inline-block;
-        text-align: center;
-        padding: 20px;
-    }
-        .row > form > .col-6 {
-            display: inline-block;
-            width: 50%;
-            float: left;
-        }
-            .row > form > .col-6 > input {
-                display: inline-block;
-                width: 250px;
-                height: 45px;
-            }
-
 /* BOTTOM NAVIGATION section */
     .bottom {
         position: relative;

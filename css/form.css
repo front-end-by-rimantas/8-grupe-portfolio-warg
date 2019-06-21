@@ -1,0 +1,28 @@
+/* .row > form {
+    width: 700px;
+    display: inline-block;
+    padding: 20px;
+}
+    .row > form > .col-6 {
+        display: inline-block;
+        width: 50%;
+        float: left;
+        padding-bottom: 40px;
+    }
+        .row > form > .col-6 > input {
+            display: inline-block;
+            width: 300px;
+            height: 45px;
+            background: var(--background-color);
+            font-size: 18px;
+        }
+    .row > form > .col-12 {
+        display: inline-block;
+        width: 100%;
+    }
+        .row > form > .col-12 > textarea {
+            background: var(--background-color);
+            resize: none;
+            width: 700px;
+        }
+         */
