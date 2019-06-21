@@ -715,7 +715,6 @@ body * {
     display: inline-block;
     float: left;
     width: 33.3%;
-    /* background-color: sandybrown; */
 }
     #activities > .row > .statistics > .fa{
         font-size: 80px;
@@ -844,24 +843,37 @@ body * {
     }
 
 
-#portfolio > .row > .scrollbar{
-    padding-left: calc((100% - 380px) / 2);
-    padding-right: calc((100% - 380px) / 2);
+#portfolio > .scrollbar{
 }
-    #portfolio > .row > .scrollbar > .more{
+#portfolio > .scrollbar > .arrows {
+    display: inline-block;
+    margin: 10px auto;
+}
+    #portfolio > .scrollbar > .arrows > .more{
         display: inline-block;
         float: left;
-        width: 30px;
-        height: 30px;
-        font-size: 27px;
-        line-height: 30px;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        line-height: 47px;
         margin-top:0;
+        border: 1px solid var(--main-color);
+        cursor: pointer;
+        font-weight: bold;
+        color: var(--blackText-color);
     }
-    #portfolio > .row > .scrollbar > .more+.more{
-        margin-left: 15px;
+    #portfolio > .scrollbar > .arrows > .more:hover{
+        box-shadow: 0 0 8px var(--shadow-color);
     }
-    #portfolio > .row > .scrollbar > div:nth-child(3n){
-        margin-left: 15px;
+    #portfolio > .scrollbar > .arrows > .more:first-child{
+        border-radius: 25px 0px 0px 25px;
+    }
+    #portfolio > .scrollbar > .arrows > .more:last-child{
+        border-radius: 0px 25px 25px 0px;
+    }
+    #portfolio > .scrollbar > .arrows .more+.more{
+        margin-left: 7px;
     }
 
 /* TESTIMONIALS section */

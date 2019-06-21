@@ -337,24 +337,7 @@ function generateExperience( data ) {
     return HTML;
 }
 //PORTFOLIO
-function generateMyWorks( data ) {
-    var HTML = '';
-    
-    for ( var i=0; i<data.length; i++ ) {
-        if ( data[i].project_title === '' ||
-             data[i].image === '' ) {
-            continue;
-        }
-        HTML += `<div class="work">
-                    <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
-                    <div class="texts">
-                        <h3>Portfolio</h3><p>${data[i].project_title}</p>
-                    </div>
-                </div>`
-    }
-    return HTML;
-}
-
+    //generuojamos unikalios darbų klasės
 function generateMyWorksList( data ) {
     var areas = [];
     
@@ -378,6 +361,45 @@ function generateMyWorksList( data ) {
             }
     return HTML2;
 }
+    //generuojami darbų paveikslėliai bei pavardinimai
+function generateMyWorks( data ) {
+    var HTML = '';
+    
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].project_title === '' ||
+             data[i].image === '' ) {
+            continue;
+        }
+        HTML += `<div class="work">
+                    <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
+                    <div class="texts">
+                        <h3>Portfolio</h3><p>${data[i].project_title}</p>
+                    </div>
+                </div>`
+    }
+    return HTML;
+}
+    //generuojamas darbų scrollbaras
+function generateMyScrollbar( data ) {
+    var HTML = '',
+        nr=0;
+    HTML += `<div class="arrows">
+                <i class="more fa fa-angle-double-left more"></i>`
+    for ( var i=0; i<data.length; i=i+3 ) {
+        nr ++;
+        if ( (data[i].project_title === '') || 
+            (data[i].image === '' )) {
+            continue;
+        }
+        HTML += `<div class="more">${nr}</div>`
+        console.log(HTML)
+        console.log(nr)
+    }
+    HTML += `<i class="more fa fa-angle-double-right"></i>
+                </div>`
+    return HTML;
+}
+
 
 
 
