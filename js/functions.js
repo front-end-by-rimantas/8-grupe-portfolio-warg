@@ -180,7 +180,7 @@ function generateBlog ( data ) {
     for (var i=0; i<data.length; i++) {
         HTML += 
         `<div class="blog">
-            <div class="img" style="background-image: url(../img/blogs/${data[i].photo});"></div>
+            <div class="img" style="background-image: url(./img/blogs/${data[i].photo});"></div>
             <div class="blog-meta">
                 <span class="color-text">${data[i].info[0]}</span>  <span class="usual-text" style="color: var(--text-color);">${data[i].info[1]}</span>
                 <h3>${data[i].heading}</h3>
@@ -200,6 +200,31 @@ function generateBlog ( data ) {
     }
     return HTML
 }
+
+// CONTACT FORM 
+
+function generateForm ( data ) {
+    var HTML = '<form>',
+        field,
+        attrHTML = '',
+        attrInfo,
+        classNames = '';
+
+        for (var i=0; i<data.fields.length; i++) {
+            field = data.fields[i];
+            attrHTML = '';
+            classNames = '';
+        } 
+            for ( var a=0; a<field.attr.length; a++ ) {
+                attrInfo = field.attr[a];
+                attrHTML += ` ${attrInfo.name}="${attrInfo.value}"`;
+                console.log(attrInfo) 
+            }
+
+        HTML += '<form>'
+    return HTML
+}
+
 
 //BOTTOM
 function generateFooterIcons( data ) {

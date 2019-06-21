@@ -33,6 +33,7 @@ document.getElementById('myWorksList').innerHTML = generateMyWorksList( myWorkIn
 document.getElementById('blog-list').innerHTML = generateBlog( blog );
 
 // CONTACT ME section
+document.getElementById('form').innerHTML = generateForm( contactForm );
 
 // BOTTOM NAVIGATION section
 document.getElementById('footer_icons').innerHTML = generateFooterIcons( footerIcons );

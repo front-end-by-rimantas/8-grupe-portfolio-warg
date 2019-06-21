@@ -295,3 +295,68 @@ var blog = [
     },
 ]
 
+// CONTACT ME
+
+var contactForm = {
+    fields: [
+        {
+            type: 'input',
+            attr: [
+                {
+                    name: 'type',
+                    value: 'text'
+                },
+                {
+                    name: 'value',
+                    value: '',
+                },
+                {
+                    name: 'placeholder',
+                    value: 'Name'
+                }
+            ],
+            className: ['col-6'],
+            required: true
+        },
+        {
+            type: 'input',
+            attr: [
+                {
+                    name: 'type',
+                    value: 'email'
+                },
+                {
+                    name: 'value',
+                    value: '',
+                },
+                {
+                    name: 'placeholder',
+                    value: 'Email'
+                }
+            ],
+            className: ['col-6'],
+            required: true
+        },
+        {
+            type: 'textarea',
+            attr: [
+                {
+                    name: 'placeholder',
+                    value: 'Message'
+                }
+            ],
+            value: '',
+            className: ['col-12'],
+            required: true
+        },
+    ],
+            actions: [
+                {
+                    type: 'submit',
+                    style: 'red',
+                    text: 'Send message'
+                }
+            ]
+        }
+
+
