@@ -308,7 +308,7 @@ var contactForm = {
                 },
                 {
                     name: 'value',
-                    value: '',
+                    value: ''
                 },
                 {
                     name: 'placeholder',

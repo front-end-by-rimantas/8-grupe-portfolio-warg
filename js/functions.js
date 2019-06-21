@@ -193,7 +193,7 @@ function generateBlog ( data ) {
                 </div>
             </div>
             <div class='name-and-photo'>
-                <div class="img-2" style="background-image: url(../img/blogs/${data[i].personal_info[0]});"></div> 
+                <div class="img-2" style="background-image: url(./img/blogs/${data[i].personal_info[0]});"></div> 
                 <span class="usual-text" style="color: var(--text-color);">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
             </div>
         </div>`
@@ -214,12 +214,29 @@ function generateForm ( data ) {
             field = data.fields[i];
             attrHTML = '';
             classNames = '';
-        } 
+            console.log(field);
+         
             for ( var a=0; a<field.attr.length; a++ ) {
                 attrInfo = field.attr[a];
                 attrHTML += ` ${attrInfo.name}="${attrInfo.value}"`;
-                console.log(attrInfo) 
+                console.log(attrInfo);
             }
+        
+            classNames = field.className.join(' ');
+
+            if ( field.type === 'input' ) {
+                HTML += `<div class="${classNames}">
+                            <input ${attrHTML}>
+                        </div>`;
+            }
+            if ( field.type === 'textarea' ) {
+                HTML += `<div class="${classNames}">
+                            <textarea ${attrHTML}></textarea>
+                        </div>`;
+            }
+        }
+        
+    
 
         HTML += '<form>'
     return HTML
