@@ -106,12 +106,17 @@ body * {
                 background-color: var(--main-color);
                 color: #fff;
                 border-radius: 30px;
+                border-left: 3px solid #7BAFAA;
+                border-bottom: 2px solid #7BAFAA;
+                box-shadow: -3px 3px 8px 0px grey;
             }
             .container > .row > nav > .active {
                 background-color: var(--main-color);
                 color: #fff;
                 border-radius: 30px;
-                transition: .8s;
+                border-left: 3px solid #7BAFAA;
+                border-bottom: 2px solid #7BAFAA;
+                box-shadow: -3px 3px 8px 0px grey;
             }
             
 /* Hamburger */  
@@ -141,6 +146,7 @@ body * {
         justify-content: center;
         align-items: center;
     }
+        
         /* Hamburger line */
         .container > .row > .hamburger-menu > .hamburger > div {
             position: relative;
@@ -292,10 +298,8 @@ body * {
         left: 0;
         top: 50%;
         transform: translateY(-50%) rotate(-90deg);
-    }        
-        .container > .left-link > .fa-long-arrow-left {
-            margin-top: 2px;
-        }
+        font-weight: bold;
+    }
     .container > .right-link {
         position: absolute;
         display: inline-block;
@@ -304,12 +308,13 @@ body * {
         right: 0;
         top: 50%;
         transform: translateY(-50%) rotate(90deg);
+        font-weight: bold;
     }     
         .container > .right-link > .fa-long-arrow-right {
-            margin-top: 4px;
+            margin-top: 2px;
         }
         .container > .left-link > .fa-long-arrow-right {
-            margin-top: 4px;
+            margin-top: 2px;
         }
         .row > .left {
             position: relative;
@@ -710,7 +715,6 @@ body * {
     display: inline-block;
     float: left;
     width: 33.3%;
-    /* background-color: sandybrown; */
 }
     #activities > .row > .statistics > .fa{
         font-size: 80px;
@@ -747,63 +751,187 @@ body * {
     }
 
 /* MY PORTFOLIO section */
-#portfolio > .row > div{
+
+#portfolio > .row > a{
     display: inline-block;
     float: left;
+    text-decoration: none;
+    font-size: 2vw;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: var(--blackText-color);
+    width: 24%;
+    border-radius: 8px;
+    box-shadow: -1px 1px 4px 0px grey;
+    transition: all 0.6s ease;
+}
+    #portfolio > .row > a:hover{
+        cursor: pointer;
+        border-radius: 15px;
+        box-shadow: -3px 3px 8px 0px grey;
+    }
+#portfolio > .row > a+a{
+    margin-left: 1.3%;
+}
+
+
+#portfolio > .row > .work{
+    display: inline-block;
+    position: relative;
+    float: left;
     height: 310px;
-    width: 30%;
-    margin-right: 3%;
-    margin-top: 30px;
-    background-size: contain;
+    width: 32%;
+    margin-right: 2%;
+    margin-top: 23px;
+    background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden;
+    border-radius: 4px;
 }
-#portfolio > .row > div:nth-child(3n+3){
-    margin-left: 0%;
+    #portfolio > .row > .work > .img{
+        width:100%;
+        height:100%;
+        background-position: center;
+        background-size: cover;
+        transform: scale(1);
+        filter: brightness(100%);
+        transition: all 0.8s ease;
+    }
+    #portfolio > .row > .work > .texts{
+        display: inline-block;
+        position: absolute;
+        text-align: left;
+        text-transform:capitalize;
+        bottom: 13%;
+        left: 10%;
+        z-index: 9;
+        opacity: 0;
+        transition: all 0.8s ease;
+    }
+        #portfolio > .row > .work > .texts > h3{
+            display: inline-block;
+            width: 100%;
+            color: var(--lighterText-color);
+            font-weight: bolder;
+            font-size: 25px;
+            line-height: 0px;
+        }
+        #portfolio > .row > .work > .texts > p{
+            display: inline-block;
+            width: 100%;
+            color: var(--main-color);
+            font-weight: bolder;
+            font-size: 20px;
+            line-height: 0px;
+        }
+
+        #portfolio > .row > .work:hover .img{
+            transform: scale(1.1);
+            filter: brightness(45%);
+        }
+        #portfolio > .row > .work:hover .texts{
+            opacity: 1;
+        }
+
+    #portfolio > .row > .work:nth-child(3n){
+        margin-right: 0%;
+    }
+    #portfolio > .row > .work:nth-child(1),
+    #portfolio > .row > .work:nth-child(2),
+    #portfolio > .row > .work:nth-child(3){
+        margin-top: 0%;
+    }
+
+
+
+#portfolio > .scrollbar > .arrows {
+    display: inline-block;
+    margin: 10px auto;
 }
+    #portfolio > .scrollbar > .arrows > .more{
+        display: inline-block;
+        float: left;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        line-height: 47px;
+        margin-top:0;
+        border: 1px solid var(--main-color);
+        cursor: pointer;
+        font-weight: bold;
+        color: var(--blackText-color);
+    }
+    #portfolio > .scrollbar > .arrows > .more:hover{
+        box-shadow: 0 0 8px var(--shadow-color);
+    }
+    #portfolio > .scrollbar > .arrows > .more:first-child{
+        border-radius: 25px 0px 0px 25px;
+    }
+    #portfolio > .scrollbar > .arrows > .more:last-child{
+        border-radius: 0px 25px 25px 0px;
+    }
+    #portfolio > .scrollbar > .arrows .more+.more{
+        margin-left: 7px;
+    }
 
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
 
-        .container > #blog-list > .blog {
-            display: inline-block;
+        .container > .row > .blog {
+            display: relative;
             float: left;
             width: 32%;
             margin-left: 2%;
             box-shadow: 0 4px 8px #CCC;
-            min-height: 500px;
+            min-height: 550px;
         }
-            #blog-list > .blog:nth-child(3n+1) {
+            .row > .blog:nth-child(3n+1) {
                 margin-left: 0;
             }
-            #blog-list > .blog > .img {
+            .row > .blog > .img {
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
                 height: 250px;
                 width: 100%;
             }
-            #blog-list > .blog > .img-2 {
+            .row > .blog > .name-and-photo > .img-2 {
+                display: inline-block;
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
-                height: 30px;
-                width: 30px;
+                height: 60px;
+                width: 60px;
+                border-radius: 50%;
             }
 
-            #blog-list > .blog > .blog-meta {
+            .row > .blog > .blog-meta {
                 position: relative;
                 padding: 20px;
                 text-align: left;
             }
-                .blog > .blog-meta > span {
+                .row > .blog > .name-and-photo {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 20px;
+                    bottom: 20px;
+                }
+                    .row > .blog > .name-and-photo > .usual-text {
+                        display: inline-block;
+                        padding: 0 5px 0 15px;
+                    }
+
+                .blog > .blog-meta > span,
+                .blog > .name-and-photo > span {
                     font-weight: bold;
                 }
-                    .blog > .blog-meta > .color-text {
+                    .blog > .blog-meta > span,
+                    .blog > .name-and-photo > .color-text {
+                        display: inline-block;
                         color: var(--main-color);
-                    }
-                    .blog > .blog-meta > .usual-text {
-                        color: var(--text-color);
                     }
                 .blog > .blog-meta > h3 {
                     font-weight: bold;
@@ -813,7 +941,7 @@ body * {
                 .blog > .blog-meta > p {
                     margin: 0 0 10px;
                 }
-                .blog > .blog-meta > .social-layer {
+                .blog > .blog-meta > .socials > .social-layer {
                     display: inline-block;
                     position: absolute;
                     text-align: center;
@@ -825,8 +953,23 @@ body * {
                     line-height: 50px;
                     top: -25px;
                     right: 25px;
+                    transition: box-shadow 1s;
                 }
-                    .blog-meta > .social-layer > i {
+                .blog > .blog-meta > .socials > .social-layer:hover {
+                    cursor: pointer;
+                    box-shadow: 0 6px 12px #333;
+                }
+                .blog > .blog-meta > .socials :nth-child(1) {
+                    z-index: 1;
+                }
+                .blog > .blog-meta > .socials :nth-child(2),
+                .blog > .blog-meta > .socials :nth-child(3),
+                .blog > .blog-meta > .socials :nth-child(4) {
+                    box-shadow: none;
+                }
+                
+                
+                    .blog-meta > .socials > .social-layer > i {
                         display: inline-block;
                         color: var(--main-color);
                         font-size: 26px;
@@ -986,7 +1129,9 @@ body * {
 /* FREELANCE section */
 
 /* MY PORTFOLIO section */
-
+#portfolio > .row > .work{
+    height: 210px;
+}
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
@@ -1074,12 +1219,26 @@ body * {
 /* FREELANCE section */
 
 /* MY PORTFOLIO section */
-
+#portfolio > .row > .work{
+    height: 300px;
+    width: 49%;
+}        
+#portfolio > .row > .work:nth-child(2n){
+    margin-right: 0%;
+}
+#portfolio > .row > .work:nth-child(1),
+#portfolio > .row > .work:nth-child(2){
+    margin-top: 0%;
+}
+#portfolio > .row > .work:nth-child(3){
+    margin-right: 2%;
+    margin-top: 23px;
+}
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
 
-.container > #blog-list > .blog {
+.container > .row > .blog {
     width: 100%;
     margin-left: 0;
     margin-bottom: 20px;
@@ -1250,8 +1409,51 @@ body * {
 /* BOTTOM NAVIGATION section */
 
 /* FOOTER section */
-
 }
+
+@media ( max-width: 700px ) {
+/* HERO section */
+
+/* ABOUT ME section */
+
+/* MY SERVICES section */
+
+/* EDUCATION section */
+
+/* SKILLS section */
+
+/* EXPERIENCE section */
+
+/* STATISTICS section */
+
+/* FREELANCE section */
+
+/* MY PORTFOLIO section */
+#portfolio > .row > .work{
+    width: 100%;
+    margin-right: 0%;
+    margin-top: 20px;
+}
+    #portfolio > .row > .work:nth-child(3n){
+        margin-right: 0%;
+    }
+    #portfolio > .row > .work:nth-child(1){
+        margin-top: 0%;
+    }
+    #portfolio > .row > .work:nth-child(2){
+        margin-top: 20px;
+    }
+/* TESTIMONIALS section */
+
+/* MY BLOGS section */
+
+/* CONTACT ME section */
+
+/* BOTTOM NAVIGATION section */
+
+/* FOOTER section */
+}
+
 @media ( max-width: 600px ) {
     .container > .row {
         width: 100%;
@@ -1284,7 +1486,33 @@ body * {
 /* FREELANCE section */
 
 /* MY PORTFOLIO section */
+#portfolio > .row > a{
+    font-size: 20px;
+    width: 49%;
+    margin-bottom: 10px;
+}
+    #portfolio > .row > a:nth-child(2n){
+        margin-left: 2%;
+    }
+#portfolio > .row > a+a{
+    margin-left: 0%;
+}
 
+#portfolio > .row > .work{
+    height: 40vh;
+    margin-right: 0%;
+    margin-top: 20px;
+}
+    #portfolio > .row > .work > .texts{
+        bottom: 13%;
+        left: 13%;
+    }
+    #portfolio > .scrollbar > .arrows > .more{
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        line-height: 28px;
+    }
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
@@ -1328,6 +1556,16 @@ body * {
 /* FREELANCE section */
 
 /* MY PORTFOLIO section */
+#portfolio > .row > .work{
+    height: 30vh;
+    margin-right: 0%;
+    margin-top: 20px;
+}
+    #portfolio > .row > .work > .texts{
+        bottom: 13%;
+        left: 13%;
+    }
+
 
 /* TESTIMONIALS section */
 
@@ -1478,4 +1716,4 @@ body * {
 /* BOTTOM NAVIGATION section */
 
 /* FOOTER section */
-}}
+}

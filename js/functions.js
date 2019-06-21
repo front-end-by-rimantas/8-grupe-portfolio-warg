@@ -178,17 +178,25 @@ function generateIcons( data ) {
 function generateBlog ( data ) {
     var HTML = '';
     for (var i=0; i<data.length; i++) {
-        HTML += `<div class="blog">
-        <div class="img" style="background-image: url(../img/blogs/${data[i].photo});"></div>
-        <div class="blog-meta">
-        <span class="color-text">${data[i].info[0]}</span><span class="usual-text"> ${data[i].info[1]}</span>
-        <h3>${data[i].heading}</h3>
-        <p>${data[i].description}</p>
-        <div class="img-2" style="background-image: url(../img/blogs/${data[i].personal_info[0]});"></div> 
-        <span class="usual-text">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
-        <div class="social-layer"><i class="fa fa-share-alt"></i></div>
-        </div>
-                </div>`
+        HTML += 
+        `<div class="blog">
+            <div class="img" style="background-image: url(../img/blogs/${data[i].photo});"></div>
+            <div class="blog-meta">
+                <span class="color-text">${data[i].info[0]}</span>  <span class="usual-text" style="color: var(--text-color);">${data[i].info[1]}</span>
+                <h3>${data[i].heading}</h3>
+                <p>${data[i].description}</p>
+                <div class='socials'>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[0]}"></i></div>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[1]}"></i></div>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[2]}"></i></div>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[3]}"></i></div>
+                </div>
+            </div>
+            <div class='name-and-photo'>
+                <div class="img-2" style="background-image: url(../img/blogs/${data[i].personal_info[0]});"></div> 
+                <span class="usual-text" style="color: var(--text-color);">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
+            </div>
+        </div>`
     }
     return HTML
 }
@@ -337,17 +345,72 @@ function generateExperience( data ) {
     return HTML;
 }
 //PORTFOLIO
-function generateMyWorks( data ) {
-    var HTML = '';
+    //generuojamos unikalios darbų klasės
+function generateMyWorksList( data ) {
+    var areas = [];
+    
     for ( var i=0; i<data.length; i++ ) {
         if ( data[i].project_title === '' ||
              data[i].image === '' ) {
             continue;
         }
-        HTML += `<div class="photo ${data[i].project_title}" style="background-image: url(../img/myWorks/${data[i].image})"></div>`
+        areas.push(data[i].project_title);
+        }
+
+    const values = (value,index,self) => {
+    return self.indexOf(value)===index;
+    }
+    const reiksmes = areas;
+    const vienetinesReiksmes = reiksmes.filter(values);
+    var HTML2='';
+    for ( var a=0; a<vienetinesReiksmes.length; a++ ){
+        HTML2+= `<a onclick="f-${vienetinesReiksmes[a]}()" id="${vienetinesReiksmes[a]}">${vienetinesReiksmes[a]}</a>`
+        console.log(HTML2)
+            }
+    return HTML2;
+}
+    //generuojami darbų paveikslėliai bei pavardinimai
+function generateMyWorks( data ) {
+    var HTML = '';
+    
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].project_title === '' ||
+             data[i].image === '' ) {
+            continue;
+        }
+        HTML += `<div class="work">
+                    <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
+                    <div class="texts">
+                        <h3>Portfolio</h3><p>${data[i].project_title}</p>
+                    </div>
+                </div>`
     }
     return HTML;
 }
+    //generuojamas darbų scrollbaras
+function generateMyScrollbar( data ) {
+    var HTML = '',
+        nr=0;
+    HTML += `<div class="arrows">
+                <i class="more fa fa-angle-double-left more"></i>`
+    for ( var i=0; i<data.length; i=i+3 ) {
+        nr ++;
+        if ( (data[i].project_title === '') || 
+            (data[i].image === '' )) {
+            continue;
+        }
+        HTML += `<div class="more">${nr}</div>`
+        console.log(HTML)
+        console.log(nr)
+    }
+    HTML += `<i class="more fa fa-angle-double-right"></i>
+                </div>`
+    return HTML;
+}
+
+
+
+
 
 // setInterval(dynamicNumbers,1000); nieko nesugalvoju...
 //         function dynamicNumbers(){
