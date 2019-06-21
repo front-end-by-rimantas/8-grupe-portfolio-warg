@@ -843,8 +843,7 @@ body * {
     }
 
 
-#portfolio > .scrollbar{
-}
+
 #portfolio > .scrollbar > .arrows {
     display: inline-block;
     margin: 10px auto;
@@ -1458,6 +1457,18 @@ body * {
 /* FREELANCE section */
 
 /* MY PORTFOLIO section */
+#portfolio > .row > a{
+    font-size: 20px;
+    width: 49%;
+    margin-bottom: 10px;
+}
+    #portfolio > .row > a:nth-child(2n){
+        margin-left: 2%;
+    }
+#portfolio > .row > a+a{
+    margin-left: 0%;
+}
+
 #portfolio > .row > .work{
     height: 40vh;
     margin-right: 0%;
@@ -1466,6 +1477,12 @@ body * {
     #portfolio > .row > .work > .texts{
         bottom: 13%;
         left: 13%;
+    }
+    #portfolio > .scrollbar > .arrows > .more{
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        line-height: 28px;
     }
 /* TESTIMONIALS section */
 
@@ -1519,6 +1536,7 @@ body * {
         bottom: 13%;
         left: 13%;
     }
+
 
 /* TESTIMONIALS section */
 
