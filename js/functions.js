@@ -178,17 +178,25 @@ function generateIcons( data ) {
 function generateBlog ( data ) {
     var HTML = '';
     for (var i=0; i<data.length; i++) {
-        HTML += `<div class="blog">
-        <div class="img" style="background-image: url(./img/blogs/${data[i].photo});"></div>
-        <div class="blog-meta">
-        <span class="color-text">${data[i].info[0]}</span><span class="usual-text"> ${data[i].info[1]}</span>
-        <h3>${data[i].heading}</h3>
-        <p>${data[i].description}</p>
-        <div class="img-2" style="background-image: url(./img/blogs/${data[i].personal_info[0]});"></div> 
-        <span class="usual-text">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
-        <div class="social-layer"><i class="fa fa-share-alt"></i></div>
-        </div>
-                </div>`
+        HTML += 
+        `<div class="blog">
+            <div class="img" style="background-image: url(../img/blogs/${data[i].photo});"></div>
+            <div class="blog-meta">
+                <span class="color-text">${data[i].info[0]}</span>  <span class="usual-text" style="color: var(--text-color);">${data[i].info[1]}</span>
+                <h3>${data[i].heading}</h3>
+                <p>${data[i].description}</p>
+                <div class='socials'>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[0]}"></i></div>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[1]}"></i></div>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[2]}"></i></div>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[3]}"></i></div>
+                </div>
+            </div>
+            <div class='name-and-photo'>
+                <div class="img-2" style="background-image: url(../img/blogs/${data[i].personal_info[0]});"></div> 
+                <span class="usual-text" style="color: var(--text-color);">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
+            </div>
+        </div>`
     }
     return HTML
 }

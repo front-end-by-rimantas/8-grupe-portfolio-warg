@@ -274,21 +274,24 @@ var blog = [
         info: ['Technology', '15th July'],
         heading: 'Designed for Everyone, Everywhere',
         description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
-        personal_info: ['t-3.jpg', 'By', 'Jason Doe']
+        personal_info: ['t-1.jpg', 'By', 'Jason Doe'],
+        icon: ['share-alt', 'facebook', 'google-plus', 'twitter']
     },
     {
         photo: 'blog-1.jpg',
         info: ['Web Design', '27th June'],
         heading: `Don't Just Be a Designer, Be a Good one`,
         description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
-        personal_info: ['t-3.jpg', 'By', 'Jason Doe']
+        personal_info: ['t-1.jpg', 'By', 'Jason Doe'],
+        icon: ['share-alt', 'facebook', 'google-plus', 'twitter']
     },
     {
         photo: 'blog-3.jpg',
         info: ['Trending', '17th March'],
         heading: 'Creative and Innovative Navigation Designs',
         description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
-        personal_info: ['t-1.jpg', 'By', 'Dennis Ritchie']
+        personal_info: ['t-3.jpg', 'By', 'Dennis Ritchie'],
+        icon: ['share-alt', 'facebook', 'google-plus', 'twitter']
     },
 ]
 
