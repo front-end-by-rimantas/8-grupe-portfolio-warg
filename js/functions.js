@@ -235,7 +235,12 @@ function generateForm ( data ) {
                         </div>`;
             }
         }
-        
+        HTML += '<div class="actions">';
+        for ( var i=0; i<data.actions.length; i++ ) {
+            HTML += `<div class="col-12">
+                        <div class="form-btn button dark">${data.actions[i].text}</div>
+                    </div>`;
+        }
     
 
         HTML += '<form>'

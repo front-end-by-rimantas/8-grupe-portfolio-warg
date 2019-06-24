@@ -353,7 +353,6 @@ var contactForm = {
             actions: [
                 {
                     type: 'submit',
-                    style: 'red',
                     text: 'Send message'
                 }
             ]
