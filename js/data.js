@@ -308,16 +308,18 @@ var contactForm = {
                 },
                 {
                     name: 'value',
-                    value: '',
+                    value: ''
                 },
                 {
                     name: 'placeholder',
                     value: 'Name'
                 }
             ],
+            description: `You know what means "Name", don't you?`,
             className: ['col-6'],
-            required: true
+            required: true,
         },
+
         {
             type: 'input',
             attr: [
@@ -334,6 +336,7 @@ var contactForm = {
                     value: 'Email'
                 }
             ],
+            description: 'I expect an e-mail, darling!',
             className: ['col-6'],
             required: true
         },
@@ -345,6 +348,7 @@ var contactForm = {
                     value: 'Message'
                 }
             ],
+            description: 'Darling, please text something!',
             value: '',
             className: ['col-12'],
             required: true
@@ -353,7 +357,6 @@ var contactForm = {
             actions: [
                 {
                     type: 'submit',
-                    style: 'red',
                     text: 'Send message'
                 }
             ]
