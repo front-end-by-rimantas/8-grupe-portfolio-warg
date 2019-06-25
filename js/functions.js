@@ -272,7 +272,7 @@ function generateServices( data ) {
     return HTML;
 }
 //STATISTICS
-function generateStatistics( data ) {
+function genertistiateStacs( data ) {
     var HTML = '';
     for ( var i=0; i<data.length; i++ ) {
         if ( data[i].icon === '' ||
