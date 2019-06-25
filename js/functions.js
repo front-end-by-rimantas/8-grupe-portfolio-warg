@@ -226,19 +226,24 @@ function generateForm ( data ) {
 
             if ( field.type === 'input' ) {
                 HTML += `<div class="${classNames}">
-                            <input ${attrHTML}>
+                            <input ${attrHTML} required>
+                            <span id="spann">${data.fields[i].description}</span>
                         </div>`;
+            
             }
+
             if ( field.type === 'textarea' ) {
                 HTML += `<div class="${classNames}">
-                            <textarea ${attrHTML}></textarea>
+                            <textarea ${attrHTML} required></textarea>
+                            <span>${data.fields[i].description}</span>
                         </div>`;
             }
         }
+
         HTML += '<div class="actions">';
         for ( var i=0; i<data.actions.length; i++ ) {
             HTML += `<div class="col-12">
-                        <div class="form-btn button dark">${data.actions[i].text}</div>
+                        <button type="submit" class="form-btn button dark">${data.actions[i].text}</button>
                     </div>`;
         }
     
@@ -246,6 +251,7 @@ function generateForm ( data ) {
         HTML += '<form>'
     return HTML
 }
+
 
 
 //BOTTOM
@@ -277,7 +283,7 @@ function generateServices( data ) {
     return HTML;
 }
 //STATISTICS
-function genertistiateStacs( data ) {
+function generateStatistics( data ) {
     var HTML = '';
     for ( var i=0; i<data.length; i++ ) {
         if ( data[i].icon === '' ||
