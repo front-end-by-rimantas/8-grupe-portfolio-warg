@@ -218,7 +218,7 @@ function generateForm ( data ) {
             for ( var a=0; a<field.attr.length; a++ ) {
                 attrInfo = field.attr[a];
                 attrHTML += ` ${attrInfo.name}="${attrInfo.value}"`;
-                console.log(attrInfo) 
+                // console.log(attrInfo) 
             }
 
         HTML += '<form>'
@@ -390,7 +390,7 @@ function generateMyWorksList( data ) {
     var HTML2='';
     for ( var a=0; a<vienetinesReiksmes.length; a++ ){
         HTML2+= `<a onclick="f-${vienetinesReiksmes[a]}()" id="${vienetinesReiksmes[a]}">${vienetinesReiksmes[a]}</a>`
-        console.log(HTML2)
+        // console.log(HTML2)
             }
     return HTML2;
 }
@@ -403,7 +403,7 @@ function generateMyWorks( data ) {
              data[i].image === '' ) {
             continue;
         }
-        HTML += `<div class="work">
+        HTML += `<div class="work" id="id${i+1}">
                     <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
                     <div class="texts">
                         <h3>Portfolio</h3><p>${data[i].project_title}</p>
@@ -412,34 +412,65 @@ function generateMyWorks( data ) {
     }
     return HTML;
 }
-    //generuojamas darbų scrollbaras
-function generateMyScrollbar( data ) {
-    var HTML = '',
-        nr=0;
-    HTML += `<div class="arrows">
-                <i class="more fa fa-angle-double-left more"></i>`
-    for ( var i=0; i<data.length; i=i+3 ) {
-        nr ++;
-        if ( (data[i].project_title === '') || 
-            (data[i].image === '' )) {
-            continue;
-        }
-        HTML += `<div class="more">${nr}</div>`
-        console.log(HTML)
-        console.log(nr)
+    //generuojamas darbų scrollbaras jei labai daug paveiksleliu - daugiau skaiciuku.
+    function generateMyScrollbar( data ) {
+        var HTML = '',
+            klass1 = '',
+            klass2 = '',
+            half = Math.ceil(data.length / 2),
+            third = Math.ceil(data.length / 3),
+            nr = 0;
+        HTML += `<div class="arrows">
+                    <i class="more fa fa-angle-double-left"></i>`
+                
+            for ( var i=0; i<data.length; i++) {
+                nr ++;
+                if ( (data[i].project_title === '') || 
+                    (data[i].image === '' )) {
+                    continue;
+                }
+                if ((i+1) <= half){
+                    klass1 = ' nr2';
+                }else{
+                    klass1 = '';
+                }
+                if ((i+1) <= third){
+                    klass2 = ' nr3';
+                }else{
+                    klass2 = '';
+                }
+
+                HTML += `<div class="more${klass1} nr1${klass2}">${nr}</div>`
+            }
+        HTML += `<i class="more fa fa-angle-double-right"></i>
+                    </div>`
+     return HTML;
     }
-    HTML += `<i class="more fa fa-angle-double-right"></i>
-                </div>`
-    return HTML;
-}
+    
+    var workIndex = 1;
+    // showWorks(workIndex);
 
+    function nextWork(n) {
+        showWorks(workIndex += n);
+    }
+    
+    function showWorks(n) {
+        var i,
+            x = document.querySelectorAll('.work');
+        
+        if (n > x.length) {
+            workIndex = 1;
+        }
+        if (n < 1) {
+            workIndex = x.length;
+        }
+        for (i = 0; i < x.length; i++){
+            x[i].style.display = "none";
+        }
 
+        x[workIndex - 1].style.display = "inline-block";
+        x[workIndex - 0].style.display = "inline-block";
+        x[workIndex + 1].style.display = "inline-block";
 
+    }
 
-
-// setInterval(dynamicNumbers,1000); nieko nesugalvoju...
-//         function dynamicNumbers(){
-//             var a = 2048;
-//             var b = a
-//         }
-//         console.log( a )

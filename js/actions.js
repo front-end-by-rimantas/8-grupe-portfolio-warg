@@ -28,6 +28,20 @@ document.getElementById('myStatistics').innerHTML = generateStatistics( statisti
 document.getElementById('myWorks').innerHTML = generateMyWorks( myWorkInfo );
 document.getElementById('myWorksList').innerHTML = generateMyWorksList( myWorkInfo );
 document.getElementById('myScrollbar').innerHTML = generateMyScrollbar( myWorkInfo );
+
+var portfolioLeftArrow = document.querySelector('#myScrollbar > .arrows > .fa-angle-double-left'),
+    portfolioRightArrow = document.querySelector('#myScrollbar > .arrows > .fa-angle-double-right');
+
+portfolioLeftArrow.addEventListener( 'click', function(){
+    nextWork(-1)
+});
+portfolioRightArrow.addEventListener( 'click', function(){
+    nextWork(1)
+});
+
+// document.getElementById('myScrollbar').innerHTML = generateMyScrollbarClasses( myWorkInfo );
+
+
 // TESTIMONIALS section
 
 // MY BLOGS section
