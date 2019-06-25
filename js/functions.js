@@ -210,6 +210,7 @@ function generateForm ( data ) {
         attrInfo,
         classNames = '';
 
+
         for (var i=0; i<data.fields.length; i++) {
             field = data.fields[i];
             attrHTML = '';
@@ -227,7 +228,7 @@ function generateForm ( data ) {
             if ( field.type === 'input' ) {
                 HTML += `<div class="${classNames}">
                             <input ${attrHTML} required>
-                            <span id="spann">${data.fields[i].description}</span>
+                            <span>${data.fields[i].description}</span>
                         </div>`;
             
             }
@@ -243,7 +244,7 @@ function generateForm ( data ) {
         HTML += '<div class="actions">';
         for ( var i=0; i<data.actions.length; i++ ) {
             HTML += `<div class="col-12">
-                        <button type="submit" class="form-btn button dark">${data.actions[i].text}</button>
+                        <button id="btn-submit" type="submit" class="form-btn button dark">${data.actions[i].text}</button>
                     </div>`;
         }
     
@@ -251,6 +252,7 @@ function generateForm ( data ) {
         HTML += '<form>'
     return HTML
 }
+
 
 
 
