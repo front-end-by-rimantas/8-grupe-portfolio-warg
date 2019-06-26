@@ -1437,6 +1437,13 @@ body * {
 
 /* TESTIMONIALS section */
 
+.row > .righty,
+.row > .lefty {
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
 /* MY BLOGS section */
 
 /* CONTACT ME section */
@@ -1717,6 +1724,11 @@ body * {
 /* MY PORTFOLIO section */
 
 /* TESTIMONIALS section */
+
+.lefty > .left-inner-second > .just-info,
+.righty > .right-inner-second > .just-info {
+    margin-top: 0;
+}
 
 /* MY BLOGS section */
 

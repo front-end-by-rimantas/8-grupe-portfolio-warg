@@ -30,6 +30,8 @@ document.getElementById('myWorksList').innerHTML = generateMyWorksList( myWorkIn
 document.getElementById('myScrollbar').innerHTML = generateMyScrollbar( myWorkInfo );
 // TESTIMONIALS section
 
+document.getElementById('testimonials_list').innerHTML = generateTestimonials( testimonialsInfo );
+
 // MY BLOGS section
 document.getElementById('blog-list').innerHTML = generateBlog( blog );
 
