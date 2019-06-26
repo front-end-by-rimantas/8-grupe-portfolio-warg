@@ -45,6 +45,8 @@ portfolioRightArrow.addEventListener( 'click', function(){
 
 // TESTIMONIALS section
 
+document.getElementById('testimonials_list').innerHTML = generateTestimonials( testimonialsInfo );
+
 // MY BLOGS section
 document.getElementById('blog-list').innerHTML = generateBlog( blog );
 

@@ -538,6 +538,43 @@ function generateMyWorks( data ) {
 //         for (i = 0; i < x.length; i++){
 //             x[i].style.display = "none";
 //         }
-
+//         console.log( a )
 //     return; 
 // }
+
+// TESTIMONIALS
+
+function generateTestimonials ( data ) {
+    var HTML = ''
+
+    for ( var i=0; i<data.length; i++ ) {
+        HTML +=
+    `<div class="lefty">
+        <div class="left-inner-first">
+            <p>${data[i].description}</p>
+            <div class="square"></div>
+        </div>
+        <div class="left-inner-second">
+            <figure class="circle">
+                <img src="./img/testimonial/${data[i].icon}" alt="spam">
+            </figure>
+            <div class="just-info">
+                <h4>${data[i].info[0]}</h4>
+                <span>${data[i].info[1]}</span>
+            </div>
+        </div>
+    </div>`
+    }
+        HTML +=
+    `<div class="listing-buttons">
+        <div class="listing-btn-block">
+            <i class="fa fa-angle-left"></i>
+        </div>
+        <div class="listing-btn-block">
+            <i class="fa fa-angle-right"></i>
+        </div>
+    </div>`
+
+    return HTML
+}
+
