@@ -27,7 +27,22 @@ document.getElementById('myStatistics').innerHTML = generateStatistics( statisti
 // MY PORTFOLIO section
 document.getElementById('myWorks').innerHTML = generateMyWorks( myWorkInfo );
 document.getElementById('myWorksList').innerHTML = generateMyWorksList( myWorkInfo );
+// document.getElementById('myWorksList').innerHTML = filtration( myWorkInfo, x );
 document.getElementById('myScrollbar').innerHTML = generateMyScrollbar( myWorkInfo );
+
+var portfolioLeftArrow = document.querySelector('#myScrollbar > .arrows > .fa-angle-double-left'),
+    portfolioRightArrow = document.querySelector('#myScrollbar > .arrows > .fa-angle-double-right');
+
+portfolioLeftArrow.addEventListener( 'click', function(){
+    next_work(-1)
+});
+portfolioRightArrow.addEventListener( 'click', function(){
+    next_work(1)
+});
+
+// document.getElementById('myScrollbar').innerHTML = generateMyScrollbarClasses( myWorkInfo );
+
+
 // TESTIMONIALS section
 
 document.getElementById('testimonials_list').innerHTML = generateTestimonials( testimonialsInfo );

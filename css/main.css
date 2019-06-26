@@ -774,7 +774,7 @@ body * {
 
 /* MY PORTFOLIO section */
 
-#portfolio > .row > a{
+#portfolio > .row > .filter{
     display: inline-block;
     float: left;
     text-decoration: none;
@@ -787,30 +787,34 @@ body * {
     box-shadow: -1px 1px 4px 0px grey;
     transition: all 0.6s ease;
 }
-    #portfolio > .row > a:hover{
+    #portfolio > .row > .filter:hover{
         cursor: pointer;
         border-radius: 15px;
         box-shadow: -3px 3px 8px 0px grey;
     }
-#portfolio > .row > a+a{
+#portfolio > .row > .filter+.filter{
     margin-left: 1.3%;
 }
-
-
+#portfolio > #myWorks{
+    height: 350px;
+    display: flex;
+    overflow: hidden;
+}
 #portfolio > .row > .work{
     display: inline-block;
     position: relative;
     float: left;
     height: 310px;
     width: 32%;
-    margin-right: 2%;
-    margin-top: 23px;
+    margin-right: 1.3%;
+    margin-bottom: 23px;
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
     border-radius: 4px;
 }
     #portfolio > .row > .work > .img{
+        display: inline-block;
         width:100%;
         height:100%;
         background-position: center;
@@ -855,17 +859,6 @@ body * {
             opacity: 1;
         }
 
-    #portfolio > .row > .work:nth-child(3n){
-        margin-right: 0%;
-    }
-    #portfolio > .row > .work:nth-child(1),
-    #portfolio > .row > .work:nth-child(2),
-    #portfolio > .row > .work:nth-child(3){
-        margin-top: 0%;
-    }
-
-
-
 #portfolio > .scrollbar > .arrows {
     display: inline-block;
     margin: 10px auto;
@@ -884,6 +877,14 @@ body * {
         font-weight: bold;
         color: var(--blackText-color);
     }
+    #portfolio > .scrollbar > .arrows > .nr1,
+    #portfolio > .scrollbar > .arrows > .nr2{
+        display: none;
+    }
+    #portfolio > .scrollbar > .arrows > .nr3{
+        display: inline-block;
+    }
+
     #portfolio > .scrollbar > .arrows > .more:hover{
         box-shadow: 0 0 8px var(--shadow-color);
     }
@@ -896,6 +897,7 @@ body * {
     #portfolio > .scrollbar > .arrows .more+.more{
         margin-left: 7px;
     }
+
 
 /* TESTIMONIALS section */
 
@@ -1253,17 +1255,14 @@ body * {
 #portfolio > .row > .work{
     height: 300px;
     width: 49%;
-}        
-#portfolio > .row > .work:nth-child(2n){
-    margin-right: 0%;
+    margin-right:1%;
 }
-#portfolio > .row > .work:nth-child(1),
-#portfolio > .row > .work:nth-child(2){
-    margin-top: 0%;
+#portfolio > .scrollbar > .arrows > .nr1,
+#portfolio > .scrollbar > .arrows > .nr3{
+    display: none;
 }
-#portfolio > .row > .work:nth-child(3){
-    margin-right: 2%;
-    margin-top: 23px;
+#portfolio > .scrollbar > .arrows > .nr2{
+    display: inline-block;
 }
 /* TESTIMONIALS section */
 
@@ -1485,6 +1484,11 @@ body * {
     #portfolio > .row > .work:nth-child(2){
         margin-top: 20px;
     }
+    #portfolio > .scrollbar > .arrows > .nr1,
+    #portfolio > .scrollbar > .arrows > .nr2,
+    #portfolio > .scrollbar > .arrows > .nr3{
+        display: none;
+    }
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
@@ -1605,6 +1609,9 @@ body * {
 /* FREELANCE section */
 
 /* MY PORTFOLIO section */
+#portfolio > .row {
+    height: 30vh;
+}
 #portfolio > .row > .work{
     height: 30vh;
     margin-right: 0%;
