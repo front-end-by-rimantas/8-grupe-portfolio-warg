@@ -112,7 +112,9 @@ var statisticsInfo = [
 ]
 
 
-// SKILL BAR
+
+// EDUCATION
+
 var educationInfo = [
     {
         month:'July',
@@ -156,6 +158,8 @@ var educationInfo = [
     }
 ]
 
+// EXPERIENCE
+
 var experienceInfo = [
     {
         month:'Dec',
@@ -198,6 +202,8 @@ var experienceInfo = [
         outline:'Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae.'
     }
 ]
+
+// SKILL BAR 
 
 var fillBarInfo = [
     {
@@ -266,6 +272,47 @@ var myWorkInfo = [
     }
 ]
 
+// TESTIMONIALS
+
+var testimonialsInfo = [
+    {
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
+        facilisis bibendum dolor feugiat.`,
+        icon: `Java (1).png`,
+        info: [`alwin jewel`, `front end developer`]
+    },
+    {
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
+        facilisis bibendum dolor feugiat.`,
+        icon: `js-flat.png`,
+        info: [`amber cottle`, `web developer`]
+    },
+    {
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
+        facilisis bibendum dolor feugiat.`,
+        icon: `java.png`,
+        info: [`mark smith`, `creative head`]
+    },
+    {
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
+        facilisis bibendum dolor feugiat.`,
+        icon: `pentagram.png`,
+        info: [`rebecca johansson`, `project manager`]
+    },
+    {
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
+        facilisis bibendum dolor feugiat.`,
+        icon: `ninja.png`,
+        info: [`john doe`, `ceo founder`]
+    },
+]
+
+
 // BLOGS 
 
 var blog = [
@@ -308,16 +355,18 @@ var contactForm = {
                 },
                 {
                     name: 'value',
-                    value: '',
+                    value: ''
                 },
                 {
                     name: 'placeholder',
                     value: 'Name'
                 }
             ],
+            description: `You know what means "Name", don't you?`,
             className: ['col-6'],
-            required: true
+            required: true,
         },
+
         {
             type: 'input',
             attr: [
@@ -334,6 +383,7 @@ var contactForm = {
                     value: 'Email'
                 }
             ],
+            description: 'I expect an e-mail, darling!',
             className: ['col-6'],
             required: true
         },
@@ -345,6 +395,7 @@ var contactForm = {
                     value: 'Message'
                 }
             ],
+            description: 'Darling, please text something!',
             value: '',
             className: ['col-12'],
             required: true
@@ -353,7 +404,6 @@ var contactForm = {
             actions: [
                 {
                     type: 'submit',
-                    style: 'red',
                     text: 'Send message'
                 }
             ]
