@@ -1,0 +1,406 @@
+/* EDUCATION section */
+/* Experience section */
+#education > .row > div,
+#experience > .row > div{
+    display: inline-block;
+    position: relative;
+    width: calc( 50% + 33px );
+    height: 150px;
+}
+    #education > .row > .righty::before,
+    #experience > .row > .righty::before{
+        left: 37px;
+    }
+
+    #education > .row > .lefty,
+    #experience > .row > .lefty{
+        float: left;
+    }
+    #education > .row > .righty,
+    #experience > .row > .righty{
+        float: right;
+    }
+        #education > .row > div > .data,
+        #experience > .row > div > .data{
+            display: inline-block;
+            position: relative;
+            float: right;
+            width: 77px;
+            height: 76px;
+            border: 5px solid white;
+            border-radius: 50%;
+            background-color: var(--main-color);
+            box-shadow: 0 4px 6px 0 rgba(0,0,0,.4);
+            padding: 11px;
+            color: var(--lighterText-color);
+        }
+        #education > .row > div > .data::before,
+        #experience > .row > div > .data::before{
+            content: "";
+            display: inline-block;
+            position: absolute;
+            float: right;
+            width: 2px;
+            right: 33px;
+            top: 70px;
+            height: 200px;
+            background-color: var(--lightGrey-color);
+            z-index: -1;
+            }
+        #education > .row > .lefty > .data,
+        #experience > .row > .lefty > .data{
+            float: right;    
+        }
+        #education > .row > .righty > .data,
+        #experience > .row > .righty > .data{
+            float: left;    
+        }
+
+            #education > .row > div > .data > .month,
+            #education > .row > div > .data > .year,
+            #experience > .row > div > .data > .month,
+            #experience > .row > div > .data > .year{
+                display: inline-block;     
+                width: 100%;
+                font-weight: bolder;
+                line-height: 20px;
+            }
+            #education > .row > div > .data > .month,
+            #experience > .row > div > .data > .month{
+                font-size: 15px;
+                }
+            #education > .row > div > .data > .year,
+            #experience > .row > div > .data > .year{
+                font-size: 25px;
+            }
+
+            #education > .row > div > .text,
+            #experience > .row > div > .text{
+                display: inline-block;
+                position: absolute;
+                top:0px;
+                float: left;
+                width: calc(100% - 100px);
+                border-radius: 5px;
+                border: 1px solid var(--lightGrey-color);
+                box-shadow: 0 3px 14px -4px rgba(0,0,0,.4);
+                padding: 30px;  
+                transition: background-color 1s;
+                z-index: 2;
+                width: calc(100% - 100px);
+                animation-duration: 1s;
+                animation-iteration-count: 1;
+            }
+            #education > .row > div > .text{
+                animation-name: falling;
+            }
+            #experience > .row > .lefty > .text{
+                animation-name: sliding-right;
+            }
+            #experience > .row > .righty > .text{
+                animation-name: sliding-left;
+            }
+                #education > .row > .lefty > .text,
+                #experience > .row > .lefty > .text{
+                    float: left;
+                    left: 0px;
+                    text-align: right;
+                }
+                #education > .row > .righty > .text,
+                #experience > .row > .righty > .text{
+                    float: right;
+                    right: 0px;
+                    text-align: left;
+                }
+
+                #education > .row > .lefty > .text::before,
+                #education > .row > .righty >.text::before,
+                #experience > .row > .lefty > .text::before,
+                #experience > .row > .righty >.text::before {
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid;
+                    border-left-color: transparent;
+                    border-bottom-color: transparent;
+                    border-top-color: var(--lightGrey-color);
+                    border-right-color: var(--lightGrey-color);
+                    position: absolute;
+                    background-color: #fff;
+                    right: -12px;
+                    top: 27px;
+                    transform: rotate(45deg);
+                    /* transition: background-color 1s; */
+                    z-index: 1;
+                }
+                #education > .row > .righty >.text::before,
+                #experience > .row > .righty >.text::before{
+                    border-top-color: transparent;
+                    border-right-color: transparent;
+                    border-left-color: var(--lightGrey-color);
+                    border-bottom-color: var(--lightGrey-color);
+                    left: -12px;
+                }
+                    #education > .row > div > .text > .degree,
+                    #education > .row > div > .text > .school,
+                    #experience > .row > div > .text > .degree,
+                    #experience > .row > div > .text > .school{
+                        display: inline-block;
+                        width: 100%;
+                    }
+                    #education > .row > div > .text > .degree,
+                    #experience > .row > div > .text > .degree{
+                        text-transform: uppercase;
+                        font-size: 20px;
+                        line-height: 20px;
+                    }
+                    #education > .row > div > .text > .school,
+                    #experience > .row > div > .text > .school{
+                        margin: 10px 0;
+                        font-weight: bolder;
+                    }
+                    #education > .row > .lefty > .text > .school,
+                    #experience > .row > .lefty > .text > .school{
+                        float: right;
+                    }
+                    #education > .row > .righty > .text > .school,
+                    #experience > .row > .righty > .text > .school{
+                        float: left;
+                    }
+
+                        #education > .row > div > .text > .school > p,
+                        #experience > .row > div > .text > .school > p{
+                            display: inline-block;
+                            font-size: 15px;
+                            line-height: 15px;
+                            color: var(--lightText-color);
+                            padding: 0;
+                        }
+                        #education > .row > div > .text > .school > span,
+                        #experience > .row > div > .text > .school > span{
+                            display: inline-block;
+                            width: 1px;
+                            height: 15px;
+                            background-color: var(--text-color);
+                            margin: 0 5px;
+                        }
+                        #education > .row > div > .text > .school :first-child,
+                        #experience > .row > div > .text > .school :first-child{
+                            color: var(--main-color);
+                        }
+                    #education > .row > div > .text > .outline,
+                    #experience > .row > div > .text > .outline{
+                        display: inline-block;
+                        width: 100%;
+                        font-size: 18px;
+                        line-height: 18px;
+                        padding: 0;
+                    }
+                    
+                #education > .row > div > .text:hover,
+                #experience > .row > div > .text:hover{
+                    background-color: var(--main-color);
+                }
+                    #education > .row > div > .text:hover .degree,
+                    #experience > .row > div > .text:hover .degree {
+                        color: var(--lighterText-color);
+                    }
+                    #education > .row > div > .text:hover .outline,
+                    #experience > .row > div > .text:hover .outline {
+                        color: var(--lighterText-color);
+                    }
+                    #education > .row > div > .text:hover .school :last-child,
+                    #experience > .row > div > .text:hover .school :last-child {
+                        color: var(--lighterText-color);
+                    }
+                    #education > .row > div > .text:hover::before,
+                    #experience > .row > div > .text:hover::before {
+                        background-color: transparent;        
+                        border-color: transparent;
+                    }
+
+@media ( max-width: 1300px ) {
+#education > .row > div,
+#experience > .row > div{
+    width: calc( 50% + 34px );
+}
+    #education > .row > div > .data, 
+    #experience > .row > div > .data {
+        width: 76px;
+    }
+        #education > .row > div > .data::before,
+        #experience > .row > div > .data::before{
+            right: 34px;
+            }
+}
+@media ( max-width: 1250px ){
+    #education > .row > div > .data, 
+    #experience > .row > div > .data {
+        width: 75px;
+    }
+}
+@media ( max-width: 1000px ){
+    #education > .row > div,
+    #experience > .row > div{
+        width: calc( 50% + 35px );
+    }
+        #education > .row > div > .data, 
+        #experience > .row > div > .data {
+            width: 76px;
+        }
+}
+
+@media ( max-width: 900px ) {
+#education > .row > div,
+#experience > .row > div{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 190px;
+    float: left;
+    margin-left:0px;
+}
+    #education > .row > .lefty > .data,
+    #experience > .row > .lefty > .data,
+    #education > .row > .righty > .data,
+    #experience > .row > .righty > .data{
+        float: left;    
+    }
+        #education > .row > div > .data::before, 
+        #experience > .row > div > .data::before {
+            right: 32px;
+        }
+            #education > .row > div > .data:last-child:before, 
+            #experience > .row > div > .data:last-child:before {
+                height: 32px;
+            }
+    #education > .row > .lefty > .text,
+    #experience > .row > .lefty > .text,
+    #education > .row > .righty > .text,
+    #experience > .row > .righty > .text{
+        float: left;
+        text-align: left; 
+        left: 100px;
+    }
+    #experience > .row > .lefty > .text,
+    #experience > .row > .righty > .text{
+        animation-name: sliding-left;
+        animation-duration: 2s;
+        animation-delay: 5s;
+        animation-iteration-count: infinite;
+    }
+        #education > .row > .lefty > .text::before, 
+        #education > .row > .righty >.text::before,
+        #experience > .row > .lefty > .text::before, 
+        #experience > .row > .righty >.text::before {
+            left: -11px;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-left-color: var(--lightGrey-color);
+            border-bottom-color: var(--lightGrey-color);
+        }
+}
+@media ( max-width: 600px ){
+    #education > .row > div,
+    #experience > .row > div{
+        height: 200px;
+    }
+    #education > .row > .lefty > .text,
+    #experience > .row > .lefty > .text,
+    #education > .row > .righty > .text,
+    #experience > .row > .righty > .text{
+        left: 100px;
+        padding: 15px;
+    }
+}
+@media ( max-width: 500px ){
+    #education > .row > div,
+    #experience > .row > div{
+        height: 230px;
+    }
+}
+
+@media ( max-width: 400px ){
+    #education > .row > div,
+    #experience > .row > div{
+        height: 200px;
+    }
+        #education > .row > div > .data,
+        #experience > .row > div > .data{
+            width: 50px;
+            height: 50px;
+            border: 3px solid white;
+            padding: 8px;
+        }
+            #education > .row > div > .data > .month,
+            #education > .row > div > .data > .year,
+            #experience > .row > div > .data > .month,
+            #experience > .row > div > .data > .year{
+                line-height: 10px;
+            }
+            #education > .row > div > .data > .month,
+            #experience > .row > div > .data > .month{
+                font-size: 10px;
+                }
+            #education > .row > div > .data > .year,
+            #experience > .row > div > .data > .year{
+                font-size: 20px;
+            }
+            #education > .row > div > .data::before, 
+            #experience > .row > div > .data::before {
+                height: 250px;
+                right: 20px;
+                top: 45px;
+            }
+        #education > .row > .lefty > .text,
+        #experience > .row > .lefty > .text,
+        #education > .row > .righty > .text,
+        #experience > .row > .righty > .text{
+            left: 70px;
+            width: calc(100% - 60px);
+        }
+            #education > .row > .lefty > .text::before,
+            #education > .row > .righty >.text::before,
+            #experience > .row > .lefty > .text::before,
+            #experience > .row > .righty >.text::before {
+                top: 15px;
+    }
+}
+@media ( max-width: 360px ){
+    #education > .row > div,
+    #experience > .row > div{
+        height: 230px;
+    }
+}
+@media ( max-width: 320px ){
+    #education > .row > div,
+    #experience > .row > div{
+        height: 280px;
+    }
+}
+@keyframes falling {
+    0%{
+        top: -150px;
+    }
+    100%{
+        top: 0px;
+    }
+}
+@keyframes sliding-right {
+    0%{
+        left: -600px;
+    }
+    100%{
+        left: 0px;
+    }
+}
+@keyframes sliding-left {
+    0%{
+        right: -600px;
+    }
+    100%{
+        right: 0px;
+    }
+}
+
