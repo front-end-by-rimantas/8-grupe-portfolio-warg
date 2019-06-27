@@ -213,13 +213,13 @@ function generateForm ( data ) {
             field = data.fields[i];
             attrHTML = '';
             classNames = '';
-            console.log(field);
+            // console.log(field);
          
             for ( var a=0; a<field.attr.length; a++ ) {
                 attrInfo = field.attr[a];
                 attrHTML += ` ${attrInfo.name}="${attrInfo.value}"`;
                 // console.log(attrInfo) 
-                console.log(attrInfo);
+                // console.log(attrInfo);
             }
         
             classNames = field.className.join(' ');
@@ -478,7 +478,7 @@ function generateExperience( data ) {
         }
         HTML += `<i class="more fa fa-angle-double-right"></i>
             </div>`
-        console.log(HTML)
+        // console.log(HTML)
         return HTML;
     }
 
@@ -493,7 +493,7 @@ function generateExperience( data ) {
             i;
 
         x = document.querySelectorAll(".work");
-        console.log(curent_index);
+        // console.log(curent_index);
 
         if (next_work > (x.length-1)) {
             curent_index = 0;
