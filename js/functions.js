@@ -548,8 +548,9 @@ function generateTestimonials ( data ) {
     var HTML = ''
 
     for ( var i=0; i<data.length; i++ ) {
+
         HTML +=
-    `<div class="lefty">
+    `<div class="lefty ${i === 0 ? 'active' : ''}" data-index="${i}">
         <div class="left-inner-first">
             <p>${data[i].description}</p>
             <div class="square"></div>
@@ -576,5 +577,45 @@ function generateTestimonials ( data ) {
     </div>`
 
     return HTML
+}
+
+function showTestimonial ( value ) {
+    var direction = '',
+        current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
+        next_index = 0;
+
+        document.querySelectorAll('#testimonials_list > .lefty').forEach( lefty => {
+            lefty.style.display = 'none';
+        });
+    
+   
+    if ( indexOf('data-index') <= 1 ) {
+        lefty.style.display = 'inline-block';
+    }
+
+    if ( value.target.className.indexOf('fa-angle-left') >= 0 ) {
+        direction = -1;
+    }
+    if ( value.target.className.indexOf('fa-angle-right') >= 0 ) {
+        direction = 1;
+    }
+    console.log(direction);
+
+    next_index = current_index + direction;
+
+    if ( current_index === 0 && direction === -1 ) {
+        next_index = testimonialsInfo.length - 1;
+    }
+
+    if ( current_index === (testimonialsInfo.length - 1) && direction === 1 ) {
+        next_index = 0;
+    }
+
+    // remove "active" class from all testimonials
+    document.querySelector('.lefty.active').classList.remove('active');
+    // add "active" class to "next_index" testimonial
+    document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
+
+    return
 }
 
