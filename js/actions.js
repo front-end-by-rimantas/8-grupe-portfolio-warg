@@ -26,12 +26,13 @@ document.getElementById('myStatistics').innerHTML = generateStatistics( statisti
 
 // MY PORTFOLIO section
 document.getElementById('myWorks').innerHTML = generateMyWorks( myWorkInfo );
-document.getElementById('myWorksList').innerHTML = generateMyWorksList( myWorkInfo );
-// document.getElementById('myWorksList').innerHTML = filtration( myWorkInfo, x );
-document.getElementById('myScrollbar').innerHTML = generateMyScrollbar( myWorkInfo );
 
-var portfolioLeftArrow = document.querySelector('#myScrollbar > .arrows > .fa-angle-double-left'),
-    portfolioRightArrow = document.querySelector('#myScrollbar > .arrows > .fa-angle-double-right');
+document.querySelectorAll('#portfolio > #myWorks > .filter > div').forEach( filter => {
+    filter.addEventListener('click', filterPortfolio);
+});
+
+var portfolioLeftArrow = document.querySelector('#portfolio > #myWorks > .arrows > .fa-angle-double-left'),
+    portfolioRightArrow = document.querySelector('#portfolio > #myWorks > .arrows > .fa-angle-double-right');
 
 portfolioLeftArrow.addEventListener( 'click', function(){
     next_work(-1)
