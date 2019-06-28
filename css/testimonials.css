@@ -1,8 +1,11 @@
 .row > .lefty {
-    display: inline-block;
+    display: none;
     float: left;
     width: 48%;
     margin-left: 1%;
+}
+.row > .lefty.active {
+    display: inline-block;
 }
     .row > .lefty > .left-inner-first, 
     .row > .righty > .right-inner-first {
