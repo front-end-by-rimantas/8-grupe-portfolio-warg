@@ -40,9 +40,9 @@ display: inline-block;
             overflow: hidden;
             border-radius: 4px;
         }
-            #portfolio > #myWorks > .list > .work:nth-child(2){
+            /* #portfolio > #myWorks > .list > .work:nth-child(2){
             margin: 0 2%;
-            }
+            } */
 
             #portfolio > #myWorks > .list > .work:hover .img{
                 transform: scale(1.1);
@@ -124,19 +124,19 @@ display: inline-block;
                 width: 32%;
             }
             
-            #portfolio > #myWorks > .list > .display_none{
+            #portfolio > #myWorks > .list > .N{
                 display: none;
             }
-            #portfolio > #myWorks > .list > .display_small,
-            #portfolio > #myWorks > .list > .display_medium,
-            #portfolio > #myWorks > .list > .display_large{
-                display: flex;
+            #portfolio > #myWorks > .list > .S,
+            #portfolio > #myWorks > .list > .M,
+            #portfolio > #myWorks > .list > .L{
+                display: inline-block;
             }
-            #portfolio > #myWorks > .list > .display_medium.display_large.display_none{
+            #portfolio > #myWorks > .list > .M.L.N{
                 margin: 0 2%;
             }
-            #portfolio > #myWorks > .list > .display_small.display_medium.display_large.display_none,
-            #portfolio > #myWorks > .list > .display_large.display_none{
+            #portfolio > #myWorks > .list > .S.M.L.N,
+            #portfolio > #myWorks > .list > .L.N{
                 margin: 0;
             }
 
@@ -147,22 +147,22 @@ display: inline-block;
     #portfolio > #myWorks > .list > .work{
         width: 49%;
     }
-    #portfolio > #myWorks > .list > .display_large,
-    #portfolio > #myWorks > .list > .display_none{
+    #portfolio > #myWorks > .list > .L,
+    #portfolio > #myWorks > .list > .N{
         display: none;
     }
-    #portfolio > #myWorks > .list > .display_small,
-    #portfolio > #myWorks > .list > .display_medium{
-        display: flex;
+    #portfolio > #myWorks > .list > S.M.L.N,
+    #portfolio > #myWorks > .list > .M.L.N{
+        display: inline-block;
     }
-    #portfolio > #myWorks > .list > .display_small.display_medium.display_large.display_none{
+    #portfolio > #myWorks > .list > .S.M.L.N{
         margin-right: 2%;
     }
-    #portfolio > #myWorks > .list > .display_medium.display_large.display_none{
+    #portfolio > #myWorks > .list > .M.L.N{
         margin-left: 2%;
     }
-    #portfolio > #myWorks > .list > .display_medium.display_large.display_none,
-    #portfolio > #myWorks > .list > .display_large.display_none{
+    #portfolio > #myWorks > .list > .M.L.N,
+    #portfolio > #myWorks > .list > .L.N{
         margin: 0;
     }
 }
@@ -174,13 +174,13 @@ display: inline-block;
     #portfolio > #myWorks > .list > .work{
         width: 100%
     }
-    #portfolio > #myWorks > .list > .display_medium.display_large.display_none,
-    #portfolio > #myWorks > .list > .display_large.display_none,
-    #portfolio > #myWorks > .list > .display_none{
+    #portfolio > #myWorks > .list > .M.L.N,
+    #portfolio > #myWorks > .list > .L.N,
+    #portfolio > #myWorks > .list > .N{
         display: none;
     }
-    #portfolio > #myWorks > .list > .display_small.display_medium.display_large.display_none{
-        display: flex;
+    #portfolio > #myWorks > .list > .S.M.L.N{
+        display: inline-block;
         margin: 0;
     }
 }
