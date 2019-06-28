@@ -40,9 +40,9 @@ display: inline-block;
             overflow: hidden;
             border-radius: 4px;
         }
-            #portfolio > #myWorks > .list > .work:nth-child(2){
+            /* #portfolio > #myWorks > .list > .work:nth-child(2){
             margin: 0 2%;
-            }
+            } */
 
             #portfolio > #myWorks > .list > .work:hover .img{
                 transform: scale(1.1);
@@ -118,14 +118,27 @@ display: inline-block;
                 margin-left: 5px;
             }
 
-/* 
-     #portfolio > #myWorks > .arrows > .nr1,
-     #portfolio > #myWorks > .arrows > .nr2{
-        display: none;
-    }
-     #portfolio > #myWorks > .arrows > .nr3{
-        display: inline-block;
-    }*/
+            /* R E S P O N S I V E   D E S I G N */
+
+            #portfolio > #myWorks > .list > .work{
+                width: 32%;
+            }
+            
+            #portfolio > #myWorks > .list > .N{
+                display: none;
+            }
+            #portfolio > #myWorks > .list > .S,
+            #portfolio > #myWorks > .list > .M,
+            #portfolio > #myWorks > .list > .L{
+                display: inline-block;
+            }
+            #portfolio > #myWorks > .list > .M.L.N{
+                margin: 0 2%;
+            }
+            #portfolio > #myWorks > .list > .S.M.L.N,
+            #portfolio > #myWorks > .list > .L.N{
+                margin: 0;
+            }
 
 @media ( max-width: 1300px ) {
 }
@@ -134,22 +147,42 @@ display: inline-block;
     #portfolio > #myWorks > .list > .work{
         width: 49%;
     }
-    .display_small,
-    .display_medium{
-        display: flex;
-    }
-    .display_large,
-    .display_none{
+    #portfolio > #myWorks > .list > .L,
+    #portfolio > #myWorks > .list > .N{
         display: none;
     }
-    
-
+    #portfolio > #myWorks > .list > S.M.L.N,
+    #portfolio > #myWorks > .list > .M.L.N{
+        display: inline-block;
+    }
+    #portfolio > #myWorks > .list > .S.M.L.N{
+        margin-right: 2%;
+    }
+    #portfolio > #myWorks > .list > .M.L.N{
+        margin-left: 2%;
+    }
+    #portfolio > #myWorks > .list > .M.L.N,
+    #portfolio > #myWorks > .list > .L.N{
+        margin: 0;
+    }
 }
 
 @media ( max-width: 700px ) {
 }
 
 @media ( max-width: 600px ) {
+    #portfolio > #myWorks > .list > .work{
+        width: 100%
+    }
+    #portfolio > #myWorks > .list > .M.L.N,
+    #portfolio > #myWorks > .list > .L.N,
+    #portfolio > #myWorks > .list > .N{
+        display: none;
+    }
+    #portfolio > #myWorks > .list > .S.M.L.N{
+        display: inline-block;
+        margin: 0;
+    }
 }
 
 @media ( max-width: 500px ) {
