@@ -481,14 +481,19 @@ function generateExperience( data ) {
     var curent_index = 0;
 
     function next_work(n){
-        show_work(curent_index += n);
+        if( n===1 || n===-1 ){
+            show_work(curent_index += n);
+        }else{
+            show_work(curent_index = n);
+        }
     }
     function show_work(next_work){
         var x,
             i;
 
         x = document.querySelectorAll(".work");
-        // console.log(curent_index);
+        console.log(curent_index);
+        // console.log(next_work);
 
         if (next_work > (x.length-1)) {
             curent_index = 0;

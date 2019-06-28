@@ -32,10 +32,16 @@ document.querySelectorAll('#portfolio > #myWorks > .filter > div').forEach( filt
 });
 
 var portfolioLeftArrow = document.querySelector('#portfolio > #myWorks > .arrows > .fa-angle-double-left'),
-    portfolioRightArrow = document.querySelector('#portfolio > #myWorks > .arrows > .fa-angle-double-right');
+    portfolioRightArrow = document.querySelector('#portfolio > #myWorks > .arrows > .fa-angle-double-right'),
+    portfolioNumber = document.querySelectorAll('#portfolio > #myWorks > .arrows > div');
 
 portfolioLeftArrow.addEventListener( 'click', function(){
     next_work(-1)
+});
+portfolioNumber.forEach( (number,index) => {
+    number.addEventListener('click',function(){
+        next_work(index+1)
+    });
 });
 portfolioRightArrow.addEventListener( 'click', function(){
     next_work(1)
