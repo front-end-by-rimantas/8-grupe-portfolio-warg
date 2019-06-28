@@ -550,7 +550,7 @@ function generateTestimonials ( data ) {
     for ( var i=0; i<data.length; i++ ) {
 
         HTML +=
-    `<div class="lefty ${i === 0 ? 'active' : ''}" data-index="${i}">
+    `<div class="lefty ${i === 0 || i ===1 ? 'active' : ''}" data-index="${i}">
         <div class="left-inner-first">
             <p>${data[i].description}</p>
             <div class="square"></div>
@@ -583,15 +583,7 @@ function showTestimonial ( value ) {
     var direction = '',
         current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
         next_index = 0;
-
-        document.querySelectorAll('#testimonials_list > .lefty').forEach( lefty => {
-            lefty.style.display = 'none';
-        });
     
-   
-    if ( indexOf('data-index') <= 1 ) {
-        lefty.style.display = 'inline-block';
-    }
 
     if ( value.target.className.indexOf('fa-angle-left') >= 0 ) {
         direction = -1;
