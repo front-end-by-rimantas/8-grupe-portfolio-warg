@@ -428,24 +428,26 @@ function generateExperience( data ) {
                 continue;
             }
 
-            // if(i<1){
-            //     display_class = 'display_small';
-            // }
-            // if( (0<i) || (i<2) ){
-            //     display_class = 'display_medium';
-            // }
-            // if( (1<i) || (i<3) ){
-            //     display_class = 'display_large';
-            // }else{
-            //     display_class = 'display_none';
-            // }
-            if (i<=2){
-                display = "inline-block";
-            }else{
-                display = "none";
+            if(i==0){
+                display_class = 'display_small display_medium display_large';
             }
-            // HTML += `<div class="work ${display_class}" id="id${i+1}" style="order:${i+1}">
-            HTML += `<div class="work ${display}" id="id${i+1}" style="display:${display}; order:${i+1}">
+            else if(i==1){
+                display_class = 'display_medium display_large';
+            }
+            else if(i==2){
+                display_class = 'display_large';
+            }else{
+                display_class = 'display_none';
+            }
+
+            // if (i<=2){
+            //     display = "inline-block";
+            // }else{
+            //     display = "none";
+            // }
+// HTML += `<div class="work ${display}${r}" id="id${i+1}" style="display:${display}; order:${i+1}">
+            
+            HTML += `<div class="work ${display_class}" id="id${i+1}" style="order:${i+1}">
                         <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
                         <div class="texts">
                             <h3>Portfolio</h3><p>${data[i].project_title}</p>
@@ -502,110 +504,127 @@ function generateExperience( data ) {
             curent_index = (x.length-1);
         }
         for (i = 0; i < x.length; i++){
-            x[i].style.display = "none";
+            x[i].classList.add("display_none");
             x[i].style.order = "0";
-            x[i].style.margin = "0";
-            // x[i].classList.remove('d_small');
-            // x[i].classList.remove('d_medium');
-            // x[i].classList.remove('d_large');
-            // x[i].classList.remove('d_small');
+            x[i].classList.remove('display_small');
+            x[i].classList.remove('display_medium');
+            x[i].classList.remove('display_large');
         }
 
-        if (curent_index === 0 ){
-            //display
-            x[x.length-1].style.display = "inline-block";
-            x[0].style.display = "inline-block";
-            x[1].style.display = "inline-block";
+        if (curent_index === 0){
             //order
             x[x.length-1].style.order = "1";
             x[0].style.order = "2";
             x[1].style.order = "3";
-            //margin
-            x[x.length-1].style.margin = "0";
-            x[0].style.margin = "0 2%";
-            x[1].style.margin = "0";
 
             //add class
-            // x[x.length-1].classList.add("d_small");
-            // x[x.length-1].classList.add("d_medium");
-            // x[x.length-1].classList.add("d_large");
+            x[x.length-1].classList.add("display_small");
+            x[x.length-1].classList.add("display_medium");
+            x[x.length-1].classList.add("display_large");
 
-            // x[0].classList.add("d_medium");
-            // x[0].classList.add("d_large");
+            x[0].classList.add("display_medium");
+            x[0].classList.add("display_large");
 
-            // x[1].classList.add("d_large");
+            x[1].classList.add("display_large");
         }
+
         if ((curent_index < (x.length-1)) && (curent_index > 0)) {
-            //display
-            x[curent_index - 1].style.display = "inline-block";
-            x[curent_index].style.display = "inline-block";
-            x[curent_index + 1].style.display = "inline-block";
             //order
             x[curent_index - 1].style.order = "1";
             x[curent_index].style.order = "2";
             x[curent_index + 1].style.order = "3";
-            //margin
-            x[curent_index - 1].style.margin = "0";
-            x[curent_index].style.margin = "0 2%";
-            x[curent_index + 1].style.margin = "0";
+
             //add class
-            // x[curent_index - 1].classList.add("d_small");
-            // x[curent_index - 1].classList.add("d_medium");
-            // x[curent_index - 1].classList.add("d_large");
+            x[curent_index - 1].classList.add("display_small");
+            x[curent_index - 1].classList.add("display_medium");
+            x[curent_index - 1].classList.add("display_large");
 
-            // x[curent_index].classList.add("d_medium");
-            // x[curent_index].classList.add("d_large");
+            x[curent_index].classList.add("display_medium");
+            x[curent_index].classList.add("display_large");
 
-            // x[curent_index + 1].classList.add("d_large");
+            x[curent_index + 1].classList.add("display_large");
         }
+
         if (curent_index === (x.length-1)) {
-            //display
-            x[x.length-2].style.display = "inline-block";
-            x[x.length-1].style.display = "inline-block";
-            x[0].style.display = "inline-block";
             //order
             x[x.length-2].style.order = "1";
             x[x.length-1].style.order = "2";
             x[0].style.order = "3";
-            //margin
-            x[x.length-2].style.margin = "0";
-            x[x.length-1].style.margin = "0 2%";
-            x[0].style.margin = "0";
 
             //add class
-            // x[x.length-2].classList.add("d_small");
-            // x[x.length-2].classList.add("d_medium");
-            // x[x.length-2].classList.add("d_large");
+            x[x.length-2].classList.add("display_small");
+            x[x.length-2].classList.add("display_medium");
+            x[x.length-2].classList.add("display_large");
 
-            // x[x.length-1].classList.add("d_medium");
-            // x[x.length-1].classList.add("d_large");
+            x[x.length-1].classList.add("display_medium");
+            x[x.length-1].classList.add("display_large");
 
-            // x[0].classList.add("d_large");
+            x[0].classList.add("display_large");
         }
     }
 
 // F I L T R A V I M A S
 function filterPortfolio( e ) {
-    var tag = e.target.innerText.toLowerCase();
+    var tag = e.target.innerText.toLowerCase(),
+    i,
+    x = document.querySelectorAll('#portfolio > #myWorks > .list > .work');
 
     if (tag === "all") {
-        document.querySelectorAll('#portfolio > #myWorks > .list > .work').forEach( work => {
-            work.style.display = 'inline-block';
-        });
+        for(i=0; i<x.length; i++){
+            x[i].classList.add("display_none");
+            x[i].style.order = "0";
+            x[i].classList.remove('display_small');
+            x[i].classList.remove('display_medium');
+            x[i].classList.remove('display_large');
+            //add class
+            x[0].classList.add("display_small");
+            x[0].classList.add("display_medium");
+            x[0].classList.add("display_large");
+            x[0].style.order = "1";
+
+            x[1].classList.add("display_medium");
+            x[1].classList.add("display_large");
+            x[1].style.order = "2";
+
+            x[2].classList.add("display_large");
+            x[2].style.order = "3";
+        }
         return;
     }
 
     //paslepti visus darbus
-    document.querySelectorAll('#portfolio > #myWorks > .list > .work').forEach( work => {
-        work.style.display = 'none';
-    });
+    for(i=0; i<x.length; i++){
+        x[i].classList.add("display_none");
+        x[i].style.order = "0";
+        x[i].classList.remove('display_small');
+        x[i].classList.remove('display_medium');
+        x[i].classList.remove('display_large');
+    }
 
     //parodyti tik tuos, kurie turi pasirinktą tag'ą
-    document.querySelectorAll('#portfolio > #myWorks > .list > .work').forEach( work => {
-        if( tag === work.querySelector('p').innerText.toLowerCase() ){
-            work.style.display = 'inline-block';
+    var tag_true = [];
+    for(i=0; i<x.length; i++){
+        if( tag === x[i].querySelector('p').innerText.toLowerCase() ){
+            tag_true.push(x[i]) //surenkam teisingų tagų sąrašą
         }
-    });
+    }
+    for(i=0; i<tag_true.length; i++){ //teisingų tagų sąrašą papildom klasem
+        if(i===0){
+            tag_true[i].classList.add("display_small");
+            tag_true[i].classList.add("display_medium");
+            tag_true[i].classList.add("display_large");
+            tag_true[i].style.order = "1";
+        }
+        else if(i===1){
+            tag_true[i].classList.add("display_medium");
+            tag_true[i].classList.add("display_large");
+            tag_true[i].style.order = "1";
+        }
+        else if(i===2){
+            tag_true[i].classList.add("display_large");
+            tag_true[i].style.order = "1";
+        }
+    }
     return; 
 }
 
