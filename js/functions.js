@@ -213,13 +213,13 @@ function generateForm ( data ) {
             field = data.fields[i];
             attrHTML = '';
             classNames = '';
-            console.log(field);
+            // console.log(field);
          
             for ( var a=0; a<field.attr.length; a++ ) {
                 attrInfo = field.attr[a];
                 attrHTML += ` ${attrInfo.name}="${attrInfo.value}"`;
                 // console.log(attrInfo) 
-                console.log(attrInfo);
+                // console.log(attrInfo);
             }
         
             classNames = field.className.join(' ');
@@ -293,196 +293,163 @@ function generateStatistics( data ) {
     }
     return HTML;
 }
-// EDUCATION section
-function generateEducation( data ) {
-    var HTML = '';
-    for ( var i=0; i<data.length; i++ ) {
-        if ( data[i].month === '' ||
-             data[i].day === '' ||
-             data[i].year === '' ||
-             data[i].degree === '' ||
-             data[i].place === '' ||
-             data[i].outline === '' ) {
-            continue;
-        }
-        if( (i+1) % 2 != 0){
-            HTML += `<div class="lefty">
-                            <div class="data">
-                                <div class="month">${data[i].month}</div>
-                                <div class="year">${data[i].day}</div>
-                            </div>
-                            <div class="text">
-                                <h4 class="degree">${data[i].degree}</h4>
-                                <div class="school">
-                                    <p>${data[i].year}</p>
-                                    <span></span>
-                                    <p>${data[i].place}.</p>
-                                </div>
-                                <p class="outline">${data[i].outline}</p>
-                            </div>
-                        </div>
-                    </div>`
-        }
-        if( (i+1) % 2 == 0){
-            HTML += `   <div class="righty">
-                            <div class="data">
-                                <div class="month">${data[i].month}</div>
-                                <div class="year">${data[i].day}</div>
-                            </div>
-                            <div class="text">
-                                <h4 class="degree">${data[i].degree}</h4>
-                                <div class="school">
-                                    <p>${data[i].year}</p>
-                                    <span></span>
-                                    <p>${data[i].place}.</p>
-                                </div>
-                                <p class="outline">${data[i].outline}</p>
-                            </div>
-                        </div>
-                    </div>`
-        }
-    }
-    return HTML;
-}
-// EXPERIENCE section
-function generateExperience( data ) {
-    var HTML = '';
-    for ( var i=0; i<data.length; i++ ) {
-        if ( data[i].month === '' ||
-             data[i].day === '' ||
-             data[i].year === '' ||
-             data[i].degree === '' ||
-             data[i].place === '' ||
-             data[i].outline === '' ) {
-            continue;
-        }
-        if( (i+1) % 2 != 0){
-            HTML += `<div class="lefty">
-                            <div class="data">
-                                <div class="month">${data[i].month}</div>
-                                <div class="year">${data[i].day}</div>
-                            </div>
-                            <div class="text">
-                                <h4 class="degree">${data[i].degree}</h4>
-                                <div class="school">
-                                    <p>${data[i].year}</p>
-                                    <span></span>
-                                    <p>${data[i].place}.</p>
-                                </div>
-                                <p class="outline">${data[i].outline}</p>
-                            </div>
-                        </div>
-                    </div>`
-        }
-        if( (i+1) % 2 == 0){
-            HTML += `   <div class="righty">
-                            <div class="data">
-                                <div class="month">${data[i].month}</div>
-                                <div class="year">${data[i].day}</div>
-                            </div>
-                            <div class="text">
-                                <h4 class="degree">${data[i].degree}</h4>
-                                <div class="school">
-                                    <p>${data[i].year}</p>
-                                    <span></span>
-                                    <p>${data[i].place}.</p>
-                                </div>
-                                <p class="outline">${data[i].outline}</p>
-                            </div>
-                        </div>
-                    </div>`
-        }
-    }
-    return HTML;
-}
-//PORTFOLIO
-    //generuojamos unikalios darbų klasės
-function generateMyWorksList( data ) {
-    var areas = [],
-        HTML='';
-    
-    for ( var i=0; i<data.length; i++ ) {
-        if ( data[i].project_title === '' ||
-             data[i].image === '' ) {
-            continue;
-        }
-        areas.push(data[i].project_title);
-    }
-
-    const values = (value,index,self) => {
-        return self.indexOf(value)===index;
-    }
-    const titles = areas;
-    const unique = titles.filter(values);
-
-    for ( var a=0; a<unique.length; a++ ){
-        HTML+= `<div class="filter" id="${unique[a]}">${unique[a]}</div>`
-    }
-    return HTML;
-}
-    //generuojami darbų paveikslėliai bei pavardinimai
-function generateMyWorks( data ) {
+// E D U C A T I O N   &   E X P E R I E N C E section
+function education_experience_Info( data ) {
     var HTML = '',
-        display;
-    
+    clas = '';
     for ( var i=0; i<data.length; i++ ) {
-        if ( data[i].project_title === '' ||
-             data[i].image === '' ) {
+        if ( data[i].month === '' ||
+             data[i].day === '' ||
+             data[i].year === '' ||
+             data[i].degree === '' ||
+             data[i].place === '' ||
+             data[i].outline === '' ) {
             continue;
         }
-        if (i<=2){
-            display = "flex";
+        if( (i+1) % 2 != 0){
+            clas = 'lefty';
         }else{
-            display = "none";
+            clas = 'righty';
         }
-        HTML += `<div class="work ${display}" id="id${i+1}" style="display:${display}; order${i+1}">
-                    <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
-                    <div class="texts">
-                        <h3>Portfolio</h3><p>${data[i].project_title}</p>
+        HTML += `<div class="${clas}">
+                        <div class="data">
+                            <div class="month">${data[i].month}</div>
+                            <div class="year">${data[i].day}</div>
+                        </div>
+                        <div class="text">
+                            <h4 class="degree">${data[i].degree}</h4>
+                            <div class="school">
+                                <p>${data[i].year}</p>
+                                <span></span>
+                                <p>${data[i].place}.</p>
+                            </div>
+                            <p class="outline">${data[i].outline}</p>
+                        </div>
                     </div>
                 </div>`
     }
     return HTML;
 }
-    //generuojamas darbų scrollbaras jei labai daug paveiksleliu - daugiau skaiciuku.
-    function generateMyScrollbar( data ) {
-        var HTML = '',
+//A N I M A T I O N   for   E D U C A T I O N   &   E X P E R I E N C E
+
+function educationAnimation (){
+    var i,
+    h = window.innerHeight - (elementHeight( '#education > #myEducation > div' ) / 2),
+    scroll = window.scrollY + h,
+
+    bubble_el_education = document.querySelectorAll('#education > #myEducation > div'),
+    bubble_el_education_offsetTop,
+    bubble_education = document.querySelectorAll('#education > #myEducation > div > .text');
+
+    for(i = 0; i < bubble_education.length; i++ ){
+        bubble_el_education_offsetTop = document.getElementById('myExperience').offsetTop + document.getElementById('education').offsetTop + bubble_el_education[i].offsetTop;
+        if (scroll >= bubble_el_education_offsetTop){
+            bubble_education[i].classList.add('animation');
+        }
+    }
+
+    var bubble_el_experience = document.querySelectorAll('#experience > #myExperience > div'),
+    bubble_el_experience_offsetTop,
+    bubble_experience = document.querySelectorAll('#experience > #myExperience > div > .text');
+
+    for(i = 0; i < bubble_experience.length; i++ ){
+        bubble_el_experience_offsetTop = document.getElementById('myExperience').offsetTop + document.getElementById('experience').offsetTop + bubble_el_experience[i].offsetTop;
+        if (scroll >= bubble_el_experience_offsetTop){
+            bubble_experience[i].classList.add('animation');
+        }
+    }
+    return;
+}
+
+//P O R T F O L I O
+    function generateMyWorks( data ){
+        var tags = [],
+            display_class,
             klass1 = '',
             klass2 = '',
             half = Math.ceil(data.length / 2),
             third = Math.ceil(data.length / 3),
-            nr = 0;
-        HTML += `<div class="arrows">
-                    <i class="more fa fa-angle-double-left"></i>`
-                
-            for ( var i=0; i<data.length; i++) {
-                nr ++;
-                if ( (data[i].project_title === '') || 
-                    (data[i].image === '' )) {
-                    continue;
-                }
-                if ((i+1) <= half){
-                    klass1 = ' nr2';
-                }else{
-                    klass1 = '';
-                }
-                if ((i+1) <= third){
-                    klass2 = ' nr3';
-                }else{
-                    klass2 = '';
-                }
-
-                HTML += `<div class="more${klass1} nr1${klass2}">${nr}</div>`
+            nr = 0,
+            HTML = `<div class="filter">
+                        <div class="active">All</div>
+                        `;
+        //išrenkami tik uniklalūs tag'ai:
+        data.forEach( work => {
+            if ( tags.indexOf( work.project_title ) === -1) {
+                tags.push ( work.project_title );
+                HTML += `<div>${work.project_title}</div>
+                `
             }
+        })
+        //atvaizduojami visi porfolio elementai:
+        HTML += `</div>
+                <div class="list">
+                `;
+
+        for ( var i=0; i<data.length; i++ ) {
+            if ( data[i].project_title === '' ||
+                data[i].image === '' ) {
+                continue;
+            }
+
+            if(i==0){
+                display_class = 'S M L N';
+            }
+            else if(i==1){
+                display_class = 'M L N';
+            }
+            else if(i==2){
+                display_class = 'L N';
+            }else{
+                display_class = 'N';
+            }
+
+            HTML += `<div class="work ${display_class}" id="id${i+1}" style="order:${i+1}">
+                        <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
+                        <div class="texts">
+                            <h3>Portfolio</h3><p>${data[i].project_title}</p>
+                        </div>
+                    </div>
+                    `
+        }
+        HTML += `</div>
+                <div class="arrows">
+                    <i class="more fa fa-angle-double-left"></i>`;
+                    
+        //generuojamos rodyklės ir skaičiukai:            
+        for ( var i=0; i<data.length; i++) {
+            nr ++;
+            if ( (data[i].project_title === '') || 
+                (data[i].image === '' )) {
+                continue;
+            }
+            if ((i+1) <= half){
+                klass1 = ' nr2';
+            }else{
+                klass1 = '';
+            }
+            if ((i+1) <= third){
+                klass2 = ' nr3';
+            }else{
+                klass2 = '';
+            }
+            HTML += `<div class="more${klass1} nr1${klass2}">${nr}</div>`
+        }
         HTML += `<i class="more fa fa-angle-double-right"></i>
-                    </div>`
-     return HTML;
+            </div>`
+        // console.log(HTML)
+        return HTML;
     }
-    
+
+// R O D Y K L Ė S   K E I Č I A   P A V E I K S L Ė L I U S
     var curent_index = 0;
 
     function next_work(n){
-        show_work(curent_index += n);
+        if( n===1 || n===-1 ){
+            show_work(curent_index += n);
+        }else{
+            show_work(curent_index = n);
+        }
     }
     function show_work(next_work){
         var x,
@@ -490,6 +457,7 @@ function generateMyWorks( data ) {
 
         x = document.querySelectorAll(".work");
         console.log(curent_index);
+        // console.log(next_work);
 
         if (next_work > (x.length-1)) {
             curent_index = 0;
@@ -498,49 +466,129 @@ function generateMyWorks( data ) {
             curent_index = (x.length-1);
         }
         for (i = 0; i < x.length; i++){
-            x[i].style.display = "none";
+            x[i].classList.add('N');
             x[i].style.order = "0";
+            x[i].classList.remove('S');
+            x[i].classList.remove('M');
+            x[i].classList.remove('L');
         }
 
-        if (curent_index === 0 ){
-            x[curent_index + (x.length-1)].style.display = "inline-block";
-            x[curent_index - 0 ].style.display = "inline-block";
-            x[curent_index + 1].style.display = "inline-block";
+        if (curent_index === 0){
+            //order
+            x[x.length-1].style.order = "1";
+            x[0].style.order = "2";
+            x[1].style.order = "3";
 
-            x[curent_index + (x.length-1)].style.order = "1";
-            x[curent_index - 0 ].style.order = "2";
-            x[curent_index + 1].style.order = "3";
+            //add class
+            x[x.length-1].classList.add('S');
+            x[x.length-1].classList.add('M');
+            x[x.length-1].classList.add('L');
+
+            x[0].classList.add('M');
+            x[0].classList.add('L');
+
+            x[1].classList.add('L');
         }
+
         if ((curent_index < (x.length-1)) && (curent_index > 0)) {
-            x[curent_index - 1].style.display = "inline-block";
-            x[curent_index - 0].style.display = "inline-block";
-            x[curent_index + 1].style.display = "inline-block";
-
+            //order
             x[curent_index - 1].style.order = "1";
-            x[curent_index - 0].style.order = "2";
+            x[curent_index].style.order = "2";
             x[curent_index + 1].style.order = "3";
-        }
-        if (curent_index === (x.length-1)) {
-            x[curent_index - 1].style.display = "inline-block";
-            x[curent_index - 0].style.display = "inline-block";
-            x[curent_index - (x.length-1)].style.display = "inline-block";
 
-            x[curent_index - 1].style.order = "1";
-            x[curent_index - 0].style.order = "2";
-            x[curent_index - (x.length-1)].style.order = "3";
+            //add class
+            x[curent_index - 1].classList.add('S');
+            x[curent_index - 1].classList.add('M');
+            x[curent_index - 1].classList.add('L');
+
+            x[curent_index].classList.add('M');
+            x[curent_index].classList.add('L');
+
+            x[curent_index + 1].classList.add('L');
+        }
+
+        if (curent_index === (x.length-1)) {
+            //order
+            x[x.length-2].style.order = "1";
+            x[x.length-1].style.order = "2";
+            x[0].style.order = "3";
+
+            //add class
+            x[x.length-2].classList.add('S');
+            x[x.length-2].classList.add('M');
+            x[x.length-2].classList.add('L');
+
+            x[x.length-1].classList.add('M');
+            x[x.length-1].classList.add('L');
+
+            x[0].classList.add('L');
         }
     }
 
 // F I L T R A V I M A S
-// function filtration(data, ){
-//     var i,
-//         x = document.querySelectorAll('.work');
-//         for (i = 0; i < x.length; i++){
-//             x[i].style.display = "none";
-//         }
-//         console.log( a )
-//     return; 
-// }
+function filterPortfolio( e ) {
+    var tag = e.target.innerText.toLowerCase(),
+    i,
+    x = document.querySelectorAll('#portfolio > #myWorks > .list > .work');
+
+    if (tag === "all") {
+        for(i=0; i<x.length; i++){
+            x[i].classList.add('N');
+            x[i].style.order = "0";
+            x[i].classList.remove('S');
+            x[i].classList.remove('M');
+            x[i].classList.remove('L');
+            //add class
+            x[0].classList.add('S');
+            x[0].classList.add('M');
+            x[0].classList.add('L');
+            x[0].style.order = "1";
+
+            x[1].classList.add('M');
+            x[1].classList.add('L');
+            x[1].style.order = "2";
+
+            x[2].classList.add('L');
+            x[2].style.order = "3";
+        }
+        return;
+    }
+
+    //paslepti visus darbus
+    for(i=0; i<x.length; i++){
+        x[i].classList.add('N');
+        x[i].style.order = "0";
+        x[i].classList.remove('S');
+        x[i].classList.remove('M');
+        x[i].classList.remove('L');
+    }
+
+    //parodyti tik tuos, kurie turi pasirinktą tag'ą
+    var tag_true = [];
+    for(i=0; i<x.length; i++){
+        if( tag === x[i].querySelector('p').innerText.toLowerCase() ){
+            tag_true.push(x[i]) //surenkam teisingų tagų sąrašą
+        }
+    }
+    for(i=0; i<tag_true.length; i++){ //teisingų tagų sąrašą papildom klasem
+        if(i===0){
+            tag_true[i].classList.add('S');
+            tag_true[i].classList.add('M');
+            tag_true[i].classList.add('L');
+            tag_true[i].style.order = "1";
+        }
+        else if(i===1){
+            tag_true[i].classList.add('M');
+            tag_true[i].classList.add('L');
+            tag_true[i].style.order = "1";
+        }
+        else if(i===2){
+            tag_true[i].classList.add('L');
+            tag_true[i].style.order = "1";
+        }
+    }
+    return; 
+}
 
 // TESTIMONIALS
 
@@ -548,8 +596,9 @@ function generateTestimonials ( data ) {
     var HTML = ''
 
     for ( var i=0; i<data.length; i++ ) {
+
         HTML +=
-    `<div class="lefty">
+    `<div class="lefty ${i === 0 || i ===1 ? 'active' : ''}" data-index="${i}">
         <div class="left-inner-first">
             <p>${data[i].description}</p>
             <div class="square"></div>
@@ -576,5 +625,37 @@ function generateTestimonials ( data ) {
     </div>`
 
     return HTML
+}
+
+function showTestimonial ( value ) {
+    var direction = '',
+        current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
+        next_index = 0;
+    
+
+    if ( value.target.className.indexOf('fa-angle-left') >= 0 ) {
+        direction = -1;
+    }
+    if ( value.target.className.indexOf('fa-angle-right') >= 0 ) {
+        direction = 1;
+    }
+    console.log(direction);
+
+    next_index = current_index + direction;
+
+    if ( current_index === 0 && direction === -1 ) {
+        next_index = testimonialsInfo.length - 1;
+    }
+
+    if ( current_index === (testimonialsInfo.length - 1) && direction === 1 ) {
+        next_index = 0;
+    }
+
+    // remove "active" class from all testimonials
+    document.querySelector('.lefty.active').classList.remove('active');
+    // add "active" class to "next_index" testimonial
+    document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
+
+    return
 }
 

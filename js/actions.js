@@ -11,30 +11,36 @@ document.getElementById('icons').innerHTML = generateIcons( Icons );
 document.getElementById('myServices').innerHTML = generateServices( servicesInfo );
 
 // EDUCATION section
-document.getElementById('myEducation').innerHTML = generateEducation( educationInfo );
+document.getElementById('myEducation').innerHTML = education_experience_Info( educationInfo );
+window.addEventListener("scroll", educationAnimation);
 // SKILLS section
 document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
 // EXPERIENCE section
-document.getElementById('myExperience').innerHTML = generateExperience( experienceInfo );
+document.getElementById('myExperience').innerHTML = education_experience_Info( experienceInfo );
+// window.addEventListener("scroll", experienceAnimation);
 // STATISTICS section
 document.getElementById('myStatistics').innerHTML = generateStatistics( statisticsInfo );
-// SKILLS section
-
-// EXPERIENCE section
 
 // FREELANCE section
 
 // MY PORTFOLIO section
 document.getElementById('myWorks').innerHTML = generateMyWorks( myWorkInfo );
-document.getElementById('myWorksList').innerHTML = generateMyWorksList( myWorkInfo );
-// document.getElementById('myWorksList').innerHTML = filtration( myWorkInfo, x );
-document.getElementById('myScrollbar').innerHTML = generateMyScrollbar( myWorkInfo );
 
-var portfolioLeftArrow = document.querySelector('#myScrollbar > .arrows > .fa-angle-double-left'),
-    portfolioRightArrow = document.querySelector('#myScrollbar > .arrows > .fa-angle-double-right');
+document.querySelectorAll('#portfolio > #myWorks > .filter > div').forEach( filter => {
+    filter.addEventListener('click', filterPortfolio);
+});
+
+var portfolioLeftArrow = document.querySelector('#portfolio > #myWorks > .arrows > .fa-angle-double-left'),
+    portfolioRightArrow = document.querySelector('#portfolio > #myWorks > .arrows > .fa-angle-double-right'),
+    portfolioNumber = document.querySelectorAll('#portfolio > #myWorks > .arrows > div');
 
 portfolioLeftArrow.addEventListener( 'click', function(){
     next_work(-1)
+});
+portfolioNumber.forEach( (number,index) => {
+    number.addEventListener('click',function(){
+        next_work(index+1)
+    });
 });
 portfolioRightArrow.addEventListener( 'click', function(){
     next_work(1)
@@ -46,6 +52,11 @@ portfolioRightArrow.addEventListener( 'click', function(){
 // TESTIMONIALS section
 
 document.getElementById('testimonials_list').innerHTML = generateTestimonials( testimonialsInfo );
+var testimonialsLeftArrow = document.querySelector('#testimonials_list > .listing-buttons > .listing-btn-block > .fa-angle-left'),
+    testimonialsRightArrow = document.querySelector('#testimonials_list > .listing-buttons > .listing-btn-block > .fa-angle-right');
+
+testimonialsLeftArrow.addEventListener( 'click', showTestimonial );
+testimonialsRightArrow.addEventListener( 'click', showTestimonial );
 
 // MY BLOGS section
 document.getElementById('blog-list').innerHTML = generateBlog( blog );
