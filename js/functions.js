@@ -293,9 +293,10 @@ function generateStatistics( data ) {
     }
     return HTML;
 }
-// EDUCATION section
-function generateEducation( data ) {
-    var HTML = '';
+// E D U C A T I O N   &   E X P E R I E N C E section
+function education_experience_Info( data ) {
+    var HTML = '',
+    clas = '';
     for ( var i=0; i<data.length; i++ ) {
         if ( data[i].month === '' ||
              data[i].day === '' ||
@@ -306,101 +307,64 @@ function generateEducation( data ) {
             continue;
         }
         if( (i+1) % 2 != 0){
-            HTML += `<div class="lefty">
-                            <div class="data">
-                                <div class="month">${data[i].month}</div>
-                                <div class="year">${data[i].day}</div>
-                            </div>
-                            <div class="text">
-                                <h4 class="degree">${data[i].degree}</h4>
-                                <div class="school">
-                                    <p>${data[i].year}</p>
-                                    <span></span>
-                                    <p>${data[i].place}.</p>
-                                </div>
-                                <p class="outline">${data[i].outline}</p>
-                            </div>
-                        </div>
-                    </div>`
+            clas = 'lefty';
+        }else{
+            clas = 'righty';
         }
-        if( (i+1) % 2 == 0){
-            HTML += `   <div class="righty">
-                            <div class="data">
-                                <div class="month">${data[i].month}</div>
-                                <div class="year">${data[i].day}</div>
-                            </div>
-                            <div class="text">
-                                <h4 class="degree">${data[i].degree}</h4>
-                                <div class="school">
-                                    <p>${data[i].year}</p>
-                                    <span></span>
-                                    <p>${data[i].place}.</p>
-                                </div>
-                                <p class="outline">${data[i].outline}</p>
-                            </div>
+        HTML += `<div class="${clas}">
+                        <div class="data">
+                            <div class="month">${data[i].month}</div>
+                            <div class="year">${data[i].day}</div>
                         </div>
-                    </div>`
-        }
+                        <div class="text">
+                            <h4 class="degree">${data[i].degree}</h4>
+                            <div class="school">
+                                <p>${data[i].year}</p>
+                                <span></span>
+                                <p>${data[i].place}.</p>
+                            </div>
+                            <p class="outline">${data[i].outline}</p>
+                        </div>
+                    </div>
+                </div>`
     }
     return HTML;
 }
-// EXPERIENCE section
-function generateExperience( data ) {
-    var HTML = '';
-    for ( var i=0; i<data.length; i++ ) {
-        if ( data[i].month === '' ||
-             data[i].day === '' ||
-             data[i].year === '' ||
-             data[i].degree === '' ||
-             data[i].place === '' ||
-             data[i].outline === '' ) {
-            continue;
-        }
-        if( (i+1) % 2 != 0){
-            HTML += `<div class="lefty">
-                            <div class="data">
-                                <div class="month">${data[i].month}</div>
-                                <div class="year">${data[i].day}</div>
-                            </div>
-                            <div class="text">
-                                <h4 class="degree">${data[i].degree}</h4>
-                                <div class="school">
-                                    <p>${data[i].year}</p>
-                                    <span></span>
-                                    <p>${data[i].place}.</p>
-                                </div>
-                                <p class="outline">${data[i].outline}</p>
-                            </div>
-                        </div>
-                    </div>`
-        }
-        if( (i+1) % 2 == 0){
-            HTML += `   <div class="righty">
-                            <div class="data">
-                                <div class="month">${data[i].month}</div>
-                                <div class="year">${data[i].day}</div>
-                            </div>
-                            <div class="text">
-                                <h4 class="degree">${data[i].degree}</h4>
-                                <div class="school">
-                                    <p>${data[i].year}</p>
-                                    <span></span>
-                                    <p>${data[i].place}.</p>
-                                </div>
-                                <p class="outline">${data[i].outline}</p>
-                            </div>
-                        </div>
-                    </div>`
-        }
-    }
-    return HTML;
-}
-//P O R T F O L I O
+//A N I M A T I O N   for   E D U C A T I O N   &   E X P E R I E N C E
 
+function educationAnimation (){
+    var i,
+    h = window.innerHeight - (elementHeight( '#education > #myEducation > div' ) / 2),
+    scroll = window.scrollY + h,
+
+    bubble_el_education = document.querySelectorAll('#education > #myEducation > div'),
+    bubble_el_education_offsetTop,
+    bubble_education = document.querySelectorAll('#education > #myEducation > div > .text');
+
+    for(i = 0; i < bubble_education.length; i++ ){
+        bubble_el_education_offsetTop = document.getElementById('myExperience').offsetTop + document.getElementById('education').offsetTop + bubble_el_education[i].offsetTop;
+        if (scroll >= bubble_el_education_offsetTop){
+            bubble_education[i].classList.add('animation');
+        }
+    }
+
+    var bubble_el_experience = document.querySelectorAll('#experience > #myExperience > div'),
+    bubble_el_experience_offsetTop,
+    bubble_experience = document.querySelectorAll('#experience > #myExperience > div > .text');
+
+    for(i = 0; i < bubble_experience.length; i++ ){
+        bubble_el_experience_offsetTop = document.getElementById('myExperience').offsetTop + document.getElementById('experience').offsetTop + bubble_el_experience[i].offsetTop;
+        if (scroll >= bubble_el_experience_offsetTop){
+            bubble_experience[i].classList.add('animation');
+        }
+    }
+    return;
+}
+
+//P O R T F O L I O
     function generateMyWorks( data ){
         var tags = [],
             display_class,
-            display,
             klass1 = '',
             klass2 = '',
             half = Math.ceil(data.length / 2),
