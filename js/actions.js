@@ -11,16 +11,15 @@ document.getElementById('icons').innerHTML = generateIcons( Icons );
 document.getElementById('myServices').innerHTML = generateServices( servicesInfo );
 
 // EDUCATION section
-document.getElementById('myEducation').innerHTML = generateEducation( educationInfo );
+document.getElementById('myEducation').innerHTML = education_experience_Info( educationInfo );
+window.addEventListener("scroll", educationAnimation);
 // SKILLS section
 document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
 // EXPERIENCE section
-document.getElementById('myExperience').innerHTML = generateExperience( experienceInfo );
+document.getElementById('myExperience').innerHTML = education_experience_Info( experienceInfo );
+// window.addEventListener("scroll", experienceAnimation);
 // STATISTICS section
 document.getElementById('myStatistics').innerHTML = generateStatistics( statisticsInfo );
-// SKILLS section
-
-// EXPERIENCE section
 
 // FREELANCE section
 

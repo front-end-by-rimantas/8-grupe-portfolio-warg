@@ -1,5 +1,6 @@
 #portfolio > #myWorks {
 display: inline-block;
+padding: 30px 0 0 0;
 }
     #portfolio > #myWorks > .filter {
         display: inline-block;
@@ -90,7 +91,7 @@ display: inline-block;
                 }
     #portfolio > #myWorks > .arrows{
         display: inline-block;
-        margin: 10px auto;
+        margin: 20px auto;
     }
         #portfolio > #myWorks > .arrows > .more{
             display: inline-block;

@@ -76,8 +76,8 @@
 
             #education > .row > div > .text,
             #experience > .row > div > .text{
-                display: inline-block;
-                position: absolute;
+                display: none;
+                position: relative;
                 top:0px;
                 float: left;
                 width: calc(100% - 100px);
@@ -90,16 +90,21 @@
                 width: calc(100% - 100px);
                 animation-duration: 1s;
                 animation-iteration-count: 1;
+                animation-timing-function: ease;
             }
-            #education > .row > div > .text{
+            #education > .row > div > .text.animation{
+                display: inline-block;
                 animation-name: falling;
             }
-            #experience > .row > .lefty > .text{
+            #experience > .row > .lefty > .text.animation{
+                display: inline-block;
                 animation-name: sliding-right;
             }
-            #experience > .row > .righty > .text{
+            #experience > .row > .righty > .text.animation{
+                display: inline-block;
                 animation-name: sliding-left;
             }
+
                 #education > .row > .lefty > .text,
                 #experience > .row > .lefty > .text{
                     float: left;
@@ -188,6 +193,10 @@
                         #experience > .row > div > .text > .school :first-child{
                             color: var(--main-color);
                         }
+                        #education > .row > div > .text > .school :last-child,
+                        #experience > .row > div > .text > .school :last-child{
+                            color: var(--text-color);
+                        }
                     #education > .row > div > .text > .outline,
                     #experience > .row > div > .text > .outline{
                         display: inline-block;
@@ -209,14 +218,31 @@
                     #experience > .row > div > .text:hover .outline {
                         color: var(--lighterText-color);
                     }
-                    #education > .row > div > .text:hover .school :last-child,
-                    #experience > .row > div > .text:hover .school :last-child {
+                    #education > .row > div > .text:hover .school :first-child,
+                    #experience > .row > div > .text:hover .school :first-child {
                         color: var(--lighterText-color);
                     }
                     #education > .row > div > .text:hover::before,
                     #experience > .row > div > .text:hover::before {
                         background-color: transparent;        
                         border-color: transparent;
+                    }
+
+                    @keyframes sliding-right {
+                        0%{
+                            left: -600px;
+                        }
+                        100%{
+                            left: 0px;
+                        }
+                    }
+                    @keyframes sliding-left {
+                        0%{
+                            right: -600px;
+                        }
+                        100%{
+                            right: 0px;
+                        }
                     }
 
 @media ( max-width: 1300px ) {
@@ -281,14 +307,14 @@
     #experience > .row > .righty > .text{
         float: left;
         text-align: left; 
-        left: 100px;
+        left: 30px;
     }
-    #experience > .row > .lefty > .text,
-    #experience > .row > .righty > .text{
-        animation-name: sliding-left;
+    #experience > .row > .lefty > .text.text.animation,
+    #experience > .row > .righty > .text.text.animation{
+        animation-name: sliding-right;
         animation-duration: 2s;
-        animation-delay: 5s;
-        animation-iteration-count: infinite;
+        animation-iteration-count: 1;
+        animation-timing-function: ease;
     }
         #education > .row > .lefty > .text::before, 
         #education > .row > .righty >.text::before,
@@ -300,6 +326,14 @@
             border-left-color: var(--lightGrey-color);
             border-bottom-color: var(--lightGrey-color);
         }
+        @keyframes sliding-right {
+            0%{
+                left: 600px;
+            }
+            100%{
+                left: 30px;
+            }
+        }
 }
 @media ( max-width: 600px ){
     #education > .row > div,
@@ -310,7 +344,7 @@
     #experience > .row > .lefty > .text,
     #education > .row > .righty > .text,
     #experience > .row > .righty > .text{
-        left: 100px;
+        /* left: 100px; */
         padding: 15px;
     }
 }
@@ -357,7 +391,7 @@
         #experience > .row > .lefty > .text,
         #education > .row > .righty > .text,
         #experience > .row > .righty > .text{
-            left: 70px;
+            /* left: 70px; */
             width: calc(100% - 60px);
         }
             #education > .row > .lefty > .text::before,
@@ -387,20 +421,5 @@
         top: 0px;
     }
 }
-@keyframes sliding-right {
-    0%{
-        left: -600px;
-    }
-    100%{
-        left: 0px;
-    }
-}
-@keyframes sliding-left {
-    0%{
-        right: -600px;
-    }
-    100%{
-        right: 0px;
-    }
-}
+
 
