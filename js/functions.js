@@ -343,7 +343,6 @@ function educationAnimation (){
 
     for(i = 0; i < bubble_education.length; i++ ){
         bubble_el_education_offsetTop = document.getElementById('myExperience').offsetTop + document.getElementById('education').offsetTop + bubble_el_education[i].offsetTop;
-        // bubble_education[i].classList.remove('animation');
         if (scroll >= bubble_el_education_offsetTop){
             bubble_education[i].classList.add('animation');
         }
@@ -355,20 +354,10 @@ function educationAnimation (){
 
     for(i = 0; i < bubble_experience.length; i++ ){
         bubble_el_experience_offsetTop = document.getElementById('myExperience').offsetTop + document.getElementById('experience').offsetTop + bubble_el_experience[i].offsetTop;
-        // bubble_experience[i].classList.remove('animation');
         if (scroll >= bubble_el_experience_offsetTop){
             bubble_experience[i].classList.add('animation');
         }
     }
-
-    console.log(h);
-    // console.log(scroll);
-    // console.log(bubble);
-    // console.log(document.getElementById('myExperience').offsetTop + document.getElementById('education').offsetTop + bubble[0].offsetTop);
-    // console.log(document.getElementById('myExperience').offsetTop + document.getElementById('education').offsetTop + bubble[1].offsetTop);
-    // console.log(document.getElementById('myExperience').offsetTop + document.getElementById('education').offsetTop + bubble[2].offsetTop);
-    // console.log(document.getElementById('myExperience').offsetTop + document.getElementById('education').offsetTop + bubble[3].offsetTop);
-    console.log('------------------');
     return;
 }
 
