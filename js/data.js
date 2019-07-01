@@ -273,42 +273,42 @@ var myWorkInfo = [
 ]
 
 // TESTIMONIALS
-
+var firstActiveTest = 0;
 var testimonialsInfo = [
     {
         description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
         facilisis bibendum dolor feugiat.`,
         icon: `Java (1).png`,
-        info: [`alwin jewel`, `front end developer`]
+        info: [`alwin jewel`, `front end developer`],
     },
     {
         description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
         facilisis bibendum dolor feugiat.`,
         icon: `js-flat.png`,
-        info: [`amber cottle`, `web developer`]
+        info: [`amber cottle`, `web developer`],
     },
     {
         description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
         facilisis bibendum dolor feugiat.`,
         icon: `java.png`,
-        info: [`mark smith`, `creative head`]
+        info: [`mark smith`, `creative head`],
     },
     {
         description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
         facilisis bibendum dolor feugiat.`,
         icon: `pentagram.png`,
-        info: [`rebecca johansson`, `project manager`]
+        info: [`rebecca johansson`, `project manager`],
     },
     {
         description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
         facilisis bibendum dolor feugiat.`,
         icon: `ninja.png`,
-        info: [`john doe`, `ceo founder`]
+        info: [`john doe`, `ceo founder`],
     },
 ]
 
