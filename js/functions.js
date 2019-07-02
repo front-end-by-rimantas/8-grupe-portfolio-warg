@@ -280,7 +280,7 @@ function generateServices( data ) {
     }
     return HTML;
 }
-//STATISTICS
+// S T A T I S T I C S
 function generateStatistics( data ) {
     var HTML = '';
     for ( var i=0; i<data.length; i++ ) {
@@ -289,10 +289,48 @@ function generateStatistics( data ) {
              data[i].name === '' ) {
             continue;
         }
-        HTML += '<div class="statistics"><i class="fa fa-'+data[i].icon+'"></i><p class="number">'+data[i].score+'</p><p class="name">'+data[i].name+'</p></div>'
+        HTML += `<div class="statistics">
+                    <i class="fa fa-${data[i].icon}"></i>
+                    <p class="number" id="${data[i].icon}" data-index="${data[i].icon}"></p>
+                    <p class="name">${data[i].name}</p>
+                </div>`
     }
     return HTML;
 }
+for ( var i = 0; i < statisticsInfo.length; i++){
+    statisticsInfo[i].score;
+}
+var zero = 0;
+
+function numbers(id, end){
+    var obj = document.getElementById(id),
+    h = window.innerHeight,
+    scroll = window.scrollY + (h*0.6),
+    statistics = document.getElementById('activities').offsetTop,
+    start = 0,
+    duration = 3000,
+    current = start,
+    range = end - start,
+    increment = end > start ? Math.floor(end * 0.01) : Math.floor(end * (-0.001)),
+    timer,
+    step = Math.floor(duration / range);
+    
+    if(obj.textContent == zero){
+        if (scroll >= statistics){
+            timer = setInterval(() => {
+                current += increment;
+                obj.textContent = current;
+
+                if (current >= end) {
+                obj.textContent = end;
+                clearInterval(timer);
+                }
+            }, step);  
+        }
+    }
+    return;
+  }
+
 // E D U C A T I O N   &   E X P E R I E N C E section
 function education_experience_Info( data ) {
     var HTML = '',

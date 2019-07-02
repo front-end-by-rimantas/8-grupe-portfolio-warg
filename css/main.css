@@ -531,6 +531,7 @@ body * {
     display: inline-block;
     float: left;
     width: 33.3%;
+    text-align: center;
 }
     #activities > .row > .statistics > .fa{
         font-size: 80px;
@@ -1212,6 +1213,9 @@ body * {
 }
 
 @media ( max-width: 384px ) {
+    .container {
+        padding: 20px 0;
+    }
     .hero{
         background-position: 190% 100%;
         padding: 100px 0px 70px;
@@ -1233,7 +1237,23 @@ body * {
 /* EXPERIENCE section */
 
 /* STATISTICS section */
-
+#activities > .row > .statistics{
+    padding: 0 10px;
+}
+    #activities > .row > .statistics > .fa{
+        font-size: 70px;
+        line-height: 60px;
+    }
+    #activities > .row > .statistics > .number{
+        font-size: 35px;
+        line-height: 50px;
+        padding: 10px 0 0 0;
+    }
+    #activities > .row > .statistics > .name{
+        font-size: 15px;
+        line-height: 20px;
+        padding: 10px 0 0 0;
+    }
 /* FREELANCE section */
 
 /* MY PORTFOLIO section */
