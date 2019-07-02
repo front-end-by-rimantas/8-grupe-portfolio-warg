@@ -16,7 +16,7 @@ window.addEventListener("scroll", educationAnimation);
 
 // SKILLS section
 document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
-
+window.addEventListener("scroll", fillBarAnimation);
 // EXPERIENCE section
 document.getElementById('myExperience').innerHTML = education_experience_Info( experienceInfo );
 

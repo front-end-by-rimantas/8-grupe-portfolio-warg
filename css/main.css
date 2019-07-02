@@ -512,6 +512,8 @@ body * {
                     border-radius: 3px;
                     background-color: var(--main-color);
                     width: 100%;
+                }
+                .progress-block > .bar > .bar-value > .bar-fill.barAnimation {
                     animation-name: filling;
                     animation-duration: 2s;
                 }
