@@ -8,6 +8,7 @@
     font-weight: 800;
     margin: 30px 5px 10px;
     color: var(--lighterText-color);
+    outline: none;
     transition: .8s;
 }
 .dark{

@@ -61,8 +61,8 @@ document.getElementById('testimonials_list').innerHTML = generateTestimonials( t
 var testimonialsLeftArrow = document.querySelector('#testimonials_list > .listing-buttons > .listing-btn-block > .fa-angle-left'),
     testimonialsRightArrow = document.querySelector('#testimonials_list > .listing-buttons > .listing-btn-block > .fa-angle-right');
 
-testimonialsLeftArrow.addEventListener( 'click', showTestimonial );
-testimonialsRightArrow.addEventListener( 'click', showTestimonial );
+testimonialsRightArrow.addEventListener( 'click', showNextTestimonial );
+testimonialsLeftArrow.addEventListener( 'click', showPreviousTestimonial );
 
 // MY BLOGS section
 document.getElementById('blog-list').innerHTML = generateBlog( blog );
@@ -73,3 +73,6 @@ document.getElementById('form').innerHTML = generateForm( contactForm );
 // BOTTOM NAVIGATION section
 document.getElementById('footer_icons').innerHTML = generateFooterIcons( footerIcons );
 // FOOTER section
+
+// SIDEBAR
+
