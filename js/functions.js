@@ -172,6 +172,23 @@ function generateIcons( data ) {
 
          
     // }
+    function fillBarAnimation (){
+        var i,
+        h = window.innerHeight - (elementHeight('#skills')/2),
+        scroll = window.scrollY + h,
+        bar = document.querySelectorAll('.progress-block > .bar > .bar-value > .bar-fill'),
+        barTop = document.getElementById('skills').offsetTop;
+    
+        for(i = 0; i < bar.length; i++ ){
+            bar[i].classList.remove('barAnimation');
+            if (scroll >= barTop){
+                bar[i].classList.add('barAnimation');
+            }
+        }
+        return;
+    }
+
+
 
 // BLOGS
 function generateBlog ( data ) {
@@ -280,7 +297,7 @@ function generateServices( data ) {
     }
     return HTML;
 }
-//STATISTICS
+// S T A T I S T I C S
 function generateStatistics( data ) {
     var HTML = '';
     for ( var i=0; i<data.length; i++ ) {
@@ -289,10 +306,46 @@ function generateStatistics( data ) {
              data[i].name === '' ) {
             continue;
         }
-        HTML += '<div class="statistics"><i class="fa fa-'+data[i].icon+'"></i><p class="number">'+data[i].score+'</p><p class="name">'+data[i].name+'</p></div>'
+        HTML += `<div class="statistics">
+                    <i class="fa fa-${data[i].icon}"></i>
+                    <p class="number" id="${data[i].icon}" data-index="${data[i].icon}"></p>
+                    <p class="name">${data[i].name}</p>
+                </div>`
     }
     return HTML;
 }
+
+        //effect of numbers counting
+var zero = 0;
+function numbers(id, end){
+    var obj = document.getElementById(id),
+    h = window.innerHeight,
+    scroll = window.scrollY + (h*0.6),
+    statistics = document.getElementById('activities').offsetTop,
+    start = 0,
+    duration = 3000,
+    current = start,
+    range = end - start,
+    increment = end > start ? Math.floor(end * 0.01) : Math.floor(end * (-0.001)),
+    timer,
+    step = Math.floor(duration / range);
+    
+    if(obj.textContent == zero){
+        if (scroll >= statistics){
+            timer = setInterval(() => {
+                current += increment;
+                obj.textContent = current;
+
+                if (current >= end) {
+                obj.textContent = end;
+                clearInterval(timer);
+                }
+            }, step);  
+        }
+    }
+    return;
+  }
+
 // E D U C A T I O N   &   E X P E R I E N C E section
 function education_experience_Info( data ) {
     var HTML = '',
@@ -522,7 +575,7 @@ function educationAnimation (){
             x[x.length-1].classList.add('L');
 
             x[0].classList.add('L');
-        }
+        } 
     }
 
 // F I L T R A V I M A S
@@ -593,12 +646,19 @@ function filterPortfolio( e ) {
 // TESTIMONIALS
 
 function generateTestimonials ( data ) {
-    var HTML = ''
+    var HTML = '',
+    setClass;
 
     for ( var i=0; i<data.length; i++ ) {
 
+        if ( i === 0 || i === 1 ) {
+            setClass = 'active';
+        } else {
+            setClass = '';
+        }
+
         HTML +=
-    `<div class="lefty ${i === 0 || i ===1 ? 'active' : ''}" data-index="${i}">
+    `<div class="lefty ${setClass}" data-index="${i}">
         <div class="left-inner-first">
             <p>${data[i].description}</p>
             <div class="square"></div>
@@ -627,35 +687,117 @@ function generateTestimonials ( data ) {
     return HTML
 }
 
-function showTestimonial ( value ) {
-    var direction = '',
+
+var firstActiveTest = 0; // Su šiuo globaliu kintamuoju galima išspręsti vieno elemento praleidimo klausimą prilygininat jį 'current' indexui,
+                        // kol kas nenutuokiu kaip jį panaudoti. 
+
+function showNextTestimonial ( event ) {
+    var direction = 0,
+        current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
+        next_index = 0;
+        
+        if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
+            direction = 1;
+        }
+        console.log(direction);
+        
+        next_index = current_index + direction;
+        
+        if ( current_index === (testimonialsInfo.length - 1) && direction === 1 ) {
+            next_index = 0;
+        }
+
+        document.querySelectorAll('.lefty.active').forEach( (lefty) => {
+            lefty.classList.remove('active');
+        } );
+
+        document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
+        
+        if ( next_index + 1 === testimonialsInfo.length) {                               
+            document.querySelector('.lefty[data-index="0"]').classList.add('active');
+        } else {
+            document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
+        }
+
+        
+    }
+
+    function showPreviousTestimonial ( event ) {
+        var direction = 0,
         current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
         next_index = 0;
     
-
-    if ( value.target.className.indexOf('fa-angle-left') >= 0 ) {
-        direction = -1;
+        if ( event.target.className.indexOf('fa-angle-left') >= 0 ) {
+            direction = -1;
+        }
+        console.log(direction);
+    
+        next_index = current_index + direction;
+    
+        if ( current_index === 0 && direction === -1 ) {
+            next_index = testimonialsInfo.length - 1;
+        }
+    
+        document.querySelectorAll('.lefty.active').forEach( (lefty) => {
+            lefty.classList.remove('active');
+        } );
+    
+        document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');  
+    
+        if ( next_index === -1 ) {                               
+            next_index = testimonialsInfo.length - 1;
+        } else {
+            document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
+        }
+    
     }
-    if ( value.target.className.indexOf('fa-angle-right') >= 0 ) {
-        direction = 1;
+    
+    
+    // function showTestimonial ( event ) {
+    //     var direction = 0,
+    //         current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
+    //         next_index = 0,
+    
+    
+    //     if ( event.target.className.indexOf('fa-angle-left') >= 0 ) {
+    //         direction = -1;
+    //     }
+    //     if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
+    //         direction = 1;
+    //     }
+    //     console.log(direction);
+    //     console.log(current_index);
+    
+    //     next_index = current_index + direction;
+    
+    
+    //     if ( current_index === 0 && direction === -1 ) {
+    //         next_index = testimonialsInfo.length - 1;
+    //     }
+    
+    //     if ( current_index === (testimonialsInfo.length - 1) && direction === 1 ) {
+    //         next_index = 0;
+    //     }
+    
+    //     document.querySelector('.lefty.active').classList.remove('active');
+    //     document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');  
+    //     document.querySelector('.lefty[data-index="'+(secondLefty)+'"]').classList.add('active');
+    
+    //     return
+    // }
+
+        
+
+
+    // SIDEBAR
+
+    function showSidebar () {
+        document.getElementById('color-bar').classList.toggle('active');
     }
-    console.log(direction);
 
-    next_index = current_index + direction;
 
-    if ( current_index === 0 && direction === -1 ) {
-        next_index = testimonialsInfo.length - 1;
-    }
+        
 
-    if ( current_index === (testimonialsInfo.length - 1) && direction === 1 ) {
-        next_index = 0;
-    }
 
-    // remove "active" class from all testimonials
-    document.querySelector('.lefty.active').classList.remove('active');
-    // add "active" class to "next_index" testimonial
-    document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
 
-    return
-}
 

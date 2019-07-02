@@ -13,14 +13,20 @@ document.getElementById('myServices').innerHTML = generateServices( servicesInfo
 // EDUCATION section
 document.getElementById('myEducation').innerHTML = education_experience_Info( educationInfo );
 window.addEventListener("scroll", educationAnimation);
+
 // SKILLS section
 document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
+window.addEventListener("scroll", fillBarAnimation);
 // EXPERIENCE section
 document.getElementById('myExperience').innerHTML = education_experience_Info( experienceInfo );
-// window.addEventListener("scroll", experienceAnimation);
+
 // STATISTICS section
 document.getElementById('myStatistics').innerHTML = generateStatistics( statisticsInfo );
-
+window.addEventListener("scroll", function(){
+    for ( var i = 0; i < statisticsInfo.length; i++){
+        numbers( statisticsInfo[i].icon, statisticsInfo[i].score );
+    }
+});
 // FREELANCE section
 
 // MY PORTFOLIO section
@@ -55,8 +61,8 @@ document.getElementById('testimonials_list').innerHTML = generateTestimonials( t
 var testimonialsLeftArrow = document.querySelector('#testimonials_list > .listing-buttons > .listing-btn-block > .fa-angle-left'),
     testimonialsRightArrow = document.querySelector('#testimonials_list > .listing-buttons > .listing-btn-block > .fa-angle-right');
 
-testimonialsLeftArrow.addEventListener( 'click', showTestimonial );
-testimonialsRightArrow.addEventListener( 'click', showTestimonial );
+testimonialsRightArrow.addEventListener( 'click', showNextTestimonial );
+testimonialsLeftArrow.addEventListener( 'click', showPreviousTestimonial );
 
 // MY BLOGS section
 document.getElementById('blog-list').innerHTML = generateBlog( blog );
@@ -67,3 +73,6 @@ document.getElementById('form').innerHTML = generateForm( contactForm );
 // BOTTOM NAVIGATION section
 document.getElementById('footer_icons').innerHTML = generateFooterIcons( footerIcons );
 // FOOTER section
+
+// SIDEBAR
+
