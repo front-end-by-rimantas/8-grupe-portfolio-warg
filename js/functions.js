@@ -172,6 +172,23 @@ function generateIcons( data ) {
 
          
     // }
+    function fillBarAnimation (){
+        var i,
+        h = window.innerHeight - (elementHeight('#skills')/2),
+        scroll = window.scrollY + h,
+        bar = document.querySelectorAll('.progress-block > .bar > .bar-value > .bar-fill'),
+        barTop = document.getElementById('skills').offsetTop;
+    
+        for(i = 0; i < bar.length; i++ ){
+            bar[i].classList.remove('barAnimation');
+            if (scroll >= barTop){
+                bar[i].classList.add('barAnimation');
+            }
+        }
+        return;
+    }
+
+
 
 // BLOGS
 function generateBlog ( data ) {
@@ -297,11 +314,9 @@ function generateStatistics( data ) {
     }
     return HTML;
 }
-for ( var i = 0; i < statisticsInfo.length; i++){
-    statisticsInfo[i].score;
-}
-var zero = 0;
 
+        //effect of numbers counting
+var zero = 0;
 function numbers(id, end){
     var obj = document.getElementById(id),
     h = window.innerHeight,
