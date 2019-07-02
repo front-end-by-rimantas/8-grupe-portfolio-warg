@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="img/hero/logo.png" type="image/x-icon">
     <title>Potfolio</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"> Linkai reikalingi YouTube playeriui
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/color-scheme.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/buttons.css">
@@ -16,7 +19,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
+    
     <!-- header start -->
     <header class="container header" id="home">
 
@@ -87,7 +90,13 @@
         </div>
         <div class="row">
             <div class="left">
-                <a href="https://www.youtube.com/watch?v=kLO1djacsfg" target="_blank"><i class="fa fa-play"></i></a>
+                <img src="img/about/nolifer.jpg" alt="nolifer">
+                <a href="#video"><i class="fa fa-play"></i></a>
+                <!-- <div id="video" class="mpf-hide" style="max-width: 75%; margin: 0 auto;">
+                    <iframe width="853" height="480" src="https://www.youtube.com/embed/kLO1djacsfg" 
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+                </div> -->
                 <div class="video-overlay"></div>
             </div>
             <div class="right">
@@ -381,5 +390,47 @@
     <script src="js/data.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/actions.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script> Linkai reikalingi YouTube playeriui
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+    <!-- color filter -->
+    <div class="color-scheme-block" id="color-bar">
+        <a href="javascript:void(0);" id="color-scheme-btn" onclick="showSidebar()">
+            <i class="fa fa-cogs"></i>
+        </a>
+        <div class="color-scheme-panel">
+            <button class="button dark">purshase now</button>
+            <span>choose template color</span>
+            <ul class="scheme-colors">
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+                <li class="btn-s"><a href="#"></a></li>
+            </ul>
+            <span>choose template version</span>
+            <div class="color-version-block">
+                <div class="white-block"></div>
+                <div class="black-block"></div>
+            </div>
+            <p>You can also create your own color scheme in a Second.</p>
+        </div>
+    </div>
+    
 </body>
 </html>

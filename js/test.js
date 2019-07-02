@@ -11,6 +11,7 @@ var pirmas = arrayPosition,
     }
 
     console.log(arrayData[pirmas], arrayData[antras]);
+    
     arrayPosition++;
 
     if ( arrayPosition === arrayData.length ) {
@@ -38,6 +39,6 @@ function abb () {
 
 
 
-for (var i = 0; i < 12 ; i++ ) {
-    abb();
-}
+// for (var i = 0; i < 12 ; i++ ) {
+//     abb();
+// }

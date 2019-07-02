@@ -273,7 +273,6 @@ var myWorkInfo = [
 ]
 
 // TESTIMONIALS
-var firstActiveTest = 0;
 var testimonialsInfo = [
     {
         description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
