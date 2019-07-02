@@ -161,30 +161,19 @@ function generateIcons( data ) {
         }
         return HTML;
     }
-    // console.log(generateProgress(fillBarInfo));
 
-    // function skillBarAnimation () {
-    //    var sections = [],
-    //        scroll = scroll = window.scrollY + elementHeight('header'),
-    //        bodySectionCount = document.querySelectorAll('container').length,
-    //        skillTop = document.getElementById('skills').offsetTop,
-    //        sectionID = '',
-
-         
-    // }
     function fillBarAnimation (){
-        var i,
-        h = window.innerHeight - (elementHeight('#skills')/2),
+        var h = window.innerHeight - (elementHeight('#skills')/2),
         scroll = window.scrollY + h,
-        bar = document.querySelectorAll('.progress-block > .bar > .bar-value > .bar-fill'),
+        bars = document.querySelectorAll('.progress-block > .bar > .bar-value > .bar-fill'),
         barTop = document.getElementById('skills').offsetTop;
     
-        for(i = 0; i < bar.length; i++ ){
-            bar[i].classList.remove('barAnimation');
+        bars.forEach( bar =>{
+            bar.classList.remove('barAnimation');
             if (scroll >= barTop){
-                bar[i].classList.add('barAnimation');
+                bar.classList.add('barAnimation');
             }
-        }
+        })
         return;
     }
 
@@ -316,11 +305,10 @@ function generateStatistics( data ) {
 }
 
         //effect of numbers counting
-var zero = 0;
+var zero = 0; //akimirka kada skaičiai dar nepradejo suktis
 function numbers(id, end){
     var obj = document.getElementById(id),
-    h = window.innerHeight,
-    scroll = window.scrollY + (h*0.6),
+    scroll = window.scrollY + (window.innerHeight*0.6),
     statistics = document.getElementById('activities').offsetTop,
     start = 0,
     duration = 3000,
