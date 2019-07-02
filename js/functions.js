@@ -169,7 +169,7 @@ function generateIcons( data ) {
         barTop = document.getElementById('skills').offsetTop;
     
         bars.forEach( bar =>{
-            bar.classList.remove('barAnimation');
+            // bar.classList.remove('barAnimation');
             if (scroll >= barTop){
                 bar.classList.add('barAnimation');
             }
@@ -311,24 +311,21 @@ function numbers(id, end){
     scroll = window.scrollY + (window.innerHeight*0.6),
     statistics = document.getElementById('activities').offsetTop,
     start = 0,
-    duration = 3000,
     current = start,
-    range = end - start,
-    increment = end > start ? Math.floor(end * 0.01) : Math.floor(end * (-0.001)),
-    timer,
-    step = Math.floor(duration / range);
+    increment = end > start ? (end * 0.01) : (end * (-0.01)),
+    timer;
     
     if(obj.textContent == zero){
         if (scroll >= statistics){
             timer = setInterval(() => {
                 current += increment;
-                obj.textContent = current;
+                obj.textContent = Math.floor(current);
 
                 if (current >= end) {
                 obj.textContent = end;
                 clearInterval(timer);
                 }
-            }, step);  
+            }, 10);  
         }
     }
     return;
