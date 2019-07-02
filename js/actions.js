@@ -13,14 +13,20 @@ document.getElementById('myServices').innerHTML = generateServices( servicesInfo
 // EDUCATION section
 document.getElementById('myEducation').innerHTML = education_experience_Info( educationInfo );
 window.addEventListener("scroll", educationAnimation);
+
 // SKILLS section
 document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
+
 // EXPERIENCE section
 document.getElementById('myExperience').innerHTML = education_experience_Info( experienceInfo );
-// window.addEventListener("scroll", experienceAnimation);
+
 // STATISTICS section
 document.getElementById('myStatistics').innerHTML = generateStatistics( statisticsInfo );
-
+window.addEventListener("scroll", function(){
+    for ( var i = 0; i < statisticsInfo.length; i++){
+        numbers( statisticsInfo[i].icon, statisticsInfo[i].score );
+    }
+});
 // FREELANCE section
 
 // MY PORTFOLIO section
