@@ -122,7 +122,7 @@ var educationInfo = [
         year:'2016',
         degree:'Bachelor degree certificate',
         place:'Harvard University',
-        outline:'Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae.'
+        outline:'Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae. Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae. Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae. Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae.'
     },
     {
         month:'Nov',

@@ -351,7 +351,7 @@ function education_experience_Info( data ) {
         }else{
             clas = 'righty';
         }
-        HTML += `<div class="${clas}">
+        HTML += `<div class="side ${clas}">
                         <div class="data">
                             <div class="month">${data[i].month}</div>
                             <div class="year">${data[i].day}</div>
