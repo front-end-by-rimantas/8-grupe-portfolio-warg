@@ -52,6 +52,22 @@ function generateIcons( data ) {
 
     return HTML;
 }
+
+// ABOUT ME 
+
+function showWindow ( event ) {
+    let youTubeBlock = document.getElementById("playWindow");
+    console.log(youTubeBlock);
+
+    // if ( event.target.className('fa-play') === true ) {
+        
+    // }
+
+    
+
+    return
+}
+
 // SKILLBARS
 
     // function fillBar (seconds) {

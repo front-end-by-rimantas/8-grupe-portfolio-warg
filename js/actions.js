@@ -7,6 +7,10 @@ document.getElementById('icons').innerHTML = generateIcons( Icons );
 
 // ABOUT ME section
 
+var playButton = document.querySelector('.row > .left > a > .fa-play');
+console.log(playButton);
+playButton.addEventListener('click', showWindow);
+
 // MY SERVICES section
 document.getElementById('myServices').innerHTML = generateServices( servicesInfo );
 
