@@ -308,12 +308,14 @@ function generateStatistics( data ) {
 var zero = 0; //akimirka kada skaičiai dar nepradejo suktis
 function numbers(id, end){
     var obj = document.getElementById(id),
-    scroll = window.scrollY + (window.innerHeight*0.6),
-    statistics = document.getElementById('activities').offsetTop,
-    start = 0,
-    current = start,
-    increment = end > start ? (end * 0.01) : (end * (-0.01)),
-    timer;
+        scroll = window.scrollY + (window.innerHeight - (0.9 * elementHeight( '#activities' ))),
+        statistics = document.getElementById('activities').offsetTop,
+        start = 0,
+        current = start,
+        animationTimeSeconds = 2,
+        stepCount = 100,
+        increment = end > start ? (end / stepCount) : (-end / stepCount),
+        timer;
     
     if(obj.textContent == zero){
         if (scroll >= statistics){
@@ -322,10 +324,10 @@ function numbers(id, end){
                 obj.textContent = Math.floor(current);
 
                 if (current >= end) {
-                obj.textContent = end;
-                clearInterval(timer);
+                    obj.textContent = end;
+                    clearInterval(timer);
                 }
-            }, 10);  
+            }, animationTimeSeconds * 1000 / stepCount );  
         }
     }
     return;
