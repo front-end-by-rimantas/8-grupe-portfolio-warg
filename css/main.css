@@ -678,11 +678,13 @@ body * {
 /* BOTTOM NAVIGATION section */
     .bottom {
         position: relative;
+        padding: 20px 0;
     }
     .bottom > .row {
         display: inline-block;
         color: var(--lightText-color);
         text-align: center;
+        padding: 20px;
     }   
     .bottom > .row > .icons{
         display: inline-block;
