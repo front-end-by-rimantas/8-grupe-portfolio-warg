@@ -67,6 +67,8 @@ testimonialsLeftArrow.addEventListener( 'click', showPreviousTestimonial );
 // MY BLOGS section
 document.getElementById('blog-list').innerHTML = generateBlog( blog );
 
+var social_icon_bubble =  document.querySelectorAll('#blog-list > .blog > .blog-meta > .socials');
+
 // CONTACT ME section
 document.getElementById('form').innerHTML = generateForm( contactForm );
 
