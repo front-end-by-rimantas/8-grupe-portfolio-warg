@@ -678,11 +678,13 @@ body * {
 /* BOTTOM NAVIGATION section */
     .bottom {
         position: relative;
+        padding: 20px 0;
     }
     .bottom > .row {
         display: inline-block;
         color: var(--lightText-color);
         text-align: center;
+        padding: 20px;
     }   
     .bottom > .row > .icons{
         display: inline-block;
@@ -780,8 +782,18 @@ body * {
         /* BOTTOM NAVIGATION section END */
 
 /* FOOTER section */
+.footer.container {
+    height: 50px;
+    padding: 0;
+}
+.footer > .row{
+    padding: 0;
+}
     .footer > .row > p{
         color: var(--lighterText-color);
+        padding: 15px 0;
+        font-size: 15px;
+        line-height: 20px;
     }
 
     @media ( min-width: 1300px ) { /*gal reikėtų meniu palikti ilgiau ?*/

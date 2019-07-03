@@ -5,12 +5,38 @@
     display: inline-block;
     position: relative;
     width: calc( 50% + 33px );
-    height: 150px;
+    /* height: 150px; */
 }
     #education > .row > .righty::before,
     #experience > .row > .righty::before{
-        left: 37px;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        float: right;
+        width: 2px;
+        left: 38px;
+        top: 70px;
+        bottom: 0px;
+        background-color:var(--lightGrey-color);
+        z-index: -1;;
     }
+    #education > .row > .lefty::before,
+    #experience > .row > .lefty::before{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        float: right;
+        width: 2px;
+        right: 38px;
+        top: 70px;
+        bottom: 0px;
+        background-color:var(--lightGrey-color);
+        z-index: -1;;
+    }
+        #education > .row > .side:last-child::before,
+        #experience > .row > .side:last-child::before{
+            display: none;
+        }
 
     #education > .row > .lefty,
     #experience > .row > .lefty{
@@ -34,19 +60,6 @@
             padding: 11px;
             color: var(--lighterText-color);
         }
-        #education > .row > div > .data::before,
-        #experience > .row > div > .data::before{
-            content: "";
-            display: inline-block;
-            position: absolute;
-            float: right;
-            width: 2px;
-            right: 33px;
-            top: 70px;
-            height: 200px;
-            background-color: var(--lightGrey-color);
-            z-index: -1;
-            }
         #education > .row > .lefty > .data,
         #experience > .row > .lefty > .data{
             float: right;    
@@ -55,7 +68,6 @@
         #experience > .row > .righty > .data{
             float: left;    
         }
-
             #education > .row > div > .data > .month,
             #education > .row > div > .data > .year,
             #experience > .row > div > .data > .month,
@@ -277,13 +289,13 @@
 }
 
 @media ( max-width: 900px ) {
+
 #education > .row > div,
 #experience > .row > div{
     display: inline-block;
     position: relative;
     width: 100%;
     margin-bottom: 20px;
-    height: 190px;
     float: left;
     margin-left:0px;
 }
@@ -293,14 +305,11 @@
     #experience > .row > .righty > .data{
         float: left;    
     }
-        #education > .row > div > .data::before, 
-        #experience > .row > div > .data::before {
-            right: 32px;
+        #education > .row > .side::before,
+        #experience > .row > .side::before{
+            left: 38px;
+            bottom: -20px;
         }
-            #education > .row > div > .data:last-child:before, 
-            #experience > .row > div > .data:last-child:before {
-                height: 32px;
-            }
     #education > .row > .lefty > .text,
     #experience > .row > .lefty > .text,
     #education > .row > .righty > .text,
