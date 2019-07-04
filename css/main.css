@@ -817,14 +817,6 @@ body * {
 
 /* ABOUT ME section */
 
-.row > .left {
-    width: 100%;
-}
-.row > .right {
-    width: 100%;
-    margin-top: 20px;
-}
-
 /* MY SERVICES section */
 
 /* EDUCATION section */
@@ -854,8 +846,8 @@ body * {
         }
     @media ( max-width: 1250px ) {
         .container > .row {
-            width: 800px;
-            margin: 0 calc((100% - 800px) / 2);
+            width: 900px;
+            margin: 0 calc((100% - 900px) / 2);
         }
 /* HERO section */
 .hero{
@@ -897,8 +889,8 @@ body * {
 
     @media ( max-width: 1000px ) {
     .container > .row {
-        width: 700px;
-        margin: 0 calc((100% - 700px) / 2);
+        width: 900px;
+        margin: 0 calc((100% - 900px) / 2);
     }
     /* HEADER section */
     .container > .row > nav {
@@ -964,10 +956,14 @@ body * {
 }
 
 @media ( max-width: 900px ) {
+.container > .row {
+    width: 740px;
+    margin: 0 calc((100% - 740px) / 2);
+}
 /* HERO section */
 .container.header > .row {
-    width: 790px;
-    margin: 0 calc((100% - 790px) / 2);
+    width: 750px;
+    margin: 0 calc((100% - 750px) / 2);
 }
 /* ABOUT ME section */
 /* MY SERVICES section */
@@ -989,8 +985,8 @@ body * {
             padding: 80px 30px;
         } */
             .container > .row {
-                width: 100%;
-                margin: 0;
+                width: 98%;
+                margin: 1%;
             }
             .container > .left-link {
                 display: none;
@@ -1014,6 +1010,13 @@ body * {
 }
 /* ABOUT ME section */
 
+.row > .left {
+    width: 100%;
+}
+.row > .right {
+    width: 100%;
+    margin-top: 20px;
+}
 .container > .left-link {
     display: none;
 }
