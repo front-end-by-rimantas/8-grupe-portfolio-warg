@@ -9,7 +9,12 @@ document.getElementById('icons').innerHTML = generateIcons( Icons );
 
 var playButton = document.querySelector('.row > .left > a > .fa-play');
 console.log(playButton);
-playButton.addEventListener('click', showWindow);
+var closeButton = document.getElementById('close');
+console.log(closeButton);
+
+    playButton.addEventListener( 'click' , showWindow );
+    closeButton.addEventListener( 'click' , hideWindow );
+    window.addEventListener( 'click' , outsideClick );
 
 // MY SERVICES section
 document.getElementById('myServices').innerHTML = generateServices( servicesInfo );

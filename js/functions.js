@@ -54,19 +54,20 @@ function generateIcons( data ) {
 }
 
 // ABOUT ME 
-
+var youTubeBlock = document.getElementById("playWindow");
 function showWindow ( event ) {
-    let youTubeBlock = document.getElementById("playWindow");
-    console.log(youTubeBlock);
-
-    // if ( event.target.className('fa-play') === true ) {
-        
-    // }
-
-    
-
-    return
+    youTubeBlock.style.display = 'inline-block';    
 }
+function hideWindow ( event ) {
+    youTubeBlock.style.display = 'none'; 
+}
+function outsideClick ( event ) {
+    if (event.target === youTubeBlock ) {
+        youTubeBlock.style.display = 'none'; 
+    }
+}
+
+
 
 // SKILLBARS
 

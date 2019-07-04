@@ -32,6 +32,16 @@ body > .pop-up {
     position: fixed;
     background-color: rgba(0,0,0,.7);
     z-index: 30;
+    animation-name: blacky;
+    animation-duration: 1s;
+}
+@keyframes blacky {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 /* body > .pop-up::after {
     content: "";
@@ -55,6 +65,16 @@ body > .pop-up {
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
         z-index: 35;
+        animation-name: high-five;
+        animation-duration: 2s;
+    }
+    @keyframes high-five {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
         body > .pop-up > .pop-up-inner > button {
             display: inline-block;
@@ -67,9 +87,11 @@ body > .pop-up {
             background-color: transparent;
             outline: 0;
             color: #fff;
+            transition: font-size 500ms;
         }
         body > .pop-up > .pop-up-inner > button:hover {
             cursor: pointer;
+            font-size: 20px;
         }
 
 .container {
