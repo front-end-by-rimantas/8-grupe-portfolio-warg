@@ -52,6 +52,23 @@ function generateIcons( data ) {
 
     return HTML;
 }
+
+// ABOUT ME 
+var youTubeBlock = document.getElementById("playWindow");
+function showWindow ( event ) {
+    youTubeBlock.style.display = 'inline-block';    
+}
+function hideWindow ( event ) {
+    youTubeBlock.style.display = 'none'; 
+}
+function outsideClick ( event ) {
+    if (event.target === youTubeBlock ) {
+        youTubeBlock.style.display = 'none'; 
+    }
+}
+
+
+
 // SKILLBARS
 
     // function fillBar (seconds) {

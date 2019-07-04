@@ -7,6 +7,15 @@ document.getElementById('icons').innerHTML = generateIcons( Icons );
 
 // ABOUT ME section
 
+var playButton = document.querySelector('.row > .left > a > .fa-play');
+console.log(playButton);
+var closeButton = document.getElementById('close');
+console.log(closeButton);
+
+    playButton.addEventListener( 'click' , showWindow );
+    closeButton.addEventListener( 'click' , hideWindow );
+    window.addEventListener( 'click' , outsideClick );
+
 // MY SERVICES section
 document.getElementById('myServices').innerHTML = generateServices( servicesInfo );
 

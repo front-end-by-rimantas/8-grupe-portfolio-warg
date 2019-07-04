@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="img/hero/logo.png" type="image/x-icon">
     <title>Potfolio</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"> Linkai reikalingi YouTube playeriui
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/color-scheme.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -19,6 +17,16 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <!-- Pop up window -->
+
+    <div id="playWindow" class="pop-up">
+        <div class="pop-up-inner">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/80DtQD5BQ_A" 
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+            <button id="close">X</button>
+        </div>
+    </div>
     
     <!-- header start -->
     <header class="container header" id="home">
@@ -91,12 +99,7 @@
         <div class="row">
             <div class="left">
                 <img src="img/about/nolifer.jpg" alt="nolifer">
-                <a href="#video"><i class="fa fa-play"></i></a>
-                <!-- <div id="video" class="mpf-hide" style="max-width: 75%; margin: 0 auto;">
-                    <iframe width="853" height="480" src="https://www.youtube.com/embed/kLO1djacsfg" 
-                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen></iframe>
-                </div> -->
+                <a href="javascript:void(0);"><i class="fa fa-play"></i></a>
                 <div class="video-overlay"></div>
             </div>
             <div class="right">
@@ -389,8 +392,6 @@
     <script src="js/data.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/actions.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script> Linkai reikalingi YouTube playeriui
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 
     <!-- color filter -->
     <div class="color-scheme-block" id="color-bar">
