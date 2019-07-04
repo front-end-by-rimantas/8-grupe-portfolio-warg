@@ -4,6 +4,44 @@ function elementHeight( path ) {
     var height = parseFloat(window.getComputedStyle( document.querySelector( path ) ).height);
     return height;
 }
+// H E A D E R section
+function generateNavigation (data){
+    var klase = '',
+        HTML = '';
+    
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].name === '' ||
+             data[i].link === '' ) {
+            continue;
+        }
+        if (i < 1){
+            klase = 'active';
+        } else {
+            klase = '';
+        }
+        HTML += `<a href="${data[i].link}" class="${klase}">${data[i].name}</a>`;
+    }
+    return HTML;
+}
+function hamburgerOpen(){
+    document.querySelectorAll('#hamburger > .bar').forEach(stick => {
+        stick.classList.add("change");
+    })
+    document.getElementById('hamburger').classList.add("close")
+    document.querySelector('#home > .row > .curtainMeniu').style.width = "120%";
+    document.querySelector('#home > .row > .curtainMeniu').style.height = "180%";
+    document.querySelector('#home > .row > .curtainMeniu >.curtainMeniuContent').innerHTML = generateNavigation( navigationLinks );
+    document.querySelector('#home >.row >#hamburger.close').addEventListener('click', hamburgerClose);
+}
+function hamburgerClose(){
+    document.querySelectorAll('#hamburger > .bar').forEach(stick => {
+        stick.classList.remove("change");
+    })
+    document.getElementById('hamburger').classList.remove("close")
+    document.querySelector('#home > .row > .curtainMeniu').style.width = "0";
+    document.querySelector('#home > .row > .curtainMeniu').style.height = "0";
+    document.querySelector('#home > .row > .curtainMeniu >.curtainMeniuContent').innerHTML = "";
+}
 function headerScrollDetector(){
     var sections = [],
         scroll = window.scrollY + elementHeight('header'),
@@ -38,7 +76,7 @@ function headerScrollDetector(){
         // add class "active" to particular link
         links[activeSectionIndex].className += ' active';
 }
-//HERO
+// H E R O section
 function generateIcons( data ) {
     var HTML = '';
     
@@ -52,171 +90,9 @@ function generateIcons( data ) {
 
     return HTML;
 }
-// SKILLBARS
+// A B O U T   M E section
 
-    // function fillBar (seconds) {
-    //     var bar = document.querySelector(".bar-fill");
-    //     var count = document.querySelectorAll(".bar-fill").length;
-    //     let atPercent = 0;
-    //     count = 
-    //     var interval = setInterval(() => {
-    //         bar.style.width = atPercent + '%';
-    //         atPercent++;
-    //         console.log("running at", atPercent);
-    //         if (atPercent >= 100) {
-    //             clearInterval(interval);
-    //         }
-    //     }, (seconds * 1000) / 100)
-    //     var bars = document.getElementsByClassName ('bar-fill');
-    //     for (i=0; i<bars.length; i++) {
-
-    //     }
-    // }
-    // console.log(fillBar(1))
-
-    // function fillBar() {
-    //     const bar = document.querySelector(".bar-fill");
-
-    //     const style = getComputedStyle(bar);
-    //     console.log(style);
-    //     width = width + bar.style.width;
-        
-    // // }
-    // console.log(fillBar());
-
-    function generateProgress( data ) {
-        var HTML = '';
-        for ( var i=0; i<data.length; i++ ) {
-            if ( data[i].title === '' ||
-                 data[i].value === '' ) {
-                continue;
-            }
-            HTML += `<div class="progress-block">
-            <div class="texts">
-                <div class="title">${data[i].title}</div>
-                <div class="value">${data[i].value}</div>
-            </div>
-            <div class="bar">
-                <div class="bar-value" style="width: ${data[i].value};">
-                    <div class="bar-fill"></div>
-                </div>
-            </div>
-        </div>`
-        }
-        return HTML;
-    }
-
-    function fillBarAnimation (){
-        var h = window.innerHeight - (elementHeight('#skills')/2),
-        scroll = window.scrollY + h,
-        bars = document.querySelectorAll('.progress-block > .bar > .bar-value > .bar-fill'),
-        barTop = document.getElementById('skills').offsetTop;
-    
-        bars.forEach( bar =>{
-            // bar.classList.remove('barAnimation');
-            if (scroll >= barTop){
-                bar.classList.add('barAnimation');
-            }
-        })
-        return;
-    }
-
-
-
-// BLOGS
-function generateBlog ( data ) {
-    var HTML = '';
-    for (var i=0; i<data.length; i++) {
-        HTML += 
-        `<div class="blog">
-            <div class="img" style="background-image: url(./img/blogs/${data[i].photo});"></div>
-            <div class="blog-meta">
-                <span class="color-text">${data[i].info[0]}</span>  <span class="usual-text" style="color: var(--text-color);">${data[i].info[1]}</span>
-                <h3>${data[i].heading}</h3>
-                <p>${data[i].description}</p>
-                <div class='socials'>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[0]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[1]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[2]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[3]}"></i></div>
-                </div>
-            </div>
-            <div class='name-and-photo'>
-                <div class="img-2" style="background-image: url(./img/blogs/${data[i].personal_info[0]});"></div> 
-                <span class="usual-text" style="color: var(--text-color);">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
-            </div>
-        </div>`
-    }
-    return HTML
-}
-
-// CONTACT FORM 
-function generateForm ( data ) {
-    var HTML = '<form>',
-        field,
-        attrHTML = '',
-        attrInfo,
-        classNames = '';
-
-
-        for (var i=0; i<data.fields.length; i++) {
-            field = data.fields[i];
-            attrHTML = '';
-            classNames = '';
-            // console.log(field);
-         
-            for ( var a=0; a<field.attr.length; a++ ) {
-                attrInfo = field.attr[a];
-                attrHTML += ` ${attrInfo.name}="${attrInfo.value}"`;
-                // console.log(attrInfo) 
-                // console.log(attrInfo);
-            }
-        
-            classNames = field.className.join(' ');
-
-            if ( field.type === 'input' ) {
-                HTML += `<div class="${classNames}">
-                            <input ${attrHTML} required>
-                            <span>${data.fields[i].description}</span>
-                        </div>`;
-            
-            }
-
-            if ( field.type === 'textarea' ) {
-                HTML += `<div class="${classNames}">
-                            <textarea ${attrHTML} required></textarea>
-                            <span>${data.fields[i].description}</span>
-                        </div>`;
-            }
-        }
-
-        HTML += '<div class="actions">';
-        for ( var i=0; i<data.actions.length; i++ ) {
-            HTML += `<div class="col-12">
-                        <button id="btn-submit" type="submit" class="form-btn button dark">${data.actions[i].text}</button>
-                    </div>`;
-        }
-    
-
-        HTML += '<form>'
-    return HTML
-}
-
-//BOTTOM
-function generateFooterIcons( data ) {
-    var HTML = '';
-    
-    for ( var i=0; i<data.length; i++ ) {
-        if ( data[i].icon === '' ||
-             data[i].link === '' ) {
-            continue;
-        }
-        HTML += '<div><a href="'+data[i].link+'" target="_blank" class="fa fa-'+data[i].icon+'"></a></div>';
-    }
-
-    return HTML;
-}
-//SERVICES
+// M Y   S E R V I C E S section
 function generateServices( data ) {
     var HTML = '';
     
@@ -230,53 +106,6 @@ function generateServices( data ) {
     }
     return HTML;
 }
-// S T A T I S T I C S
-function generateStatistics( data ) {
-    var HTML = '';
-    for ( var i=0; i<data.length; i++ ) {
-        if ( data[i].icon === '' ||
-             data[i].score === '' ||
-             data[i].name === '' ) {
-            continue;
-        }
-        HTML += `<div class="statistics">
-                    <i class="fa fa-${data[i].icon}"></i>
-                    <p class="number" id="${data[i].icon}" data-index="${data[i].icon}"></p>
-                    <p class="name">${data[i].name}</p>
-                </div>`
-    }
-    return HTML;
-}
-
-        //effect of numbers counting
-var zero = 0; //akimirka kada skaičiai dar nepradejo suktis
-function numbers(id, end){
-    var obj = document.getElementById(id),
-        scroll = window.scrollY + (window.innerHeight - (0.9 * elementHeight( '#activities' ))),
-        statistics = document.getElementById('activities').offsetTop,
-        start = 0,
-        current = start,
-        animationTimeSeconds = 2,
-        stepCount = 100,
-        increment = end > start ? (end / stepCount) : (-end / stepCount),
-        timer;
-    
-    if(obj.textContent == zero){
-        if (scroll >= statistics){
-            timer = setInterval(() => {
-                current += increment;
-                obj.textContent = Math.floor(current);
-
-                if (current >= end) {
-                    obj.textContent = end;
-                    clearInterval(timer);
-                }
-            }, animationTimeSeconds * 1000 / stepCount );  
-        }
-    }
-    return;
-  }
-
 // E D U C A T I O N   &   E X P E R I E N C E section
 function education_experience_Info( data ) {
     var HTML = '',
@@ -345,201 +174,196 @@ function educationAnimation (){
     return;
 }
 
-//P O R T F O L I O
-    function generateMyWorks( data ){
-        var tags = [],
-            display_class,
-            klass1 = '',
-            klass2 = '',
-            half = Math.ceil(data.length / 2),
-            third = Math.ceil(data.length / 3),
-            nr = 0,
-            HTML = `<div class="filter">
-                        <div class="active">All</div>
-                        `;
-        //išrenkami tik uniklalūs tag'ai:
-        data.forEach( work => {
-            if ( tags.indexOf( work.project_title ) === -1) {
-                tags.push ( work.project_title );
-                HTML += `<div>${work.project_title}</div>
-                `
-            }
-        })
-        //atvaizduojami visi porfolio elementai:
-        HTML += `</div>
-                <div class="list">
-                `;
-
-        for ( var i=0; i<data.length; i++ ) {
-            if ( data[i].project_title === '' ||
-                data[i].image === '' ) {
-                continue;
-            }
-
-            if(i==0){
-                display_class = 'S M L N';
-            }
-            else if(i==1){
-                display_class = 'M L N';
-            }
-            else if(i==2){
-                display_class = 'L N';
-            }else{
-                display_class = 'N';
-            }
-
-            HTML += `<div class="work ${display_class}" id="id${i+1}" style="order:${i+1}">
-                        <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
-                        <div class="texts">
-                            <h3>Portfolio</h3><p>${data[i].project_title}</p>
-                        </div>
-                    </div>
-                    `
+// S K I L L S section
+function generateProgress( data ) {
+    var HTML = '';
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].title === '' ||
+             data[i].value === '' ) {
+            continue;
         }
-        HTML += `</div>
-                <div class="arrows">
-                    <i class="more fa fa-angle-double-left"></i>`;
-                    
-        //generuojamos rodyklės ir skaičiukai:            
-        for ( var i=0; i<data.length; i++) {
-            nr ++;
-            if ( (data[i].project_title === '') || 
-                (data[i].image === '' )) {
-                continue;
-            }
-            if ((i+1) <= half){
-                klass1 = ' nr2';
-            }else{
-                klass1 = '';
-            }
-            if ((i+1) <= third){
-                klass2 = ' nr3';
-            }else{
-                klass2 = '';
-            }
-            HTML += `<div class="more${klass1} nr1${klass2}">${nr}</div>`
-        }
-        HTML += `<i class="more fa fa-angle-double-right"></i>
-            </div>`
-        // console.log(HTML)
-        return HTML;
+        HTML += `<div class="progress-block">
+        <div class="texts">
+            <div class="title">${data[i].title}</div>
+            <div class="value">${data[i].value}</div>
+        </div>
+        <div class="bar">
+            <div class="bar-value" style="width: ${data[i].value};">
+                <div class="bar-fill"></div>
+            </div>
+        </div>
+    </div>`
     }
+    return HTML;
+}
+
+function fillBarAnimation (){
+    var h = window.innerHeight - (elementHeight('#skills')/2),
+    scroll = window.scrollY + h,
+    bars = document.querySelectorAll('.progress-block > .bar > .bar-value > .bar-fill'),
+    barTop = document.getElementById('skills').offsetTop;
+
+    bars.forEach( bar =>{
+        // bar.classList.remove('barAnimation');
+        if (scroll >= barTop){
+            bar.classList.add('barAnimation');
+        }
+    })
+    return;
+}
+
+// S T A T I S T I C S section
+function generateStatistics( data ) {
+    var HTML = '';
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].icon === '' ||
+             data[i].score === '' ||
+             data[i].name === '' ) {
+            continue;
+        }
+        HTML += `<div class="statistics">
+                    <i class="fa fa-${data[i].icon}"></i>
+                    <p class="number" id="${data[i].icon}" data-index="${data[i].icon}"></p>
+                    <p class="name">${data[i].name}</p>
+                </div>`
+    }
+    return HTML;
+}
+
+        //effect of numbers counting
+var zero = 0; //akimirka kada skaičiai dar nepradejo suktis
+function numbers(id, end){
+    var obj = document.getElementById(id),
+        scroll = window.scrollY + (window.innerHeight - (0.9 * elementHeight( '#activities' ))),
+        statistics = document.getElementById('activities').offsetTop,
+        start = 0,
+        current = start,
+        animationTimeSeconds = 2,
+        stepCount = 100,
+        increment = end > start ? (end / stepCount) : (-end / stepCount),
+        timer;
+    
+    if(obj.textContent == zero){
+        if (scroll >= statistics){
+            timer = setInterval(() => {
+                current += increment;
+                obj.textContent = Math.floor(current);
+
+                if (current >= end) {
+                    obj.textContent = end;
+                    clearInterval(timer);
+                }
+            }, animationTimeSeconds * 1000 / stepCount );  
+        }
+    }
+    return;
+  }
+
+// M Y   P O R T F O L I O section
+function generateMyWorks( data ){
+    var tags = [],
+        display_class,
+        klass1 = '',
+        klass2 = '',
+        half = Math.ceil(data.length / 2),
+        third = Math.ceil(data.length / 3),
+        nr = 0,
+        HTML = `<div class="filter">
+                    <div class="active">All</div>
+                    `;
+    //išrenkami tik uniklalūs tag'ai:
+    data.forEach( work => {
+        if ( tags.indexOf( work.project_title ) === -1) {
+            tags.push ( work.project_title );
+            HTML += `<div>${work.project_title}</div>
+            `
+        }
+    })
+    //atvaizduojami visi porfolio elementai:
+    HTML += `</div>
+            <div class="list">
+            `;
+
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].project_title === '' ||
+            data[i].image === '' ) {
+            continue;
+        }
+
+        if(i==0){
+            display_class = 'S M L N';
+        }
+        else if(i==1){
+            display_class = 'M L N';
+        }
+        else if(i==2){
+            display_class = 'L N';
+        }else{
+            display_class = 'N';
+        }
+
+        HTML += `<div class="work ${display_class}" id="id${i+1}" style="order:${i+1}">
+                    <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
+                    <div class="texts">
+                        <h3>Portfolio</h3><p>${data[i].project_title}</p>
+                    </div>
+                </div>
+                `
+    }
+    HTML += `</div>
+            <div class="arrows">
+                <i class="more fa fa-angle-double-left"></i>`;
+                
+    //generuojamos rodyklės ir skaičiukai:            
+    for ( var i=0; i<data.length; i++) {
+        nr ++;
+        if ( (data[i].project_title === '') || 
+            (data[i].image === '' )) {
+            continue;
+        }
+        if ((i+1) <= half){
+            klass1 = ' nr2';
+        }else{
+            klass1 = '';
+        }
+        if ((i+1) <= third){
+            klass2 = ' nr3';
+        }else{
+            klass2 = '';
+        }
+        HTML += `<div class="more${klass1} nr1${klass2}">${nr}</div>`
+    }
+    HTML += `<i class="more fa fa-angle-double-right"></i>
+        </div>`
+    // console.log(HTML)
+    return HTML;
+}
 
 // R O D Y K L Ė S   K E I Č I A   P A V E I K S L Ė L I U S
-    var curent_index = 0;
+var curent_index = 0;
 
-    function next_work(n){
-        if( n===1 || n===-1 ){
-            show_work(curent_index += n);
-        }else{
-            show_work(curent_index = n);
-        }
+function next_work(n){
+    if( n===1 || n===-1 ){
+        show_work(curent_index += n);
+    }else{
+        show_work(curent_index = n);
     }
-    function show_work(next_work){
-        var x,
-            i;
+}
+function show_work(next_work){
+    var x,
+        i;
 
-        x = document.querySelectorAll(".work");
-        console.log(curent_index);
-        // console.log(next_work);
+    x = document.querySelectorAll(".work");
+    console.log(curent_index);
+    // console.log(next_work);
 
-        if (next_work > (x.length-1)) {
-            curent_index = 0;
-        }
-        if (next_work < 0) {
-            curent_index = (x.length-1);
-        }
-        for (i = 0; i < x.length; i++){
-            x[i].classList.add('N');
-            x[i].style.order = "0";
-            x[i].classList.remove('S');
-            x[i].classList.remove('M');
-            x[i].classList.remove('L');
-        }
-
-        if (curent_index === 0){
-            //order
-            x[x.length-1].style.order = "1";
-            x[0].style.order = "2";
-            x[1].style.order = "3";
-
-            //add class
-            x[x.length-1].classList.add('S');
-            x[x.length-1].classList.add('M');
-            x[x.length-1].classList.add('L');
-
-            x[0].classList.add('M');
-            x[0].classList.add('L');
-
-            x[1].classList.add('L');
-        }
-
-        if ((curent_index < (x.length-1)) && (curent_index > 0)) {
-            //order
-            x[curent_index - 1].style.order = "1";
-            x[curent_index].style.order = "2";
-            x[curent_index + 1].style.order = "3";
-
-            //add class
-            x[curent_index - 1].classList.add('S');
-            x[curent_index - 1].classList.add('M');
-            x[curent_index - 1].classList.add('L');
-
-            x[curent_index].classList.add('M');
-            x[curent_index].classList.add('L');
-
-            x[curent_index + 1].classList.add('L');
-        }
-
-        if (curent_index === (x.length-1)) {
-            //order
-            x[x.length-2].style.order = "1";
-            x[x.length-1].style.order = "2";
-            x[0].style.order = "3";
-
-            //add class
-            x[x.length-2].classList.add('S');
-            x[x.length-2].classList.add('M');
-            x[x.length-2].classList.add('L');
-
-            x[x.length-1].classList.add('M');
-            x[x.length-1].classList.add('L');
-
-            x[0].classList.add('L');
-        } 
+    if (next_work > (x.length-1)) {
+        curent_index = 0;
     }
-
-// F I L T R A V I M A S
-function filterPortfolio( e ) {
-    var tag = e.target.innerText.toLowerCase(),
-    i,
-    x = document.querySelectorAll('#portfolio > #myWorks > .list > .work');
-
-    if (tag === "all") {
-        for(i=0; i<x.length; i++){
-            x[i].classList.add('N');
-            x[i].style.order = "0";
-            x[i].classList.remove('S');
-            x[i].classList.remove('M');
-            x[i].classList.remove('L');
-            //add class
-            x[0].classList.add('S');
-            x[0].classList.add('M');
-            x[0].classList.add('L');
-            x[0].style.order = "1";
-
-            x[1].classList.add('M');
-            x[1].classList.add('L');
-            x[1].style.order = "2";
-
-            x[2].classList.add('L');
-            x[2].style.order = "3";
-        }
-        return;
+    if (next_work < 0) {
+        curent_index = (x.length-1);
     }
-
-    //paslepti visus darbus
-    for(i=0; i<x.length; i++){
+    for (i = 0; i < x.length; i++){
         x[i].classList.add('N');
         x[i].style.order = "0";
         x[i].classList.remove('S');
@@ -547,35 +371,123 @@ function filterPortfolio( e ) {
         x[i].classList.remove('L');
     }
 
-    //parodyti tik tuos, kurie turi pasirinktą tag'ą
-    var tag_true = [];
-    for(i=0; i<x.length; i++){
-        if( tag === x[i].querySelector('p').innerText.toLowerCase() ){
-            tag_true.push(x[i]) //surenkam teisingų tagų sąrašą
-        }
+    if (curent_index === 0){
+        //order
+        x[x.length-1].style.order = "1";
+        x[0].style.order = "2";
+        x[1].style.order = "3";
+
+        //add class
+        x[x.length-1].classList.add('S');
+        x[x.length-1].classList.add('M');
+        x[x.length-1].classList.add('L');
+
+        x[0].classList.add('M');
+        x[0].classList.add('L');
+
+        x[1].classList.add('L');
     }
-    for(i=0; i<tag_true.length; i++){ //teisingų tagų sąrašą papildom klasem
-        if(i===0){
-            tag_true[i].classList.add('S');
-            tag_true[i].classList.add('M');
-            tag_true[i].classList.add('L');
-            tag_true[i].style.order = "1";
-        }
-        else if(i===1){
-            tag_true[i].classList.add('M');
-            tag_true[i].classList.add('L');
-            tag_true[i].style.order = "1";
-        }
-        else if(i===2){
-            tag_true[i].classList.add('L');
-            tag_true[i].style.order = "1";
-        }
+
+    if ((curent_index < (x.length-1)) && (curent_index > 0)) {
+        //order
+        x[curent_index - 1].style.order = "1";
+        x[curent_index].style.order = "2";
+        x[curent_index + 1].style.order = "3";
+
+        //add class
+        x[curent_index - 1].classList.add('S');
+        x[curent_index - 1].classList.add('M');
+        x[curent_index - 1].classList.add('L');
+
+        x[curent_index].classList.add('M');
+        x[curent_index].classList.add('L');
+
+        x[curent_index + 1].classList.add('L');
     }
-    return; 
+
+    if (curent_index === (x.length-1)) {
+        //order
+        x[x.length-2].style.order = "1";
+        x[x.length-1].style.order = "2";
+        x[0].style.order = "3";
+
+        //add class
+        x[x.length-2].classList.add('S');
+        x[x.length-2].classList.add('M');
+        x[x.length-2].classList.add('L');
+
+        x[x.length-1].classList.add('M');
+        x[x.length-1].classList.add('L');
+
+        x[0].classList.add('L');
+    } 
 }
 
-// TESTIMONIALS
+// F I L T R A V I M A S
+function filterPortfolio( e ) {
+var tag = e.target.innerText.toLowerCase(),
+i,
+x = document.querySelectorAll('#portfolio > #myWorks > .list > .work');
 
+if (tag === "all") {
+    for(i=0; i<x.length; i++){
+        x[i].classList.add('N');
+        x[i].style.order = "0";
+        x[i].classList.remove('S');
+        x[i].classList.remove('M');
+        x[i].classList.remove('L');
+        //add class
+        x[0].classList.add('S');
+        x[0].classList.add('M');
+        x[0].classList.add('L');
+        x[0].style.order = "1";
+
+        x[1].classList.add('M');
+        x[1].classList.add('L');
+        x[1].style.order = "2";
+
+        x[2].classList.add('L');
+        x[2].style.order = "3";
+    }
+    return;
+}
+
+//paslepti visus darbus
+for(i=0; i<x.length; i++){
+    x[i].classList.add('N');
+    x[i].style.order = "0";
+    x[i].classList.remove('S');
+    x[i].classList.remove('M');
+    x[i].classList.remove('L');
+}
+
+//parodyti tik tuos, kurie turi pasirinktą tag'ą
+var tag_true = [];
+for(i=0; i<x.length; i++){
+    if( tag === x[i].querySelector('p').innerText.toLowerCase() ){
+        tag_true.push(x[i]) //surenkam teisingų tagų sąrašą
+    }
+}
+for(i=0; i<tag_true.length; i++){ //teisingų tagų sąrašą papildom klasem
+    if(i===0){
+        tag_true[i].classList.add('S');
+        tag_true[i].classList.add('M');
+        tag_true[i].classList.add('L');
+        tag_true[i].style.order = "1";
+    }
+    else if(i===1){
+        tag_true[i].classList.add('M');
+        tag_true[i].classList.add('L');
+        tag_true[i].style.order = "1";
+    }
+    else if(i===2){
+        tag_true[i].classList.add('L');
+        tag_true[i].style.order = "1";
+    }
+}
+return; 
+}
+// T E S T I M O N I A L S section
 function generateTestimonials ( data ) {
     var HTML = '',
     setClass;
@@ -716,19 +628,101 @@ function showNextTestimonial ( event ) {
     
     //     return
     // }
+// M Y   B L O G S section
+function generateBlog ( data ) {
+    var HTML = '';
+    for (var i=0; i<data.length; i++) {
+        HTML += 
+        `<div class="blog">
+            <div class="img" style="background-image: url(./img/blogs/${data[i].photo});"></div>
+            <div class="blog-meta">
+                <span class="color-text">${data[i].info[0]}</span>  <span class="usual-text" style="color: var(--text-color);">${data[i].info[1]}</span>
+                <h3>${data[i].heading}</h3>
+                <p>${data[i].description}</p>
+                <div class='socials'>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[0]}"></i></div>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[1]}"></i></div>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[2]}"></i></div>
+                    <div class="social-layer"><i class="fa fa-${data[i].icon[3]}"></i></div>
+                </div>
+            </div>
+            <div class='name-and-photo'>
+                <div class="img-2" style="background-image: url(./img/blogs/${data[i].personal_info[0]});"></div> 
+                <span class="usual-text" style="color: var(--text-color);">${data[i].personal_info[1]}</span><span class="color-text"> ${data[i].personal_info[2]}</span>
+            </div>
+        </div>`
+    }
+    return HTML
+}
+// C O N T A C T   M E  section
+function generateForm ( data ) {
+    var HTML = '<form>',
+        field,
+        attrHTML = '',
+        attrInfo,
+        classNames = '';
 
+
+        for (var i=0; i<data.fields.length; i++) {
+            field = data.fields[i];
+            attrHTML = '';
+            classNames = '';
+            // console.log(field);
+         
+            for ( var a=0; a<field.attr.length; a++ ) {
+                attrInfo = field.attr[a];
+                attrHTML += ` ${attrInfo.name}="${attrInfo.value}"`;
+                // console.log(attrInfo) 
+                // console.log(attrInfo);
+            }
         
+            classNames = field.className.join(' ');
 
+            if ( field.type === 'input' ) {
+                HTML += `<div class="${classNames}">
+                            <input ${attrHTML} required>
+                            <span>${data.fields[i].description}</span>
+                        </div>`;
+            
+            }
 
-    // SIDEBAR
+            if ( field.type === 'textarea' ) {
+                HTML += `<div class="${classNames}">
+                            <textarea ${attrHTML} required></textarea>
+                            <span>${data.fields[i].description}</span>
+                        </div>`;
+            }
+        }
 
-    function showSidebar () {
-        document.getElementById('color-bar').classList.toggle('active');
+        HTML += '<div class="actions">';
+        for ( var i=0; i<data.actions.length; i++ ) {
+            HTML += `<div class="col-12">
+                        <button id="btn-submit" type="submit" class="form-btn button dark">${data.actions[i].text}</button>
+                    </div>`;
+        }
+    
+
+        HTML += '<form>'
+    return HTML
+}
+// B O T T O M   N A V I G A T I O N section
+function generateFooterIcons( data ) {
+    var HTML = '';
+    
+    for ( var i=0; i<data.length; i++ ) {
+        if ( data[i].icon === '' ||
+             data[i].link === '' ) {
+            continue;
+        }
+        HTML += '<div><a href="'+data[i].link+'" target="_blank" class="fa fa-'+data[i].icon+'"></a></div>';
     }
 
+    return HTML;
+}
+// F O O T E R  section
 
-        
+// SIDEBAR
 
-
-
-
+function showSidebar () {
+    document.getElementById('color-bar').classList.toggle('active');
+}

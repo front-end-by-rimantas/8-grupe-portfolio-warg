@@ -1,7 +1,10 @@
 "use strict";
 // general
 window.addEventListener("scroll", headerScrollDetector);
-
+// HEADER section
+document.querySelector('#home > .row > nav').innerHTML = generateNavigation( navigationLinks );
+document.getElementById('hamburger').addEventListener('click', hamburgerOpen);
+// document.querySelector('#home >.row >#hamburger.close').addEventListener('click', hamburgerClose);
 // HERO section
 document.getElementById('icons').innerHTML = generateIcons( Icons );
 
