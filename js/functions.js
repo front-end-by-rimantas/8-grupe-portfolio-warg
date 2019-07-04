@@ -25,7 +25,7 @@ function generateNavigation (data){
 }
 function hamburgerOpen(){
     document.querySelectorAll('#hamburger > .bar').forEach(stick => {
-        stick.classList.toggle("change");
+        stick.classList.add("change");
     })
     var main = document.getElementById('hamburger').className;
     
@@ -33,13 +33,29 @@ function hamburgerOpen(){
         document.getElementById('hamburger').classList.add("close")
         document.querySelector('#home > .row > .curtainMeniu').style.width = "120%";
         document.querySelector('#home > .row > .curtainMeniu').style.height = "180%";
-        document.querySelector('#home > .row > .curtainMeniu >.curtainMeniuContent').innerHTML = generateNavigation( navigationLinks ); 
+        document.querySelector('#home > .row > .curtainMeniu >.curtainMeniuContent').innerHTML = generateNavigation( navigationLinks );
+        document.querySelectorAll('#home > .row > .curtainMeniu >.curtainMeniuContent > a').forEach( link =>{
+            link.addEventListener('click', hamburgerClose);
+        });
     }else{
         document.getElementById('hamburger').classList.remove("close")
         document.querySelector('#home > .row > .curtainMeniu').style.width = "0";
         document.querySelector('#home > .row > .curtainMeniu').style.height = "0";
         document.querySelector('#home > .row > .curtainMeniu >.curtainMeniuContent').innerHTML = "";
+        document.querySelectorAll('#hamburger > .bar').forEach(stick => {
+            stick.classList.remove("change");
+        })
     }
+    
+}
+function hamburgerClose(){
+    document.getElementById('hamburger').classList.remove("close")
+    document.querySelector('#home > .row > .curtainMeniu').style.width = "0";
+    document.querySelector('#home > .row > .curtainMeniu').style.height = "0";
+    document.querySelector('#home > .row > .curtainMeniu >.curtainMeniuContent').innerHTML = "";
+    document.querySelectorAll('#hamburger > .bar').forEach(stick => {
+        stick.classList.remove("change");
+    })
 }
 function headerScrollDetector(){
     var sections = [],
