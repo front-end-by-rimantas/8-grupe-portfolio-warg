@@ -110,7 +110,21 @@ function generateIcons( data ) {
 
     return HTML;
 }
+
 // A B O U T   M E section
+
+var youTubeBlock = document.getElementById("playWindow");
+function showWindow ( event ) {
+    youTubeBlock.style.display = 'inline-block';    
+}
+function hideWindow ( event ) {
+    youTubeBlock.style.display = 'none'; 
+}
+function outsideClick ( event ) {
+    if (event.target === youTubeBlock ) {
+        youTubeBlock.style.display = 'none'; 
+    }
+}
 
 // M Y   S E R V I C E S section
 function generateServices( data ) {
@@ -725,6 +739,7 @@ function generateForm ( data ) {
         HTML += '<form>'
     return HTML
 }
+
 // B O T T O M   N A V I G A T I O N section
 function generateFooterIcons( data ) {
     var HTML = '';

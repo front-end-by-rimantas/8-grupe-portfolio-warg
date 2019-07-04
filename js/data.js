@@ -313,32 +313,83 @@
         },
     ]
 // M Y   B L O G S section
-    var blog = [
-        {
-            photo: 'blog-2.jpg',
-            info: ['Technology', '15th July'],
-            heading: 'Designed for Everyone, Everywhere',
-            description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
-            personal_info: ['t-1.jpg', 'By', 'Jason Doe'],
-            icon: ['share-alt', 'facebook', 'google-plus', 'twitter']
-        },
-        {
-            photo: 'blog-1.jpg',
-            info: ['Web Design', '27th June'],
-            heading: `Don't Just Be a Designer, Be a Good one`,
-            description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
-            personal_info: ['t-1.jpg', 'By', 'Jason Doe'],
-            icon: ['share-alt', 'facebook', 'google-plus', 'twitter']
-        },
-        {
-            photo: 'blog-3.jpg',
-            info: ['Trending', '17th March'],
-            heading: 'Creative and Innovative Navigation Designs',
-            description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
-            personal_info: ['t-3.jpg', 'By', 'Dennis Ritchie'],
-            icon: ['share-alt', 'facebook', 'google-plus', 'twitter']
-        },
-    ]
+var blog = [
+    {
+        photo: 'blog-2.jpg',
+        info: ['Technology', '15th July'],
+        heading: 'Designed for Everyone, Everywhere',
+        description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
+        personal_info: ['t-1.jpg', 'By', 'Jason Doe'],
+        icon: [
+            {
+                name: 'share-alt',
+                adress:'#' 
+            },
+            {
+                name:'twitter',
+                adress:'https://twitter.com/' 
+            },
+            {
+                name:'google-plus',
+                adress:'https://www.google.com' 
+            },
+            {
+                name:'facebook',
+                adress:'https://lt.wikipedia.org/wiki/Facebook' 
+            }
+        ]
+    },
+    {
+        photo: 'blog-1.jpg',
+        info: ['Web Design', '27th June'],
+        heading: `Don't Just Be a Designer, Be a Good one`,
+        description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
+        personal_info: ['t-1.jpg', 'By', 'Jason Doe'],
+        icon: [
+            {
+                name: 'share-alt',
+                adress:'#' 
+            },
+            {
+                name:'twitter',
+                adress:'https://twitter.com/' 
+            },
+            {
+                name:'google-plus',
+                adress:'https://www.google.com' 
+            },
+            {
+                name:'facebook',
+                adress:'https://lt.wikipedia.org/wiki/Facebook' 
+            }
+        ]
+    },
+    {
+        photo: 'blog-3.jpg',
+        info: ['Trending', '17th March'],
+        heading: 'Creative and Innovative Navigation Designs',
+        description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, fuga! Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
+        personal_info: ['t-3.jpg', 'By', 'Dennis Ritchie'],
+        icon: [
+            {
+                name: 'share-alt',
+                adress:'#' 
+            },
+            {
+                name:'twitter',
+                adress:'https://twitter.com/' 
+            },
+            {
+                name:'google-plus',
+                adress:'https://www.google.com' 
+            },
+            {
+                name:'facebook',
+                adress:'https://lt.wikipedia.org/wiki/Facebook' 
+            }
+        ]
+    },
+]
 // C O N T A C T   M E  section
     var contactForm = {
         fields: [
@@ -426,7 +477,6 @@
     ];
 
 // F O O T E R  section
-
 
 
 
