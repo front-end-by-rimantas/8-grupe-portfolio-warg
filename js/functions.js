@@ -25,22 +25,21 @@ function generateNavigation (data){
 }
 function hamburgerOpen(){
     document.querySelectorAll('#hamburger > .bar').forEach(stick => {
-        stick.classList.add("change");
+        stick.classList.toggle("change");
     })
-    document.getElementById('hamburger').classList.add("close")
-    document.querySelector('#home > .row > .curtainMeniu').style.width = "120%";
-    document.querySelector('#home > .row > .curtainMeniu').style.height = "180%";
-    document.querySelector('#home > .row > .curtainMeniu >.curtainMeniuContent').innerHTML = generateNavigation( navigationLinks );
-    document.querySelector('#home >.row >#hamburger.close').addEventListener('click', hamburgerClose);
-}
-function hamburgerClose(){
-    document.querySelectorAll('#hamburger > .bar').forEach(stick => {
-        stick.classList.remove("change");
-    })
-    document.getElementById('hamburger').classList.remove("close")
-    document.querySelector('#home > .row > .curtainMeniu').style.width = "0";
-    document.querySelector('#home > .row > .curtainMeniu').style.height = "0";
-    document.querySelector('#home > .row > .curtainMeniu >.curtainMeniuContent').innerHTML = "";
+    var main = document.getElementById('hamburger').className;
+    
+    if (main == ''){
+        document.getElementById('hamburger').classList.add("close")
+        document.querySelector('#home > .row > .curtainMeniu').style.width = "120%";
+        document.querySelector('#home > .row > .curtainMeniu').style.height = "180%";
+        document.querySelector('#home > .row > .curtainMeniu >.curtainMeniuContent').innerHTML = generateNavigation( navigationLinks ); 
+    }else{
+        document.getElementById('hamburger').classList.remove("close")
+        document.querySelector('#home > .row > .curtainMeniu').style.width = "0";
+        document.querySelector('#home > .row > .curtainMeniu').style.height = "0";
+        document.querySelector('#home > .row > .curtainMeniu >.curtainMeniuContent').innerHTML = "";
+    }
 }
 function headerScrollDetector(){
     var sections = [],

@@ -1,10 +1,11 @@
 "use strict";
 // general
 window.addEventListener("scroll", headerScrollDetector);
+
 // HEADER section
 document.querySelector('#home > .row > nav').innerHTML = generateNavigation( navigationLinks );
 document.getElementById('hamburger').addEventListener('click', hamburgerOpen);
-// document.querySelector('#home >.row >#hamburger.close').addEventListener('click', hamburgerClose);
+
 // HERO section
 document.getElementById('icons').innerHTML = generateIcons( Icons );
 
@@ -20,6 +21,7 @@ window.addEventListener("scroll", educationAnimation);
 // SKILLS section
 document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
 window.addEventListener("scroll", fillBarAnimation);
+
 // EXPERIENCE section
 document.getElementById('myExperience').innerHTML = education_experience_Info( experienceInfo );
 
@@ -30,7 +32,6 @@ window.addEventListener("scroll", function(){
         numbers( statisticsInfo[i].icon, statisticsInfo[i].score );
     }
 });
-// FREELANCE section
 
 // MY PORTFOLIO section
 document.getElementById('myWorks').innerHTML = generateMyWorks( myWorkInfo );
