@@ -796,10 +796,13 @@ body * {
         line-height: 20px;
     }
 
-    @media ( min-width: 1300px ) { /*gal reikėtų meniu palikti ilgiau ?*/
+    @media ( min-width: 1001px ) { /*gal reikėtų meniu palikti ilgiau ?*/
             .container > .row > .hamburger-menu {
                 display: none;
             }
+            /* .container > .row > nav {
+                display: inline-block;
+            } */
         }
 
     @media ( max-width: 1300px ) {
@@ -807,9 +810,7 @@ body * {
             width: 900px;
             margin: 0 calc((100% - 900px) / 2);
         }
-            .container > .row > nav {
-                display: none;
-            }
+            
             
 
 /* HERO section */
@@ -856,15 +857,10 @@ body * {
             width: 800px;
             margin: 0 calc((100% - 800px) / 2);
         }
-        .header{
-            padding: 15px 30px;
-            background-color: transparent;
-            box-shadow: none;
-        }
 /* HERO section */
 .hero{
     background-position: 85% 100%;
-    background-size: 45vh;
+    background-size: 42vh;
 }
 
 /* ABOUT ME section */
@@ -900,10 +896,24 @@ body * {
 
 
     @media ( max-width: 1000px ) {
-        .container > .row {
-            width: 700px;
-            margin: 0 calc((100% - 700px) / 2);
-        }
+    .container > .row {
+        width: 700px;
+        margin: 0 calc((100% - 700px) / 2);
+    }
+    /* HEADER section */
+    .container > .row > nav {
+        display: none;
+    }
+    .header{
+        padding: 15px 30px;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .container.header > .row {
+        width: 890px;
+        margin: 0 calc((100% - 890px) / 2);
+    }
+
     
 /* HERO section */
     .hero{
@@ -955,6 +965,10 @@ body * {
 
 @media ( max-width: 900px ) {
 /* HERO section */
+.container.header > .row {
+    width: 790px;
+    margin: 0 calc((100% - 790px) / 2);
+}
 /* ABOUT ME section */
 /* MY SERVICES section */
 /* SKILLS section */
@@ -986,15 +1000,18 @@ body * {
             }
 
 
-    .hero{
-        background-position: 100% 100%;
-    }
-    .hero p{
-        padding: 0 43% 0 0;
-    }
-
+    
 /* HERO section */
-
+.hero{
+    background-position: 100% 100%;
+}
+.hero p{
+    padding: 0 43% 0 0;
+}
+.container.header > .row {
+    width: 100%;
+    margin: 0;
+}
 /* ABOUT ME section */
 
 .container > .left-link {
