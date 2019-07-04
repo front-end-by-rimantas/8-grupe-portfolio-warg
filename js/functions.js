@@ -67,6 +67,11 @@ function headerScrollDetector(){
         activeSectionIndex = 0,
         clname = '';
 
+        if( scroll >= (elementHeight('header') + 5) ){
+            document.getElementById('home').classList.add('home');
+        }else{
+            document.getElementById('home').classList.remove('home');
+        }
         // searching for section index user is looking at
         for ( var i=0; i<headerLinkCount; i++ ) {
             sectionID = links[i].getAttribute('href');
