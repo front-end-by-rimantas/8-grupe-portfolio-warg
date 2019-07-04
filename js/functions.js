@@ -4,96 +4,40 @@ function elementHeight( path ) {
     var height = parseFloat(window.getComputedStyle( document.querySelector( path ) ).height);
     return height;
 }
-//parseFloat -                          ištraukia skaitinę aukščio vertę;
-//window.getComputedStyle( X ).height - ištraukia tekstinę stiliaus elemento (X) aukščio reikšmę;
-//document.querySelector( path ) -      nuoroda į konkretų HTML elementą
-
-function headerScrollDetector() {
+function headerScrollDetector(){
     var sections = [],
-        scroll = window.scrollY + elementHeight('header'),                      //duoda scroll aukštį esamu momentu.
-        headerLinkCount = document.querySelectorAll('header nav > a').length,   //suskaičiuoja konkretaus HTML elemento brolių kiekį
-        top = document.getElementById('testimonials').offsetTop,                //duoda HTML elemento conteinerio viršaus aukštį.
-        sectionID ='',                                                          //ciklas sukaups visus ID
-        sekcijuSarasas = [],                                                    //ciklas sukaups visus sekcijų pavadinimus su #
-        sekcijosPavadinimas = [],                                               //ciklas sukaups visus sekcijų pavadinimus be #
-        sectionNameNow = '';                                                    //sekcijos vardas kuri yra ekrano viršuje vardas
-        
+        scroll = window.scrollY + elementHeight('header'),
+        links = document.querySelectorAll('header nav > a'),
+        headerLinkCount = links.length,
+        top = document.getElementById('about').offsetTop,
+        sectionID = '',
+        activeSectionIndex = 0,
+        clname = '';
 
-    for ( var i=0; i<headerLinkCount; i++ ) {                                             //ciklą riboja konkretaus HTML elemento brolių kiekis
-        sectionID = document.querySelectorAll('header nav > a')[i].getAttribute('href');  //ciklas iš konkrečių HTML brolių ims po vieną ir ištrauks nurodyto atributo vertę
-        if ( sectionID === '#' ) {                  //jeigu vertė tik #
-            sectionID = sectionID.substring(1);     //atima iš sekcijos ID #
-            sekcijosPavadinimas.push(sectionID);    //surenka sekcijų pavadinimus į vieną sąrašą;
-            sections.push(0);                       //saraše "sections" pirmu nariu įrašys - 0 
-            continue;                                // ir tikrins toliau.
-        }
-        top = document.querySelector(sectionID).offsetTop;  //gavęs atsakymą iš ifo, pasakys jo aukščio vertę, 
-        sections.push(top);                                 // ir įstums į sąrašą.
-        sekcijuSarasas.push(sectionID);                     //duoda visų sekcijų sąrašą su # (ar reikalingas ???)
-        
-        sectionID = sectionID.substring(1);                 //atima iš sekcijos ID #
-        sekcijosPavadinimas.push(sectionID);                //surenka sekcijų pavadinimus į vieną sąrašą;
-        var sectionNameNowH = '#'+sectionID;                //prie išgryninto sekcijos vardo vėl prideda #, kad pagal selektorių būtų galima susirasti einamos sekcijos aukštį
-        var height = parseFloat(window.getComputedStyle( document.querySelector(sectionNameNowH) ).height);  //suskaičiuoja einamos sekcijos aukštį
-            
-        if((scroll>=sections[i]) && scroll < sections[i]+height ){  //jeigu skrolas yra tarp tikrinamos sekcijos ir tarp sekančios tikrinamos sekcijos 
-                sectionNameNow = sectionID;                         // tada dabartinės sekcijos pavadinimas yra tos sek
-                var hrefValue = 'a[href="#'+sectionID+'"]';         // sugeneruoja esamos sekcijos nuorodą
-                var element = document.querySelector(hrefValue);    // elementui, kuris turi tokį selektorių "a[href="#XXX"]" 
-                element.classList.add('active');}                   // bus pridėta papildoma klasė - "active"
-        
-        if((scroll<=sections[i]) || scroll > sections[i]+height ){  //jeigu skrolas yra visur kitur bet ne esamoje sekcijoje
-            sectionNameNow = sectionID;                             // tada dabartinės sekcijos pavadinimas yra tos sek
-            var hrefValue = 'a[href="#'+sectionID+'"]';             // sugeneruoja esamos sekcijos nuorodą
-            var element = document.querySelector(hrefValue);        // elementui, kuris turi tokį selektorių "a[href="#XXX"]" 
-            element.classList.remove('active');                     // bus pridėta papildoma klasė - "active"
-            }else{                                                  //kitu atveju
-                continue;                                           //sukti ciklą toliau
+        // searching for section index user is looking at
+        for ( var i=0; i<headerLinkCount; i++ ) {
+            sectionID = links[i].getAttribute('href');
+            if ( sectionID === '#' ) {
+                sections.push(0);
+                continue;
             }
-
-        if(scroll>100){                                         //Jei skrolas daugiau už 100
-            var stickyHead = document.querySelector("header");  //tai pirmas selektorius su pavadinimu "header"
-            stickyHead.classList.add('home');                   //gaus klasę "home"
+            top = document.querySelector(sectionID).offsetTop;
+            sections.push(top);
+            if ( top <= scroll ) {
+                activeSectionIndex = i;
+            } else {
+                break;
+            }
         }
-        if(scroll<100){                                         //Jei skrolas mažiau už 100
-            var stickyHead = document.querySelector("header");  //tai pirmas selektorius su pavadinimu "header"
-            stickyHead.classList.remove('home');                //praras klasę "home" 
+            // remove class "active" from all links
+        for ( var i=0; i<links.length; i++ ) {
+            clname = ' ' + links[i].className + ' ';
+            clname = clname.replace(" active ", " ");
+            links[i].className = clname;
         }
-        // var atstumas,
-        // skillTop = document.getElementById('skills').offsetTop,
-        // style = document.getElementsByClassName('bar-fill'),
-        // styleArray = window.getComputedStyle(style);
-        // console.log(styleArray);
-        // if (scroll>skillTop) {
-        //     barStyle.push ({
-        //         style: newStyle
-        //     });
-
-        // } else {
-        //     atstumas=false;
-        // }
-        // console.log(atstumas);
-    }
-    // console.log( sections );
-    // console.log( scroll+'dabartinis aukštis' );
-    // console.log( top );
-    // console.log (sekcijuSarasas);
-    // console.log(sectionID = sectionID.substring(1))
-    // console.log( sekcijosPavadinimas );
-    // console.log( 'sectionNameNow '+ sectionNameNow );
-    // console.log( hrefValue );
-    // console.log( element );
-    // console.log( height )
+        // add class "active" to particular link
+        links[activeSectionIndex].className += ' active';
 }
-
-
-
-
-
-
-
-
-
 //HERO
 function generateIcons( data ) {
     var HTML = '';
@@ -108,6 +52,23 @@ function generateIcons( data ) {
 
     return HTML;
 }
+
+// ABOUT ME 
+var youTubeBlock = document.getElementById("playWindow");
+function showWindow ( event ) {
+    youTubeBlock.style.display = 'inline-block';    
+}
+function hideWindow ( event ) {
+    youTubeBlock.style.display = 'none'; 
+}
+function outsideClick ( event ) {
+    if (event.target === youTubeBlock ) {
+        youTubeBlock.style.display = 'none'; 
+    }
+}
+
+
+
 // SKILLBARS
 
     // function fillBar (seconds) {
@@ -161,30 +122,19 @@ function generateIcons( data ) {
         }
         return HTML;
     }
-    // console.log(generateProgress(fillBarInfo));
 
-    // function skillBarAnimation () {
-    //    var sections = [],
-    //        scroll = scroll = window.scrollY + elementHeight('header'),
-    //        bodySectionCount = document.querySelectorAll('container').length,
-    //        skillTop = document.getElementById('skills').offsetTop,
-    //        sectionID = '',
-
-         
-    // }
     function fillBarAnimation (){
-        var i,
-        h = window.innerHeight - (elementHeight('#skills')/2),
+        var h = window.innerHeight - (elementHeight('#skills')/2),
         scroll = window.scrollY + h,
-        bar = document.querySelectorAll('.progress-block > .bar > .bar-value > .bar-fill'),
+        bars = document.querySelectorAll('.progress-block > .bar > .bar-value > .bar-fill'),
         barTop = document.getElementById('skills').offsetTop;
     
-        for(i = 0; i < bar.length; i++ ){
-            bar[i].classList.remove('barAnimation');
+        bars.forEach( bar =>{
+            // bar.classList.remove('barAnimation');
             if (scroll >= barTop){
-                bar[i].classList.add('barAnimation');
+                bar.classList.add('barAnimation');
             }
-        }
+        })
         return;
     }
 
@@ -202,10 +152,10 @@ function generateBlog ( data ) {
                 <h3>${data[i].heading}</h3>
                 <p>${data[i].description}</p>
                 <div class='socials'>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[0]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[1]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[2]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[3]}"></i></div>
+                    <i class="fa fa-${data[i].icon[0].name}" href="${data[i].icon[0].adress}"></i>
+                    <a class="fa fa-${data[i].icon[1].name} up" href="${data[i].icon[1].adress}"></a>
+                    <a class="fa fa-${data[i].icon[2].name} corner" href="${data[i].icon[2].adress}"></a>
+                    <a class="fa fa-${data[i].icon[3].name} right" href="${data[i].icon[3].adress}"></a>
                 </div>
             </div>
             <div class='name-and-photo'>
@@ -316,31 +266,29 @@ function generateStatistics( data ) {
 }
 
         //effect of numbers counting
-var zero = 0;
+var zero = 0; //akimirka kada skaičiai dar nepradejo suktis
 function numbers(id, end){
     var obj = document.getElementById(id),
-    h = window.innerHeight,
-    scroll = window.scrollY + (h*0.6),
-    statistics = document.getElementById('activities').offsetTop,
-    start = 0,
-    duration = 3000,
-    current = start,
-    range = end - start,
-    increment = end > start ? Math.floor(end * 0.01) : Math.floor(end * (-0.001)),
-    timer,
-    step = Math.floor(duration / range);
+        scroll = window.scrollY + (window.innerHeight - (0.9 * elementHeight( '#activities' ))),
+        statistics = document.getElementById('activities').offsetTop,
+        start = 0,
+        current = start,
+        animationTimeSeconds = 2,
+        stepCount = 100,
+        increment = end > start ? (end / stepCount) : (-end / stepCount),
+        timer;
     
     if(obj.textContent == zero){
         if (scroll >= statistics){
             timer = setInterval(() => {
                 current += increment;
-                obj.textContent = current;
+                obj.textContent = Math.floor(current);
 
                 if (current >= end) {
-                obj.textContent = end;
-                clearInterval(timer);
+                    obj.textContent = end;
+                    clearInterval(timer);
                 }
-            }, step);  
+            }, animationTimeSeconds * 1000 / stepCount );  
         }
     }
     return;
@@ -364,7 +312,7 @@ function education_experience_Info( data ) {
         }else{
             clas = 'righty';
         }
-        HTML += `<div class="${clas}">
+        HTML += `<div class="side ${clas}">
                         <div class="data">
                             <div class="month">${data[i].month}</div>
                             <div class="year">${data[i].day}</div>

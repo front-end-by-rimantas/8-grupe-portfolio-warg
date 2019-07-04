@@ -122,7 +122,7 @@ var educationInfo = [
         year:'2016',
         degree:'Bachelor degree certificate',
         place:'Harvard University',
-        outline:'Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae.'
+        outline:'Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae. Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae. Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae. Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem. Mauris magna sapien, pharetra consectetur fringilla vitae.'
     },
     {
         month:'Nov',
@@ -321,7 +321,24 @@ var blog = [
         heading: 'Designed for Everyone, Everywhere',
         description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
         personal_info: ['t-1.jpg', 'By', 'Jason Doe'],
-        icon: ['share-alt', 'facebook', 'google-plus', 'twitter']
+        icon: [
+            {
+                name: 'share-alt',
+                adress:'#' 
+            },
+            {
+                name:'twitter',
+                adress:'https://twitter.com/' 
+            },
+            {
+                name:'google-plus',
+                adress:'https://www.google.com' 
+            },
+            {
+                name:'facebook',
+                adress:'https://lt.wikipedia.org/wiki/Facebook' 
+            }
+        ]
     },
     {
         photo: 'blog-1.jpg',
@@ -329,15 +346,49 @@ var blog = [
         heading: `Don't Just Be a Designer, Be a Good one`,
         description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
         personal_info: ['t-1.jpg', 'By', 'Jason Doe'],
-        icon: ['share-alt', 'facebook', 'google-plus', 'twitter']
+        icon: [
+            {
+                name: 'share-alt',
+                adress:'#' 
+            },
+            {
+                name:'twitter',
+                adress:'https://twitter.com/' 
+            },
+            {
+                name:'google-plus',
+                adress:'https://www.google.com' 
+            },
+            {
+                name:'facebook',
+                adress:'https://lt.wikipedia.org/wiki/Facebook' 
+            }
+        ]
     },
     {
         photo: 'blog-3.jpg',
         info: ['Trending', '17th March'],
         heading: 'Creative and Innovative Navigation Designs',
-        description: 'Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
+        description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi, fuga! Lorem ipsum dolor sit amet eiusmod, do tempo commodo bibendumr incid idunt ut labore ...',
         personal_info: ['t-3.jpg', 'By', 'Dennis Ritchie'],
-        icon: ['share-alt', 'facebook', 'google-plus', 'twitter']
+        icon: [
+            {
+                name: 'share-alt',
+                adress:'#' 
+            },
+            {
+                name:'twitter',
+                adress:'https://twitter.com/' 
+            },
+            {
+                name:'google-plus',
+                adress:'https://www.google.com' 
+            },
+            {
+                name:'facebook',
+                adress:'https://lt.wikipedia.org/wiki/Facebook' 
+            }
+        ]
     },
 ]
 
