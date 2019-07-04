@@ -329,12 +329,13 @@
     margin-bottom: 20px;
     float: left;
     margin-left:0px;
+    padding-bottom: 0px;  
 }
     #education > .row > .lefty > .data,
     #experience > .row > .lefty > .data,
     #education > .row > .righty > .data,
     #experience > .row > .righty > .data{
-        float: left;    
+        float: left;
     }
         #education > .row > .side::before,
         #experience > .row > .side::before{
@@ -347,7 +348,7 @@
     #experience > .row > .righty > .text{
         float: left;
         text-align: left; 
-        left: 30px;
+        left: 25px;
     }
     #experience > .row > .lefty > .text.text.animation,
     #experience > .row > .righty > .text.text.animation{
@@ -404,6 +405,12 @@
             border: 3px solid white;
             padding: 8px;
         }
+        #education > .row > .side::before,
+        #experience > .row > .side::before{
+            left: 25px;
+            top: 1px;
+            bottom: -20px;
+        }
             #education > .row > div > .data > .month,
             #education > .row > div > .data > .year,
             #experience > .row > div > .data > .month,
@@ -430,12 +437,22 @@
         #experience > .row > .righty > .text{
             width: calc(100% - 60px);
         }
+            #education > .row > .lefty > .text::after,
+            #experience > .row > .lefty > .text::after,
+            #education > .row > .righty >.text::after,
+            #experience > .row > .righty >.text::after,
             #education > .row > .lefty > .text::before,
+            #experience > .row > .lefty > .text::before,
+            #education > .row > .righty >.text::before,
+            #experience > .row > .righty >.text::before{
+                    top: 15px;
+                }
+            /* #education > .row > .lefty > .text::before,
             #education > .row > .righty >.text::before,
             #experience > .row > .lefty > .text::before,
             #experience > .row > .righty >.text::before {
                 top: 15px;
-    }
+    } */
 }
 @media ( max-width: 360px ){
 }

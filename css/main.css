@@ -797,7 +797,7 @@ body * {
     }
 
     @media ( min-width: 1001px ) { /*gal reikėtų meniu palikti ilgiau ?*/
-            .container > .row > .hamburger-menu {
+            .container > .row > #hamburger{
                 display: none;
             }
             /* .container > .row > nav {
@@ -1190,6 +1190,14 @@ body * {
     .container > .row {
         width: 100%;
         margin: 0;
+    }
+    .container > .row > #hamburger {
+        right: 15px;
+    }
+    .container > .row > a > img {
+        display: inline-block;
+        float: left;
+        margin-left: 15px;
     }
     .hero{
         background-position: 150% 100%;

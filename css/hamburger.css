@@ -19,6 +19,7 @@
       transition: 0.4s;
       opacity: 1;
       transform: none;
+      border-radius:2px;
     }
     .bar1.change {
       transform: rotate(-45deg) translate(-6px, 7px);
@@ -29,7 +30,11 @@
     .bar3.change  {
       transform: rotate(45deg) translate(-6px, -6px);
     }
-  
+    #hamburger:hover .bar2{
+      background-color: var(--text-color);
+      width: 29px;
+      margin: 5px 10px;
+    }
 .curtainMeniu {
   height: 0;/*180%*/
   width: 0;/*120%*/
