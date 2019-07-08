@@ -151,6 +151,7 @@ body > .pop-up {
             padding: 5px 0px;
             background-color: var(--background-color);
             z-index: 10;
+            box-shadow: 2px 0 12px 0 rgba(0,0,0,.4);
         }
         .home{
             box-shadow: 0 -6px 20px;
@@ -637,7 +638,7 @@ body > .pop-up {
             float: left;
             width: 32%;
             margin-left: 2%;
-            box-shadow: 0 4px 8px #CCC;
+            box-shadow: 2px 0 12px 0 rgba(0,0,0,.4);
             /* min-height: 550px; */
         }
             .row > .blog:nth-child(3n+1) {
@@ -705,7 +706,7 @@ body > .pop-up {
                     width: 50px;
                     border-radius: 50%;
                     background-color: #fff;
-                    box-shadow: 0 4px 8px #CCC;
+                    box-shadow: 2px 0 12px 0 rgba(0,0,0,.4);
                     color: var(--main-color);
                     font-size: 25px;
                     line-height: 50px;

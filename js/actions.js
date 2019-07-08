@@ -95,7 +95,7 @@ var blueColor = document.querySelectorAll('.light-blue').forEach( blueColor => {
     blueColor.addEventListener( 'click', changeColor1 );
 });
 
-var aquaColor = document.querySelectorAll('.main-color').forEach( aquaColor => { 
+var aquaColor = document.querySelectorAll('.light-green').forEach( aquaColor => { 
     aquaColor.addEventListener( 'click', changeColor2 );
 });
 
