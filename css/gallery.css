@@ -102,6 +102,7 @@ padding: 30px 0 0 0;
             font-size: 20px;
             line-height: 28px;
             border: 1px solid var(--main-color);
+            border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
             color: var(--blackText-color);
@@ -169,7 +170,11 @@ padding: 30px 0 0 0;
 }
 
 @media ( max-width: 700px ) {
+    #portfolio > #myWorks > .filter > div {
+        margin:5px;
+    }
 }
+
 
 @media ( max-width: 600px ) {
     #portfolio > #myWorks > .list > .work{
@@ -187,6 +192,7 @@ padding: 30px 0 0 0;
 }
 
 @media ( max-width: 500px ) {
+    
 }
 @media ( max-width: 400px ) {
 }
@@ -203,9 +209,7 @@ padding: 30px 0 0 0;
                 text-align: center;
                 margin: 0 0 30px 0;
             } */
-                #portfolio > #myWorks > .filter > div {
-                    margin:5px;
-                }
+                
 }
 @media ( max-width: 320px ) {
 }
