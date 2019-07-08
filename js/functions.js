@@ -126,7 +126,9 @@ function outsideClick ( event ) {
     }
 }
 
+
 // M Y   S E R V I C E S section
+
 function generateServices( data ) {
     var HTML = '';
     
@@ -536,7 +538,7 @@ function generateTestimonials ( data ) {
 
         HTML +=
     `<div class="lefty ${setClass}" data-index="${i}">
-        <div class="left-inner-first">
+        <div class="left-inner-first clone">
             <p>${data[i].description}</p>
             <div class="square"></div>
         </div>
@@ -719,7 +721,6 @@ function generateForm ( data ) {
                         </div>`;
             
             }
-
             if ( field.type === 'textarea' ) {
                 HTML += `<div class="${classNames}">
                             <textarea ${attrHTML} required></textarea>
@@ -727,15 +728,12 @@ function generateForm ( data ) {
                         </div>`;
             }
         }
-
         HTML += '<div class="actions">';
         for ( var i=0; i<data.actions.length; i++ ) {
             HTML += `<div class="col-12">
                         <button id="btn-submit" type="submit" class="form-btn button dark">${data.actions[i].text}</button>
                     </div>`;
         }
-    
-
         HTML += '<form>'
     return HTML
 }
@@ -767,3 +765,30 @@ function laikas(){
 function showSidebar () {
     document.getElementById('color-bar').classList.toggle('active');
 }
+function showSidebar () {
+        document.getElementById('color-bar').classList.toggle('active');
+    }
+    const color = '--main-color';
+    function changeColor ( e ) {
+        document.documentElement.style.setProperty(color, '#FB4538');
+    }
+    function changeColor1 ( e ) {
+        document.documentElement.style.setProperty(color, '#52A7DB');
+    }
+    function changeColor2 ( e ) {
+        document.documentElement.style.setProperty(color, '#009688');
+    }
+
+    const backgroundColor = '--background-color';
+    function changeBackgroundLight ( e ) {
+        let back = document.querySelectorAll('.clone').forEach( back => {
+            back.style.background = '#fff';
+        } );
+        document.documentElement.style.setProperty(backgroundColor, '#F6F6F6');
+    }
+    function changeBackgroundDark ( e ) {
+        let back = document.querySelectorAll('.clone').forEach( back => {
+            back.style.background = '#121212';
+        } );
+        document.documentElement.style.setProperty(backgroundColor, '#191919');
+    }
