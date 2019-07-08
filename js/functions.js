@@ -153,9 +153,9 @@ function generateBlog ( data ) {
                 <p>${data[i].description}</p>
                 <div class='socials'>
                     <i class="fa fa-${data[i].icon[0].name}" href="${data[i].icon[0].adress}"></i>
-                    <a class="fa fa-${data[i].icon[1].name} up" href="${data[i].icon[1].adress}"></a>
-                    <a class="fa fa-${data[i].icon[2].name} corner" href="${data[i].icon[2].adress}"></a>
-                    <a class="fa fa-${data[i].icon[3].name} right" href="${data[i].icon[3].adress}"></a>
+                    <a class="fa fa-${data[i].icon[1].name} up" href="${data[i].icon[1].adress}" target="_blank"></a>
+                    <a class="fa fa-${data[i].icon[2].name} corner" href="${data[i].icon[2].adress}" target="_blank"></a>
+                    <a class="fa fa-${data[i].icon[3].name} right" href="${data[i].icon[3].adress}" target="_blank"></a>
                 </div>
             </div>
             <div class='name-and-photo'>
@@ -742,7 +742,28 @@ function showNextTestimonial ( event ) {
     function showSidebar () {
         document.getElementById('color-bar').classList.toggle('active');
     }
+    const color = '--main-color';
+    function changeColor ( e ) {
+        // reikalingas IF, kad neliestų spalvų esančių spalvų parinkimo bloke 
+        document.documentElement.style.setProperty(color, '#FB4538');
+    }
+    function changeColor1 ( e ) {
+        document.documentElement.style.setProperty(color, '#52A7DB');
+    }
+    function changeColor2 ( e ) {
+        document.documentElement.style.setProperty(color, '#009688');
+    }
 
+    const backgroundColor = '--background-color';
+    function changeBackgroundLight ( e ) {
+        var a = 'light';
+        console.log(a);
+    }
+    function changeBackgroundDark ( e ) {
+        let back = document.querySelector('.container');
+        console.log(back);
+        document.documentElement.style.setProperty(backgroundColor, '#333');
+    }
 
         
 

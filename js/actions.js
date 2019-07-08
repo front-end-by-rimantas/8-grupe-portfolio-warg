@@ -87,3 +87,22 @@ document.getElementById('footer_icons').innerHTML = generateFooterIcons( footerI
 
 // SIDEBAR
 
+var redColor = document.querySelectorAll('.light-red').forEach( redColor => { 
+    redColor.addEventListener( 'click', changeColor );
+});
+
+var blueColor = document.querySelectorAll('.light-blue').forEach( blueColor => { 
+    blueColor.addEventListener( 'click', changeColor1 );
+});
+
+var aquaColor = document.querySelectorAll('.main-color').forEach( aquaColor => { 
+    aquaColor.addEventListener( 'click', changeColor2 );
+});
+
+var lightBackground = document.querySelector('.white-block');
+var darkBackground = document.querySelector('.black-block');
+console.log(lightBackground, darkBackground);
+
+lightBackground.addEventListener( 'click', changeBackgroundLight );
+darkBackground.addEventListener( 'click', changeBackgroundDark );
+
