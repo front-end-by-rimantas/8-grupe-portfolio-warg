@@ -676,10 +676,10 @@ function generateBlog ( data ) {
                 <h3>${data[i].heading}</h3>
                 <p>${data[i].description}</p>
                 <div class='socials'>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[0]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[1]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[2]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[3]}"></i></div>
+                    <i class="fa fa-${data[i].icon[0].name}" href="${data[i].icon[0].adress}"></i>
+                    <a class="fa fa-${data[i].icon[1].name} up" href="${data[i].icon[1].adress}"></a>
+                    <a class="fa fa-${data[i].icon[2].name} corner" href="${data[i].icon[2].adress}"></a>
+                    <a class="fa fa-${data[i].icon[3].name} right" href="${data[i].icon[3].adress}"></a>
                 </div>
             </div>
             <div class='name-and-photo'>

@@ -569,13 +569,15 @@ body > .pop-up {
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
-
+    #blogs > #blog-list{
+        display: inline-grid;
+        grid-template-columns: auto auto auto;
+    }
         .container > .row > .blog {
             display: inline-block;
             position: relative;
             float: left;
-            width: 32%;
-            margin-left: 2%;
+            width: 97%;
             box-shadow: 2px 0 12px 0 rgba(0,0,0,.4);
             /* min-height: 550px; */
         }
@@ -604,10 +606,11 @@ body > .pop-up {
                 padding: 20px;
                 text-align: left;
                 min-height: 200px;
+                margin-bottom: 50px;
             }
                 .row > .blog > .name-and-photo {
                     width: 100%;
-                    position: relative;
+                    position: absolute;
                     display: flex;
                     align-items: center;
                     padding-left: 20px;
@@ -970,6 +973,9 @@ body > .pop-up {
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
+#blogs > #blog-list{
+    display: inline-block;
+}
 
 .container > .row > .blog {
     width: 100%;
