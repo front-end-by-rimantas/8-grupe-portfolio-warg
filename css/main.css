@@ -210,71 +210,6 @@ body > .pop-up {
                 box-shadow: -3px 3px 8px 0px grey;
             }
             
-/* Hamburger */  
-/* Checkbox */
-   
-    .container > .row > .hamburger-menu > .toggler {
-        position: absolute;
-        top: 6px;
-        right: 10px;
-        z-index: 2;
-        width: 55px;
-        height: 36px;
-        opacity: 0;
-        cursor: pointer;
-    }
-    /* Hamburger box */
-    .container > .row > .hamburger-menu > .hamburger {
-        position: absolute;
-        top: 6px;
-        right: 10px;
-        z-index: 1;
-        width: 55px;
-        height: 36px;
-        padding: 1rem;
-        background-color: var(--main-color);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-        
-        /* Hamburger line */
-        .container > .row > .hamburger-menu > .hamburger > div {
-            position: relative;
-            width: 100%;
-            height: 2.5px;
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.4s ease;
-        }
-        /* Hamburger top and bottom lines */
-        .row > .hamburger-menu > .hamburger > div:before,
-        .row > .hamburger-menu > .hamburger > div:after {
-            content: '';
-            position: absolute;
-            top: -8px;
-            width: 100%;
-            height: 2.5px;
-            background: inherit;
-        }
-        /* Hamburger one line down */
-        .row > .hamburger-menu > .hamburger > div:after {
-            top: 8px;
-        }
-        /* Animated toggler */
-        .row > .hamburger-menu > .toggler:checked + .hamburger > div {
-            transform: rotate(135deg);
-        }
-        /* Turn lines into X */
-        .row > .hamburger-menu > .toggler:checked + .hamburger > div:before,
-        .row > .hamburger-menu > .toggler:checked + .hamburger > div:after {
-            top: 0;
-            transform: rotate(90deg);
-        }
-            /* basic header end */
-
 /* HERO section */
         .hero{
             background-image: url(../img/hero/hero_bg.png);
@@ -902,10 +837,13 @@ body > .pop-up {
         line-height: 20px;
     }
 
-    @media ( min-width: 1300px ) { /*gal reikėtų meniu palikti ilgiau ?*/
-            .container > .row > .hamburger-menu {
+    @media ( min-width: 1001px ) { /*gal reikėtų meniu palikti ilgiau ?*/
+            .container > .row > #hamburger{
                 display: none;
             }
+            /* .container > .row > nav {
+                display: inline-block;
+            } */
         }
 
     @media ( max-width: 1300px ) {
@@ -913,22 +851,12 @@ body > .pop-up {
             width: 900px;
             margin: 0 calc((100% - 900px) / 2);
         }
-            .container > .row > nav {
-                display: none;
-            }
+            
             
 
 /* HERO section */
 
 /* ABOUT ME section */
-
-.row > .left {
-    width: 100%;
-}
-.row > .right {
-    width: 100%;
-    margin-top: 20px;
-}
 
 /* MY SERVICES section */
 
@@ -959,18 +887,13 @@ body > .pop-up {
         }
     @media ( max-width: 1250px ) {
         .container > .row {
-            width: 800px;
-            margin: 0 calc((100% - 800px) / 2);
-        }
-        .header{
-            padding: 15px 30px;
-            background-color: transparent;
-            box-shadow: none;
+            width: 900px;
+            margin: 0 calc((100% - 900px) / 2);
         }
 /* HERO section */
 .hero{
     background-position: 85% 100%;
-    background-size: 45vh;
+    background-size: 42vh;
 }
 
 /* ABOUT ME section */
@@ -1006,10 +929,24 @@ body > .pop-up {
 
 
     @media ( max-width: 1000px ) {
-        .container > .row {
-            width: 700px;
-            margin: 0 calc((100% - 700px) / 2);
-        }
+    .container > .row {
+        width: 900px;
+        margin: 0 calc((100% - 900px) / 2);
+    }
+    /* HEADER section */
+    .container > .row > nav {
+        display: none;
+    }
+    .header{
+        padding: 15px 30px;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .container.header > .row {
+        width: 890px;
+        margin: 0 calc((100% - 890px) / 2);
+    }
+
     
 /* HERO section */
     .hero{
@@ -1060,7 +997,15 @@ body > .pop-up {
 }
 
 @media ( max-width: 900px ) {
+.container > .row {
+    width: 740px;
+    margin: 0 calc((100% - 740px) / 2);
+}
 /* HERO section */
+.container.header > .row {
+    width: 750px;
+    margin: 0 calc((100% - 750px) / 2);
+}
 /* ABOUT ME section */
 /* MY SERVICES section */
 /* SKILLS section */
@@ -1081,8 +1026,8 @@ body > .pop-up {
             padding: 80px 30px;
         } */
             .container > .row {
-                width: 100%;
-                margin: 0;
+                width: 98%;
+                margin: 1%;
             }
             .container > .left-link {
                 display: none;
@@ -1092,17 +1037,27 @@ body > .pop-up {
             }
 
 
-    .hero{
-        background-position: 100% 100%;
-    }
-    .hero p{
-        padding: 0 43% 0 0;
-    }
-
+    
 /* HERO section */
-
+.hero{
+    background-position: 100% 100%;
+}
+.hero p{
+    padding: 0 43% 0 0;
+}
+.container.header > .row {
+    width: 100%;
+    margin: 0;
+}
 /* ABOUT ME section */
 
+.row > .left {
+    width: 100%;
+}
+.row > .right {
+    width: 100%;
+    margin-top: 20px;
+}
 .container > .left-link {
     display: none;
 }
@@ -1277,6 +1232,14 @@ body > .pop-up {
         width: 100%;
         margin: 0;
     }
+    .container > .row > #hamburger {
+        right: 15px;
+    }
+    .container > .row > a > img {
+        display: inline-block;
+        float: left;
+        margin-left: 15px;
+    }
     .hero{
         background-position: 150% 100%;
         padding: 50px 0px;
@@ -1411,33 +1374,4 @@ body > .pop-up {
             line-height: 38px;
             text-align: left;
         }
-        
-
-/* HERO section */
-
-/* ABOUT ME section */
-
-/* MY SERVICES section */
-
-/* EDUCATION section */
-
-/* SKILLS section */
-
-/* EXPERIENCE section */
-
-/* STATISTICS section */
-
-/* FREELANCE section */
-
-/* MY PORTFOLIO section */
-
-/* TESTIMONIALS section */
-
-/* MY BLOGS section */
-
-/* CONTACT ME section */
-
-/* BOTTOM NAVIGATION section */
-
-/* FOOTER section */
 }
