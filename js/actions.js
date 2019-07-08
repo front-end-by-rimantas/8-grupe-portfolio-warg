@@ -2,6 +2,10 @@
 // general
 window.addEventListener("scroll", headerScrollDetector);
 
+// HEADER section
+document.querySelector('#home > .row > nav').innerHTML = generateNavigation( navigationLinks );
+document.getElementById('hamburger').addEventListener('click', hamburgerOpen);
+
 // HERO section
 document.getElementById('icons').innerHTML = generateIcons( Icons );
 
@@ -26,6 +30,7 @@ window.addEventListener("scroll", educationAnimation);
 // SKILLS section
 document.getElementById('fill-bar').innerHTML = generateProgress( fillBarInfo );
 window.addEventListener("scroll", fillBarAnimation);
+
 // EXPERIENCE section
 document.getElementById('myExperience').innerHTML = education_experience_Info( experienceInfo );
 
@@ -36,7 +41,6 @@ window.addEventListener("scroll", function(){
         numbers( statisticsInfo[i].icon, statisticsInfo[i].score );
     }
 });
-// FREELANCE section
 
 // MY PORTFOLIO section
 document.getElementById('myWorks').innerHTML = generateMyWorks( myWorkInfo );
@@ -84,6 +88,25 @@ document.getElementById('form').innerHTML = generateForm( contactForm );
 // BOTTOM NAVIGATION section
 document.getElementById('footer_icons').innerHTML = generateFooterIcons( footerIcons );
 // FOOTER section
-
+document.querySelector('.footer > .row > p').innerHTML = laikas();
 // SIDEBAR
+
+var redColor = document.querySelectorAll('.light-red').forEach( redColor => { 
+    redColor.addEventListener( 'click', changeColor );
+});
+
+var blueColor = document.querySelectorAll('.light-blue').forEach( blueColor => { 
+    blueColor.addEventListener( 'click', changeColor1 );
+});
+
+var aquaColor = document.querySelectorAll('.light-green').forEach( aquaColor => { 
+    aquaColor.addEventListener( 'click', changeColor2 );
+});
+
+var lightBackground = document.querySelector('.white-block');
+var darkBackground = document.querySelector('.black-block');
+console.log(lightBackground, darkBackground);
+
+lightBackground.addEventListener( 'click', changeBackgroundLight );
+darkBackground.addEventListener( 'click', changeBackgroundDark );
 

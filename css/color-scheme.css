@@ -43,7 +43,7 @@ body > .color-scheme-block.active {
                 border-radius: 10px;
             }
             body > .color-scheme-block > .color-scheme-panel > ul > li:nth-child(3n + 1) {
-                background-color: var(--main-color);
+                background-color: var(--main-color2);
             }
             body > .color-scheme-block > .color-scheme-panel > ul > li:nth-child(3n + 2) {
                 background-color: #52A7DB;
@@ -75,11 +75,11 @@ body > .color-scheme-block.active {
                 margin: 4px 10px;
                 width: 60px;
                 height: 40px;
-                background-color: #fff;
+                background-color: var(--background-color1);
                 border-radius: 5px;
             }
             body > .color-scheme-block > .color-scheme-panel > .color-version-block > .black-block {
-                background-color: #333;
+                background-color: #191919;
             }
 
 body > .color-scheme-block > #color-scheme-btn {
