@@ -569,6 +569,9 @@ body > .pop-up {
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
+#blogs {
+    text-align: center;
+}
     #blogs > #blog-list{
         display: inline-grid;
         grid-template-columns: auto auto auto;
@@ -707,6 +710,10 @@ body > .pop-up {
                         line-height: inherit;
 
                     }
+                #blogs > .button{
+                    display: inline-block;
+                    text-decoration: none;
+                }
 
 /* CONTACT ME section */
 
