@@ -42,7 +42,8 @@
   z-index: 1;
   top: -300px;
   right: -171px;
-  background-color: rgba(0,150,136, 0.8);
+  background-color: var(--main-color);
+  opacity: .8;
   overflow-x: hidden;
   transition: 0.5s;
   border-radius: 50%;

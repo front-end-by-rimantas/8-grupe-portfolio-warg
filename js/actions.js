@@ -12,9 +12,7 @@ document.getElementById('icons').innerHTML = generateIcons( Icons );
 // ABOUT ME section
 
 var playButton = document.querySelector('.row > .left > a > .fa-play');
-console.log(playButton);
 var closeButton = document.getElementById('close');
-console.log(closeButton);
 
     playButton.addEventListener( 'click' , showWindow );
     closeButton.addEventListener( 'click' , hideWindow );
@@ -99,13 +97,15 @@ var blueColor = document.querySelectorAll('.light-blue').forEach( blueColor => {
     blueColor.addEventListener( 'click', changeColor1 );
 });
 
-var aquaColor = document.querySelectorAll('.light-green').forEach( aquaColor => { 
+var aquaColor = document.querySelectorAll('.light-aqua').forEach( aquaColor => { 
     aquaColor.addEventListener( 'click', changeColor2 );
+});
+var greenColor = document.querySelectorAll('.light-green').forEach( greenColor => { 
+    greenColor.addEventListener( 'click', changeColor3 );
 });
 
 var lightBackground = document.querySelector('.white-block');
 var darkBackground = document.querySelector('.black-block');
-console.log(lightBackground, darkBackground);
 
 lightBackground.addEventListener( 'click', changeBackgroundLight );
 darkBackground.addEventListener( 'click', changeBackgroundDark );

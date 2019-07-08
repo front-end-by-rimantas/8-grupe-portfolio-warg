@@ -765,9 +765,6 @@ function laikas(){
 function showSidebar () {
     document.getElementById('color-bar').classList.toggle('active');
 }
-function showSidebar () {
-        document.getElementById('color-bar').classList.toggle('active');
-    }
     const color = '--main-color';
     function changeColor ( e ) {
         document.documentElement.style.setProperty(color, '#FB4538');
@@ -778,17 +775,26 @@ function showSidebar () {
     function changeColor2 ( e ) {
         document.documentElement.style.setProperty(color, '#009688');
     }
+    function changeColor3 ( e ) {
+        document.documentElement.style.setProperty(color, '#437116');
+    }
 
-    const backgroundColor = '--background-color';
+    const backgroundColor = '--background-color'; 
     function changeBackgroundLight ( e ) {
-        let back = document.querySelectorAll('.clone').forEach( back => {
+        let back = document.querySelectorAll('.clone').forEach( back => { // iškėlus 'back' kintamajį už funkcijos ribų jis nebesuranda visų .clone
             back.style.background = '#fff';
         } );
         document.documentElement.style.setProperty(backgroundColor, '#F6F6F6');
+        document.querySelectorAll('h1, h2').forEach( h2 => {
+            h2.style.color = 'var(--blackText-color)';
+        });
     }
     function changeBackgroundDark ( e ) {
         let back = document.querySelectorAll('.clone').forEach( back => {
             back.style.background = '#121212';
         } );
         document.documentElement.style.setProperty(backgroundColor, '#191919');
+        document.querySelectorAll('h1, h2').forEach( h1h2 => {
+            h1h2.style.color = 'var(--text-color)';
+        });
     }
