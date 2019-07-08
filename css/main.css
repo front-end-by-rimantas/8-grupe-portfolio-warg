@@ -306,6 +306,25 @@ body > .pop-up {
                             display: inline-block;
                             float: left;
                         }
+    .container > .powered {
+        display: inline-block;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        height: 40px;
+        line-height: 40px;
+        z-index: 60;
+        right: 40px;
+        bottom: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+        .container > .powered > span {
+            font-family: Lobster,"Open Sans",sans-serif;
+            padding: 0 20px;
+            font-size: 18px;
+            color: var(--main-color);
+        }
 /* ABOUT ME section */
 
     .container > .left-link {
