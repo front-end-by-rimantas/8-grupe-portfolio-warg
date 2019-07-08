@@ -753,6 +753,12 @@ function generateFooterIcons( data ) {
     return HTML;
 }
 // F O O T E R  section
+function laikas(){
+    var HTML = '',
+        currentYear = new Date().getFullYear();
+    HTML += `Warg &copy 2017 - ${currentYear}. ALL RIGHT RESERVED`
+    return HTML
+}
 
 // SIDEBAR
 

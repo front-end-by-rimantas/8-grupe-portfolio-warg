@@ -88,7 +88,7 @@ document.getElementById('form').innerHTML = generateForm( contactForm );
 // BOTTOM NAVIGATION section
 document.getElementById('footer_icons').innerHTML = generateFooterIcons( footerIcons );
 // FOOTER section
-
+document.querySelector('.footer > .row > p').innerHTML = laikas();
 // SIDEBAR
 
 var redColor = document.querySelectorAll('.light-red').forEach( redColor => { 
