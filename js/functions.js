@@ -578,7 +578,6 @@ function showNextTestimonial ( event ) {
         if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
             direction = 1;
         }
-        console.log(direction);
         
         next_index = current_index + direction;
         
@@ -597,7 +596,6 @@ function showNextTestimonial ( event ) {
         } else {
             document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
         }
-
         
     }
 
@@ -609,7 +607,6 @@ function showNextTestimonial ( event ) {
         if ( event.target.className.indexOf('fa-angle-left') >= 0 ) {
             direction = -1;
         }
-        console.log(direction);
     
         next_index = current_index + direction;
     
@@ -765,9 +762,6 @@ function laikas(){
 function showSidebar () {
     document.getElementById('color-bar').classList.toggle('active');
 }
-function showSidebar () {
-        document.getElementById('color-bar').classList.toggle('active');
-    }
     const color = '--main-color';
     function changeColor ( e ) {
         document.documentElement.style.setProperty(color, '#FB4538');
@@ -778,17 +772,26 @@ function showSidebar () {
     function changeColor2 ( e ) {
         document.documentElement.style.setProperty(color, '#009688');
     }
+    function changeColor3 ( e ) {
+        document.documentElement.style.setProperty(color, '#437116');
+    }
 
-    const backgroundColor = '--background-color';
+    const backgroundColor = '--background-color'; 
     function changeBackgroundLight ( e ) {
-        let back = document.querySelectorAll('.clone').forEach( back => {
+        let back = document.querySelectorAll('.clone').forEach( back => { // iškėlus 'back' kintamajį už funkcijos ribų jis nebesuranda visų .clone
             back.style.background = '#fff';
         } );
         document.documentElement.style.setProperty(backgroundColor, '#F6F6F6');
+        document.querySelectorAll('h1, h2, h3, h4, .label-value, .row>.filter>div, .row>.arrows>i, .row>.arrows>div').forEach( all => {
+            all.style.color = 'var(--blackText-color)';
+        });
     }
     function changeBackgroundDark ( e ) {
         let back = document.querySelectorAll('.clone').forEach( back => {
             back.style.background = '#121212';
         } );
         document.documentElement.style.setProperty(backgroundColor, '#191919');
-    }
+        document.querySelectorAll('h1, h2, h3, h4, .label-value, .row>.filter>div, .row>.arrows>i, .row>.arrows>div').forEach( all => {
+            all.style.color = 'var(--text-color)';
+        });
+}
