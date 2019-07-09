@@ -194,9 +194,9 @@ body > .pop-up {
                 background-color: var(--main-color);
                 color: #fff;
                 border-radius: 30px;
-                border-left: 3px solid var(--main-color);
+                /* border-left: 3px solid var(--main-color);
                 border-bottom: 2px solid var(--main-color);
-                box-shadow: -3px 3px 8px 0px var(--main-color);
+                box-shadow: -3px 3px 8px 0px var(--main-color); */
             }
             
 /* HERO section */

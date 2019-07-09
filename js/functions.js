@@ -578,7 +578,6 @@ function showNextTestimonial ( event ) {
         if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
             direction = 1;
         }
-        console.log(direction);
         
         next_index = current_index + direction;
         
@@ -597,7 +596,6 @@ function showNextTestimonial ( event ) {
         } else {
             document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
         }
-
         
     }
 
@@ -609,7 +607,6 @@ function showNextTestimonial ( event ) {
         if ( event.target.className.indexOf('fa-angle-left') >= 0 ) {
             direction = -1;
         }
-        console.log(direction);
     
         next_index = current_index + direction;
     
@@ -785,8 +782,8 @@ function showSidebar () {
             back.style.background = '#fff';
         } );
         document.documentElement.style.setProperty(backgroundColor, '#F6F6F6');
-        document.querySelectorAll('h1, h2').forEach( h2 => {
-            h2.style.color = 'var(--blackText-color)';
+        document.querySelectorAll('h1, h2, h3, h4, .label-value, .row>.filter>div, .row>.arrows>i, .row>.arrows>div').forEach( all => {
+            all.style.color = 'var(--blackText-color)';
         });
     }
     function changeBackgroundDark ( e ) {
@@ -794,7 +791,7 @@ function showSidebar () {
             back.style.background = '#121212';
         } );
         document.documentElement.style.setProperty(backgroundColor, '#191919');
-        document.querySelectorAll('h1, h2').forEach( h1h2 => {
-            h1h2.style.color = 'var(--text-color)';
+        document.querySelectorAll('h1, h2, h3, h4, .label-value, .row>.filter>div, .row>.arrows>i, .row>.arrows>div').forEach( all => {
+            all.style.color = 'var(--text-color)';
         });
-    }
+}
