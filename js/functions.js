@@ -565,11 +565,6 @@ function generateTestimonials ( data ) {
 
     return HTML
 }
-
-
-var firstActiveTest = 0; // Su šiuo globaliu kintamuoju galima išspręsti vieno elemento praleidimo klausimą prilygininat jį 'current' indexui,
-                        // kol kas nenutuokiu kaip jį panaudoti. 
-
 function showNextTestimonial ( event ) {
     var direction = 0,
         current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
@@ -581,7 +576,7 @@ function showNextTestimonial ( event ) {
         
         next_index = current_index + direction;
         
-        if ( current_index === (testimonialsInfo.length - 1) && direction === 1 ) {
+        if ( next_index === testimonialsInfo.length ) {
             next_index = 0;
         }
 
@@ -590,14 +585,54 @@ function showNextTestimonial ( event ) {
         } );
 
         document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
-        
+
         if ( next_index + 1 === testimonialsInfo.length) {                               
             document.querySelector('.lefty[data-index="0"]').classList.add('active');
         } else {
             document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
         }
+        console.log(testimonialsInfo[next_index], testimonialsInfo[next_index + 1]);
         
     }
+// var firstActiveTest = 0;
+// function showNextTestimonial ( event ) {
+//     var direction = 0,
+//         pirmas = firstActiveTest,
+//         antras = firstActiveTest + 1,
+//         current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
+//         next_index = 0; // next index taikomas tik vienam testimonial, todel nepersoka klase.
+
+//         next_index = current_index + direction;
+
+//         if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
+//             direction = 1;
+//         }
+//         firstActiveTest++
+
+
+//         if ( antras === testimonialsInfo.length ) {
+//             antras = 0;
+//         }
+//         console.log(testimonialsInfo[pirmas], testimonialsInfo[antras]);
+
+
+//         if ( firstActiveTest === testimonialsInfo.length ) {
+//             firstActiveTest = 0;
+//         }
+
+//         document.querySelectorAll('.lefty.active').forEach( (lefty) => {
+//             lefty.classList.remove('active');
+//         } );
+//         document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
+        
+//         if ( next_index + 1 === testimonialsInfo.length) {                               
+//             document.querySelector('.lefty[data-index="0"]').classList.add('active');
+//         } else {
+//             document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
+//         }
+
+// }
+
 
     function showPreviousTestimonial ( event ) {
         var direction = 0,
