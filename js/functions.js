@@ -565,73 +565,68 @@ function generateTestimonials ( data ) {
 
     return HTML
 }
-function showNextTestimonial ( event ) {
-    var direction = 0,
-        current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
-        next_index = 0;
-        
-        if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
-            direction = 1;
-        }
-        
-        next_index = current_index + direction;
-        
-        if ( next_index === testimonialsInfo.length ) {
-            next_index = 0;
-        }
-
-        document.querySelectorAll('.lefty.active').forEach( (lefty) => {
-            lefty.classList.remove('active');
-        } );
-
-        document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
-
-        if ( next_index + 1 === testimonialsInfo.length) {                               
-            document.querySelector('.lefty[data-index="0"]').classList.add('active');
-        } else {
-            document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
-        }
-        console.log(testimonialsInfo[next_index], testimonialsInfo[next_index + 1]);
-        
-    }
-// var firstActiveTest = 0; 
 // function showNextTestimonial ( event ) {
 //     var direction = 0,
-//         pirmas = firstActiveTest,
-//         antras = firstActiveTest + 1,
 //         current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
-//         next_index = 0; // next index taikomas tik vienam testimonial, todel nepersoka klase.
-
-//         next_index = current_index + direction;
-
+//         next_index = 0;
+        
 //         if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
 //             direction = 1;
 //         }
-//         firstActiveTest++
-
-
-//         if ( antras === testimonialsInfo.length ) {
-//             antras = 0;
-//         }
-//         console.log(testimonialsInfo[pirmas], testimonialsInfo[antras]);
-
-
-//         if ( firstActiveTest === testimonialsInfo.length ) {
-//             firstActiveTest = 0;
-//         }
-
-//         document.querySelectorAll('.lefty.active').forEach( (lefty) => {
-//             lefty.classList.remove('active');
-//         } );
-//         document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
         
+//         next_index = current_index + direction;
+        
+//         if ( next_index === testimonialsInfo.length ) {
+//             next_index = 0;
+//         }
+
+        // document.querySelectorAll('.lefty.active').forEach( (lefty) => {
+        //     lefty.classList.remove('active');
+        // } );
+
+//         document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
+
 //         if ( next_index + 1 === testimonialsInfo.length) {                               
 //             document.querySelector('.lefty[data-index="0"]').classList.add('active');
 //         } else {
 //             document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
 //         }
+//         console.log(testimonialsInfo[next_index], testimonialsInfo[next_index + 1]);
+        
+//     }
+var firstActiveTest = 0; 
+function showNextTestimonial ( event ) {
+    var direction = 0,
+        pirmas = firstActiveTest,
+        antras = firstActiveTest + 1;
 
-// }
+
+        if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
+            direction = 1;
+        }
+        firstActiveTest++
+
+
+        if ( antras === testimonialsInfo.length ) {
+            antras = 0;
+        }
+        console.log(pirmas, antras);
+
+
+        if ( firstActiveTest === testimonialsInfo.length ) {
+            firstActiveTest = 0;
+        }
+        document.querySelectorAll('.lefty.active').forEach( (lefty) => {
+            lefty.classList.remove('active');
+            lefty.classList.remove('active-1');
+            lefty.classList.remove('active-2');
+        } );
+        document.querySelector(`.lefty[data-index="${pirmas}"]`).classList.add('active');
+        document.querySelector(`.lefty[data-index="${pirmas}"]`).classList.add('active-1');
+        document.querySelector(`.lefty[data-index="${antras}"]`).classList.add('active');
+        document.querySelector(`.lefty[data-index="${antras}"]`).classList.add('active-2');
+
+}
 
 
     function showPreviousTestimonial ( event ) {
