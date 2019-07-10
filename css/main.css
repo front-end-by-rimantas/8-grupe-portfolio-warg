@@ -588,13 +588,18 @@ body > .pop-up {
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
-
+#blogs {
+    text-align: center;
+}
+    #blogs > #blog-list{
+        display: inline-grid;
+        grid-template-columns: auto auto auto;
+    }
         .container > .row > .blog {
             display: inline-block;
             position: relative;
             float: left;
-            width: 32%;
-            margin-left: 2%;
+            width: 97%;
             box-shadow: 2px 0 12px 0 rgba(0,0,0,.4);
             /* min-height: 550px; */
         }
@@ -623,10 +628,11 @@ body > .pop-up {
                 padding: 20px;
                 text-align: left;
                 min-height: 200px;
+                margin-bottom: 50px;
             }
                 .row > .blog > .name-and-photo {
                     width: 100%;
-                    position: relative;
+                    position: absolute;
                     display: flex;
                     align-items: center;
                     padding-left: 20px;
@@ -723,9 +729,15 @@ body > .pop-up {
                         line-height: inherit;
 
                     }
+                #blogs > .button{
+                    display: inline-block;
+                    text-decoration: none;
+                }
 
 /* CONTACT ME section */
-
+.row > form {
+    width: 1000px;
+}
     
 /* BOTTOM NAVIGATION section */
     .bottom {
@@ -989,6 +1001,9 @@ body > .pop-up {
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
+#blogs > #blog-list{
+    display: inline-block;
+}
 
 .container > .row > .blog {
     width: 100%;
@@ -999,7 +1014,7 @@ body > .pop-up {
 /* CONTACT ME section */
 
 .row > form {
-    width: 500px;
+    width: 100%;
 }
 
 /* BOTTOM NAVIGATION section */
@@ -1243,8 +1258,9 @@ body > .pop-up {
         width: 100%;
         margin: 0;
     }
-    .container > .row > #hamburger {
-        right: 15px;
+    .container.header > .row {
+        width: 100%;
+        margin: 0;
     }
     .container > .row > a > img {
         display: inline-block;

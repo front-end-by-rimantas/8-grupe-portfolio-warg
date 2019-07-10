@@ -708,10 +708,10 @@ function generateBlog ( data ) {
                 <h3>${data[i].heading}</h3>
                 <p>${data[i].description}</p>
                 <div class='socials'>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[0]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[1]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[2]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[3]}"></i></div>
+                    <i class="fa fa-${data[i].icon[0].name}" href="${data[i].icon[0].adress}"></i>
+                    <a class="fa fa-${data[i].icon[1].name} up" href="${data[i].icon[1].adress}"></a>
+                    <a class="fa fa-${data[i].icon[2].name} corner" href="${data[i].icon[2].adress}"></a>
+                    <a class="fa fa-${data[i].icon[3].name} right" href="${data[i].icon[3].adress}"></a>
                 </div>
             </div>
             <div class='name-and-photo'>
@@ -728,46 +728,94 @@ function generateForm ( data ) {
         field,
         attrHTML = '',
         attrInfo,
-        classNames = '';
+        classNames = '',
+        ID = '';
 
 
         for (var i=0; i<data.fields.length; i++) {
             field = data.fields[i];
             attrHTML = '';
             classNames = '';
-            // console.log(field);
+
+
+            if(data.fields[i].attr[0].value == 'text'){
+                ID = 'name';
+            }
+            else if(data.fields[i].attr[0].value == 'email'){
+                ID = 'email';
+            }
+            else{
+                ID = 'message';
+            }
          
             for ( var a=0; a<field.attr.length; a++ ) {
                 attrInfo = field.attr[a];
                 attrHTML += ` ${attrInfo.name}="${attrInfo.value}"`;
-                // console.log(attrInfo) 
-                // console.log(attrInfo);
+                
             }
         
             classNames = field.className.join(' ');
 
             if ( field.type === 'input' ) {
                 HTML += `<div class="${classNames}">
-                            <input ${attrHTML} required>
-                            <span>${data.fields[i].description}</span>
-                        </div>`;
+                            <input ${attrHTML} id=${ID}>
+                            <span class="${ID}"></span>
+                        </div>`;/*${data.fields[i].description}*/
             
             }
             if ( field.type === 'textarea' ) {
                 HTML += `<div class="${classNames}">
-                            <textarea ${attrHTML} required></textarea>
-                            <span>${data.fields[i].description}</span>
-                        </div>`;
+                            <textarea ${attrHTML} id=${ID}></textarea>
+                            <span class="${ID}"></span>
+                        </div>`; /*${data.fields[i].description}*/
             }
         }
         HTML += '<div class="actions">';
         for ( var i=0; i<data.actions.length; i++ ) {
             HTML += `<div class="col-12">
-                        <button id="btn-submit" type="submit" class="form-btn button dark">${data.actions[i].text}</button>
+                        <div id="btn-submit" type="submit" class="form-btn button dark" onclick="formError()">${data.actions[i].text}</div>
                     </div>`;
         }
         HTML += '<form>'
     return HTML
+}
+
+
+function formError (){
+    var nameValue = document.getElementById('name').value,
+        emailValue = document.getElementById('email').value,
+        messageValue = document.getElementById('message').value,
+        name_ats = true,
+        email_ats = true,
+        message_ats = true,
+        name_error = document.querySelector('#contact > #form > form > .col-6 > .name'),
+        email_error = document.querySelector('#contact > #form > form > .col-6 > .email'),
+        message_error = document.querySelector('#contact > #form > form > .col-12 > .message');
+
+        
+        // N A M E validation
+        name_ats = validateName(nameValue);
+            if ( name_ats == true){
+                name_error.innerHTML = '';
+            } else {
+                name_error.innerHTML = name_ats;
+            }
+
+        // E M A I L validation 
+        email_ats = validateEmail(emailValue);
+            if ( email_ats == true){
+                email_error.innerHTML = '';
+            } else {
+                email_error.innerHTML = email_ats;
+            }
+        // M E S S A G E validation
+        message_ats = validateMessage(messageValue);
+            if (message_ats == true){
+                message_error.innerHTML = '';
+            } else {
+                message_error.innerHTML = message_ats;
+            }
+    return;
 }
 
 // B O T T O M   N A V I G A T I O N section
