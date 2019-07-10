@@ -594,7 +594,7 @@ function showNextTestimonial ( event ) {
         console.log(testimonialsInfo[next_index], testimonialsInfo[next_index + 1]);
         
     }
-// var firstActiveTest = 0;
+// var firstActiveTest = 0; 
 // function showNextTestimonial ( event ) {
 //     var direction = 0,
 //         pirmas = firstActiveTest,
