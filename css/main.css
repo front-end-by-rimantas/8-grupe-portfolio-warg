@@ -716,7 +716,9 @@ body > .pop-up {
                 }
 
 /* CONTACT ME section */
-
+.row > form {
+    width: 1000px;
+}
     
 /* BOTTOM NAVIGATION section */
     .bottom {
@@ -993,7 +995,7 @@ body > .pop-up {
 /* CONTACT ME section */
 
 .row > form {
-    width: 500px;
+    width: 100%;
 }
 
 /* BOTTOM NAVIGATION section */
@@ -1237,8 +1239,9 @@ body > .pop-up {
         width: 100%;
         margin: 0;
     }
-    .container > .row > #hamburger {
-        right: 15px;
+    .container.header > .row {
+        width: 100%;
+        margin: 0;
     }
     .container > .row > a > img {
         display: inline-block;
