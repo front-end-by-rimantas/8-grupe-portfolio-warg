@@ -526,7 +526,7 @@ return;
 // T E S T I M O N I A L S section
 function generateTestimonials ( data ) {
     var HTML = '',
-    setClass;
+        setClass;
 
     for ( var i=0; i<data.length; i++ ) {
 
@@ -535,10 +535,11 @@ function generateTestimonials ( data ) {
         } else {
             setClass = '';
         }
+        
 
         HTML +=
     `<div class="lefty ${setClass}" data-index="${i}">
-        <div class="left-inner-first clone">
+        <div class="left-inner-first">
             <p>${data[i].description}</p>
             <div class="square"></div>
         </div>
@@ -565,35 +566,7 @@ function generateTestimonials ( data ) {
 
     return HTML
 }
-// function showNextTestimonial ( event ) {
-//     var direction = 0,
-//         current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
-//         next_index = 0;
-        
-//         if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
-//             direction = 1;
-//         }
-        
-//         next_index = current_index + direction;
-        
-//         if ( next_index === testimonialsInfo.length ) {
-//             next_index = 0;
-//         }
 
-        // document.querySelectorAll('.lefty.active').forEach( (lefty) => {
-        //     lefty.classList.remove('active');
-        // } );
-
-//         document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
-
-//         if ( next_index + 1 === testimonialsInfo.length) {                               
-//             document.querySelector('.lefty[data-index="0"]').classList.add('active');
-//         } else {
-//             document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
-//         }
-//         console.log(testimonialsInfo[next_index], testimonialsInfo[next_index + 1]);
-        
-//     }
 var firstActiveTest = 0; 
 function showNextTestimonial ( event ) {
     var direction = 0,
@@ -628,69 +601,37 @@ function showNextTestimonial ( event ) {
 
 }
 
+function showPreviousTestimonial ( event ) {
+    var direction = 0,
+        pirmas = firstActiveTest - 1,
+        antras = firstActiveTest;
 
-    function showPreviousTestimonial ( event ) {
-        var direction = 0,
-        current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
-        next_index = 0;
-    
         if ( event.target.className.indexOf('fa-angle-left') >= 0 ) {
             direction = -1;
         }
-    
-        next_index = current_index + direction;
-    
-        if ( current_index === 0 && direction === -1 ) {
-            next_index = testimonialsInfo.length - 1;
+        firstActiveTest--
+
+        if ( pirmas === -1 ) {
+            pirmas = testimonialsInfo.length - 1;
         }
-    
+        console.log(pirmas, antras);
+
+        if ( firstActiveTest === -1 ) {
+            firstActiveTest = testimonialsInfo.length - 1;
+        }
         document.querySelectorAll('.lefty.active').forEach( (lefty) => {
             lefty.classList.remove('active');
+            lefty.classList.remove('active-1');
+            lefty.classList.remove('active-2');
         } );
-    
-        document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');  
-    
-        if ( next_index === -1 ) {                               
-            next_index = testimonialsInfo.length - 1;
-        } else {
-            document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
-        }
-    
-    }
-    
-    
-    // function showTestimonial ( event ) {
-    //     var direction = 0,
-    //         current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
-    //         next_index = 0,
-    
-    
-    //     if ( event.target.className.indexOf('fa-angle-left') >= 0 ) {
-    //         direction = -1;
-    //     }
-    //     if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
-    //         direction = 1;
-    //     }
-    //     console.log(direction);
-    //     console.log(current_index);
-    
-    //     next_index = current_index + direction;
-    
-    
-    //     if ( current_index === 0 && direction === -1 ) {
-    //         next_index = testimonialsInfo.length - 1;
-    //     }
-    
-    //     if ( current_index === (testimonialsInfo.length - 1) && direction === 1 ) {
-    //         next_index = 0;
-    //     }
-    
-    //     document.querySelector('.lefty.active').classList.remove('active');
-    //     document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');  
-    //     document.querySelector('.lefty[data-index="'+(secondLefty)+'"]').classList.add('active');
-    
-    //     return
-    // }
+        document.querySelector(`.lefty[data-index="${pirmas}"]`).classList.add('active');
+        document.querySelector(`.lefty[data-index="${pirmas}"]`).classList.add('active-1');
+        document.querySelector(`.lefty[data-index="${antras}"]`).classList.add('active');
+        document.querySelector(`.lefty[data-index="${antras}"]`).classList.add('active-2');
+
+
+}
+
 // M Y   B L O G S section
 function generateBlog ( data ) {
     var HTML = '';
