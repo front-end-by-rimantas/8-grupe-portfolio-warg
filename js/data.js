@@ -308,7 +308,7 @@
             description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Duis sed dapibus leo nec ornare diam. Sed commodo nibh 
             facilisis bibendum dolor feugiat.`,
-            icon: `ninja.png`,
+            icon: `AWT-Plane.png`,
             info: [`john doe`, `ceo founder`],
         },
     ]

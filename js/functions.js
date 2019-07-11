@@ -117,8 +117,7 @@ var youTubeBlock = document.getElementById("playWindow");
 function showWindow ( event ) {
     youTubeBlock.style.display = 'inline-block';    
     let video = event.target.getAttribute('data-youtube');
-    let auto = '100%';
-    document.querySelector('.pop-up .pop-up-inner').innerHTML = `<iframe width="${auto}" height="${auto}" src="https://www.youtube.com/embed/${video}" 
+    document.querySelector('.pop-up .pop-up-inner').innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${video}" 
     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
 function hideWindow ( event ) {
