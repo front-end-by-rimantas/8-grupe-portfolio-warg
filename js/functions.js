@@ -116,13 +116,19 @@ function generateIcons( data ) {
 var youTubeBlock = document.getElementById("playWindow");
 function showWindow ( event ) {
     youTubeBlock.style.display = 'inline-block';    
+    let video = event.target.getAttribute('data-youtube');
+    let auto = '100%';
+    document.querySelector('.pop-up .pop-up-inner').innerHTML = `<iframe width="${auto}" height="${auto}" src="https://www.youtube.com/embed/${video}" 
+    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
 function hideWindow ( event ) {
     youTubeBlock.style.display = 'none'; 
+    document.querySelector('.pop-up .pop-up-inner').innerHTML = '';
 }
 function outsideClick ( event ) {
     if (event.target === youTubeBlock ) {
         youTubeBlock.style.display = 'none'; 
+        document.querySelector('.pop-up .pop-up-inner').innerHTML = '';
     }
 }
 
@@ -539,7 +545,7 @@ function generateTestimonials ( data ) {
 
         HTML +=
     `<div class="lefty ${setClass}" data-index="${i}">
-        <div class="left-inner-first">
+        <div class="left-inner-first clone">
             <p>${data[i].description}</p>
             <div class="square"></div>
         </div>
@@ -749,7 +755,7 @@ function showSidebar () {
 
     const backgroundColor = '--background-color'; 
     function changeBackgroundLight ( e ) {
-        let back = document.querySelectorAll('.clone').forEach( back => { // iškėlus 'back' kintamajį už funkcijos ribų jis nebesuranda visų .clone
+        let back = document.querySelectorAll('.clone').forEach( back => {
             back.style.background = '#fff';
         } );
         document.documentElement.style.setProperty(backgroundColor, '#F6F6F6');

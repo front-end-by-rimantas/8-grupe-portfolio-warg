@@ -64,11 +64,11 @@ body > .pop-up {
             opacity: 1;
         }
     }
-        body > .pop-up > .pop-up-inner > button {
+        body > .pop-up > button {
             display: inline-block;
             position: absolute;
-            top: -30px;
-            right: 0;
+            top: 28%;
+            left: 69%;
             font-weight: bolder;
             font-size: 25px;
             border: none;
@@ -77,7 +77,7 @@ body > .pop-up {
             color: #fff;
             transition: font-size 500ms;
         }
-        body > .pop-up > .pop-up-inner > button:hover {
+        body > .pop-up > button:hover {
             cursor: pointer;
             font-size: 20px;
         }
