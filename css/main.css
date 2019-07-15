@@ -64,11 +64,11 @@ body > .pop-up {
             opacity: 1;
         }
     }
-        body > .pop-up > .pop-up-inner > button {
+        body > .pop-up > button {
             display: inline-block;
             position: absolute;
-            top: -30px;
-            right: 0;
+            top: 28%;
+            left: 69%;
             font-weight: bolder;
             font-size: 25px;
             border: none;
@@ -77,7 +77,7 @@ body > .pop-up {
             color: #fff;
             transition: font-size 500ms;
         }
-        body > .pop-up > .pop-up-inner > button:hover {
+        body > .pop-up > button:hover {
             cursor: pointer;
             font-size: 20px;
         }
@@ -186,17 +186,17 @@ body > .pop-up {
                 background-color: var(--main-color);
                 color: #fff;
                 border-radius: 30px;
-                border-left: 3px solid #7BAFAA;
+                /* border-left: 3px solid #7BAFAA;  => ar sito cia reikia? 
                 border-bottom: 2px solid #7BAFAA;
-                box-shadow: -3px 3px 8px 0px grey;
+                box-shadow: -3px 3px 8px 0px grey; */
             }
             .container > .row > nav > .active {
                 background-color: var(--main-color);
                 color: #fff;
                 border-radius: 30px;
-                border-left: 3px solid #7BAFAA;
-                border-bottom: 2px solid #7BAFAA;
-                box-shadow: -3px 3px 8px 0px grey;
+                /* border-left: 3px solid var(--main-color);
+                border-bottom: 2px solid var(--main-color);
+                box-shadow: -3px 3px 8px 0px var(--main-color); */
             }
             
 /* HERO section */
@@ -306,6 +306,25 @@ body > .pop-up {
                             display: inline-block;
                             float: left;
                         }
+    .container > .powered {
+        display: inline-block;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        height: 40px;
+        line-height: 40px;
+        z-index: 60;
+        right: 40px;
+        bottom: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+        .container > .powered > span {
+            font-family: Lobster,"Open Sans",sans-serif;
+            padding: 0 20px;
+            font-size: 18px;
+            color: var(--main-color);
+        }
 /* ABOUT ME section */
 
     .container > .left-link {
@@ -569,13 +588,18 @@ body > .pop-up {
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
-
+#blogs {
+    text-align: center;
+}
+    #blogs > #blog-list{
+        display: inline-grid;
+        grid-template-columns: auto auto auto;
+    }
         .container > .row > .blog {
             display: inline-block;
             position: relative;
             float: left;
-            width: 32%;
-            margin-left: 2%;
+            width: 97%;
             box-shadow: 2px 0 12px 0 rgba(0,0,0,.4);
             /* min-height: 550px; */
         }
@@ -604,10 +628,11 @@ body > .pop-up {
                 padding: 20px;
                 text-align: left;
                 min-height: 200px;
+                margin-bottom: 50px;
             }
                 .row > .blog > .name-and-photo {
                     width: 100%;
-                    position: relative;
+                    position: absolute;
                     display: flex;
                     align-items: center;
                     padding-left: 20px;
@@ -704,9 +729,15 @@ body > .pop-up {
                         line-height: inherit;
 
                     }
+                #blogs > .button{
+                    display: inline-block;
+                    text-decoration: none;
+                }
 
 /* CONTACT ME section */
-
+.row > form {
+    width: 1000px;
+}
     
 /* BOTTOM NAVIGATION section */
     .bottom {
@@ -946,7 +977,6 @@ body > .pop-up {
         background-size: 45vh;
     }
 /* ABOUT ME section */
-
 /* MY SERVICES section */
 #services > .row > #myServices > .service{
     width: 50%;
@@ -970,6 +1000,9 @@ body > .pop-up {
 /* TESTIMONIALS section */
 
 /* MY BLOGS section */
+#blogs > #blog-list{
+    display: inline-block;
+}
 
 .container > .row > .blog {
     width: 100%;
@@ -980,7 +1013,7 @@ body > .pop-up {
 /* CONTACT ME section */
 
 .row > form {
-    width: 500px;
+    width: 100%;
 }
 
 /* BOTTOM NAVIGATION section */
@@ -1224,8 +1257,9 @@ body > .pop-up {
         width: 100%;
         margin: 0;
     }
-    .container > .row > #hamburger {
-        right: 15px;
+    .container.header > .row {
+        width: 100%;
+        margin: 0;
     }
     .container > .row > a > img {
         display: inline-block;

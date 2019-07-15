@@ -116,13 +116,18 @@ function generateIcons( data ) {
 var youTubeBlock = document.getElementById("playWindow");
 function showWindow ( event ) {
     youTubeBlock.style.display = 'inline-block';    
+    let video = event.target.getAttribute('data-youtube');
+    document.querySelector('.pop-up .pop-up-inner').innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${video}" 
+    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
 function hideWindow ( event ) {
     youTubeBlock.style.display = 'none'; 
+    document.querySelector('.pop-up .pop-up-inner').innerHTML = '';
 }
 function outsideClick ( event ) {
     if (event.target === youTubeBlock ) {
         youTubeBlock.style.display = 'none'; 
+        document.querySelector('.pop-up .pop-up-inner').innerHTML = '';
     }
 }
 
@@ -224,7 +229,7 @@ function generateProgress( data ) {
             <div class="value">${data[i].value}</div>
         </div>
         <div class="bar">
-            <div class="bar-value" style="width: ${data[i].value};">
+            <div class="bar-value"  >
                 <div class="bar-fill"></div>
             </div>
         </div>
@@ -294,239 +299,268 @@ function numbers(id, end){
     }
     return;
   }
-
 // M Y   P O R T F O L I O section
-function generateMyWorks( data ){
-    var tags = [],
-        display_class,
-        klass1 = '',
-        klass2 = '',
-        half = Math.ceil(data.length / 2),
-        third = Math.ceil(data.length / 3),
-        nr = 0,
-        HTML = `<div class="filter">
-                    <div class="active">All</div>
-                    `;
-    //išrenkami tik uniklalūs tag'ai:
+function generatePortfolioFilter( data ){
+    var tags_list = [],
+        HTML = '';
+        
+    HTML += `<div class="active">All</div>`;
     data.forEach( work => {
-        if ( tags.indexOf( work.project_title ) === -1) {
-            tags.push ( work.project_title );
-            HTML += `<div>${work.project_title}</div>
-            `
+        if ( tags_list.indexOf ( work.project_title ) === -1){
+            tags_list.push( work.project_title );
+            HTML += `<div>${work.project_title}</div>`;
         }
     })
-    //atvaizduojami visi porfolio elementai:
-    HTML += `</div>
-            <div class="list">
-            `;
+    return HTML;
+}
 
+function generateAllWorks( data ){
+    var HTML = '';
     for ( var i=0; i<data.length; i++ ) {
         if ( data[i].project_title === '' ||
             data[i].image === '' ) {
             continue;
         }
-
-        if(i==0){
-            display_class = 'S M L N';
-        }
-        else if(i==1){
-            display_class = 'M L N';
-        }
-        else if(i==2){
-            display_class = 'L N';
-        }else{
-            display_class = 'N';
-        }
-
-        HTML += `<div class="work ${display_class}" id="id${i+1}" style="order:${i+1}">
-                    <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
-                    <div class="texts">
-                        <h3>Portfolio</h3><p>${data[i].project_title}</p>
-                    </div>
+    HTML += `<div class="work" data-index="${i}">
+                <img src="img/myWorks/${data[i].image}">
+                <div class="texts">
+                    <h3>Portfolio</h3>
+                    <p>${data[i].project_title}</p>
                 </div>
-                `
+            </div>`
+            if(i==2){
+                break;
+            }
     }
-    HTML += `</div>
-            <div class="arrows">
-                <i class="more fa fa-angle-double-left"></i>`;
-                
-    //generuojamos rodyklės ir skaičiukai:            
-    for ( var i=0; i<data.length; i++) {
-        nr ++;
-        if ( (data[i].project_title === '') || 
-            (data[i].image === '' )) {
-            continue;
+    generateArrows(data);        
+    return HTML;           
+}
+
+function workingFiltering(e) {
+    var tag = e.target.innerText.toLowerCase(),
+        currentWorks = document.querySelectorAll('#portfolio > #myWorks > .works > .work'),
+        images = document.querySelectorAll('#portfolio > #myWorks > .works > .work > img'),
+        allFilters = document.querySelectorAll('#portfolio > #myWorks > .filter > div'),
+        HTML = '',
+        currentElements = [];
+        
+        for(var i=0; i<currentWorks.length; i++){
+            currentElements.push(Number(currentWorks[i].getAttribute('data-index')));
         }
-        if ((i+1) <= half){
-            klass1 = ' nr2';
-        }else{
-            klass1 = '';
-        }
-        if ((i+1) <= third){
-            klass2 = ' nr3';
-        }else{
-            klass2 = '';
-        }
-        HTML += `<div class="more${klass1} nr1${klass2}">${nr}</div>`
-    }
-    HTML += `<i class="more fa fa-angle-double-right"></i>
-        </div>`
-    // console.log(HTML)
+        for(var i=0; i<allFilters.length; i++){
+            allFilters[i].classList.remove('active');
+            if(allFilters[i].innerText.toLowerCase() == tag){
+                allFilters[i].classList.add('active');
+            }
+        }    
+        
+        let shrink = setInterval(reduce, 10);
+        var padding = 0,
+            maxPadding = 50,
+            opacity = 1,
+            radius = 0;
+        function reduce(){
+            if(padding==maxPadding){ 
+                clearInterval(shrink);
+                nextHTMLelements(tag);
+            }else{
+                padding +=5;
+                opacity -=0.02;
+                for(var a = 0; a<currentElements.length; a++){
+                    images[a].style.padding = padding + '%';
+                    images[a].style.opacity = opacity;
+                }
+            }
+        }        
     return HTML;
 }
 
-// R O D Y K L Ė S   K E I Č I A   P A V E I K S L Ė L I U S
-var curent_index = 0;
-
-function next_work(n){
-    if( n===1 || n===-1 ){
-        show_work(curent_index += n);
-    }else{
-        show_work(curent_index = n);
+function nextHTMLelements(tag){
+    var nextElements = [],
+        HTML = '';
+    for(var i=0; i<myWorkInfo.length; i++){
+        if (myWorkInfo[i].project_title === tag){
+            nextElements.push(i);
+        }
+        if(tag ==='all'){
+            nextElements.push(i);
+        }
     }
+    if (nextElements > 3 ){
+        nextElements = 3
+    }
+    for(var i=0; i<nextElements.length; i++){
+        HTML += `<div class="work" data-index="${nextElements[i]}">
+                    <img src="img/myWorks/${myWorkInfo[nextElements[i]].image}">
+                    <div class="texts">
+                        <h3>Portfolio</h3>
+                        <p>${myWorkInfo[nextElements[i]].project_title}</p>
+                    </div>
+                </div>`
+        if(i==2){
+        break;
+        }
+    }
+    document.querySelector('#myWorks > .works').innerHTML = HTML;
+    generateArrows(nextElements);
+    
+    let enlarge = setInterval(increaseNextWorks, 1);
+    var padding2 = 50,
+        minPadding2 = 0,
+        opacity2 = 0,
+        images2 = document.querySelectorAll('#myWorks > .works > .work > img'),
+        ilgis = nextElements.length;
+
+        if (ilgis > 3){
+            ilgis = 3;
+        }
+        function increaseNextWorks(){
+            if(padding2 === minPadding2){
+                clearInterval(enlarge);
+            }else{
+                padding2 -=2;
+                opacity2 +=0.04;
+                for(var b = 0; b < ilgis; b++){
+                    images2[b].style.padding = padding2 + '%';
+                    images2[b].style.opacity = opacity2;
+                }
+            }
+        }
+    return;
 }
-function show_work(next_work){
-    var x,
-        i;
+function generateArrows(componentsAtMoment){
+    var HTML_arrows = '',
+        nr=0,
+        steps = Math.ceil(componentsAtMoment.length/3),
+        active = '';
 
-    x = document.querySelectorAll(".work");
-    console.log(curent_index);
-    // console.log(next_work);
-
-    if (next_work > (x.length-1)) {
-        curent_index = 0;
+    HTML_arrows += `<div class="arrows">
+                        <i class="more fa fa-angle-double-left"></i>`;
+    for(var i=0; i<steps; i++){
+        nr++;
+        if(i==0){
+            active = 'active';
+        }else{
+            active = 'inactive';
+        }
+        HTML_arrows += `<div class="more number ${active}">${nr}</div>`
     }
-    if (next_work < 0) {
-        curent_index = (x.length-1);
-    }
-    for (i = 0; i < x.length; i++){
-        x[i].classList.add('N');
-        x[i].style.order = "0";
-        x[i].classList.remove('S');
-        x[i].classList.remove('M');
-        x[i].classList.remove('L');
-    }
+    HTML_arrows += `<i class="more fa fa-angle-double-right"></i>
+                </div>`
 
-    if (curent_index === 0){
-        //order
-        x[x.length-1].style.order = "1";
-        x[0].style.order = "2";
-        x[1].style.order = "3";
-
-        //add class
-        x[x.length-1].classList.add('S');
-        x[x.length-1].classList.add('M');
-        x[x.length-1].classList.add('L');
-
-        x[0].classList.add('M');
-        x[0].classList.add('L');
-
-        x[1].classList.add('L');
-    }
-
-    if ((curent_index < (x.length-1)) && (curent_index > 0)) {
-        //order
-        x[curent_index - 1].style.order = "1";
-        x[curent_index].style.order = "2";
-        x[curent_index + 1].style.order = "3";
-
-        //add class
-        x[curent_index - 1].classList.add('S');
-        x[curent_index - 1].classList.add('M');
-        x[curent_index - 1].classList.add('L');
-
-        x[curent_index].classList.add('M');
-        x[curent_index].classList.add('L');
-
-        x[curent_index + 1].classList.add('L');
-    }
-
-    if (curent_index === (x.length-1)) {
-        //order
-        x[x.length-2].style.order = "1";
-        x[x.length-1].style.order = "2";
-        x[0].style.order = "3";
-
-        //add class
-        x[x.length-2].classList.add('S');
-        x[x.length-2].classList.add('M');
-        x[x.length-2].classList.add('L');
-
-        x[x.length-1].classList.add('M');
-        x[x.length-1].classList.add('L');
-
-        x[0].classList.add('L');
-    } 
+    document.querySelector('#myWorks > .arrows_box').innerHTML = HTML_arrows;
+    var portfolioLeftArrow = document.querySelector('#portfolio > #myWorks > .arrows_box > .arrows > .fa-angle-double-left'),
+    portfolioRightArrow = document.querySelector('#portfolio > #myWorks > .arrows_box > .arrows > .fa-angle-double-right');
+        portfolioLeftArrow.addEventListener( 'click', function(){
+            arrowMove(-1)
+        });
+        portfolioRightArrow.addEventListener( 'click', function(){
+            arrowMove(1)
+        });
 }
-
-// F I L T R A V I M A S
-function filterPortfolio( e ) {
-var tag = e.target.innerText.toLowerCase(),
-i,
-x = document.querySelectorAll('#portfolio > #myWorks > .list > .work');
-
-if (tag === "all") {
-    for(i=0; i<x.length; i++){
-        x[i].classList.add('N');
-        x[i].style.order = "0";
-        x[i].classList.remove('S');
-        x[i].classList.remove('M');
-        x[i].classList.remove('L');
-        //add class
-        x[0].classList.add('S');
-        x[0].classList.add('M');
-        x[0].classList.add('L');
-        x[0].style.order = "1";
-
-        x[1].classList.add('M');
-        x[1].classList.add('L');
-        x[1].style.order = "2";
-
-        x[2].classList.add('L');
-        x[2].style.order = "3";
+function arrowMove (direction){
+    var currentWorks = document.querySelectorAll('#myWorks > .works > .work'),
+        currentElements = [],
+        thisElementTag = document.querySelector('#portfolio > #myWorks > .filter > .active').innerText.toLowerCase(),
+        allTags = [], //AllElementsWithThisTag
+        newElements = [];
+        
+    //ką matau prieš paspaudimą
+    for(var i=0; i<currentWorks.length; i++){ 
+        currentElements.push(Number(currentWorks[i].getAttribute('data-index')));
     }
+    //kiek tokių darbų yra iš viso
+    for( var i=0; i<myWorkInfo.length; i++){
+        if (myWorkInfo[i].project_title == thisElementTag){
+            allTags.push(i)
+        }
+        if (thisElementTag == 'all'){
+            allTags.push(i)
+        }
+    }
+    // paspaudus matysiu sekančius indeksus:
+
+    // rodyklės rodo po vieną
+        // var next = 0,
+        //     HTML_works = '',
+        //     place;
+    // for (var i=0; i<currentElements.length; i++){ 
+    //         place = allTags.indexOf(currentElements[i]);
+    //         if(place == 0 && direction == -1){
+    //             next = allTags[allTags.length-1];
+    //             console.log(`place == 0 && direction == -1 next = ${next}`);
+    //         }
+    //         else if(place == allTags.length-1 && direction == 1){
+    //             next = allTags[0];
+    //             console.log(`place == allTags.length-1 && direction == 1 next = ${next}`);
+    //         }else{
+    //             next = allTags[place+direction];
+    //             console.log(`next = ${next}`);
+    //         }
+    //         newElements.push(next);     
+    // }
+    // console.log(allTags[allTags.length-1]);
+    // console.log(currentWorks.length);
+    
+    // rodyklės rodo po 3
+    var x = allTags.indexOf(currentElements[0])/3,
+        HTML_works = '',
+        workPerWindow = 3,
+        firstIndex = allTags.indexOf(currentElements[0]),
+        lastOfAll = Math.floor((allTags.length-1)/3) * workPerWindow,
+        next,
+        numbers = document.querySelectorAll('#portfolio > #myWorks > .arrows_box > .arrows > .number'),
+        a = 1,
+        y = allTags.indexOf(currentElements[0])/3 + a + direction;
+        console.log(lastOfAll);
+        
+        for (var i=0; i<3; i++){
+            if(firstIndex==0 && direction == -1){
+                x = Math.floor((allTags.length-1)/3) + 1;
+            }
+            if(firstIndex==lastOfAll && direction == 1){
+                x = -1;
+            }
+            next = allTags[( workPerWindow * (x+direction) ) + i];
+            if (typeof next === "undefined"){
+                continue;
+            }
+            newElements.push(allTags[( workPerWindow * (x+direction) ) + i]);
+        }
+        for(var i=0; i<numbers.length; i++){
+            numbers[i].classList.remove('active');
+            if(firstIndex==lastOfAll && direction == 1){
+                y = 1;
+            }
+            if(firstIndex==0 && direction == -1){
+                y = numbers.length;
+            }
+            if(numbers[i].innerText == y){
+                numbers[i].classList.add('active');
+                console.log(numbers[i].classList);
+            }
+        }
+
+    for(var i=0; i<newElements.length; i++){
+        HTML_works +=   `<div class="work" data-index="${newElements[i]}">
+                            <img src="img/myWorks/${myWorkInfo[newElements[i]].image}">
+                            <div class="texts">
+                                <h3>Portfolio</h3>
+                                <p>${myWorkInfo[newElements[i]].project_title}</p>
+                            </div>
+                            </div>`
+            if(i==2){
+                break;
+            }
+    }
+    document.querySelector('#myWorks > .works').innerHTML = HTML_works;
     return;
 }
 
-//paslepti visus darbus
-for(i=0; i<x.length; i++){
-    x[i].classList.add('N');
-    x[i].style.order = "0";
-    x[i].classList.remove('S');
-    x[i].classList.remove('M');
-    x[i].classList.remove('L');
-}
-
-//parodyti tik tuos, kurie turi pasirinktą tag'ą
-var tag_true = [];
-for(i=0; i<x.length; i++){
-    if( tag === x[i].querySelector('p').innerText.toLowerCase() ){
-        tag_true.push(x[i]) //surenkam teisingų tagų sąrašą
-    }
-}
-for(i=0; i<tag_true.length; i++){ //teisingų tagų sąrašą papildom klasem
-    if(i===0){
-        tag_true[i].classList.add('S');
-        tag_true[i].classList.add('M');
-        tag_true[i].classList.add('L');
-        tag_true[i].style.order = "1";
-    }
-    else if(i===1){
-        tag_true[i].classList.add('M');
-        tag_true[i].classList.add('L');
-        tag_true[i].style.order = "1";
-    }
-    else if(i===2){
-        tag_true[i].classList.add('L');
-        tag_true[i].style.order = "1";
-    }
-}
-return; 
-}
 // T E S T I M O N I A L S section
 function generateTestimonials ( data ) {
     var HTML = '',
-    setClass;
+        setClass;
 
     for ( var i=0; i<data.length; i++ ) {
 
@@ -535,6 +569,7 @@ function generateTestimonials ( data ) {
         } else {
             setClass = '';
         }
+        
 
         HTML +=
     `<div class="lefty ${setClass}" data-index="${i}">
@@ -566,104 +601,71 @@ function generateTestimonials ( data ) {
     return HTML
 }
 
-
-var firstActiveTest = 0; // Su šiuo globaliu kintamuoju galima išspręsti vieno elemento praleidimo klausimą prilygininat jį 'current' indexui,
-                        // kol kas nenutuokiu kaip jį panaudoti. 
-
+var firstActiveTest = 0; 
 function showNextTestimonial ( event ) {
     var direction = 0,
-        current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
-        next_index = 0;
-        
+        pirmas = firstActiveTest,
+        antras = firstActiveTest + 1;
+
+
         if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
             direction = 1;
         }
-        console.log(direction);
-        
-        next_index = current_index + direction;
-        
-        if ( current_index === (testimonialsInfo.length - 1) && direction === 1 ) {
-            next_index = 0;
-        }
+        firstActiveTest++
 
+
+        if ( antras === testimonialsInfo.length ) {
+            antras = 0;
+        }
+        console.log(pirmas, antras);
+
+
+        if ( firstActiveTest === testimonialsInfo.length ) {
+            firstActiveTest = 0;
+        }
         document.querySelectorAll('.lefty.active').forEach( (lefty) => {
             lefty.classList.remove('active');
+            lefty.classList.remove('active-1');
+            lefty.classList.remove('active-2');
         } );
+        document.querySelector(`.lefty[data-index="${pirmas}"]`).classList.add('active');
+        document.querySelector(`.lefty[data-index="${pirmas}"]`).classList.add('active-1');
+        document.querySelector(`.lefty[data-index="${antras}"]`).classList.add('active');
+        document.querySelector(`.lefty[data-index="${antras}"]`).classList.add('active-2');
 
-        document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');
-        
-        if ( next_index + 1 === testimonialsInfo.length) {                               
-            document.querySelector('.lefty[data-index="0"]').classList.add('active');
-        } else {
-            document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
-        }
+}
 
-        
-    }
+function showPreviousTestimonial ( event ) {
+    var direction = 0,
+        pirmas = firstActiveTest - 1,
+        antras = firstActiveTest;
 
-    function showPreviousTestimonial ( event ) {
-        var direction = 0,
-        current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
-        next_index = 0;
-    
         if ( event.target.className.indexOf('fa-angle-left') >= 0 ) {
             direction = -1;
         }
-        console.log(direction);
-    
-        next_index = current_index + direction;
-    
-        if ( current_index === 0 && direction === -1 ) {
-            next_index = testimonialsInfo.length - 1;
+        firstActiveTest--
+
+        if ( pirmas === -1 ) {
+            pirmas = testimonialsInfo.length - 1;
         }
-    
+        console.log(pirmas, antras);
+
+        if ( firstActiveTest === -1 ) {
+            firstActiveTest = testimonialsInfo.length - 1;
+        }
         document.querySelectorAll('.lefty.active').forEach( (lefty) => {
             lefty.classList.remove('active');
+            lefty.classList.remove('active-1');
+            lefty.classList.remove('active-2');
         } );
-    
-        document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');  
-    
-        if ( next_index === -1 ) {                               
-            next_index = testimonialsInfo.length - 1;
-        } else {
-            document.querySelector('.lefty[data-index="'+(next_index + 1)+'"]').classList.add('active');
-        }
-    
-    }
-    
-    
-    // function showTestimonial ( event ) {
-    //     var direction = 0,
-    //         current_index = parseInt( document.querySelector('.lefty.active').getAttribute('data-index') ),
-    //         next_index = 0,
-    
-    
-    //     if ( event.target.className.indexOf('fa-angle-left') >= 0 ) {
-    //         direction = -1;
-    //     }
-    //     if ( event.target.className.indexOf('fa-angle-right') >= 0 ) {
-    //         direction = 1;
-    //     }
-    //     console.log(direction);
-    //     console.log(current_index);
-    
-    //     next_index = current_index + direction;
-    
-    
-    //     if ( current_index === 0 && direction === -1 ) {
-    //         next_index = testimonialsInfo.length - 1;
-    //     }
-    
-    //     if ( current_index === (testimonialsInfo.length - 1) && direction === 1 ) {
-    //         next_index = 0;
-    //     }
-    
-    //     document.querySelector('.lefty.active').classList.remove('active');
-    //     document.querySelector('.lefty[data-index="'+next_index+'"]').classList.add('active');  
-    //     document.querySelector('.lefty[data-index="'+(secondLefty)+'"]').classList.add('active');
-    
-    //     return
-    // }
+        document.querySelector(`.lefty[data-index="${pirmas}"]`).classList.add('active');
+        document.querySelector(`.lefty[data-index="${pirmas}"]`).classList.add('active-1');
+        document.querySelector(`.lefty[data-index="${antras}"]`).classList.add('active');
+        document.querySelector(`.lefty[data-index="${antras}"]`).classList.add('active-2');
+
+
+}
+
 // M Y   B L O G S section
 function generateBlog ( data ) {
     var HTML = '';
@@ -676,10 +678,10 @@ function generateBlog ( data ) {
                 <h3>${data[i].heading}</h3>
                 <p>${data[i].description}</p>
                 <div class='socials'>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[0]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[1]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[2]}"></i></div>
-                    <div class="social-layer"><i class="fa fa-${data[i].icon[3]}"></i></div>
+                    <i class="fa fa-${data[i].icon[0].name}" href="${data[i].icon[0].adress}"></i>
+                    <a class="fa fa-${data[i].icon[1].name} up" href="${data[i].icon[1].adress}"></a>
+                    <a class="fa fa-${data[i].icon[2].name} corner" href="${data[i].icon[2].adress}"></a>
+                    <a class="fa fa-${data[i].icon[3].name} right" href="${data[i].icon[3].adress}"></a>
                 </div>
             </div>
             <div class='name-and-photo'>
@@ -696,46 +698,94 @@ function generateForm ( data ) {
         field,
         attrHTML = '',
         attrInfo,
-        classNames = '';
+        classNames = '',
+        ID = '';
 
 
         for (var i=0; i<data.fields.length; i++) {
             field = data.fields[i];
             attrHTML = '';
             classNames = '';
-            // console.log(field);
+
+
+            if(data.fields[i].attr[0].value == 'text'){
+                ID = 'name';
+            }
+            else if(data.fields[i].attr[0].value == 'email'){
+                ID = 'email';
+            }
+            else{
+                ID = 'message';
+            }
          
             for ( var a=0; a<field.attr.length; a++ ) {
                 attrInfo = field.attr[a];
                 attrHTML += ` ${attrInfo.name}="${attrInfo.value}"`;
-                // console.log(attrInfo) 
-                // console.log(attrInfo);
+                
             }
         
             classNames = field.className.join(' ');
 
             if ( field.type === 'input' ) {
                 HTML += `<div class="${classNames}">
-                            <input ${attrHTML} required>
-                            <span>${data.fields[i].description}</span>
-                        </div>`;
+                            <input ${attrHTML} id=${ID}>
+                            <span class="${ID}"></span>
+                        </div>`;/*${data.fields[i].description}*/
             
             }
             if ( field.type === 'textarea' ) {
                 HTML += `<div class="${classNames}">
-                            <textarea ${attrHTML} required></textarea>
-                            <span>${data.fields[i].description}</span>
-                        </div>`;
+                            <textarea ${attrHTML} id=${ID}></textarea>
+                            <span class="${ID}"></span>
+                        </div>`; /*${data.fields[i].description}*/
             }
         }
         HTML += '<div class="actions">';
         for ( var i=0; i<data.actions.length; i++ ) {
             HTML += `<div class="col-12">
-                        <button id="btn-submit" type="submit" class="form-btn button dark">${data.actions[i].text}</button>
+                        <div id="btn-submit" type="submit" class="form-btn button dark" onclick="formError()">${data.actions[i].text}</div>
                     </div>`;
         }
         HTML += '<form>'
     return HTML
+}
+
+
+function formError (){
+    var nameValue = document.getElementById('name').value,
+        emailValue = document.getElementById('email').value,
+        messageValue = document.getElementById('message').value,
+        name_ats = true,
+        email_ats = true,
+        message_ats = true,
+        name_error = document.querySelector('#contact > #form > form > .col-6 > .name'),
+        email_error = document.querySelector('#contact > #form > form > .col-6 > .email'),
+        message_error = document.querySelector('#contact > #form > form > .col-12 > .message');
+
+        
+        // N A M E validation
+        name_ats = validateName(nameValue);
+            if ( name_ats == true){
+                name_error.innerHTML = '';
+            } else {
+                name_error.innerHTML = name_ats;
+            }
+
+        // E M A I L validation 
+        email_ats = validateEmail(emailValue);
+            if ( email_ats == true){
+                email_error.innerHTML = '';
+            } else {
+                email_error.innerHTML = email_ats;
+            }
+        // M E S S A G E validation
+        message_ats = validateMessage(messageValue);
+            if (message_ats == true){
+                message_error.innerHTML = '';
+            } else {
+                message_error.innerHTML = message_ats;
+            }
+    return;
 }
 
 // B O T T O M   N A V I G A T I O N section
@@ -765,9 +815,6 @@ function laikas(){
 function showSidebar () {
     document.getElementById('color-bar').classList.toggle('active');
 }
-function showSidebar () {
-        document.getElementById('color-bar').classList.toggle('active');
-    }
     const color = '--main-color';
     function changeColor ( e ) {
         document.documentElement.style.setProperty(color, '#FB4538');
@@ -778,17 +825,26 @@ function showSidebar () {
     function changeColor2 ( e ) {
         document.documentElement.style.setProperty(color, '#009688');
     }
+    function changeColor3 ( e ) {
+        document.documentElement.style.setProperty(color, '#437116');
+    }
 
-    const backgroundColor = '--background-color';
+    const backgroundColor = '--background-color'; 
     function changeBackgroundLight ( e ) {
         let back = document.querySelectorAll('.clone').forEach( back => {
             back.style.background = '#fff';
         } );
         document.documentElement.style.setProperty(backgroundColor, '#F6F6F6');
+        document.querySelectorAll('h1, h2, h3, h4, .label-value, .row>.filter>div, .row>.arrows>i, .row>.arrows>div').forEach( all => {
+            all.style.color = 'var(--blackText-color)';
+        });
     }
     function changeBackgroundDark ( e ) {
         let back = document.querySelectorAll('.clone').forEach( back => {
             back.style.background = '#121212';
         } );
         document.documentElement.style.setProperty(backgroundColor, '#191919');
-    }
+        document.querySelectorAll('h1, h2, h3, h4, .label-value, .row>.filter>div, .row>.arrows>i, .row>.arrows>div').forEach( all => {
+            all.style.color = 'var(--text-color)';
+        });
+}

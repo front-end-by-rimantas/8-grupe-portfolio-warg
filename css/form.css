@@ -5,7 +5,7 @@
     padding: 20px;
 }
     .row > form > .col-6 {
-        padding-bottom: 40px;
+        padding-bottom: 10px;
     }
         .row > form > .col-6 > input {
             width: 100%;
@@ -14,7 +14,7 @@
         }
         .col-12 > span,
         .col-6 > span {
-            display: none;
+            display: inline-block;
             width: 100%;
             color: #bf0d00;
             margin-top: 8px;
@@ -32,6 +32,7 @@
             border: none;
             border: 1px solid #AEAEAE;
             outline: none;
+            color: #AEAEAE;
         }
     form > .actions {
         display: inline-block;

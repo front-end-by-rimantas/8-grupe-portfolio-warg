@@ -12,9 +12,7 @@ document.getElementById('icons').innerHTML = generateIcons( Icons );
 // ABOUT ME section
 
 var playButton = document.querySelector('.row > .left > a > .fa-play');
-console.log(playButton);
 var closeButton = document.getElementById('close');
-console.log(closeButton);
 
     playButton.addEventListener( 'click' , showWindow );
     closeButton.addEventListener( 'click' , hideWindow );
@@ -43,30 +41,11 @@ window.addEventListener("scroll", function(){
 });
 
 // MY PORTFOLIO section
-document.getElementById('myWorks').innerHTML = generateMyWorks( myWorkInfo );
-
+document.querySelector('#myWorks > .filter').innerHTML = generatePortfolioFilter( myWorkInfo );
+document.querySelector('#myWorks > .works').innerHTML = generateAllWorks( myWorkInfo );
 document.querySelectorAll('#portfolio > #myWorks > .filter > div').forEach( filter => {
-    filter.addEventListener('click', filterPortfolio);
+    filter.addEventListener('click', workingFiltering);
 });
-
-var portfolioLeftArrow = document.querySelector('#portfolio > #myWorks > .arrows > .fa-angle-double-left'),
-    portfolioRightArrow = document.querySelector('#portfolio > #myWorks > .arrows > .fa-angle-double-right'),
-    portfolioNumber = document.querySelectorAll('#portfolio > #myWorks > .arrows > div');
-
-portfolioLeftArrow.addEventListener( 'click', function(){
-    next_work(-1)
-});
-portfolioNumber.forEach( (number,index) => {
-    number.addEventListener('click',function(){
-        next_work(index+1)
-    });
-});
-portfolioRightArrow.addEventListener( 'click', function(){
-    next_work(1)
-});
-
-// document.getElementById('myScrollbar').innerHTML = generateMyScrollbarClasses( myWorkInfo );
-
 
 // TESTIMONIALS section
 
@@ -99,13 +78,15 @@ var blueColor = document.querySelectorAll('.light-blue').forEach( blueColor => {
     blueColor.addEventListener( 'click', changeColor1 );
 });
 
-var aquaColor = document.querySelectorAll('.light-green').forEach( aquaColor => { 
+var aquaColor = document.querySelectorAll('.light-aqua').forEach( aquaColor => { 
     aquaColor.addEventListener( 'click', changeColor2 );
+});
+var greenColor = document.querySelectorAll('.light-green').forEach( greenColor => { 
+    greenColor.addEventListener( 'click', changeColor3 );
 });
 
 var lightBackground = document.querySelector('.white-block');
 var darkBackground = document.querySelector('.black-block');
-console.log(lightBackground, darkBackground);
 
 lightBackground.addEventListener( 'click', changeBackgroundLight );
 darkBackground.addEventListener( 'click', changeBackgroundDark );

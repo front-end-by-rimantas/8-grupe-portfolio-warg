@@ -1,4 +1,4 @@
-body > .color-scheme-block {
+body > #color-bar {
     display: inline-block;
     position: fixed;
     background-color: #fff;
@@ -12,7 +12,7 @@ body > .color-scheme-block {
     left: 0px;
     transition: all 300ms linear;
 }
-body > .color-scheme-block.active {
+body > #color-bar.active {
     margin-left: 0;
 }
     body > .color-scheme-block > .color-scheme-panel {
@@ -42,14 +42,17 @@ body > .color-scheme-block.active {
                 margin: 5px 10px;
                 border-radius: 10px;
             }
-            body > .color-scheme-block > .color-scheme-panel > ul > li:nth-child(3n + 1) {
+            body > .color-scheme-block > .color-scheme-panel > ul > li:nth-child(4n + 1) {
                 background-color: var(--main-color2);
             }
-            body > .color-scheme-block > .color-scheme-panel > ul > li:nth-child(3n + 2) {
-                background-color: #52A7DB;
+            body > .color-scheme-block > .color-scheme-panel > ul > li:nth-child(4n + 2) {
+                background-color: var(--main-lightblue);
             }
-            body > .color-scheme-block > .color-scheme-panel > ul > li:nth-child(3n + 3) {
-                background-color: #FB4538;
+            body > .color-scheme-block > .color-scheme-panel > ul > li:nth-child(4n + 3) {
+                background-color: var(--main-lightred);
+            }
+            body > .color-scheme-block > .color-scheme-panel > ul > li:nth-child(4n + 4) {
+                background-color: var(--main-lightgreen);
             }
             body > .color-scheme-block > .color-scheme-panel > ul > li:hover,
             body > .color-scheme-block > .color-scheme-panel > .color-version-block > .black-block:hover,
