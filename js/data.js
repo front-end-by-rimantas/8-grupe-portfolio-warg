@@ -272,6 +272,26 @@
         {
             project_title: 'photography',
             image: 'p-9.jpg',
+        },
+        {
+            project_title: 'web',
+            image: 'p-10.jpg',
+        },
+        {
+            project_title: 'design',
+            image: 'p-11.jpg',
+        },
+        {
+            project_title: 'web',
+            image: 'p-12.jpg',
+        },
+        {
+            project_title: 'photography',
+            image: 'p-13.jpg',
+        },
+        {
+            project_title: 'design',
+            image: 'p-14.jpg',
         }
     ]
 // T E S T I M O N I A L S section
