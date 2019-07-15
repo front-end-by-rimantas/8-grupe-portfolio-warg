@@ -229,7 +229,7 @@ function generateProgress( data ) {
             <div class="value">${data[i].value}</div>
         </div>
         <div class="bar">
-            <div class="bar-value" style="width: ${data[i].value};">
+            <div class="bar-value"  >
                 <div class="bar-fill"></div>
             </div>
         </div>
@@ -299,235 +299,264 @@ function numbers(id, end){
     }
     return;
   }
-
 // M Y   P O R T F O L I O section
-function generateMyWorks( data ){
-    var tags = [],
-        display_class,
-        klass1 = '',
-        klass2 = '',
-        half = Math.ceil(data.length / 2),
-        third = Math.ceil(data.length / 3),
-        nr = 0,
-        HTML = `<div class="filter">
-                    <div class="active">All</div>
-                    `;
-    //išrenkami tik uniklalūs tag'ai:
+function generatePortfolioFilter( data ){
+    var tags_list = [],
+        HTML = '';
+        
+    HTML += `<div class="active">All</div>`;
     data.forEach( work => {
-        if ( tags.indexOf( work.project_title ) === -1) {
-            tags.push ( work.project_title );
-            HTML += `<div>${work.project_title}</div>
-            `
+        if ( tags_list.indexOf ( work.project_title ) === -1){
+            tags_list.push( work.project_title );
+            HTML += `<div>${work.project_title}</div>`;
         }
     })
-    //atvaizduojami visi porfolio elementai:
-    HTML += `</div>
-            <div class="list">
-            `;
+    return HTML;
+}
 
+function generateAllWorks( data ){
+    var HTML = '';
     for ( var i=0; i<data.length; i++ ) {
         if ( data[i].project_title === '' ||
             data[i].image === '' ) {
             continue;
         }
-
-        if(i==0){
-            display_class = 'S M L N';
-        }
-        else if(i==1){
-            display_class = 'M L N';
-        }
-        else if(i==2){
-            display_class = 'L N';
-        }else{
-            display_class = 'N';
-        }
-
-        HTML += `<div class="work ${display_class}" id="id${i+1}" style="order:${i+1}">
-                    <div class="img" style="background-image: url(img/myWorks/${data[i].image})"></div>
-                    <div class="texts">
-                        <h3>Portfolio</h3><p>${data[i].project_title}</p>
-                    </div>
+    HTML += `<div class="work" data-index="${i}">
+                <img src="img/myWorks/${data[i].image}">
+                <div class="texts">
+                    <h3>Portfolio</h3>
+                    <p>${data[i].project_title}</p>
                 </div>
-                `
+            </div>`
+            if(i==2){
+                break;
+            }
     }
-    HTML += `</div>
-            <div class="arrows">
-                <i class="more fa fa-angle-double-left"></i>`;
-                
-    //generuojamos rodyklės ir skaičiukai:            
-    for ( var i=0; i<data.length; i++) {
-        nr ++;
-        if ( (data[i].project_title === '') || 
-            (data[i].image === '' )) {
-            continue;
+    generateArrows(data);        
+    return HTML;           
+}
+
+function workingFiltering(e) {
+    var tag = e.target.innerText.toLowerCase(),
+        currentWorks = document.querySelectorAll('#portfolio > #myWorks > .works > .work'),
+        images = document.querySelectorAll('#portfolio > #myWorks > .works > .work > img'),
+        allFilters = document.querySelectorAll('#portfolio > #myWorks > .filter > div'),
+        HTML = '',
+        currentElements = [];
+        
+        for(var i=0; i<currentWorks.length; i++){
+            currentElements.push(Number(currentWorks[i].getAttribute('data-index')));
         }
-        if ((i+1) <= half){
-            klass1 = ' nr2';
-        }else{
-            klass1 = '';
-        }
-        if ((i+1) <= third){
-            klass2 = ' nr3';
-        }else{
-            klass2 = '';
-        }
-        HTML += `<div class="more${klass1} nr1${klass2}">${nr}</div>`
-    }
-    HTML += `<i class="more fa fa-angle-double-right"></i>
-        </div>`
-    // console.log(HTML)
+        for(var i=0; i<allFilters.length; i++){
+            allFilters[i].classList.remove('active');
+            if(allFilters[i].innerText.toLowerCase() == tag){
+                allFilters[i].classList.add('active');
+            }
+        }    
+        
+        let shrink = setInterval(reduce, 10);
+        var padding = 0,
+            maxPadding = 50,
+            opacity = 1,
+            radius = 0;
+        function reduce(){
+            if(padding==maxPadding){ 
+                clearInterval(shrink);
+                nextHTMLelements(tag);
+            }else{
+                padding +=5;
+                opacity -=0.02;
+                for(var a = 0; a<currentElements.length; a++){
+                    images[a].style.padding = padding + '%';
+                    images[a].style.opacity = opacity;
+                }
+            }
+        }        
     return HTML;
 }
 
-// R O D Y K L Ė S   K E I Č I A   P A V E I K S L Ė L I U S
-var curent_index = 0;
-
-function next_work(n){
-    if( n===1 || n===-1 ){
-        show_work(curent_index += n);
-    }else{
-        show_work(curent_index = n);
+function nextHTMLelements(tag){
+    var nextElements = [],
+        HTML = '';
+    for(var i=0; i<myWorkInfo.length; i++){
+        if (myWorkInfo[i].project_title === tag){
+            nextElements.push(i);
+        }
+        if(tag ==='all'){
+            nextElements.push(i);
+        }
     }
+    if (nextElements > 3 ){
+        nextElements = 3
+    }
+    for(var i=0; i<nextElements.length; i++){
+        HTML += `<div class="work" data-index="${nextElements[i]}">
+                    <img src="img/myWorks/${myWorkInfo[nextElements[i]].image}">
+                    <div class="texts">
+                        <h3>Portfolio</h3>
+                        <p>${myWorkInfo[nextElements[i]].project_title}</p>
+                    </div>
+                </div>`
+        if(i==2){
+        break;
+        }
+    }
+    document.querySelector('#myWorks > .works').innerHTML = HTML;
+    generateArrows(nextElements);
+    
+    let enlarge = setInterval(increaseNextWorks, 1);
+    var padding2 = 50,
+        minPadding2 = 0,
+        opacity2 = 0,
+        images2 = document.querySelectorAll('#myWorks > .works > .work > img'),
+        ilgis = nextElements.length;
+
+        if (ilgis > 3){
+            ilgis = 3;
+        }
+        function increaseNextWorks(){
+            if(padding2 === minPadding2){
+                clearInterval(enlarge);
+            }else{
+                padding2 -=2;
+                opacity2 +=0.04;
+                for(var b = 0; b < ilgis; b++){
+                    images2[b].style.padding = padding2 + '%';
+                    images2[b].style.opacity = opacity2;
+                }
+            }
+        }
+    return;
 }
-function show_work(next_work){
-    var x,
-        i;
+function generateArrows(componentsAtMoment){
+    var HTML_arrows = '',
+        nr=0,
+        steps = Math.ceil(componentsAtMoment.length/3),
+        active = '';
 
-    x = document.querySelectorAll(".work");
-    console.log(curent_index);
-    // console.log(next_work);
-
-    if (next_work > (x.length-1)) {
-        curent_index = 0;
+    HTML_arrows += `<div class="arrows">
+                        <i class="more fa fa-angle-double-left"></i>`;
+    for(var i=0; i<steps; i++){
+        nr++;
+        if(i==0){
+            active = 'active';
+        }else{
+            active = 'inactive';
+        }
+        HTML_arrows += `<div class="more number ${active}">${nr}</div>`
     }
-    if (next_work < 0) {
-        curent_index = (x.length-1);
-    }
-    for (i = 0; i < x.length; i++){
-        x[i].classList.add('N');
-        x[i].style.order = "0";
-        x[i].classList.remove('S');
-        x[i].classList.remove('M');
-        x[i].classList.remove('L');
-    }
+    HTML_arrows += `<i class="more fa fa-angle-double-right"></i>
+                </div>`
 
-    if (curent_index === 0){
-        //order
-        x[x.length-1].style.order = "1";
-        x[0].style.order = "2";
-        x[1].style.order = "3";
-
-        //add class
-        x[x.length-1].classList.add('S');
-        x[x.length-1].classList.add('M');
-        x[x.length-1].classList.add('L');
-
-        x[0].classList.add('M');
-        x[0].classList.add('L');
-
-        x[1].classList.add('L');
-    }
-
-    if ((curent_index < (x.length-1)) && (curent_index > 0)) {
-        //order
-        x[curent_index - 1].style.order = "1";
-        x[curent_index].style.order = "2";
-        x[curent_index + 1].style.order = "3";
-
-        //add class
-        x[curent_index - 1].classList.add('S');
-        x[curent_index - 1].classList.add('M');
-        x[curent_index - 1].classList.add('L');
-
-        x[curent_index].classList.add('M');
-        x[curent_index].classList.add('L');
-
-        x[curent_index + 1].classList.add('L');
-    }
-
-    if (curent_index === (x.length-1)) {
-        //order
-        x[x.length-2].style.order = "1";
-        x[x.length-1].style.order = "2";
-        x[0].style.order = "3";
-
-        //add class
-        x[x.length-2].classList.add('S');
-        x[x.length-2].classList.add('M');
-        x[x.length-2].classList.add('L');
-
-        x[x.length-1].classList.add('M');
-        x[x.length-1].classList.add('L');
-
-        x[0].classList.add('L');
-    } 
+    document.querySelector('#myWorks > .arrows_box').innerHTML = HTML_arrows;
+    var portfolioLeftArrow = document.querySelector('#portfolio > #myWorks > .arrows_box > .arrows > .fa-angle-double-left'),
+    portfolioRightArrow = document.querySelector('#portfolio > #myWorks > .arrows_box > .arrows > .fa-angle-double-right');
+        portfolioLeftArrow.addEventListener( 'click', function(){
+            arrowMove(-1)
+        });
+        portfolioRightArrow.addEventListener( 'click', function(){
+            arrowMove(1)
+        });
 }
-
-// F I L T R A V I M A S
-function filterPortfolio( e ) {
-var tag = e.target.innerText.toLowerCase(),
-i,
-x = document.querySelectorAll('#portfolio > #myWorks > .list > .work');
-
-if (tag === "all") {
-    for(i=0; i<x.length; i++){
-        x[i].classList.add('N');
-        x[i].style.order = "0";
-        x[i].classList.remove('S');
-        x[i].classList.remove('M');
-        x[i].classList.remove('L');
-        //add class
-        x[0].classList.add('S');
-        x[0].classList.add('M');
-        x[0].classList.add('L');
-        x[0].style.order = "1";
-
-        x[1].classList.add('M');
-        x[1].classList.add('L');
-        x[1].style.order = "2";
-
-        x[2].classList.add('L');
-        x[2].style.order = "3";
+function arrowMove (direction){
+    var currentWorks = document.querySelectorAll('#myWorks > .works > .work'),
+        currentElements = [],
+        thisElementTag = document.querySelector('#portfolio > #myWorks > .filter > .active').innerText.toLowerCase(),
+        allTags = [], //AllElementsWithThisTag
+        newElements = [];
+        
+    //ką matau prieš paspaudimą
+    for(var i=0; i<currentWorks.length; i++){ 
+        currentElements.push(Number(currentWorks[i].getAttribute('data-index')));
     }
+    //kiek tokių darbų yra iš viso
+    for( var i=0; i<myWorkInfo.length; i++){
+        if (myWorkInfo[i].project_title == thisElementTag){
+            allTags.push(i)
+        }
+        if (thisElementTag == 'all'){
+            allTags.push(i)
+        }
+    }
+    // paspaudus matysiu sekančius indeksus:
+
+    // rodyklės rodo po vieną
+        // var next = 0,
+        //     HTML_works = '',
+        //     place;
+    // for (var i=0; i<currentElements.length; i++){ 
+    //         place = allTags.indexOf(currentElements[i]);
+    //         if(place == 0 && direction == -1){
+    //             next = allTags[allTags.length-1];
+    //             console.log(`place == 0 && direction == -1 next = ${next}`);
+    //         }
+    //         else if(place == allTags.length-1 && direction == 1){
+    //             next = allTags[0];
+    //             console.log(`place == allTags.length-1 && direction == 1 next = ${next}`);
+    //         }else{
+    //             next = allTags[place+direction];
+    //             console.log(`next = ${next}`);
+    //         }
+    //         newElements.push(next);     
+    // }
+    // console.log(allTags[allTags.length-1]);
+    // console.log(currentWorks.length);
+    
+    // rodyklės rodo po 3
+    var x = allTags.indexOf(currentElements[0])/3,
+        HTML_works = '',
+        workPerWindow = 3,
+        firstIndex = allTags.indexOf(currentElements[0]),
+        lastOfAll = Math.floor((allTags.length-1)/3) * workPerWindow,
+        next,
+        numbers = document.querySelectorAll('#portfolio > #myWorks > .arrows_box > .arrows > .number'),
+        a = 1,
+        y = allTags.indexOf(currentElements[0])/3 + a + direction;
+        console.log(lastOfAll);
+        
+        for (var i=0; i<3; i++){
+            if(firstIndex==0 && direction == -1){
+                x = Math.floor((allTags.length-1)/3) + 1;
+            }
+            if(firstIndex==lastOfAll && direction == 1){
+                x = -1;
+            }
+            next = allTags[( workPerWindow * (x+direction) ) + i];
+            if (typeof next === "undefined"){
+                continue;
+            }
+            newElements.push(allTags[( workPerWindow * (x+direction) ) + i]);
+        }
+        for(var i=0; i<numbers.length; i++){
+            numbers[i].classList.remove('active');
+            if(firstIndex==lastOfAll && direction == 1){
+                y = 1;
+            }
+            if(firstIndex==0 && direction == -1){
+                y = numbers.length;
+            }
+            if(numbers[i].innerText == y){
+                numbers[i].classList.add('active');
+                console.log(numbers[i].classList);
+            }
+        }
+
+    for(var i=0; i<newElements.length; i++){
+        HTML_works +=   `<div class="work" data-index="${newElements[i]}">
+                            <img src="img/myWorks/${myWorkInfo[newElements[i]].image}">
+                            <div class="texts">
+                                <h3>Portfolio</h3>
+                                <p>${myWorkInfo[newElements[i]].project_title}</p>
+                            </div>
+                            </div>`
+            if(i==2){
+                break;
+            }
+    }
+    document.querySelector('#myWorks > .works').innerHTML = HTML_works;
     return;
 }
 
-//paslepti visus darbus
-for(i=0; i<x.length; i++){
-    x[i].classList.add('N');
-    x[i].style.order = "0";
-    x[i].classList.remove('S');
-    x[i].classList.remove('M');
-    x[i].classList.remove('L');
-}
-
-//parodyti tik tuos, kurie turi pasirinktą tag'ą
-var tag_true = [];
-for(i=0; i<x.length; i++){
-    if( tag === x[i].querySelector('p').innerText.toLowerCase() ){
-        tag_true.push(x[i]) //surenkam teisingų tagų sąrašą
-    }
-}
-for(i=0; i<tag_true.length; i++){ //teisingų tagų sąrašą papildom klasem
-    if(i===0){
-        tag_true[i].classList.add('S');
-        tag_true[i].classList.add('M');
-        tag_true[i].classList.add('L');
-        tag_true[i].style.order = "1";
-    }
-    else if(i===1){
-        tag_true[i].classList.add('M');
-        tag_true[i].classList.add('L');
-        tag_true[i].style.order = "1";
-    }
-    else if(i===2){
-        tag_true[i].classList.add('L');
-        tag_true[i].style.order = "1";
-    }
-}
-return; 
-}
 // T E S T I M O N I A L S section
 function generateTestimonials ( data ) {
     var HTML = '',
