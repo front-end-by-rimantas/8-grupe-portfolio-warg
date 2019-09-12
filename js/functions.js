@@ -229,7 +229,7 @@ function generateProgress( data ) {
             <div class="value">${data[i].value}</div>
         </div>
         <div class="bar">
-            <div class="bar-value"  >
+            <div class="bar-value" style="width: ${data[i].value};">
                 <div class="bar-fill"></div>
             </div>
         </div>
@@ -240,9 +240,9 @@ function generateProgress( data ) {
 
 function fillBarAnimation (){
     var h = window.innerHeight - (elementHeight('#skills')/2),
-    scroll = window.scrollY + h,
-    bars = document.querySelectorAll('.progress-block > .bar > .bar-value > .bar-fill'),
-    barTop = document.getElementById('skills').offsetTop;
+        scroll = window.scrollY + h,
+        bars = document.querySelectorAll('.progress-block > .bar > .bar-value > .bar-fill'),
+        barTop = document.getElementById('skills').offsetTop;
 
     bars.forEach( bar =>{
         // bar.classList.remove('barAnimation');
