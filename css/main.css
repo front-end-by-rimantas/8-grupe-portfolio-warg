@@ -126,6 +126,7 @@ body > .pop-up {
             display: inline-block;
             font-size: 35px;
             text-transform: uppercase;
+            line-break: 
             line-height: 45px;
             font-weight: 800;
             color: var(--blackText-color);
@@ -528,7 +529,7 @@ body > .pop-up {
                     background-color: var(--main-color);
                     width: 100%;
                 }
-                .progress-block > .bar > .bar-value > .bar-fill.barAnimation {
+                .progress-block > .bar > .bar-value > .bar-fill.barAnimation  {
                     animation-name: filling;
                     animation-duration: 2s;
                 }
